@@ -29,4 +29,4 @@
 - Le models SendEmail.php sera dédié à l'envoi d'email ( factures, et autres, ... )
 - Les commentaires seront a écrire en Francais et en Anglais ( deux fois ).
 
-- Pour ce qui est des statistiques, je vous fournirai une base déjà faite.
+- Pour ce qui est des statistiques, je vous fournirai

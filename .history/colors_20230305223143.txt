@@ -1,8 +1,10 @@
 - Couleurs autorisées et imposées :
---- Que ce soit pour les backgrounds, les borders ou les couleurs d'écriture.
---- Vous associerez les bonnes couleurs entre elles pour un design épuré et simple.
+Que ce soit pour les background
 
-black   { color: #111314; } ou { color: #34495E; }
+
+
+black   { color: #111314; }
+black   { color: #34495E; }
 green   { color: #1ABC9C; }
 yellow  { color: #F1C40F; }
 blue    { color: #3498DB; }
