@@ -1,0 +1,17 @@
+- Prendre connaissance de la base de données, s'imprégner des différentes tables et jointures
+- Prendre connaissance des différents fichiers créés avec l'architecture MVC.
+- Prendre connaissance de la palette des couleurs autorisées.
+- Tester le site, imprégnez vous de ce qui a déjà été réaliser.
+- Tablette et desktop uniquement. ( vous travaillerez en mobil first malgré tout )
+- Actuellement, lorsque l'on ajoute un article dans une commande, cela a été réalisé avec $_SESSION mais cela ne me plait pas, j'ai donc créé un "contollerPanier a été créé spécialement pour gérer le panier avec le $_COOKIE.
+- Les principales méthodes sont créées dans le contollerPanier.
+- Les models contenant les getters/setters seront à mettre dans un dossier spécifique ainsi que les models contenant les requêtes SQL ( ArticlesManager.php par exemple )
+- Les vues seront également dispatchées dans des dossiers par themes ( tous les templates liés aux articles dans un dossier, ...).
+- Utilisation exclusive de bootstrap.
+- Vous crérez les models "getters/setters" pour toutes les tables et un modelsManager pour chacune également.
+- Attention aux failles de sécurité.
+- Le formulaire d'ajout d'article et de user sont déjà faits, vous retirerez tous les </br> temporaires pour mettre le CSS via bootstrap.
+- Vous crérez le formulaire d'ajout d'un opérateur.
+- Pour utiliser ce programme il faudra être identifier.
+- L'index pointra donc sur le formulaire de connexion. Rien ne sera possible tant que l'opérateur ne se sera pas identifier.
+- On ne pourra pas créé d'opérateur depuis la page de connexion, seul un opérateur pourra créer un opérateur. ( donc pas de création de compte si on n'est pas connecté )

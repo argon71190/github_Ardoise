@@ -1,0 +1,5 @@
+- Prendre connaissance de la base de données, s'imprégner des différentes tables et jointures
+- Prendre connaissance des différents fichiers créés avec l'architecture MVC.
+- Prendre connaissance de la palette des couleurs autorisées.
+- Tester le site
+- Tablette et desuniquement

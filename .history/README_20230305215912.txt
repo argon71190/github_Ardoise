@@ -1,0 +1,10 @@
+- Prendre connaissance de la base de données, s'imprégner des différentes tables et jointures
+- Prendre connaissance des différents fichiers créés avec l'architecture MVC.
+- Prendre connaissance de la palette des couleurs autorisées.
+- Tester le site
+- Tablette et desktop uniquement.
+- Actuellement, lorsque l'on ajoute un article dans une commande, cela à été réalisé avec $_SESSION mais un contollerPanier a été créé spécialement pour gérer le panier avec le $_COOKIE.
+- Les principales méthodes sont créées dans le contollerPanier.
+- Les models contenant les getters/setters seront à mettre dans un dossier spécifique ainsi que les models contenant les requêtes SQL ( ArticlesManager.php par exemple )
+- Les vues seront également dispatchées dans des dossiers par themes ( tous les templates liés aux articles dans un dossier, ...).
+- Utilisation exclusive de bootstrap
