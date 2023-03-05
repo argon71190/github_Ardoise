@@ -1,0 +1,51 @@
+<header>
+    <h1>Utilisateurs</h1>
+
+    <a href="index.php?route=addCustomer" class="btn">Ajout Utilisateur</a>
+    <a href="index.php?route=new-room" class="btn">Nouveau salon</a>
+    <!--<img src="assets/codes_barres/<?= $imgCodeBarre ?>" alt="code barre" />-->
+
+</header>
+
+<section class="chats-box">
+    <ul>
+        <?php if( $customers !== [] ) : ?>
+            <table style="width:80%">
+                <tr>
+                    <th>Nom</th>
+                    <th>Pénom</th>
+                    <th>Email</th>
+                    <th>Date de naissance</th>
+                    <th style="width:60%">Adresse</th>
+                    <th>Statut</th>
+
+                </tr>
+                <?php foreach( $customers as $customer ) : ?>
+                    <tr>
+                        <td><?= htmlspecialchars($customer['lastname']) ?></td>
+                        <td><?= htmlspecialchars($customer['firstname']) ?></td>
+                        <td><?= htmlspecialchars($customer['email']) ?></td>
+                        <td><?= htmlspecialchars($customer['birthday']) ?></td>
+                        <?php if( $customer['adress'] !== null ) : ?>
+                            <td><?= htmlspecialchars($customer['adress'] . ' '. $customer['cp'] . ' ' . $customer['city'] . ' [' . $customer['pays'] . ']') ?></td>
+                        <?php else : ?>
+                            <td>Pas d'adresse.</td>
+                        <?php endif; ?>
+                        <td><?= htmlspecialchars($customer['statut']) ?></td>
+                        <td><a href="index.php?route=customers&id=<?= $customer['id'] ?>" class="btn colorYellow">Modifier</a></td>
+                        <td><a href="index.php?route=displayOneCustomer&id=<?= $customer['id'] ?>" class="btn colorGreen">Voir</a></td>
+
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        <?php else : ?>
+            <li>Cette section est vide.</li>
+        <?php endif; ?>
+    </ul>
+</section>
+
+<section>
+    <a href="../index.php" id="retour" class="btn colorRed">Retour</a>
+    <a href="../index.php" id="Valider" class="btn colorGreen">Valider</a>
+    <a href="../index.php" id="Effacer" class="btn colorYellow">Effacer</a>
+</section>

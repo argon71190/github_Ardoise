@@ -1,0 +1,32 @@
+<section>
+    <h1>CATEGORIES</h1>
+</section>
+
+<section class="container">
+<?php if(empty($categories)) : ?>
+    <p>Aucun article dans cette catégorie !</p>
+<?php else: ?>
+    <section class="leftElement">
+        <?php foreach($categories as $categorie) : ?>
+                <?php if($categorie['activate'] == 0): ?>
+                    <article class="dispositionCategories desactivate">
+                <?php else: ?>
+                    <article class="dispositionCategories">
+                <?php endif; ?>
+                <?php if($categorie['activate'] == 0): ?>
+                    <img src="assets/uploads/categories/<?= htmlspecialchars($categorie['picture']) ?>"
+                        alt="<?= htmlspecialchars($categorie['name']) ?>">
+                <?php else: ?>
+                    <a href="index.php?route=category&id=<?= htmlspecialchars($categorie['id']) ?>">
+                        <img src="assets/uploads/categories/<?= htmlspecialchars($categorie['picture']) ?>"
+                        alt="<?= htmlspecialchars($categorie['name']) ?>">
+                    </a>
+                <?php endif; ?>
+                <?= htmlspecialchars($categorie['name']) ?>
+            </article>
+        <?php endforeach; ?>
+    </section>
+<?php endif; ?>
+<div class="rightElement"><?php include_once '_navRight2.phtml'; ?></div>
+    </section>
+

@@ -1,0 +1,15 @@
+.txt_blackBlack { color: #111314; }
+.txt_black   { color: #34495E; }
+.txt_green   { color: #1ABC9C; }
+.txt_yellow  { color: #F1C40F; }
+.txt_blue    { color: #3498DB; }
+.txt_orange  { color: #E67E22; }
+.txt_red     { color: #E74C3C; }
+.txt_grey    { color: #95A5A6; }
+.txt_purpule { color: #9B59b6; }
+.txt_white   { color: #ECF0f1; }
+.txt_navy    { color: #000080; }
+.txt_teal    { color: #008080; }
+.txt_aqua    { color: #00FFFF; }
+.txt_pink    { color: #FFC0CB; }
+.txt_aqua2   { color: #00ADC9; }

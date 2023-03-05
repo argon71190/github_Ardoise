@@ -1,0 +1,43 @@
+<section>
+    <h1>ARTICLES</h1>
+</section>
+
+<section class="container">
+    <?php if(empty($articles)) : ?>
+        <p>Aucun article dans cette catégorie !</p>
+    <?php else: ?>
+    <section class="leftElement">
+        <?php foreach($articles as $article) : ?>
+            <?php if($article['activate'] == 0): ?>
+                <article class="desactivate dispositionCategories">
+                    <img src="assets/uploads/articles/<?= $article['categories_id'] ?>/<?= htmlspecialchars($article['picture']) ?>"
+                    alt="<?= htmlspecialchars($article['name']) ?>">
+            <?php else: ?>
+                <?php if($article['activate'] != 0): ?>
+                    <?php if($article['options'] == true): ?>
+                        <article class="dispositionCategories">
+                            <a href="index.php?route=articleDetails&id=<?= $article['id'] ?>">
+                            <img src="assets/uploads/articles/<?= $article['categories_id'] ?>/<?= htmlspecialchars($article['picture']) ?>"
+                            alt="<?= htmlspecialchars($article['name']) ?>">
+                        </a>
+                    <?php else: ?>
+                        <article class="dispositionCategories">
+                            <a href="index.php?route=directAddBasket&id=<?= $article['id'] ?>">
+                            <img src="assets/uploads/articles/<?= $article['categories_id'] ?>/<?= htmlspecialchars($article['picture']) ?>"
+                            alt="<?= htmlspecialchars($article['name']) ?>">
+                        </a>
+                    <?php endif; ?>
+                <?php endif; ?>
+            <?php endif; ?>
+            <p><?= htmlspecialchars($article['shortName']) ?></p>
+            <p><?= htmlspecialchars(number_format($article['price'], 2)) ?>€</p>
+            </article>
+        <?php endforeach; ?>
+        <?php require_once "messages.phtml"; ?>
+    </section>
+<?php endif; ?>
+<!--
+<div class="rightElement"><?php include_once '_navRight2.phtml'; ?></div>
+ -->
+
+</section>

@@ -1,0 +1,92 @@
+<section>
+    <h1>CATEGORIES</h1>
+</section>
+
+<section class="container">
+    <?php if(empty($categories)) : ?>
+        <p>Aucun article dans cette catégorie !</p>
+    <?php else: ?>
+        <section class="leftElement">
+            <?php foreach($categories as $categorie => $key) : ?>
+                <article class="dispositionCategories">
+                    <p><?= htmlspecialchars($key['name']) ?></p>
+
+                    <?php if($key['activate'] == 0): ?>
+                        <a href="index.php?route=activationCategorie&id=<?=$key['id']?>&ref=0"><i class="fa-regular fa-circle-check"></i>Activer</a>
+                    <?php else: ?>
+                        <a href="index.php?route=activationCategorie&id=<?=$key['id']?>&ref=1"><i class="fa-regular fa-circle-xmark"></i>Désactiver</a>
+                    <?php endif; ?>
+
+                    <!-- <a href="index.php?route=delCat&id=<?=$categorie['id']?>"><i class="fa-solid fa-trash"></i>Supprimer</a>
+                    -->
+                    <form method="POST" action="index.php?route=delCat&id=<?=$key['id']?>">
+
+                    <input  type    = "hidden"
+                            name    = "token"
+                            value   =   <?php foreach($_SESSION['tokenGestionCategories'] as $elem) : ?>
+                                            <?php if(intval($elem['id']) == $key['id']) : ?>
+                                                <?= $elem['token'] ?>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                    >
+
+                    <input  type    = "hidden"
+                            name    = "id"
+                            value   = "<?= $key['id'] ?>">
+
+                    <input  type    = "submit"
+                            name    = "submit"
+                            value   = "Supprimer"
+                            class   = "btn colorRed">
+                    </form>
+                </article>
+            <?php endforeach; ?>
+            <?php require_once('views/bases/_errors.phtml'); ?>
+            <?php require_once('views/bases/_valids.phtml'); ?>
+        </section>
+    <?php endif; ?>
+
+<div class="rightElement">
+    <section>
+        <form method="POST" action="index.php?route=submitFormAddCategorie" enctype="multipart/form-data">
+
+            <h2>Ajouter une catégorie</h2>
+            <legend>Merci de renseigner les information suivantes :</legend>
+
+            </br></br>
+                    <label  for     = "name">Nom de la catégorie :</label>
+                    <input  type    = "text"
+                            id      = "name"
+                            name    = "name"
+                            value   = "test">
+                </br></br>
+                    <label  for         = "fileCategorie">Image : </label>
+                    <input  type        = "file"
+                            accept      = "image/*"
+                            name        = "fileCategorie"
+                            id          = "fileCategorie"
+                            onchange    = "handleFiles(files)">
+                </br>
+                    <small  class       = "form-text text-muted">Sélectionnez une image : Formats ['jpg', 'jpeg', 'gif', 'png'].</small>
+                    <small  class       = "form-text text-muted">Dimensions de l'image : [220px * 240px].</small>
+                </br>
+                    <div id="divImage">
+                            <label for="upload">
+                                    <span id="preview"></span>
+                            </label>
+                    </div>
+                </br>
+                    <input  type    = "hidden"
+                            name    = "token"
+                            value   = "<?= $token ?>">
+
+                    <input  type    = "submit"
+                            name    = "submit"
+                            value   = "Ajouter"
+                            class   = "btn colorGreen">
+        </form>
+    </section>
+</div>
+</section>
+<script src="assets/js/preview.js"></script>
+

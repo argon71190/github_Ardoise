@@ -1,0 +1,100 @@
+<section>
+    <h1>ARTICLES</h1>
+</section>
+
+<?php if(empty($article)) : ?>
+    <p>Aucun article dans cette catégorie !</p>
+<?php else: ?>
+    <section class="detailsOptions">
+        <article class="articles">
+                <article>
+                    <img src="assets/uploads/articles/<?= $article['categories_id'] ?>/<?= htmlspecialchars($article['picture']) ?>"
+                            alt="<?= htmlspecialchars($article['name']) ?>">
+                    <p><?= htmlspecialchars($article['shortName']) ?></p>
+                    <p><?= htmlspecialchars(number_format($article['price'], 2)) ?>€</p>
+
+    <input type="text" id="SAUCES">
+    <input type="text" id="CONDIMENTS">
+    <input type="text" id="AUTRES">
+
+
+
+                    <a href="index.php?route=addBasket&id=<?= htmlspecialchars($article['id']) ?>" class="btn colorGreen">
+                        AJOUTER
+                    </a>
+                </article>
+        </article>
+
+        <div class="option">
+
+                    <!-- <?php var_dump($categories); ?> -->
+            <?php foreach($categories as $categorie) : ?>
+                <div class="optionElements">
+                    <h2><?= $categorie['name'] ?></h2>
+                    <?php foreach($options as $option) : ?>
+                        <!-- <?php var_dump($option); ?> -->
+                        <?php if($categorie['name'] == $option['categorie']) : ?>
+
+                            <div class="optionElementsList">
+                                <!-- <p><?= htmlspecialchars($option['name']) ?> - <?= htmlspecialchars($option['price']) ?>€</p> -->
+                                <a href="#">
+                                <img src="assets/uploads/options/<?= $option['categoriesCondiments_id'] ?>/<?= htmlspecialchars($option['picture']) ?>"
+                                    class="<?= htmlspecialchars($categorie['name']) ?> img_option <?= htmlspecialchars($option['shortName']) ?> desactivate" id="elem_<?= htmlspecialchars($option['article_id']) ?>" alt="<?= htmlspecialchars($option['name']) ?>">
+                                </a>
+                                <input type="text" class="elem_<?= htmlspecialchars($option['article_id']) ?> choixElement">
+                            </div>
+                        <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
+
+            <?php endforeach; ?>
+        </div>
+    </section>
+<?php endif; ?>
+
+
+
+<?php if($article['activate'] == 0): ?>
+<?php else: ?>
+<?php endif; ?>
+
+
+
+
+<!--
+    <a href="index.php?route=articleDetails&id=<?= $article['id'] ?>">
+                        <img src="assets/uploads/articles/<?= $article['categories_id'] ?>/<?= htmlspecialchars($article['picture']) ?>"
+                        alt="<?= htmlspecialchars($article['name']) ?>">
+                    </a>
+
+
+<div class="sidenav">
+    <p>Liste des articles sélectionnés :</p>
+    <div class="choix">
+        <a href="#">01 RICARD</a><a href="#">1.70€</a><a href="#">1.70€</a>
+    </div>
+    <div class="choix">
+        <a href="#">02 COCA COLA</a><a href="#">1.70€</a><a href="#">3.40€</a>
+    </div>
+    <div class="choix">
+        <a href="#">01 ASSIETTE C. BLEU</a><a href="#">9.00€</a><a href="#">9.00€</a>
+    </div>
+    <div class="choix">
+        <a href="#">01 FONDANT. CH.</a><a href="#">3.40€</a><a href="#">3.40€</a>
+    </div>
+    <div class="choix">
+        <a href="#">01 G. CAFE CREME</a><a href="#">2.50€</a><a href="#">2.50€</a>
+    </div>
+    <hr>
+    <div class="choix">
+        <a href="#">06 ARTICLES</a><a href="#"></a><a href="#">20.00€</a>
+    </div>
+    <div class="choix">
+        <a href="#">MODE DE REGLEMENT</a><a href="#"></a><a href="#">ESPECES</a>
+    </div>
+    <div class="choix">
+        <a href="#"></a><a href="#">TVA</a><a href="#">20.00€</a>
+    </div>
+    Montant total : 20.00<i class="bi bi-currency-euro"></i>
+</div>
+                -->

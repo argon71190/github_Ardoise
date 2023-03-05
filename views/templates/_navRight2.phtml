@@ -1,0 +1,49 @@
+<div class="">
+    <p>&ensp;Liste des articles sélectionnés :</p>
+
+    <?php if(isset($_SESSION['basket'])) : ?>
+        <?php $i=0; ?>
+        <?php foreach($_SESSION['basket'] as $article) : ?>
+            <?php if($article['Qty'] != 0) : ?>
+                <div class="choix">
+                    <a href="index.php?route=modifArtInBasket&k=<?= $i ?>"><?php if($article['Qty'] > 1) : ?> <span id="turnSignal"><?php endif; ?><?php if($article['Qty'] < 10) : ?>0<?php endif; ?><?= $article['Qty'] ?> <?= $article['Name'] ?></span></a>
+                    <a href="#"><?= htmlspecialchars(number_format(strval($article['Price']), 2)) ?>€</a>
+                    <a href="#"><?= htmlspecialchars(number_format(strval($article['Price'] * intval($article['Qty'])), 2)) ?>€</a>
+                </div>
+                <small class="OptionsDetails">
+                    <?php if($article['Composition'] != "" && $article['Sauces'] != "" && $article['Suppl.'] != "") : ?>
+                        &ensp;&ensp;&ensp;&ensp;&ensp;Options : [<?= $article['Composition'] ?>] <?= $article['Sauces'] ?> (<?= $article['Suppl.'] ?>)
+                    <?php endif; ?>
+                    <?php if($article['RemisPlusTard'] == 'OUI') : ?>
+                        Remis plus tard
+                    <?php endif; ?>
+                </small>
+            <?php $i++; ?>
+        <?php endif; ?>
+        <?php endforeach; ?>
+
+        <?php
+            $totalCommande = 0;
+            $nberArticles = 0;
+            foreach($_SESSION['basket'] as $article) {
+                $totalCommande = $totalCommande + $article['Price'] * intval($article['Qty']);
+                $nberArticles = $nberArticles + intval($article['Qty']);
+            }
+        ?>
+
+        <hr>
+
+        <div class="choix">
+            <?php if($nberArticles < 2) : ?>
+                <a href="#">0<?= $nberArticles ?> ARTICLE</a><a href="#"></a><a href="#"><?= htmlspecialchars(number_format(strval($totalCommande), 2)) ?>€</a>
+            <?php elseif($nberArticles >=2 && $nberArticles < 10) : ?>
+                <a href="#">0<?= $nberArticles ?> ARTICLES</a><a href="#"></a><a href="#"><?= htmlspecialchars(number_format(strval($totalCommande), 2)) ?>€</a>
+            <?php else: ?>
+                <a href="#"><?= $nberArticles ?> ARTICLES</a><a href="#"></a><a href="#"><?= htmlspecialchars(number_format(strval($totalCommande), 2)) ?>€</a>
+            <?php endif; ?>
+        </div>
+        <p>&ensp;Montant total : <span class="total"><?= htmlspecialchars(number_format($totalCommande, 2)) ?>€</span></p>
+
+        <a href="index.php?route=validationBasket" class="btn colorGreen">VALIDER LA COMMANDE</span></a>
+    <?php endif; ?>
+</div>

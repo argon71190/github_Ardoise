@@ -1,0 +1,120 @@
+
+<section>
+    <div class="screenLigne">
+        <!-- <h2 id="clock"><i class="fa-regular fa-clock"></i>00:00</h2> -->
+        <h2><i class="fa-solid fa-user-clock"></i>Liste des produits remis plus tard</h2>
+
+        <!--
+        <h1><i class="fa-solid fa-kitchen-set"></i>
+            <select name="ecransList" class="ecransList">
+                <option value="Tous">Tous</option>
+                <?php foreach($screens as $scr): ?>
+                    <option value="<?= htmlspecialchars($scr['name']) ?>"
+                        <?php if($screen == $scr['name']) :?> selected <?php endif; ?>
+                        ><?= htmlspecialchars($scr['name']) ?></option>
+                <?php endforeach; ?>
+            </select>
+        </h1>-->
+        <?php if($attente > 1) : ?>
+            <h2><i class="fa-solid fa-person-dots-from-line"></i><?= $attente ?> commandes</h2>
+        <?php else: ?>
+            <h2><i class="fa-solid fa-person-dots-from-line"></i><?= $attente ?> commande</h2>
+        <?php endif; ?>
+        <!-- <h2 id="clock"><i class="fa-regular fa-clock"></i>00:00</h2> -->
+        <!--<h2><i class="fa-regular fa-hourglass-half"></i><?= $timeMoyen ?></h2>
+        <h2 class="colorGreenText"><i class="fa-regular fa-face-laugh-wink"></i><?= $timeMin ?></h2>
+        <h2 class="colorRedText"><i class="fa-regular fa-face-sad-tear"></i><?= $timeMax ?></h2>
+        <?php if($attente-5 < 0) : ?>
+            <h2 class="colorRedText"><i class="fa-solid fa-circle-plus"></i>0</h2>
+        <?php else: ?>
+            <h2 class="colorRedText"><i class="fa-solid fa-circle-plus"></i><?= $attente-5 ?></h2>
+        <?php endif; ?>-->
+    </div>
+</section>
+
+<section class="dispositionCommandes">
+    <p id="imgStandBy"><img src="assets/images/YVPG.gif" alt="load"></p>
+
+        <!-- <?= var_dump($orders); ?> -->
+
+    <?php foreach($orders as $key => $order) : ?>
+        <?php if(count($tab[$key]) != 0) : ?>
+            <?php if($order['withLater'] == 1) : ?>
+                <article class="dispositions">
+                    <div class="firstLigne">
+                        <!-- <?php if($order['dateStart'] == null) : ?>
+                            <input type="hidden" class="time" id="time_<?= $key ?>" value="<?= htmlspecialchars(($order['dateTaken'])) ?>">
+                        <?php else: ?>
+                            <input type="hidden" class="time" id="time_<?= $key ?>" value="<?= htmlspecialchars(($order['dateStart'])) ?>">
+                        <?php endif; ?> -->
+
+                        <h4 class="hour"><i class="fa-solid fa-rotate"></i><?= htmlspecialchars(date_format(date_create(($order['dateTaken'])), 'H:i'))?></h4>
+
+                        <div class="firstLigneBis">
+                            <!-- <?php if($order['dateStart'] == null) : ?>
+                                <i id="bell_<?= $key ?>" class="flashing fa-solid fa-list"></i><p class="result" id="result_<?= $key ?>">00:00:00</p>
+                            <?php else: ?>
+                                <i id="bell_<?= $key ?>" class="fa-solid fa-bell"></i><p class="result" id="result_<?= $key ?>">00:00:00</p>
+                            <?php endif; ?> -->
+                        </div>
+                    </div>
+
+                    <div class="secondLigne">
+                        <p class="surPlace"><i class="fa-solid fa-utensils"></i><?= ucfirst(strtolower($order['mode'])) ?></p><p>#<?= $order['id'] ?></p>
+                    </div>
+
+                    <?php if($order['table'] != 'PAS DE TABLE') : ?>
+                        <h5 class="tableCommande"><?= htmlspecialchars($order['table']) ?></h5>
+                    <?php else: ?>
+                        <h5 class="tableCommande"><?= htmlspecialchars($order['table']) ?></h5>
+                    <?php endif; ?>
+
+                    <?php foreach($tab[$key] as $elem) : ?>
+                        <?php if($elem['orders_id'] == $order['id']) : ?>
+                            <?php if($elem['finalize'] != 1 && $elem['postponed'] != 0) : ?>
+                                <div class="optionElementsList">
+                                    <?php if($_SESSION['screen'] == $elem['name'] || $_SESSION['screen'] == "Tous") : ?>
+                                        <div class="div1 <?= $elem['name'] ?>">
+                                            <?php if($elem['quantity'] < 2) : ?>
+                                                <p>0<?= htmlspecialchars($elem['quantity']) ?></p>&ensp;&ensp;<p><?= htmlspecialchars($elem['shortName']) ?></p>
+                                            <?php elseif($elem['quantity'] >=2 && $elem['quantity'] < 10) : ?>
+                                                <p class="flashing">0<?= htmlspecialchars($elem['quantity']) ?></p>&ensp;&ensp;<p><?= htmlspecialchars($elem['shortName']) ?></p>
+                                            <?php else: ?>
+                                                <p class="screen_id_<?=$elem['screen_id']?>" class="flashing"><?= htmlspecialchars($elem['quantity']) ?></p>&ensp;&ensp;<p><?= htmlspecialchars($elem['shortName']) ?></p>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+
+                                <?php if($_SESSION['screen'] == $elem['name'] || $_SESSION['screen'] == "Tous") : ?>
+                                    <div class="div2">
+                                        <?php if($elem['details'] != null) : ?>
+                                            <p><?= htmlspecialchars($elem['details']) ?></p><hr>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endif; ?>
+
+                                <!-- <?php if($_SESSION['screen'] == $elem['name'] || $_SESSION['screen'] == "Tous") : ?>
+                                    <div class="div2">
+                                        <?php if($elem['postponed'] == '1') : ?>
+                                            <p class="flashing">Remis plus tard</p><hr>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endif; ?> -->
+
+                            <?php endif; ?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+
+                    <div class="div3">
+                        <a href="index.php?route=prepareEnd&id=<?= $order['id'] ?>" id="btnStart" class="btn colorRed"><i class="fa-solid fa-play"></i>Remis</a>
+                    </div>
+                </article>
+            <?php endif; ?>
+        <?php else: ?>
+            <article class="dispositions">
+                <!-- <p>Aucune commande pour cet écran !</p> -->
+            </article>
+        <?php endif; ?>
+    <?php endforeach; ?>
+</section>

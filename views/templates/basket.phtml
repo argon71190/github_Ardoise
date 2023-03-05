@@ -1,0 +1,78 @@
+<section>
+    <h1>PANIER</h1>
+</section>
+
+<?php if(empty($articles)) : ?>
+    <p>Aucun article dans le panier !</p>
+<?php else: ?>
+    <section class="articles">
+        <?php foreach($articles as $article) : ?>
+
+            <?php if($article['Qty'] != 0) : ?>
+            <article class="dispositionCategories">
+            <p><?= htmlspecialchars($article['shortName']) ?></p>
+                <a href="index.php?route=directAddBasket&id=<?= $article['id'] ?>">
+                <img src="assets/uploads/articles/<?= $article['categories_id'] ?>/<?= htmlspecialchars($article['picture']) ?>"
+                alt="<?= htmlspecialchars($article['name']) ?>">
+            </a>
+
+
+
+            <?php if($article['RemisPlusTard'] != "NON"): ?>
+                <p class="flashing">Remis Plus Tard</p>
+            <?php else: ?>
+                <p>Remise immédiate</p>
+            <?php endif; ?>
+            <p><?= htmlspecialchars(number_format($article['price'], 2)) ?>€</p>
+
+            <?php if($article['Qty'] > 1): ?>
+                <p class="flashing">Quantité: <?= htmlspecialchars($article['Qty']) ?></p>
+            <?php else: ?>
+                <p>Quantité: <?= htmlspecialchars($article['Qty']) ?></p>
+            <?php endif; ?>
+
+
+
+
+
+
+
+
+
+            <?php if(!empty($article['Composition'])): ?>
+                <p>Composition: <?= htmlspecialchars($article['Composition']) ?></p>
+            <?php endif; ?>
+
+            <?php if(!empty($article['Sauces'])): ?>
+                <p>Sauces: <?= htmlspecialchars($article['Sauces']) ?></p>
+            <?php endif; ?>
+
+            <?php if(!empty($article['Suppl.'])): ?>
+                <p>Suppl.: <?= htmlspecialchars($article['Suppl.']) ?></p>
+            <?php endif; ?>
+
+            <p><?= htmlspecialchars($article['screen']) ?></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </article>
+        <?php endif; ?>
+        <?php endforeach; ?>
+
+    </section>
+<?php endif; ?>
+
+<!-- <?php include_once '_navRight.phtml'; ?> -->

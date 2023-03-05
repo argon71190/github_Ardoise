@@ -1,0 +1,139 @@
+
+<h6>Création de compte !</h6>
+
+<form method="POST" action="index.php?route=submitFormAddArticle" enctype="multipart/form-data">
+
+        <legend>Merci de renseigner les information suivantes :</legend>
+
+        <?php require_once('views/bases/_errors.phtml'); ?>
+        <?php require_once('views/bases/_valids.phtml'); ?>
+
+        <section>
+
+                <label  for         = "longName">Nom de l'article :</label>
+                <input  type        = "text"
+                        id          = "longName"
+                        name        = "longName"
+                        minlength   = "3"
+                        maxlength   = "50"
+                        value       = "<?php if(isset($newArticle) && !empty($newArticle)) { echo $newArticle['name']; } ?>"
+                        required>
+</br>
+                <label  for         = "shortName">Nom court de l'article :</label>
+                <input  type        = "text"
+                        id          = "shortName"
+                        name        = "shortName"
+                        minlength   = "3"
+                        maxlength   = "20"
+                        value       = "<?php if(isset($newArticle) && !empty($newArticle)) { echo $newArticle['shortName']; } ?>"
+                        required>
+</br>
+                <label  for         = "userfileArticle">Image : </label>
+                <input  type        = "file"
+                        accept      = "image/*"
+                        name        = "userfileArticle"
+                        id          = "userfileArticle"
+                        onchange    = "handleFiles(files)">
+                <small  class       = "form-text text-muted">Sélectionnez une image : Formats ['jpg', 'jpeg', 'gif', 'png'].</small>
+                <small  class       = "form-text text-muted">Dimensions de l'image : [220px * 240px].</small>
+</br>
+                <div id="divImage">
+                        <label for="upload">
+                                <span id="preview"></span>
+                        </label>
+                </div>
+</br>
+                <label  for         = "price">Prix :</label>
+                <input  type        = "number"
+                        id          = "price"
+                        name        = "price"
+                        min         = "0"
+                        max         = "100"
+                        step        = "0.01"
+                        value       = "<?php if(isset($newArticle) && !empty($newArticle)) { echo $newArticle['price']; } ?>"
+                        required> €
+</br>
+                <label  for         = "categorie">Catégorie de l'article :</label>
+                <select name        = "categorie"
+                        class       = "categorie"
+                        id          = "categorie">
+                        <option value="?">?</option>
+                        <?php foreach($categories as $cat): ?>
+                                <option value="<?= htmlspecialchars($cat['id']) ?>"
+                                        <?php if($newArticle['categorie'] == $cat['id']) :?>
+                                                selected
+                                        <?php endif; ?>
+                                        ><?= htmlspecialchars($cat['name']) ?></option>
+                        <?php endforeach; ?>
+                </select>
+</br>
+                <label  for         = "spl_tva">TVA sur place :</label>
+                <select name        = "spl_tva"
+                        class       = "spl_tva"
+                        id          = "spl_tva">
+                        <option value="?">?</option>
+                        <?php foreach($tva_spl as $el): ?>
+                                <option value="<?= htmlspecialchars($el['id']) ?>"
+                                        <?php if($newArticle['tva_spl'] == $el['id']) :?>
+                                                selected
+                                        <?php endif; ?>
+                                        ><?= htmlspecialchars($el['name']) ?></option>
+                        <?php endforeach; ?>
+                </select>
+</br>
+                <label  for         = "emp_tva">TVA à emporter :</label>
+                <select name        = "emp_tva"
+                        class       = "emp_tva"
+                        id          = "emp_tva">
+                        <option value="?">?</option>
+                        <?php foreach($tva_emp as $el): ?>
+                                <option value="<?= htmlspecialchars($el['id']) ?>"
+                                        <?php if($newArticle['tva_emp'] == $el['id']) :?>
+                                                selected
+                                        <?php endif; ?>
+                                        ><?= htmlspecialchars($el['name']) ?></option>
+                        <?php endforeach; ?>
+                </select>
+</br>
+                <label  for         = "active">Activation</label>
+                <select name        = "active"
+                        class       = "active"
+                        id          = "active">
+                        <option value = "1" <?php if($newArticle['activate'] == 1) :?>selected<?php endif; ?>>Oui</option>
+                        <option value = "0" <?php if($newArticle['activate'] == 0) :?>selected<?php endif; ?>>Non</option>
+                </select>
+</br>
+                <label  for         = "screen">Ecran d'affichage :</label>
+                <select name        = "screen"
+                        class       = "screen"
+                        id          = "screen">
+                        <option value="?">?</option>
+                        <?php foreach($screens as $screen): ?>
+                                <option value="<?= htmlspecialchars($screen['id']) ?>"
+                                        <?php if($newArticle['screen'] == $screen['id']) :?>
+                                                selected
+                                        <?php endif; ?>
+                                        ><?= htmlspecialchars($screen['name']) ?></option>
+                        <?php endforeach; ?>
+                </select>
+</br>
+                <label  for         = "code">Code barre :</label>
+                <input  type        = "text"
+                        id          = "code"
+                        name        = "code"
+                        minlength   = "13"
+                        maxlength   = "13"
+                        value       = "<?php if(isset($newArticle) && !empty($newArticle)) { echo $newArticle['codeBarre']; } ?>">
+                        <small  class       = "form-text text-muted">13 chiffres.</small>
+</br>
+                <input  type    = "hidden"
+                        name    = "token"
+                        value   = "<?= $token ?>">
+
+                <input  type    = "submit"
+                        name    = "submit"
+                        value   = "Soumettre"
+                        class   = "btn colorGreen">
+        </section>
+</form>
+<script src="assets/js/preview.js"></script>

@@ -1,0 +1,72 @@
+
+<section>
+    <div class="screenLigne">
+        <h2><i class="fa-solid fa-person-dots-from-line"></i><?= $attente ?> en attente de règlement</h2>
+    </div>
+</section>
+
+<section class="dispositionCommandes">
+    <p id="imgStandBy"><img src="assets/images/YVPG.gif" alt="load"></p>
+    <?php foreach($orders as $order) : ?>
+        <article class="dispositions">
+            <div class="firstLigne">
+                <h4 class="hour"><i class="fa-solid fa-rotate"></i><?= htmlspecialchars(date_format(date_create(($order['dateTaken'])), 'H:i'))?></h4>
+                <div class="firstLigneBis">
+                    <?php if($order['receiveMode_id'] == 1): ?>
+                        <h5 class="tableCommande"><i class="fa-solid fa-person"></i></h5>
+                    <?php elseif($order['receiveMode_id'] == 2): ?>
+                        <h5 class="tableCommande"><i class="fa-solid fa-phone-volume"></i></h5>
+                    <?php else: ?>
+                        <h5 class="tableCommande"><i class="fa-brands fa-internet-explorer"></i></h5>
+                    <?php endif; ?>
+                </div>
+            </div>
+
+            <div class="secondLigne">
+                <?php if($order['mode'] == 'A EMPORTER') : ?>
+                    <p class="flashing emporter"><i class="fa-solid fa-bag-shopping"></i><?= ucfirst(strtolower($order['mode'])) ?></p><p>#<?= $order['id'] ?></p>
+                <?php elseif($order['mode'] == 'SUR PLACE') : ?>
+                    <p class="surPlace"><i class="fa-solid fa-utensils"></i><?= ucfirst(strtolower($order['mode'])) ?></p><p>#<?= $order['id'] ?></p>
+                <?php else: ?>
+                    <p class="flashing livraison"><i class="fa-solid fa-motorcycle"></i><?= ucfirst(strtolower($order['mode'])) ?></p><p>#<?= $order['id'] ?></p>
+                <?php endif; ?>
+            </div>
+
+            <?php if($order['table'] != 'PAS DE TABLE') : ?>
+                <h5 class="tableCommande"><?= htmlspecialchars($order['table']) ?></h5>
+            <?php else: ?>
+                <h5 class="tableCommande"><?= htmlspecialchars($order['table']) ?></h5>
+            <?php endif; ?>
+
+            <h4 class="hour">TOTAL : <?= htmlspecialchars(number_format($order['total'], 2)) ?>€</h4>
+            <p>Client : <?= htmlspecialchars($order['customers_id']) . " - " . htmlspecialchars($order['clientFirstname']) . " " .htmlspecialchars($order['clientLastname']) ?></p>
+            <p>Opérateur : <?= htmlspecialchars($order['operatorFirstname']) . " " .htmlspecialchars($order['operatorLastname']) ?></p>
+
+            </br>
+
+            <?php foreach($orders as $key => $order) : ?>
+                <?php if(count($tab[$key]) != 0) : ?>
+                    <?php foreach($tab[$key] as $elem) : ?>
+                        <?php if($elem['orders_id'] == $order['id']) : ?>
+                            <div class="optionElementsList">
+                                <div class="div1 <?= $elem['name'] ?>">
+                                    <?php if($elem['quantity'] < 2) : ?>
+                                        <p>0<?= htmlspecialchars($elem['quantity']) ?></p>&ensp;&ensp;<p><?= htmlspecialchars($elem['shortName']) ?></p>
+                                    <?php elseif($elem['quantity'] >=2 && $elem['quantity'] < 10) : ?>
+                                        <p class="flashing">0<?= htmlspecialchars($elem['quantity']) ?></p>&ensp;&ensp;<p><?= htmlspecialchars($elem['shortName']) ?></p>
+                                    <?php else: ?>
+                                        <p class="screen_id_<?=$elem['screen_id']?>" class="flashing"><?= htmlspecialchars($elem['quantity']) ?></p>&ensp;&ensp;<p><?= htmlspecialchars($elem['shortName']) ?></p>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            <?php endforeach; ?>
+
+            <div class="div3">
+                <a href="index.php?route=prepareEnd&id=<?= $order['id'] ?>" id="btnStart" class="btn colorRed"><i class="fa-solid fa-play"></i>Effectuer le règlement</a>
+            </div>
+        </article>
+    <?php endforeach; ?>
+</section>

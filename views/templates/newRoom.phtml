@@ -1,0 +1,22 @@
+<section>
+    <?php if( isset($_GET['error']) ) : ?>
+        <div class="form-error"><i class="bi bi-x-circle"></i> <span><?= $_GET['error']; ?></span></div>
+    <?php endif; ?>
+    
+    <div class="forms">
+        <form action="index.php?route=add-room" method="POST">
+            <h2>Ajouter un salon</h2>
+            <p>
+                <input type="text" id="name" name="name" placeholder="Le nom du salon..."/>
+                <select id="category_id" name="category_id">
+                    <option value="0">Selectionnez une catégorie...</option>
+                    <?php foreach( $categories as $category ) : ?>
+                    <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
+                    <?php endforeach; ?>
+                </select>
+                <button type="submit" class="btn">Ajouter</button>
+            </p>
+            
+        </form>
+    </div>
+</section>

@@ -1,0 +1,14 @@
+<section>
+    <?php if( isset($_GET['error']) ) : ?>
+        <div class="form-error"><i class="bi bi-x-circle"></i> <span><?= $_GET['error']; ?></span></div>
+    <?php endif; ?>
+    <div class="forms">
+        <form action="index.php?route=add-category" method="POST">
+            <h2>Ajouter une catégorie</h2>
+            <p>
+                <input type="text" id="name" name="name" placeholder="Le nom de la catégorie..."/>
+                <button type="submit" class="btn">Ajouter</button>
+            </p>
+        </form>
+    </div>
+</section>

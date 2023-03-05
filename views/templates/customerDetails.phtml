@@ -1,0 +1,46 @@
+<header>
+    <h1>Utilisateurs</h1>
+
+    <a href="index.php?route=add-customer" class="btn">Ajout Utilisateur</a>
+    <a href="index.php?route=new-room" class="btn">Nouveau salon</a>
+
+</header>
+
+<section class="chats-box">
+    <ul>
+        <?php if( $customer !== [] ) : ?>
+            <table style="width:80%">
+                <tr>
+                    <th>Nom</th>
+                    <th>Pénom</th>
+                    <th>Email</th>
+                    <th>Date de naissance</th>
+                    <th style="width:60%">Adresse</th>
+                    <th>Statut</th>
+                </tr>
+                <tr>
+                    <td><?= $customer->getLastname(); ?></td>
+                    <td><?= $customer->getFirstname(); ?></td>
+                    <td><?= $customer->getEmail(); ?></td>
+                    <td><?= $customer->getBirthday(); ?></td>
+                    <?php if( $customerDetails->getAdress() !== null ) : ?>
+                        <td><?= $customerDetails->getAdress() . ' '. $customerDetails->getCp() . ' ' . $customerDetails->getCity() . ' [' . $customerCountry->getName() . ']' ?></td>
+                    <?php else : ?>
+                        <td>Pas d'adresse.</td>
+                    <?php endif; ?>
+                    <td><?= $customerValids->getStatut(); ?></td>
+                    <td><a href="index.php?route=customers&id=<?= $customer->getId(); ?>" class="btn colorYellow">Bloquer/Débloquer</a></td>
+                    <td><a href="index.php?route=displayOneCustomer&id=<?= $customer->getId(); ?>" class="btn colorRed">Supprimer</a></td>
+                </tr>
+            </table>
+        <?php else : ?>
+            <li>Cette section est vide.</li>
+        <?php endif; ?>
+    </ul>
+</section>
+
+<section>
+    <a href="../index.php" id="retour" class="btn colorRed">Retour</a>
+    <a href="../index.php" id="Valider" class="btn colorGreen">Valider</a>
+    <a href="../index.php" id="Effacer" class="btn colorYellow">Effacer</a>
+</section>
