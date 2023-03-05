@@ -1,4 +1,4 @@
-black { color: #111314; }
+black   { color: #111314; }
 black   { color: #34495E; }
 green   { color: #1ABC9C; }
 yellow  { color: #F1C40F; }
