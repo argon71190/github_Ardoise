@@ -33,6 +33,8 @@ class ArticlesManager extends Database {
                                 INNER JOIN screens
                                     ON screens.id = articles.screen_id
                                 WHERE articles.id = ?', [$id]);
+
+        //return $this->getOne('SELECT * FROM articles WHERE id=?', [$id]);
     }
 
     // Récupérer toutes les options d'une article

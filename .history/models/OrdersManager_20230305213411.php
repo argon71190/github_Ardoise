@@ -18,7 +18,7 @@ class OrdersManager extends Database {
         return $this->addOne('orders', $datas);
     }
 
-    public function insertOrderDetails(OrdersDetails $OrdersDetails): void {
+    public function insertOrderDetails(Orders $OrdersDetails): void {
 
         $datas = [
             'orders_id'     => $OrdersDetails->getOrders_id(),

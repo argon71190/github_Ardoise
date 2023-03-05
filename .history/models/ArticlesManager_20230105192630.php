@@ -16,7 +16,7 @@ class ArticlesManager extends Database {
     }
 
     // Récupérer un article en fonction de son id
-    public function getArticleById($id) {
+    public function getArticlesById($id) {
         return $this->getOne('SELECT    articles.id, articles.name, articles.categories_id, articles.shortName, articles.picture,
                                         articles.price, articles.codebarre, articles.activate,
                                         categories.name AS `category`,
@@ -33,6 +33,8 @@ class ArticlesManager extends Database {
                                 INNER JOIN screens
                                     ON screens.id = articles.screen_id
                                 WHERE articles.id = ?', [$id]);
+
+        //return $this->getOne('SELECT * FROM articles WHERE id=?', [$id]);
     }
 
     // Récupérer toutes les options d'une article
