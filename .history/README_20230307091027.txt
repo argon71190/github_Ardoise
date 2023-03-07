@@ -1,5 +1,5 @@
 - Préambule
--- Le logiciel sur lequel vous travaillez reste la propriété de la société et ne peut être utilisé ou revendu à une autre société
+-- Le logiciel sur lequel vous travaillez reste la propriété de la société et ne peut être utilisé ou revenDu à une autre société
 -- Vous êtes tenu au secret professionnel.
 -- Toutefois, pour des raisons d'apprentissage, vous pouvez utiliser des morceaux de code pour vos futurs sites.
 
