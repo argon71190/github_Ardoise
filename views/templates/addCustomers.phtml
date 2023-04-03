@@ -1,85 +1,77 @@
-<main id="addCustomers">
-        <section>
-                <h1>Création de compte !</h1>
-        </section>
-        
-        <form method="POST" action="index.php?route=submitFormAddCustomer" enctype="multipart/form-data">
-        
-                <legend>Merci de renseigner les information suivantes :</legend>
-        
-                <?php require_once('views/bases/_errors.phtml'); ?>
-                <?php require_once('views/bases/_valids.phtml'); ?>
-        
-                <section>
-                        
-                        <fieldset>
-                                <label  for     = "lastname">Nom :</label>
-                                <input  type    = "text"
-                                        id      = "lastname"
-                                        name    = "lastname"
-                                        value   = "<?php if(isset($newCustomer) && !empty($newCustomer)) { echo $newCustomer['lastname']; } ?>">
-                        </fieldset>
-                        
-                        <fieldset>
-                                <label  for     = "firstname">Prénom :</label>
-                                <input  type    = "text"
-                                        id      = "firstname"
-                                        name    = "firstname"
-                                        value   = "<?php if(isset($newCustomer) && !empty($newCustomer)) { echo $newCustomer['firstname']; } ?>">
-                        </fieldset>
 
-                        <fieldset>
-                                <label  for     = "birthday">Date de naissance :</label>
-                                <input  type    = "date"
-                                        id      = "birthday"
-                                        name    = "birthday"
-                                        value   = "<?php if(isset($newCustomer) && !empty($newCustomer)) { echo $newCustomer['birthday']; } ?>">
-                        </fieldset>
+<h6>Création de compte !</h6>
 
-                        <fieldset>
-                                <label  for     = "email">email :</label>
-                                <input  type    = "email"
-                                        id      = "email"
-                                        name    = "email"
-                                        value   = "<?php if(isset($newCustomer) && !empty($newCustomer)) { echo $newCustomer['email']; } ?>">
-                        </fieldset>
+<form id="creationCompte" method="POST" action="index.php?route=submitFormAddCustomer" enctype="multipart/form-data">
 
-                        <fieldset>
-                                <label  for         = "password">Mot de passe :</label>
-                                <input  type        = "password"
-                                        id          = "password"
-                                        name        = "password"
-                                        placeholder = "Choisissez un mot de passe"
-                                        value       = "<?php if(isset($newCustomer) && !empty($newCustomer)) { echo $newCustomer['password']; } ?>">
-                                <small>Contenant 8 caractères minimum avec 1 majuscule, 1 minuscule, 1 chiffre et un caractère spécial !</small>
-                        </fieldset>
+    <legend>Merci de renseigner les informations suivantes</legend>
 
-                        <fieldset>
-                                <label  for     = "confirm_password">Confirmez le mot de passe :</label>
-                                <input  type    = "password"
-                                        id      = "confirm_password"
-                                        name    = "confirm_password">
-                        </fieldset>
+    <?php require_once('views/bases/_errors.phtml'); ?>
+    <?php require_once('views/bases/_valids.phtml'); ?>
 
-                        <fieldset>
-                                <label  for     = "rfid">RFID :</label>
-                                <input  type    = "text"
-                                        id      = "rfid"
-                                        name    = "rfid"
-                                        value   = "<?php if(isset($newCustomer) && !empty($newCustomer)) { echo $newCustomer['rfid']; } ?>">
-                        </fieldset>
+    <section>
 
-                        <fieldset>
-                                <input  type    = "hidden"
-                                        name    = "token"
-                                        value   = "<?= $token ?>">
-        
-                </section>
-                <fieldset>
-                        <input  type    = "submit"
-                                name    = "submit"
-                                value   = "Soumettre"
-                                class   = "btn colorGreen">
-                </fieldset>
-        </form>
-</main>
+        <label  for     = "lastname">Nom</label>
+        <input  type    = "text"
+                id      = "lastname"
+                name    = "lastname"
+                value   = "<?php if(isset($newCustomer) && !empty($newCustomer)) { echo $newCustomer['lastname']; } ?>"
+	        pattern = "[a-zA-ZàâäæáãåßçéèêëîïñôöœóõøüùÿÀÂÄÆÁÃÅÇÉÈÊËÎÏÑÔÖŒÓÕØÜÙŸ'\s.-]+"
+		required>
+	
+</br>
+<label  for     = "firstname">Prénom</label>
+<input  type    = "text"
+        id      = "firstname"
+        name    = "firstname"
+        value   = "<?php if(isset($newCustomer) && !empty($newCustomer)) { echo $newCustomer['firstname']; } ?>"
+        pattern = "[a-zA-ZàâäæáãåßçéèêëîïñôöœóõøüùÿÀÂÄÆÁÃÅÇÉÈÊËÎÏÑÔÖŒÓÕØÜÙŸ'\s.-]+"
+		   required>
+</br>
+<label  for     = "birthday">Date de naissance</label>
+<input  type    = "date"
+        id      = "birthday"
+        name    = "birthday"
+        value   = "<?php if(isset($newCustomer) && !empty($newCustomer)) { echo $newCustomer['birthday']; } ?>">
+</br>
+<label  for     = "email">Email</label>
+<input  type    = "text"
+        id      = "email"
+        name    = "email"
+        value   = "<?php if(isset($newCustomer) && !empty($newCustomer)) { echo $newCustomer['email']; } ?>"
+		   pattern = "[^@\s]+@[^@\s]+\.[^@\s]+"
+		   required>
+</br>
+<label  for         = "password">Mot de passe</label>
+<input  type        = "password"
+        id          = "password"
+        name        = "password"
+        placeholder = "Choisissez un mot de passe"
+        value       = "<?php if(isset($newCustomer) && !empty($newCustomer)) { echo $newCustomer['password']; } ?>"
+		       minlength   = "8"
+		       pattern="(?=.*\d)(?=.*[!@#$%^&*;:{}])(?=.*[a-z])(?=.*[A-Z]).{8,64}"
+		       required>
+<small>Contenant 8 caractères minimum avec 1 majuscule, 1 minuscule, 1 chiffre et un caractère spécial !</small>
+</br>
+<label  for     = "confirm_password">Confirmez le mot de passe</label>
+<input  type    = "password"
+        id      = "confirm_password"
+        name    = "confirm_password"
+		   pattern = "(?=.*\d)(?=.*[!@#$%^&*;:])(?=.*[a-z])(?=.*[A-Z]).{8,64}"
+		   required>
+</br>
+<label  for     = "rfid">RFID</label>
+<input  type    = "text"
+        id      = "rfid"
+        name    = "rfid"
+        value   = "<?php if(isset($newCustomer) && !empty($newCustomer)) { echo $newCustomer['rfid']; } ?>">
+</br>
+<input  type    = "hidden"
+        name    = "token"
+        value   = "<?= $token ?>">
+
+<input  type    = "submit"
+        name    = "submit"
+        value   = "Soumettre"
+        class   = "btn colorGreen">
+    </section>
+</form>

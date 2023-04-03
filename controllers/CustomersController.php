@@ -17,137 +17,124 @@ class CustomersController extends Router
 {
     public function displayCustomers() {
 
-        $tab1 =[
-            [
-                'id_ann' => 5,
-                'id_user_applicant' => 5,
-                'id_service_type' => 1,
-                'contents' => "Besoin d'aide pour faire mes courses !",
-                'price' => 20,
-                'service_date' => '2023-02-25 00:00:00',
-                'today_date' => '2023-01-30 14:59:31',
-                'activate_ann' => 1,
-                'id_user' => 10,
-                'lastname' => 'Le Vaillant',
-                'firstname' => 'Céline',
-                'message' => "Je vous propose mon aide pour faire les courses !",
-                'day_date' => '2023-01-31 10:14:59'
-            ],
-            [
-                'id_ann' => 5,
-                'id_user_applicant' => 5,
-                'id_service_type' => 1,
-                'contents' => "Besoin d'aide pour faire mes courses !",
-                'price' => 20,
-                'service_date' => '2023-02-25 00:00:00',
-                'today_date' => '2023-01-30 14:59:31',
-                'activate_ann' => 1,
-                'id_user' => 21,
-                'lastname' => 'ROGER',
-                'firstname' => 'Micke',
-                'message' => "Je peux faire mieux que Céline, tout sera lustré :-) !",
-                'day_date' => '2023-01-31 14:47:49'
-            ],
-            [
-                'id_ann' => 2,
-                'id_user_applicant' => 5,
-                'id_service_type' => 2,
-                'contents' => "Besoin d'aide pour faire le ménage !",
-                'price' => 20,
-                'service_date' => '2023-02-28 00:00:00',
-                'today_date' => '2023-02-28 09:41:55',
-                'activate_ann' => 1,
-                'id_user' => null,
-                'lastname' => null,
-                'firstname' => null,
-                'message' => null,
-                'day_date' => null
-            ],
-            [
-                'id_ann' => 3,
-                'id_user_applicant' => 5,
-                'id_service_type' => 1,
-                'contents' => "Je recherche quelqu'un pour faire mes courses ! Merci !",
-                'price' => 20,
-                'service_date' => '2023-03-31 00:00:00',
-                'today_date' => '2023-01-27 16:20:38',
-                'activate_ann' => 1,
-                'id_user' => 21,
-                'lastname' => 'ROGER',
-                'firstname' => 'Micke',
-                'message' => "Bonjour, je suis disponible et j'ai un véhicule !",
-                'day_date' => '2023-02-01 14:47:49'
-            ],
-            [
-                'id_ann' => 4,
-                'id_user_applicant' => 5,
-                'id_service_type' => 3,
-                'contents' => "Besoin d'aide pour remplir des papiers SVP !",
-                'price' => 20,
-                'service_date' => '2023-02-28 00:00:00',
-                'today_date' => '2023-01-27 16:30:12',
-                'activate_ann' => 1,
-                'id_user' => null,
-                'lastname' => null,
-                'firstname' => null,
-                'message' => null,
-                'day_date' => null
-            ]
-        ];
+        /* $tab1 =[
+	 *     [
+	 *         'id_ann' => 5,
+	 *         'id_user_applicant' => 5,
+	 *         'id_service_type' => 1,
+	 *         'contents' => "Besoin d'aide pour faire mes courses !",
+	 *         'price' => 20,
+	 *         'service_date' => '2023-02-25 00:00:00',
+	 *         'today_date' => '2023-01-30 14:59:31',
+	 *         'activate_ann' => 1,
+	 *         'id_user' => 10,
+	 *         'lastname' => 'Le Vaillant',
+	 *         'firstname' => 'Céline',
+	 *         'message' => "Je vous propose mon aide pour faire les courses !",
+	 *         'day_date' => '2023-01-31 10:14:59'
+	 *     ],
+	 *     [
+	 *         'id_ann' => 5,
+	 *         'id_user_applicant' => 5,
+	 *         'id_service_type' => 1,
+	 *         'contents' => "Besoin d'aide pour faire mes courses !",
+	 *         'price' => 20,
+	 *         'service_date' => '2023-02-25 00:00:00',
+	 *         'today_date' => '2023-01-30 14:59:31',
+	 *         'activate_ann' => 1,
+	 *         'id_user' => 21,
+	 *         'lastname' => 'ROGER',
+	 *         'firstname' => 'Micke',
+	 *         'message' => "Je peux faire mieux que Céline, tout sera lustré :-) !",
+	 *         'day_date' => '2023-01-31 14:47:49'
+	 *     ],
+	 *     [
+	 *         'id_ann' => 2,
+	 *         'id_user_applicant' => 5,
+	 *         'id_service_type' => 2,
+	 *         'contents' => "Besoin d'aide pour faire le ménage !",
+	 *         'price' => 20,
+	 *         'service_date' => '2023-02-28 00:00:00',
+	 *         'today_date' => '2023-02-28 09:41:55',
+	 *         'activate_ann' => 1,
+	 *         'id_user' => null,
+	 *         'lastname' => null,
+	 *         'firstname' => null,
+	 *         'message' => null,
+	 *         'day_date' => null
+	 *     ],
+	 *     [
+	 *         'id_ann' => 3,
+	 *         'id_user_applicant' => 5,
+	 *         'id_service_type' => 1,
+	 *         'contents' => "Je recherche quelqu'un pour faire mes courses ! Merci !",
+	 *         'price' => 20,
+	 *         'service_date' => '2023-03-31 00:00:00',
+	 *         'today_date' => '2023-01-27 16:20:38',
+	 *         'activate_ann' => 1,
+	 *         'id_user' => 21,
+	 *         'lastname' => 'ROGER',
+	 *         'firstname' => 'Micke',
+	 *         'message' => "Bonjour, je suis disponible et j'ai un véhicule !",
+	 *         'day_date' => '2023-02-01 14:47:49'
+	 *     ],
+	 *     [
+	 *         'id_ann' => 4,
+	 *         'id_user_applicant' => 5,
+	 *         'id_service_type' => 3,
+	 *         'contents' => "Besoin d'aide pour remplir des papiers SVP !",
+	 *         'price' => 20,
+	 *         'service_date' => '2023-02-28 00:00:00',
+	 *         'today_date' => '2023-01-27 16:30:12',
+	 *         'activate_ann' => 1,
+	 *         'id_user' => null,
+	 *         'lastname' => null,
+	 *         'firstname' => null,
+	 *         'message' => null,
+	 *         'day_date' => null
+	 *     ]
+	 * ];
 
-// var_dump($tab1);
+	   //var_dump($tab1);
 
-$idAnn = 0;
+	   $idAnn = 0;
 
-foreach($tab1 as $elem) {
+	   foreach($tab1 as $elem) {
 
-    if($elem['id_ann'] == $idAnn) {
-        if($elem['message'] == null){
-            // var_dump("----> DESOLE, aucune proposition pour cette annonce pour le moment !");
-        }
-        else{
-            // var_dump("----> VOUS AVEZ RECU UNE PROPOSITION en date du " . $elem['day_date'] . " : Par " . $elem["firstname"] . " " . $elem["lastname"] . " : " . $elem['message']);
-        }
-    } else {
-        // var_dump("ANNONCE N°" . $elem['id_ann'] . " : ".$elem['contents']. " (".$elem['price'] . "€) publiée le " . $elem['today_date']);
-        // var_dump(" *** SERVICE PREVU POUR LE : " . $elem['service_date'] . " ***");
-        if($elem['message'] == null){
-            // var_dump("----> DESOLE, aucune proposition pour cette annonce pour le moment !");
-        }
-        else{
-            // var_dump("----> VOUS AVEZ RECU UNE PROPOSITION en date du " . $elem['day_date'] . " : Par " . $elem["firstname"] . " " . $elem["lastname"] . " : " . $elem['message']);
-        }
-    }
-    $idAnn = $elem['id_ann'];
-}
+	   if($elem['id_ann'] == $idAnn) {
+	 * if($elem['message'] == null)    var_dump("----> DESOLE, aucune proposition pour cette annonce pour le moment !");
+	 * else                            var_dump("----> VOUS AVEZ RECU UNE PROPOSITION en date du " . $elem['day_date'] . " : Par " . $elem["firstname"] . " " . $elem["lastname"] . " : " . $elem['message']);
+	   } else {
+	 * var_dump("ANNONCE N°" . $elem['id_ann'] . " : ".$elem['contents']. " (".$elem['price'] . "€) publiée le " . $elem['today_date']);
+	 * var_dump(" *** SERVICE PREVU POUR LE : " . $elem['service_date'] . " ***");
+	 * if($elem['message'] == null)    var_dump("----> DESOLE, aucune proposition pour cette annonce pour le moment !");
+	 * else                            var_dump("----> VOUS AVEZ RECU UNE PROPOSITION en date du " . $elem['day_date'] . " : Par " . $elem["firstname"] . " " . $elem["lastname"] . " : " . $elem['message']);
+	   }
+	   $idAnn = $elem['id_ann'];
+	   }
+	 */
+	/* $idAnn = 0;
+	 * 
+	 * foreach($tab1 as $elem) {
+	 * 
+	 *     if($elem['id_ann'] == $idAnn) {
+	 *         // Si message est égal à null : Affichage message --> Pas de proposition
+	 *         // Sinon affichage de la proposition
+	 *     } else {
+	 *         // Affichage de l'annonce'
+	 *         // Si message est égal à null : Affichage message --> Pas de proposition
+	 *         // Sinon affichage de la proposition
+	 *     }
+	 *     $idAnn = $elem['id_ann'];
+	 * }
+	 *  */
 
-$idAnn = 0;
-
-foreach($tab1 as $elem) {
-
-    if($elem['id_ann'] == $idAnn) {
-        // Si message est égal à null : Affichage message --> Pas de proposition
-        // Sinon affichage de la proposition
-    } else {
-        // Affichage de l'annonce'
-        // Si message est égal à null : Affichage message --> Pas de proposition
-        // Sinon affichage de la proposition
-    }
-    $idAnn = $elem['id_ann'];
-}
-
-
-// Créer une variable à 0
-// boucler sur le tableau avec une foreach
-// pour chaque tableau, récupérer l'id de l'annonce
-// Si l'id de l'annonce n'est pas égal à ma variable --> Affiche l'annonce + proposition s'il y en a une
-// Si l'id de l'annonce est égal à ma variable --> Affiche de la proposition s'il y en a une
-// Notre variable prend la valeur de l'id
-
-
-
-
-
+	// Créer une variable à 0
+	// boucler sur le tableau avec une foreach
+	// pour chaque tableau, récupérer l'id de l'annonce
+	// Si l'id de l'annonce n'est pas égal à ma variable --> Affiche l'annonce + proposition s'il y en a une
+	// Si l'id de l'annonce est égal à ma variable --> Affiche de la proposition s'il y en a une
+	// Notre variable prend la valeur de l'id
 
         $model      = new CustomersManager();
         $customers  = $model->getCustomers();
@@ -159,22 +146,25 @@ foreach($tab1 as $elem) {
         $model      = new CustomersManager();
         $find = $model->selectOne('id', $id);
 
-        $customer = new Customers();
-            $customer->setLastname($find['lastname']);
-            $customer->setFirstname($find['firstname']);
-            $customer->setEmail($find['email']);
-            $customer->setBirthday($find['birthday']);
+	//var_dump($find);
+	//$find peut être null
+
+	$customer = new Customers();
+        $customer->setLastname($find['lastname']);
+        $customer->setFirstname($find['firstname']);
+        $customer->setEmail($find['email']);
+        $customer->setBirthday($find['birthday']);
 
         $customerDetails = new CustomersDetails();
-            $customerDetails->setAdress($find['adress']);
-            $customerDetails->setCp($find['cp']);
-            $customerDetails->setCity($find['city']);
+        $customerDetails->setAdress($find['adress']);
+        $customerDetails->setCp($find['cp']);
+        $customerDetails->setCity($find['city']);
 
         $customerCountry = new Country();
-            $customerCountry->setName($find['pays']);
+        $customerCountry->setName($find['pays']);
 
         $customerValids = new Valids();
-            $customerValids->setStatut($find['statut']);
+        $customerValids->setStatut($find['statut']);
 
         $this->render(
             'customerDetails',
@@ -183,7 +173,7 @@ foreach($tab1 as $elem) {
                 'customerDetails'   => $customerDetails,
                 'customerValids'    => $customerValids,
                 'customerCountry'   => $customerCountry
-            ]);
+        ]);
     }
 
     public function displayFormAddCustomers() {
@@ -242,19 +232,30 @@ foreach($tab1 as $elem) {
                 $errors[] = $messagesErrors[0];
 
             // Vérification du champ "Nom"
+	    // Remplacement de l'apostrophe droite par l'apostrophe typographique, \u{2019} === code unicode
+	    // Si elle n'existe pas dans la chaîne de caractères, celle-ci n'est pas modifiée.
+	    $newCustomer['lastname'] = str_replace("'", "\u{2019}", $newCustomer['lastname']);
             if(strlen($newCustomer['lastname']) < 2 || strlen($newCustomer['lastname']) > 50) {
                 $errors[] = $messagesErrors[1];
             }else{
-                if(preg_match("/[^a-zA-Z]/", $newCustomer['lastname']))
+		// if(preg_match("/[^a-zA-Z]/", $newCustomer['lastname']))
+		// l'apostrophe présente dans le tableau ci-dessous est l'apostrophe courbe 
+		if(preg_match("/[^a-zA-ZàâäæáãåßçéèêëîïñôöœóõøüùÿÀÂÄÆÁÃÅÇÉÈÊËÎÏÑÔÖŒÓÕØÜÙŸ’ .-]/", $newCustomer['lastname']))		
                     $errors[] = $messagesErrors[17];
             }
 
             // Vérification du champ "Prénom"
-            if(strlen($newCustomer['firstname']) < 2 || strlen($newCustomer['firstname']) > 50) {
+	    // Remplacement de l'apostrophe droite par l'apostrophe typographique, \u{2019} === code unicode
+	    // Si elle n'existe pas dans la chaîne de caractères, celle-ci n'est pas modifiée.
+	    $newCustomer['firstname'] = str_replace("'", "\u{2019}", $newCustomer['firstname']);
+	    
+            if(strlen($newCustomer['firstname']) < 1 || strlen($newCustomer['firstname']) > 100) {
                 $errors[] = $messagesErrors[2];
             }else{
-                if(preg_match("/[^a-zA-Z]/", $newCustomer['firstname']))
-                $errors[] = $messagesErrors[17];
+		//                if(preg_match("/[^a-zA-Z]/", $newCustomer['firstname']))
+		// l'apostrophe présente dans le tableau ci-dessous est l'apostrophe courbe
+		if(preg_match("/[^a-zA-ZàâäæáãåßçéèêëîïñôöœóõøüùÿÀÂÄÆÁÃÅÇÉÈÊËÎÏÑÔÖŒÓÕØÜÙŸ’ .-]/", $newCustomer['firstname']))
+		    $errors[] = $messagesErrors[17];
             }
 
             // Vérification du champ "Date de naissance"
@@ -284,8 +285,15 @@ foreach($tab1 as $elem) {
             }
 
             // Vérification du champ "Email"
-            if(!filter_var($newCustomer['email'], FILTER_VALIDATE_EMAIL))
-                $errors[] = $messagesErrors[6];
+            /* if(!filter_var($newCustomer['email'], FILTER_VALIDATE_EMAIL))
+	     *     $errors[] = $messagesErrors[6]; */
+
+	    // Remplacement de l'apostrophe droite par l'apostrophe typographique, \u{2019} === code unicode
+	    // Si elle n'existe pas dans la chaîne de caractères, celle-ci n'est pas modifiée.
+	    $newCustomer['email'] = str_replace("'", "\u{2019}", $newCustomer['email']);
+
+	    if(!preg_match("/^[^@\s]+@[^@\s]+\.[^@\s]+$/", $newCustomer['email']))
+		$errors[] = $messagesErrors[6];
 
             // Vérification du champ "Mot de passe"
             if(empty($newCustomer['password']))
@@ -318,27 +326,27 @@ foreach($tab1 as $elem) {
                 } else {
                     if(preg_match("/[^0-9]/", $newCustomer['rfid']))
                         $errors[] = $messagesErrors[15];
-                }
+		}
             }
 
             if(count($errors) == 0) {
-                // Vérifier si l'adresse email n'existe pas déjà dans la bdd pour éviter les doublons
-                $model              = new CustomersManager();
-                $verifExistCustomer = $model->selectOne('email', $newCustomer['email']);
+		// Vérifier si l'adresse email n'existe pas déjà dans la bdd pour éviter les doublons
+		$model              = new CustomersManager();
+		$verifExistCustomer = $model->selectOne('email', $newCustomer['email']);
 
-                if(!empty($verifExistCustomer)) {
+		if(!empty($verifExistCustomer)) {
                     $errors[] = $messagesErrors[16];
-                }
+		}
 
-                // Aucune erreur dans le formulaire, on peut ajouter le nouveau customers dans la bdd
-                $lastname   = $newCustomer['lastname'];
-                $firstname  = $newCustomer['firstname'];
-                $birthday   = $newCustomer['birthday'];
-                $email      = $newCustomer['email'];
-                $password   = $newCustomer['password'];
-                $rfid       = $newCustomer['rfid'];
+		// Aucune erreur dans le formulaire, on peut ajouter le nouveau customers dans la bdd
+		$lastname   = $newCustomer['lastname'];
+		$firstname  = $newCustomer['firstname'];
+		$birthday   = $newCustomer['birthday'];
+		$email      = $newCustomer['email'];
+		$password   = $newCustomer['password'];
+		$rfid       = $newCustomer['rfid'];
 
-                if(count($errors) == 0) {
+		if(count($errors) == 0) {
                     $newCustomer = new Customers();
                     $newCustomer->setLastname($lastname);
                     $newCustomer->setFirstname($firstname);
@@ -364,29 +372,29 @@ foreach($tab1 as $elem) {
                     $_SESSION['tokenVerify'] = $token;
 
                     $this->render('addCustomers', 'layout', [
-                        'newCustomer'   => [],
-                        'token'         => $token,
-                        'errors'        => $errors,
-                        'valids'        => $valids
+			'newCustomer'   => [],
+			'token'         => $token,
+			'errors'        => $errors,
+			'valids'        => $valids
                     ]);
 
                     // Inutile de régénérer un token si redirection
                     // header('Location: index.php?page=customers');
                     // exit();
-                }
+		}
             }
-        }
+	}
 
-        $model = new ResultsManager();
-        $token = $model->genererChaineAleatoire(20);
-        $_SESSION['tokenVerify'] = $token;
+	$model = new ResultsManager();
+	$token = $model->genererChaineAleatoire(20);
+	$_SESSION['tokenVerify'] = $token;
 
-        $this->render('addCustomers', 'layout', [
+	$this->render('addCustomers', 'layout', [
             'newCustomer'   => $newCustomer,
             'token'         => $token,
             'errors'        => $errors,
             'valids'        => $valids
-        ]);
+	]);
     }
 
 
@@ -410,60 +418,60 @@ foreach($tab1 as $elem) {
 
 
 
-/*
-try
-    {
+    /*
+       try
+       {
 
-    }
-    catch(PDOException $e)
-    {
-        $view = 'error';
-        $errors[] = 'Une erreur de connexion a eu lieu :'.$e->getMessage();
-    }
+       }
+       catch(PDOException $e)
+       {
+       $view = 'error';
+       $errors[] = 'Une erreur de connexion a eu lieu :'.$e->getMessage();
+       }
 
 
-    public function displayChats() {
-        $categoriesModel = new Category();
-        $roomModel       = new Room();
-        $categories      = $categoriesModel->getCategories();
-        $roomsByCat      = [];
+       public function displayChats() {
+       $categoriesModel = new Category();
+       $roomModel       = new Room();
+       $categories      = $categoriesModel->getCategories();
+       $roomsByCat      = [];
 
-        foreach( $categories as $category ) {
-            $roomsByCat[ $category['name'] ] = $roomModel->getRoomsByCat( $category['id'] );
-        }
+       foreach( $categories as $category ) {
+       $roomsByCat[ $category['name'] ] = $roomModel->getRoomsByCat( $category['id'] );
+       }
 
-        if( isset( $_GET['roomid'] ) && !empty( $_GET['roomid'] ) ) {
-            $messageModel = new Message();
-            $currentRoom = $roomModel->getRoomById( $_GET['roomid'] );
-            $messages = $messageModel->getRoomMessagesOrderByDateAsc( $_GET['roomid'] );
-        }
-        else {
-            $messages = [];
-        }
+       if( isset( $_GET['roomid'] ) && !empty( $_GET['roomid'] ) ) {
+       $messageModel = new Message();
+       $currentRoom = $roomModel->getRoomById( $_GET['roomid'] );
+       $messages = $messageModel->getRoomMessagesOrderByDateAsc( $_GET['roomid'] );
+       }
+       else {
+       $messages = [];
+       }
 
-        $this->render(
-            'chats',
-            'layout',
-                [   'categories'    => $categories,
-                    'roomsByCat'    => $roomsByCat,
-                    'currentRoom'   => $currentRoom,
-                    'messages'      => $messages
-                ]
-        );
-    }
+       $this->render(
+       'chats',
+       'layout',
+       [   'categories'    => $categories,
+       'roomsByCat'    => $roomsByCat,
+       'currentRoom'   => $currentRoom,
+       'messages'      => $messages
+       ]
+       );
+       }
 
-    public function displayCategoryForm() {
-        $this->render( 'newCategory', 'layout' );
-    }
+       public function displayCategoryForm() {
+       $this->render( 'newCategory', 'layout' );
+       }
 
-    public function displayRoomForm() {
-        $categoriesModel = new Category();
-        $categories = $categoriesModel->getCategories();
-        $this->render(
-            'newRoom',
-            'layout',
-                [   'categories' => $categories
-            ]
-        );
-    }*/
+       public function displayRoomForm() {
+       $categoriesModel = new Category();
+       $categories = $categoriesModel->getCategories();
+       $this->render(
+       'newRoom',
+       'layout',
+       [   'categories' => $categories
+       ]
+       );
+       }*/
 }

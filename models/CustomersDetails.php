@@ -4,12 +4,12 @@ namespace Models;
 
 class CustomersDetails {
 
-    private $id;
-    private $country;
-    private $customerId;
-    private $adress;
-    private $cp;
-    private $city;
+    private ?int $id;
+    private ?int $country;
+    private ?int $customerId;
+    private ?string $adress;
+    private ?string $cp;
+    private ?string $city;
 
     public function getId(): ?int {
         return $this->id;
@@ -19,18 +19,16 @@ class CustomersDetails {
         $this->id = $id;
     }
 
-
     public function getCountry(): ?int {
-        return htmlspecialchars($this->country);
+        return is_null($this->country) ? null : htmlspecialchars($this->country);
     }
 
     public function setCountry(?int $country): void {
         $this->country = $country;
     }
 
-
     public function getCustomerId(): ?int {
-        return htmlspecialchars($this->customerId);
+        return is_null($this->customerId) ? null : htmlspecialchars($this->customerId);
     }
 
     public function setCustomerId(?int $customerId): void {
@@ -39,7 +37,7 @@ class CustomersDetails {
 
 
     public function getAdress(): ?string {
-        return htmlspecialchars($this->adress);
+        return is_null($this->adress) ? null : htmlspecialchars($this->adress, ENT_QUOTES);
     }
 
     public function setAdress(?string $adress): void {
@@ -48,7 +46,7 @@ class CustomersDetails {
 
 
     public function getCp(): ?string {
-        return htmlspecialchars($this->cp);
+        return is_null($this->cp) ? null : htmlspecialchars($this->cp);
     }
 
     public function setCp(?string $cp): void {

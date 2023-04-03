@@ -26,7 +26,7 @@ class Customers {
 
     // Getter and setteur : lastname
     public function getLastname(): ?string {
-        return htmlspecialchars($this->lastname);
+        return htmlspecialchars($this->lastname, ENT_QUOTES);
     }
 
     public function setLastname(?string $lastname): void {
@@ -35,7 +35,7 @@ class Customers {
 
     // Getter and setteur : firstname
     public function getFirstname(): ?string {
-        return htmlspecialchars($this->firstname);
+        return htmlspecialchars($this->firstname, ENT_QUOTES);
     }
 
     public function setFirstname(?string $firstname): void {
