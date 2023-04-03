@@ -762,4 +762,8 @@ a {
   text-decoration: none;
 }
 
+
+#errorName{
+  display: none;
+}
 /*# sourceMappingURL=style.css.map */

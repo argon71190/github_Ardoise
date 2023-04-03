@@ -1,7 +1,7 @@
 <main id="addOptions">
     <h1>Création d'option pour les articles</h1>
     
-    <form method='POST' id ="optionForm" action="index.php?route=submitFormAddOption" enctype="multipart/form-data">
+
         
         <?php require_once('views/bases/_errors.phtml'); ?>
         <?php require_once('views/bases/_valids.phtml'); ?>
@@ -18,6 +18,17 @@
                         required>
             </fieldset>        
             
+
+
+            <label  for         = "optionPrice">Prix de l'option :</label>
+            <input  type        = "number"
+                    id          = "optionPrice"
+                    name        = "optionPrice"
+
+                    step        = "0.01"
+                    value       = "<?php if(isset($newOption) && !empty($newOption)) { echo $newOption['price']; } ?>"
+                    required> €
+
             <fieldset>
                 <label  for         = "optionShortName">Nom court de l'option :</label>
                 <input  type        = "text"
@@ -28,6 +39,7 @@
                         required>
                 
             </fieldset>
+
             
             <fieldset>
                 <label  for         = "optionPrice">Prix de l'option :</label>
