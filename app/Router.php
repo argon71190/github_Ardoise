@@ -144,7 +144,6 @@ class Router {
                 case 'submitFormAddOption':
                     $controller = new OptionsController();
                     $controller->addOption();
-                    $controller->displayOptions();
                     break;
 
                 case 'addCategorie':

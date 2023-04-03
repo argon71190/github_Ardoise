@@ -9,11 +9,12 @@
     
     <section>
         <article>
+            <p id = "errorName">Le nom doit contenir entre 3 et 50 caractères</p>
             <label  for         = "optionName">Nom de l'option :</label>  
             <input  type        = "text"
                     id          = "optionName"
                     name        = "optionName"
-
+                    
                     value       = "<?php if(isset($newOption) && !empty($newOption)) { echo $newOption['name']; } ?>"
                     required>
         </article>        
@@ -31,7 +32,7 @@
         
         <article>
             <label  for         = "optionPrice">Prix de l'option :</label>
-            <input  type        = "text"
+            <input  type        = "number"
                     id          = "optionPrice"
                     name        = "optionPrice"
 
