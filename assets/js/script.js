@@ -1,5 +1,21 @@
 'use strict';
 
+if(document.querySelector('#creationCompte') != null){
+    const formulaire = document.querySelector('#creationCompte');
+    formulaire.addEventListener('submit', (e) => {
+	const mpasse1 = document.querySelector('#password');
+	const mpasse2 = document.querySelector('#config_password');
+	if(Object.is(mpasse1.value, mpasse2.value)){
+	    formulaire.submit();
+	} else {
+	    mpasse2.value = "";
+	    mpasse.setAttribute('class', 'invalid');
+	    e.preventDefault();
+	}
+    });
+    
+}
+
 if(document.querySelector(".ecransList") != null) {
     let ecran = document.querySelector(".ecransList");
     ecran.addEventListener('change', changeEcran);
@@ -25,8 +41,8 @@ if(document.querySelector(".ecransList") != null) {
                     let divImgStandBy = document.querySelector('.dispositionCommandes');
                     imgStandBy.style.src = "original.gif";
 
-                    console.log(divImgStandBy.offsetWidth);
-                    console.log(divImgStandBy.offsetHeight);
+                    //console.log(divImgStandBy.offsetWidth);
+                    //console.log(divImgStandBy.offsetHeight);
 
                     imgStandBy.style.left = divImgStandBy.offsetWidth/2 - 260 + "px";
                     imgStandBy.style.top = divImgStandBy.offsetHeight/2 - 170 + "px";

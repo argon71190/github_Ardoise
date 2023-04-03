@@ -13,7 +13,7 @@
             <table style="width:80%">
                 <tr>
                     <th>Nom</th>
-                    <th>Pénom</th>
+                    <th>Prénom</th>
                     <th>Email</th>
                     <th>Date de naissance</th>
                     <th style="width:60%">Adresse</th>
@@ -25,7 +25,7 @@
                         <td><?= htmlspecialchars($customer['lastname']) ?></td>
                         <td><?= htmlspecialchars($customer['firstname']) ?></td>
                         <td><?= htmlspecialchars($customer['email']) ?></td>
-                        <td><?= htmlspecialchars($customer['birthday']) ?></td>
+                        <td><?= implode('-', array_reverse(explode('-', htmlspecialchars($customer['birthday'])))) ?></td>
                         <?php if( $customer['adress'] !== null ) : ?>
                             <td><?= htmlspecialchars($customer['adress'] . ' '. $customer['cp'] . ' ' . $customer['city'] . ' [' . $customer['pays'] . ']') ?></td>
                         <?php else : ?>
