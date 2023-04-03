@@ -1,36 +1,25 @@
+<main id="addOptions">
+    <h1>Création d'option pour les articles</h1>
+    
 
-<h6>Création d'option pour les articles</h6>
-
-<form method='POST' id ="optionForm" action="index.php?route=submitFormAddOption" enctype="multipart/form-data">
-    
-    <?php require_once('views/bases/_errors.phtml'); ?>
-    <?php require_once('views/bases/_valids.phtml'); ?>
-    
-    
-    <section>
-        <article>
-            <p id = "errorName">Le nom doit contenir entre 3 et 50 caractères</p>
-            <label  for         = "optionName">Nom de l'option :</label>  
-            <input  type        = "text"
-                    id          = "optionName"
-                    name        = "optionName"
-                    
-                    value       = "<?php if(isset($newOption) && !empty($newOption)) { echo $newOption['name']; } ?>"
-                    required>
-        </article>        
         
-        <article>
-            <label  for         = "optionShortName">Nom court de l'option :</label>
-            <input  type        = "text"
-                    id          = "optionShortName"
-                    name        = "optionShortName"
-
-                    value       = "<?php if(isset($newOption) && !empty($newOption)) { echo $newOption['shortName']; } ?>"
-                    required>
+        <?php require_once('views/bases/_errors.phtml'); ?>
+        <?php require_once('views/bases/_valids.phtml'); ?>
+        
+        
+        <section>
+            <fieldset>
+                <label  for         = "optionName">Nom de l'option :</label>  
+                <input  type        = "text"
+                        id          = "optionName"
+                        name        = "optionName"
+    
+                        value       = "<?php if(isset($newOption) && !empty($newOption)) { echo $newOption['name']; } ?>"
+                        required>
+            </fieldset>        
             
-        </article>
-        
-        <article>
+
+
             <label  for         = "optionPrice">Prix de l'option :</label>
             <input  type        = "number"
                     id          = "optionPrice"
@@ -39,39 +28,65 @@
                     step        = "0.01"
                     value       = "<?php if(isset($newOption) && !empty($newOption)) { echo $newOption['price']; } ?>"
                     required> €
+
+            <fieldset>
+                <label  for         = "optionShortName">Nom court de l'option :</label>
+                <input  type        = "text"
+                        id          = "optionShortName"
+                        name        = "optionShortName"
+    
+                        value       = "<?php if(isset($newOption) && !empty($newOption)) { echo $newOption['shortName']; } ?>"
+                        required>
+                
+            </fieldset>
+
             
-        </article>
-        
-        <article>
-            <label  for         = "userfileOption">Image pour l'option: </label>
-            <input  type        = "file"
-                    accept      = "image/*"
-                    name        = "userfileOption"
-                    id          = "userfileOption"
-                    onchange    = "handleFiles(files)">
-            <small  class       = "form-text text-muted">Sélectionnez une image : Formats ['jpg', 'jpeg', 'gif', 'png'].</small>
-            <small  class       = "form-text text-muted">Dimensions de l'image : [220px * 240px].</small>
-        </article>
-        
-        
-        <article>
-            <label  for         = "categorieCondiment">Catégorie de l'option :</label>
-            <select name        = "categorieCondiment"
-                    class       = "categorieCondiment"
-                    id          = "categorieCondiment">
-                <option value="?">?</option>
-            <?php foreach($categories as $categorie){ ?>
-                <option value="<?= htmlspecialchars($categorie['id'])?>"><?=$categorie['name']?></option>
-            <?php }?>
-        </article>
+            <fieldset>
+                <label  for         = "optionPrice">Prix de l'option :</label>
+                <input  type        = "text"
+                        id          = "optionPrice"
+                        name        = "optionPrice"
+    
+                        step        = "0.01"
+                        value       = "<?php if(isset($newOption) && !empty($newOption)) { echo $newOption['price']; } ?>"
+                        required>
+                
+            </fieldset>
+            
+            <fieldset>
+                <label  for         = "userfileOption">Image pour l'option: </label>
+                <input  type        = "file"
+                        accept      = "image/*"
+                        name        = "userfileOption"
+                        id          = "userfileOption"
+                        onchange    = "handleFiles(files)">
+                <small  class       = "form-text text-muted">Sélectionnez une image : Formats ['jpg', 'jpeg', 'gif', 'png'].</small>
+                <small  class       = "form-text text-muted">Dimensions de l'image : [220px * 240px].</small>
+            </fieldset>
+            
+            <fieldset>
+                <label  for         = "categorieCondiment">Catégorie de l'option :</label>
+                <select name        = "categorieCondiment"
+                        class       = "categorieCondiment"
+                        id          = "categorieCondiment">
+                    <option value="?">?</option>
+                    <?php foreach($categories as $categorie){ ?>
+                    <option value="<?= htmlspecialchars($categorie['id'])?>"><?=$categorie['name']?></option>
+                    <?php }?>
+                 </select>
+            </fieldset>
+    
+        </section>
 
-</br>
-        <input      type    = "submit"
-                    name    = "submit"
-                    value   = "Soumettre"
-                    class   = "btn colorGreen">
+        <fieldset>
+            <input      type    = "submit"
+                        name    = "submit"
+                        value   = "Soumettre"
+                        class   = "btn colorGreen">
+        </fieldset>    
 
-        
-    </section>
-</form>
+
+    </form>
+
 <script type="text/javascript" src="assets/js/form.js"></script>
+</main>
