@@ -10,6 +10,7 @@ use \Controllers\ArticlesController;
 use \Controllers\BasketController;
 use \Controllers\OptionsController;
 use \Controllers\TvaController;
+use \Controllers\PaymentMethodController;
 
 class Router {
 
@@ -158,6 +159,22 @@ class Router {
                 case 'addTva':
                     $controller = new TvaController();
                     $controller->addOneTva();
+                break;
+
+                case 'activationTva':
+                    $controller = new TvaController();
+                    $controller->activationTva();
+                break;
+
+                // GESTION DES PAIEMENT
+                case 'addPaymentMethod':
+                    $controller = new PaymentMethodController();
+                    $controller->addOnePaymentMethod();
+                break;
+
+                case 'activationPM':
+                    $controller = new PaymentMethodController();
+                    $controller->activationPaymentMethod();
                 break;
 
                 default:
