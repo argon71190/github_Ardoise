@@ -1,0 +1,106 @@
+#gestionTVA{
+    padding: 2vh 2vw;
+    > section:nth-of-type(2){
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 70fr 30fr;
+        margin-bottom: 10vh;
+        > section:nth-of-type(1){
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            border-radius: 5%;
+            > article{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                border-radius: 5%;
+                margin: 1rem;
+                padding: 10px;
+                width: 240px;
+                box-shadow: -10px -10px 15px rgba(255,255,255,0.5),
+                10px 10px 15px rgba(70,70,70,0.12);
+                &:hover{
+                    box-shadow: inset -10px -10px 15px rgba(255, 255, 255, 0.5),
+                    inset 10px 10px 15px rgba(70, 70, 70, 0.12);
+                }
+                > p:first-of-type{
+                    font-size: 3rem;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        > div{
+            box-shadow: -10px -10px 15px rgba(255,255,255,0.5),
+            10px 10px 15px rgba(70,70,70,0.12);
+            padding: 10px;
+            margin: 1rem;
+
+            > section{
+                > form{
+                    > h2{
+                        text-align: center;
+                        font-size: 1.4rem;
+                        font-weight: bold;
+                        margin: 10px 0 30px 0;
+                    }
+                    > legend{
+                        font-size: 1.2rem;
+                        margin-bottom: 4vh;
+                        text-align: center;
+                        display: none;
+                    }
+                    > fieldset{
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        margin-bottom: 20px;
+                        > label{
+                            font-size: 1.2rem;
+                            margin-bottom: 10px;
+                            margin-left: 10px;
+                        }
+                        > input{
+                            width: 100%;
+                            border: none;
+                            background-color: white;
+                            box-shadow: -10px -10px 15px rgba(255,255,255,0.5),
+                            10px 10px 15px rgba(70,70,70,0.12);
+                            font-size: 1.2rem;
+                            border-radius: 10px;
+                            padding-left: 10px;
+                        }
+                        > small{
+                            font-size: 0.8rem;
+                            margin-top: 5px;
+                            margin-left: 10px;
+                        }
+                        &:last-of-type{
+                            > input{
+                            width: 40%;
+                            margin: auto;
+                            background-color: $green;
+                            }
+                        }
+                    }
+                }
+                > section{
+                    > div{
+                        > div{
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            margin: 20px;
+                            > img{
+                                margin: auto;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
