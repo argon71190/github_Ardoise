@@ -20,9 +20,9 @@ class TvaManager extends Database
         return $this->getAll("SELECT id FROM tva ORDER BY id ASC");
     }
 
-    public function selectOne($id) {
-        $sql = 'SELECT * FROM tva WHERE id = ?';
-        return $this->getOne($sql, [$id]);
+    public function selectOne($tvaName) {
+        $sql = 'SELECT * FROM tva WHERE name = ?';
+        return $this->getOne($sql, [$tvaName]);
     }
 
     // *** AJOUTER UNE TVA
@@ -34,7 +34,17 @@ class TvaManager extends Database
             'value' => $Tva->getValue()
         ];
 
-        $this->addOne('Tva', $datas);
+        $this->addOne('tva', $datas);
+    }
+
+    // *** MODIFICATION DE L'ETAT DE LA CATEGORIE
+    public function update(Tva $tva): void{
+
+        $newData = [
+            'activate'  => $tva->getActivate()
+        ];
+
+        $this->updateOne('tva', $newData, 'id', $tva->getId());
     }
 
 

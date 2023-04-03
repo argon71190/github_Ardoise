@@ -14,6 +14,9 @@ class ValidMessages {
             /*   4 */ "Il apparaîtra dans la liste des articles selon son état d'activation !",
             /*   5 */ "La nouvelle catégorie a bien été créé !",
             /*   6 */ "La catégorie a bien été supprimée !",
+
+            /*   7 */ "La nouvelle catégorie a bien été créé !",
+
         ];
 
         return $messagesValids;
