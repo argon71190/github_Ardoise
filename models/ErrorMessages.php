@@ -56,7 +56,14 @@ class errorMessages {
             /*  46 */ "Tous ces articles doivent être affectés dans une autre catégorie pour pouvoir supprimer cette catégorie !",
             /*  47 */ "Un problème est survenu lors de la suppression !",
             /*  48 */ "Veuillez charger une image SVP !",
-
+            
+            // Messages rajoutés pour les options
+            /*  49 */ "Le nom de l'option doit comporter entre 3 et 50 caractères !",
+            /*  50 */ "Le nom court de l'option doit comporter entre 1 et 10 caractères !",
+            /*  51 */ "Le prix de l'option, exprimé en €, doit être un nombre entier ou avec 2 décimales maximum !",
+            /*  52 */ "Veuillez sélectionner une catégorie pour l'option !",
+            /*  53 */ "La catégorie de l'option n'existe pas, veuillez sélectionner une catégorie dans la liste proposée !",
+            /*  54 */ "Le prix de l'option doit être compris entre 1 centime et 100 € !",
         ];
 
         return $messagesErrors;

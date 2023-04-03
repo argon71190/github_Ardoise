@@ -7,7 +7,7 @@ abstract class Database {
     private static $_dbConnect;
 
     private static function setDb() {
-        self::$_dbConnect = new \PDO( 'mysql:host=db.3wa.io;dbname=argon71hotmailfr_ardoise;charset=utf8', 'argon71hotmailfr', '1b6d9c41e962f51b032b2fbc3a06cba1');
+        self::$_dbConnect = new \PDO( 'mysql:host=db.3wa.io;dbname=raphaelrogues_ardoise;charset=utf8', 'raphaelrogues', '46830806a1989ee6ff40cd116db6ac8a');
         self::$_dbConnect->setAttribute( \PDO::ATTR_ERRMODE, \PDO::ERRMODE_WARNING );
     }
 

@@ -5,7 +5,7 @@ namespace Controllers;
 use \App\Router;
 use \Models\ArticlesManager;
 use \Models\ResultsManager;
-use \Models\errorMessages;
+use \Models\ErrorMessages;
 use \Models\ValidMessages;
 use \Models\CategoriesManager;
 use \Models\Categories;
@@ -225,7 +225,7 @@ class CategoriesController extends Router
         }
 
         // Récupération de la liste des messages d'erreur
-        $errorsList = new errorMessages();
+        $errorsList = new ErrorMessages();
         $messagesErrors = $errorsList->getMessages();
 
         if(!$catExist)

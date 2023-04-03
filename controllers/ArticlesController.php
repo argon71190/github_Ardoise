@@ -9,7 +9,7 @@ use \Models\Articles;
 use \Models\ResultsManager;
 use \Models\TvaManager;
 use \Models\Screens;
-use \Models\errorMessages;
+use \Models\ErrorMessages;
 use \Models\ValidMessages;
 use \Models\CodeBarre;
 use \Models\Uploads;
@@ -219,6 +219,7 @@ class ArticlesController extends Router {
                 if(strlen($newArticle['codeBarre']) != 13) {
                     $errors[] = $messagesErrors[36];
                 } else {
+                    //Si le code barre ne contient pas que des chiffres, alors on affiche le message d'erreur
                     if(preg_match("/[^0-9]/", $newArticle['codeBarre']))
                         $errors[] = $messagesErrors[37];
                 }
