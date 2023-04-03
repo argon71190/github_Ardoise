@@ -131,8 +131,12 @@ class Router {
 
                 case 'addOption':
                     $controller = new OptionsController();
-                    $controller->displayOptions();
+                    $controller->displayFormAddOptions();
                 break;
+                
+                case 'submitFormAddOption':
+                    $controller = new OptionsController();
+                    $controller->addOption();
 
                 case 'addCategorie':
                     $controller = new CategoriesController();
