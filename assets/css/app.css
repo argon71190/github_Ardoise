@@ -409,22 +409,22 @@ i {
 /** HEADER ***********************/
 /*********************************/
 
-#main_header {
+#header {
     background-color: #cb3934;
 }
 
-#main_header nav {
+#header nav {
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
-#main_header .logo {
+#header .logo {
     margin: 0 40px 0 32px;
     color: rgba(250, 250, 250, 1);
 }
 
-#main_header ul {
+#header ul {
     padding: 0;
     list-style-type: none;
     display: flex;
@@ -432,15 +432,15 @@ i {
     align-items: center;
 }
 
-#main_header ul li {
+#header ul li {
     margin: 0 8px;
 }
 
-#main_header ul li a {
+#header ul li a {
     color: rgba(250, 250, 250, .6);
 }
 
-#main_header ul li a:hover {
+#header ul li a:hover {
     color: rgba(250, 250, 250, 1);
 }
 
