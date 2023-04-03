@@ -95,20 +95,28 @@ class CustomersController extends Router
             ]
         ];
 
-var_dump($tab1);
+// var_dump($tab1);
 
 $idAnn = 0;
 
 foreach($tab1 as $elem) {
 
     if($elem['id_ann'] == $idAnn) {
-        if($elem['message'] == null)    var_dump("----> DESOLE, aucune proposition pour cette annonce pour le moment !");
-        else                            var_dump("----> VOUS AVEZ RECU UNE PROPOSITION en date du " . $elem['day_date'] . " : Par " . $elem["firstname"] . " " . $elem["lastname"] . " : " . $elem['message']);
+        if($elem['message'] == null){
+            // var_dump("----> DESOLE, aucune proposition pour cette annonce pour le moment !");
+        }
+        else{
+            // var_dump("----> VOUS AVEZ RECU UNE PROPOSITION en date du " . $elem['day_date'] . " : Par " . $elem["firstname"] . " " . $elem["lastname"] . " : " . $elem['message']);
+        }
     } else {
-        var_dump("ANNONCE N°" . $elem['id_ann'] . " : ".$elem['contents']. " (".$elem['price'] . "€) publiée le " . $elem['today_date']);
-        var_dump(" *** SERVICE PREVU POUR LE : " . $elem['service_date'] . " ***");
-        if($elem['message'] == null)    var_dump("----> DESOLE, aucune proposition pour cette annonce pour le moment !");
-        else                            var_dump("----> VOUS AVEZ RECU UNE PROPOSITION en date du " . $elem['day_date'] . " : Par " . $elem["firstname"] . " " . $elem["lastname"] . " : " . $elem['message']);
+        // var_dump("ANNONCE N°" . $elem['id_ann'] . " : ".$elem['contents']. " (".$elem['price'] . "€) publiée le " . $elem['today_date']);
+        // var_dump(" *** SERVICE PREVU POUR LE : " . $elem['service_date'] . " ***");
+        if($elem['message'] == null){
+            // var_dump("----> DESOLE, aucune proposition pour cette annonce pour le moment !");
+        }
+        else{
+            // var_dump("----> VOUS AVEZ RECU UNE PROPOSITION en date du " . $elem['day_date'] . " : Par " . $elem["firstname"] . " " . $elem["lastname"] . " : " . $elem['message']);
+        }
     }
     $idAnn = $elem['id_ann'];
 }
