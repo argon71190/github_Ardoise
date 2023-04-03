@@ -2,11 +2,10 @@
 
 namespace Models;
 
-class Tva {
+class PaymentMethod {
 
     private $id;
     private $name;
-    private $value;
     private $activate;
     
 
@@ -26,15 +25,6 @@ class Tva {
 
     public function setName(?string $name): void {
         $this->name = $name;
-    }
-
-    // Getter and setteur : value
-    public function getValue(): ?string {
-        return htmlspecialchars($this->value);
-    }
-
-    public function setValue(?string $value): void {
-        $this->value = $value;
     }
 
     public function getActivate(): ?int {

@@ -1,0 +1,45 @@
+.btn{
+    // width: 20vw;
+    margin: 10px auto;
+    text-align: center;
+    border: none;
+    padding: 8px 16px;
+    background-color: $white;
+    opacity: 1;
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid $blue;
+    color: $navy;
+    border-radius: 0.575rem;
+    &:hover{
+        background-color: $white;
+        opacity: 1;
+        color: $red;
+    }
+    &.colorRed{
+        color: $white;
+        background-color: $red;
+        border: 1px solid $red;
+        &:hover{
+            background-color: $white;
+            color: $red;
+        }
+    }
+    &.colorGreen{
+        color: $white;
+        background-color: $green;
+        border: 1px solid $green;
+        &.colorGreen:hover{
+            background-color: $white;
+            color: $green;
+        }
+    }
+    &.colorYellow{
+        color: $white;
+        background-color: $yellow;
+        border: 1px solid $yellow;
+        &.colorYellow:hover{
+            background-color: $white;
+            color: $yellow;
+        }
+    }
+}

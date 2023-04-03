@@ -122,7 +122,7 @@ class ArticlesController extends Router {
             ];
 
             // Récupération de la liste des messages d'erreur
-            $errorsList = new errorMessages();
+            $errorsList = new ErrorMessages();
             $messagesErrors = $errorsList->getMessages();
 
             // Vérification si le formulaire provient bien de notre site

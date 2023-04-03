@@ -13,7 +13,7 @@ class CustomersManager extends Database {
                     roles.name AS `role`
                 FROM `customers`
                 LEFT JOIN customersDetails
-                    ON customers.id = customersDetails.id
+                    ON customers.id = customersDetails.customers_id
                 LEFT JOIN country
                     ON country.id   = customersDetails.country_id
                 INNER JOIN valids
@@ -40,8 +40,8 @@ class CustomersManager extends Database {
                 INNER JOIN valids
                     ON valids.id    = customers.valids_id
                 LEFT JOIN customersDetails
-                    ON customers.id = customersDetails.id
-                INNER JOIN country
+                    ON customers.id = customersDetails.customers_id
+                LEFT JOIN country
                     ON country.id   = customersDetails.country_id
                 WHERE customers.'.$column.' = ?';
         return $this->getOne($sql, [$value]);

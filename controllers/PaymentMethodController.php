@@ -11,24 +11,26 @@ use \Models\CategoriesManager;
 use \Models\Categories;
 use \Models\Tva;
 use \Models\TvaManager;
+use \Models\PaymentMethod;
+use \Models\PaymentMethodManager;
 
-class TvaController extends Router
+class PaymentMethodController extends Router
 {
-    public function addOneTva() {
+    public function addOnePaymentMethod() {
 
         $errors = [];
         $valids = [];
-        $addTva = ['name' => '', 'value' => ''];
+        $paymentMethod = ['name' => ''];
 
         if(isset($_POST) && empty($_POST)){
-            $model  = new TvaManager();
-            $tva    = $model->getAllTva();
+            $model            = new PaymentMethodManager();
+            $paymentMethod    = $model->getAllPaymentMethod();
 
-            for($i=0; $i < count($tva); $i++) {
+            for($i=0; $i < count($paymentMethod); $i++) {
                 $model = new ResultsManager();
                 $_SESSION['tokenGestionTva'][$i] = [
                     'token' => $model->genererChaineAleatoire(20),
-                    'id'    => $tva[$i]['id']
+                    'id'    => $paymentMethod[$i]['id']
                 ];
             }
 
@@ -37,18 +39,17 @@ class TvaController extends Router
             $_SESSION['tokenVerify'] = $token;
 
             $this->render(
-                'gestionTVA',
+                'gestionPaymentMethod',
                 'layout',
                 [
-                    'tva'   => $tva,
-                    'token' => $token
+                    'paymentMethod' => $paymentMethod,
+                    'token'         => $token
                 ]
             );
         }
         else{
-            $addTva = [ 'name' => trim($_POST['value'])."%",
-                        'value' => trim($_POST['value'])
-                        ];
+            $addPM = [ 'name' => trim(strtoupper($_POST['name']))];
+
             // Récupération de la liste des messages d'erreur
             $errorsList = new ErrorMessages();
             $messagesErrors = $errorsList->getMessages();
@@ -58,47 +59,45 @@ class TvaController extends Router
                 $errors[] = $messagesErrors[0];
             }
 
-            // Vérification du champ Value de la TVA
-            if(strlen($addTva['value']) < 1 || strlen($addTva['value']) > 4){
-                $errors[] = $messagesErrors[50];
+            // Vérification du champ Name du moyen de paiement
+            if(strlen($addPM['name']) < 2 || strlen($addPM['name']) > 20){
+                $errors[] = $messagesErrors[53];
             }
 
             // Vérifier si la catégorie n'existe pas déjà dans la bdd pour éviter les doublons
-            $model = new TvaManager();
-            $verifExistTva = $model->selectOne($addTva['name']);
-            if(!empty($verifExistTva)){
+            $model = new PaymentMethodManager();
+            $verifExistPM = $model->selectOne($addPM['name']);
+            if(!empty($verifExistPM)){
                 $errors[] = $messagesErrors[51];
             }
 
             if(count($errors) == 0) {
                 // Aucune erreur, on peut maintenant ajouter la nouvelle catégorie dans la bdd
-                $name         = $addTva['name'];
-                $value         = $addTva['value'];
+                $name         = $addPM['name'];
 
-                $addTva = new Tva();
-                $addTva->setName($name);
-                $addTva->setValue($value);
+                $addPM = new PaymentMethod();
+                $addPM->setName($name);
 
                 // Récupération de la liste des messages de validation
                 $validsList = new ValidMessages();
                 $messagesValids = $validsList->getMessages();
 
                 // Insertion dans la bdd
-                $manager = new TvaManager();
-                $manager->insert($addTva);
+                $manager = new PaymentMethodManager();
+                $manager->insert($addPM);
 
                 // Ajout d'un message de validation
                 $valids[] = $messagesValids[7];
 
-                $model      = new TvaManager();
-                $tva = $model->getAllTva();
+                $model      = new PaymentMethodManager();
+                $PM = $model->getAllPaymentMethod();
 
                 // Régénération des tokens pour chaque formulaire de suppression de la catégorie
-                for($i=0; $i < count($tva); $i++) {
+                for($i=0; $i < count($PM); $i++) {
                     $model = new ResultsManager();
                     $_SESSION['tokenGestionTva'][$i] = [
                         'token' => $model->genererChaineAleatoire(20),
-                        'id'    => $tva[$i]['id']
+                        'id'    => $PM[$i]['id']
                     ];
                 }
 
@@ -107,26 +106,26 @@ class TvaController extends Router
                 $_SESSION['tokenVerify'] = $token;
 
                 $this->render(
-                    'gestionTVA',
+                    'gestionPaymentMethod',
                     'layout',
                     [
-                        'addTva'    => $addTva,
-                        'token'     => $token,
-                        'valids'    => $valids,
-                        'tva'       => $tva
+                        'addPaymentMethod'  => $addPM,
+                        'token'             => $token,
+                        'valids'            => $valids,
+                        'paymentMethod'     => $PM
                     ]
                 );
             }
             else{
-                $model      = new TvaManager();
-                $tva = $model->getAllTva();
+                $model      = new PaymentMethodManager();
+                $PM = $model->getAllPaymentMethod();
 
                 // Régénération des tokens pour chaque formulaire de suppression de la catégorie
-                for($i=0; $i < count($tva); $i++) {
+                for($i=0; $i < count($PM); $i++) {
                     $model = new ResultsManager();
                     $_SESSION['tokenGestionTva'][$i] = [
                         'token' => $model->genererChaineAleatoire(20),
-                        'id'    => $tva[$i]['id']
+                        'id'    => $PM[$i]['id']
                     ];
                 }
 
@@ -135,73 +134,73 @@ class TvaController extends Router
                 $_SESSION['tokenVerify'] = $token;
 
                 $this->render(
-                    'gestionTVA',
+                    'gestionPaymentMethod',
                     'layout',
                     [
-                        'addTva'    => $addTva,
-                        'token'     => $token,
-                        'errors'    => $errors,
-                        'tva'       => $tva
+                        'addPaymentMethod'  => $addPM,
+                        'token'             => $token,
+                        'errors'            => $errors,
+                        'paymentMethod'     => $PM
                     ]
                 );
             }
         }
     }
 
-    public function activationTva() {
+    public function activationPaymentMethod() {
         $errors = [];
 
-        $model      = new TvaManager();
-        $allTva = $model->getAllTva();
-        $tvaInDb;
-        foreach($allTva as $tva) {
-            if($tva['id'] == $_GET['id'])
-                $tvaInDb = $tva;
+        $model      = new PaymentMethodManager();
+        $allPM = $model->getAllPaymentMethod();
+        $PMInDb;
+        foreach($allPM as $PM) {
+            if($PM['id'] == $_GET['id'])
+                $PMInDb = $PM;
         }
 
         // Récupération de la liste des messages d'erreur
         $errorsList = new errorMessages();
         $messagesErrors = $errorsList->getMessages();
 
-        if(!$tvaInDb)
-                $errors[] = $messagesErrors[52];
+        if(!$PMInDb)
+                $errors[] = $messagesErrors[54];
 
         if(count($errors) == 0) {
 
-            if($tvaInDb['activate'] == 0) $newRef = 1; else $newRef = 0;
+            if($PMInDb['activate'] == 0) $newRef = 1; else $newRef = 0;
 
-            $activateTva = new Tva();
-            $activateTva->setId($tvaInDb['id']);
-            $activateTva->setActivate($newRef);
+            $activatePM = new Tva();
+            $activatePM->setId($PMInDb['id']);
+            $activatePM->setActivate($newRef);
 
             // Modification de l'état de la catégorie
-            $manager = new TvaManager();
-            $manager->update($activateTva);
+            $manager = new PaymentMethodManager();
+            $manager->update($activatePM);
 
             $model = new ResultsManager();
             $token = $model->genererChaineAleatoire(20);
             $_SESSION['tokenVerify'] = $token;
 
-            $model      = new TvaManager();
-            $allTva = $model->getAllTva();
+            $model      = new PaymentMethodManager();
+            $allPM = $model->getAllPaymentMethod();
 
             // Régénération des tokens pour chaque formulaire de suppression de la TVA
-            for($i=0; $i < count($allTva); $i++) {
+            for($i=0; $i < count($allPM); $i++) {
                 $model = new ResultsManager();
                 $_SESSION['tokenGestionCategories'][$i] = [
                     'token' => $model->genererChaineAleatoire(20),
-                    'id'    => $allTva[$i]['id']
+                    'id'    => $allPM[$i]['id']
                 ];
             }
 
-            $this->render(  'gestionTVA',
+            $this->render(  'gestionPaymentMethod',
                             'layout',
                             [
-                                'addTva'    => [],
-                                'token'     => $token,
-                                'tva'       => $allTva
+                                'addPaymentMethod'  => [],
+                                'token'             => $token,
+                                'paymentMethod'     => $allPM
                             ]);
         }
     }
-
+    
 }

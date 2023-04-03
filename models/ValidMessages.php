@@ -14,10 +14,12 @@ class ValidMessages {
             /*   4 */ "Il apparaîtra dans la liste des articles selon son état d'activation !",
             /*   5 */ "La nouvelle catégorie a bien été créé !",
             /*   6 */ "La catégorie a bien été supprimée !",
+        
+            /*   7 */ "La nouvelle catégorie a bien été créé !",
             
-            //Messages rajoutés pour les options
-            /*   7 */ "L'option a bien été créée !",
-            
+             //Messages rajoutés pour les options
+            /*   8 */ "L'option a bien été créée !",
+
         ];
 
         return $messagesValids;

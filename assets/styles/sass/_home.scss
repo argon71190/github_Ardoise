@@ -1,0 +1,14 @@
+#home{
+    padding: 2vh 2vw;
+    > section:nth-of-type(2){
+        margin: auto;
+        width: 70%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start ;
+        justify-content: center;
+        > a{
+            width: 20vw;
+        }
+    }
+}

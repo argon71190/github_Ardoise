@@ -51,26 +51,26 @@ class OptionsController extends Router
             
             // Vérification du champ "Nom de l'option"
             if(strlen($newOption['name']) < 3 || strlen($newOption['name']) > 50) {
-                $errors[] = $messagesErrors[49];
+                $errors[] = $messagesErrors[55];
             }
             
             // Vérification du champ "Nom court de l'option"
             if(strlen($newOption['shortName']) < 1 || strlen($newOption['shortName']) > 10) {
-                $errors[] = $messagesErrors[50];
+                $errors[] = $messagesErrors[56];
             }
             
             // Vérification du champ "Prix de l'option"
             if(!is_numeric($newOption['price'])){
-                $errors[] = $messagesErrors[51];
+                $errors[] = $messagesErrors[57];
             }
             
             if($newOption['price'] > 100 || $newOption['price'] <0.01 ){
-                $errors[] = $messagesErrors[54];
+                $errors[] = $messagesErrors[60];
             }
             //Vérification du champ "Catégorie de l'option"
             $categorieExist = false;
             if($newOption['categorie'] == "?") {
-                $errors[] = $messagesErrors[52];
+                $errors[] = $messagesErrors[58];
             } else {
                 // Récupération de la liste des catégories de la BDD
                 // Vérification si la catégorie sélectionnée est bien présente dans la BDD
@@ -81,7 +81,7 @@ class OptionsController extends Router
                         $categorieExist = true;
                 }
                 if(!$categorieExist){
-                    $errors[] = $messagesErrors[53];
+                    $errors[] = $messagesErrors[59];
                 }    
             }
             
@@ -128,7 +128,7 @@ class OptionsController extends Router
                 $messagesValids = $validsList->getMessages();
             
                 // Ajout d'un message de validation
-                $valids[] = $messagesValids[7];
+                $valids[] = $messagesValids[8];
                 
                 $this->render('addOptions', 'layout', [
                                 'newOption'    => [],

@@ -57,13 +57,24 @@ class errorMessages {
             /*  47 */ "Un problème est survenu lors de la suppression !",
             /*  48 */ "Veuillez charger une image SVP !",
             
-            // Messages rajoutés pour les options
-            /*  49 */ "Le nom de l'option doit comporter entre 3 et 50 caractères !",
-            /*  50 */ "Le nom court de l'option doit comporter entre 1 et 10 caractères !",
-            /*  51 */ "Le prix de l'option, exprimé en €, doit être un nombre entier ou avec 2 décimales maximum !",
-            /*  52 */ "Veuillez sélectionner une catégorie pour l'option !",
-            /*  53 */ "La catégorie de l'option n'existe pas, veuillez sélectionner une catégorie dans la liste proposée !",
-            /*  54 */ "Le prix de l'option doit être compris entre 1 centime et 100 € !",
+
+            
+            /*  49 */ "Le champ Nom de la TVA doit comprendre entre 2 et 40 caractères",
+            /*  50 */ "Le champ Taux de la TVA doit comprendre entre 1 et 5 caractères",
+            /*  51 */ "Ce taux existe déjà !",
+            /*  52 */ "Un problème est survenu lors de la modification de la tva !",
+            /*  53 */ "Le champ Moyen de paiement doit comprendre entre 2 et 20 caractères",
+            /*  51 */ "Ce moyen de paiement existe déjà !",
+            /*  54 */ "Un problème est survenu lors de la modification du moyen de paiement !",
+            
+                        // Messages rajoutés pour les options
+            /*  55 */ "Le nom de l'option doit comporter entre 3 et 50 caractères !",
+            /*  56 */ "Le nom court de l'option doit comporter entre 1 et 10 caractères !",
+            /*  57 */ "Le prix de l'option, exprimé en €, doit être un nombre entier ou avec 2 décimales maximum !",
+            /*  58 */ "Veuillez sélectionner une catégorie pour l'option !",
+            /*  59 */ "La catégorie de l'option n'existe pas, veuillez sélectionner une catégorie dans la liste proposée !",
+            /*  60 */ "Le prix de l'option doit être compris entre 1 centime et 100 € !",
+
         ];
 
         return $messagesErrors;

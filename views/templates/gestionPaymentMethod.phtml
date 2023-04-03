@@ -1,14 +1,14 @@
 <main id="gestionTVA">
     <section>
-        <h1>TVA</h1>
+        <h1>Moyens de paiement</h1>
     </section>
     
     <section class="container">
-        <?php if(empty($tva)) : ?>
-        <p>Aucune TVA enregistrée actuellement !</p>
+        <?php if(empty($paymentMethod)) : ?>
+        <p>Aucun moyen de paiement enregistré actuellement !</p>
         <?php else: ?>
         <section class="leftElement">
-            <?php foreach($tva as $element => $key) : ?>
+            <?php foreach($paymentMethod as $element => $key) : ?>
             <article class="dispositionCategories">
                 <p><?= htmlspecialchars($key['name']) ?></p>
                 <p><?php    if($key['activate']===1){
@@ -16,7 +16,7 @@
                             else{
                                 echo "Inactive";}?></p>
     
-                <form method="POST" action="index.php?route=activationTva&id=<?= $key['id'] ?>">
+                <form method="POST" action="index.php?route=activationPM&id=<?= $key['id'] ?>">
     
                     <input  type    = "hidden"
                             name    = "id"
@@ -51,21 +51,20 @@
     
         <div class="rightElement">
             <section>
-                <form method="POST" action="index.php?route=addTva" enctype="multipart/form-data">
+                <form method="POST" action="index.php?route=addPaymentMethod" enctype="multipart/form-data">
         
-                    <h2>Ajouter une TVA</h2>
+                    <h2>Ajouter un moyen de paiement</h2>
                     <legend>Merci de renseigner les information suivantes :</legend>
 
                     <fieldset>
-                        <label  for     = "value">Taux de la TVA</label>
-                        <input  type    = "number"
-                                step    = "0.1"
-                                id      = "value"
-                                name    = "value"
-                                min     = "0"
-                                max     = "100"
-                                placeholder   = "exemple : 2.4">
-                        <small> Valeur entre 0 et 100 avec maximum une décimale séparée par un point</small>
+                        <label  for         = "value">Moyen de paiment</label>
+                        <input  type        = "text"
+                                id          = "name"
+                                name        = "name"
+                                minlength   = "2"
+                                maxlength   = "20"
+                                placeholder   = "exemple : CHEQUE">
+                        <small> Ce champs peut contenir entre 2 et 20 caractères</small>
                     </fieldset>
     
                     <fieldset>
