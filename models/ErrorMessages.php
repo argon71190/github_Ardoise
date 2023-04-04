@@ -64,16 +64,16 @@ class errorMessages {
             /*  51 */ "Ce taux existe déjà !",
             /*  52 */ "Un problème est survenu lors de la modification de la tva !",
             /*  53 */ "Le champ Moyen de paiement doit comprendre entre 2 et 20 caractères",
-            /*  51 */ "Ce moyen de paiement existe déjà !",
-            /*  54 */ "Un problème est survenu lors de la modification du moyen de paiement !",
+            /*  54 */ "Ce moyen de paiement existe déjà !",
+            /*  55 */ "Un problème est survenu lors de la modification du moyen de paiement !",
             
                         // Messages rajoutés pour les options
-            /*  55 */ "Le nom de l'option doit comporter entre 3 et 50 caractères !",
-            /*  56 */ "Le nom court de l'option doit comporter entre 1 et 10 caractères !",
-            /*  57 */ "Le prix de l'option, exprimé en €, doit être un nombre entier ou avec 2 décimales maximum !",
-            /*  58 */ "Veuillez sélectionner une catégorie pour l'option !",
-            /*  59 */ "La catégorie de l'option n'existe pas, veuillez sélectionner une catégorie dans la liste proposée !",
-            /*  60 */ "Le prix de l'option doit être compris entre 1 centime et 100 € !",
+            /*  56 */ "Le nom de l'option doit comporter entre 3 et 50 caractères !",
+            /*  57 */ "Le nom court de l'option doit comporter entre 1 et 10 caractères !",
+            /*  58 */ "Le prix de l'option, exprimé en €, doit être un nombre entier ou avec 2 décimales maximum !",
+            /*  59 */ "Veuillez sélectionner une catégorie pour l'option !",
+            /*  60 */ "La catégorie de l'option n'existe pas, veuillez sélectionner une catégorie dans la liste proposée !",
+            /*  61 */ "Le prix de l'option doit être compris entre 1 centime et 100 € !",
 
         ];
 

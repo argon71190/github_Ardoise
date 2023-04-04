@@ -51,26 +51,26 @@ class OptionsController extends Router
             
             // Vérification du champ "Nom de l'option"
             if(strlen($newOption['name']) < 3 || strlen($newOption['name']) > 50) {
-                $errors[] = $messagesErrors[55];
+                $errors[] = $messagesErrors[56];
             }
             
             // Vérification du champ "Nom court de l'option"
             if(strlen($newOption['shortName']) < 1 || strlen($newOption['shortName']) > 10) {
-                $errors[] = $messagesErrors[56];
+                $errors[] = $messagesErrors[57];
             }
             
             // Vérification du champ "Prix de l'option"
             if(!is_numeric($newOption['price'])){
-                $errors[] = $messagesErrors[57];
+                $errors[] = $messagesErrors[58];
             }
             
             if($newOption['price'] > 100 || $newOption['price'] <0.01 ){
-                $errors[] = $messagesErrors[60];
+                $errors[] = $messagesErrors[61];
             }
             //Vérification du champ "Catégorie de l'option"
             $categorieExist = false;
             if($newOption['categorie'] == "?") {
-                $errors[] = $messagesErrors[58];
+                $errors[] = $messagesErrors[59];
             } else {
                 // Récupération de la liste des catégories de la BDD
                 // Vérification si la catégorie sélectionnée est bien présente dans la BDD
@@ -81,7 +81,7 @@ class OptionsController extends Router
                         $categorieExist = true;
                 }
                 if(!$categorieExist){
-                    $errors[] = $messagesErrors[59];
+                    $errors[] = $messagesErrors[60];
                 }    
             }
             
