@@ -4,7 +4,7 @@ namespace Models;
 
 class errorMessages {
 
-    public function getMessages() {
+    public function getMessages(): array {
         // Tableau des messages d'erreurs possibles à l'affichage.
         $messagesErrors = [
             /*   0 */ "Une erreur est survenue lors de l'envoi du formulaire !",
