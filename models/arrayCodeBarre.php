@@ -4,7 +4,7 @@ namespace Models;
 
 class arrayCodeBarre {
 
-    public function getArray() {
+    public function getArray(): array {
         // Tableaux des références pour la génération des codes barres
             $tab = array();	     $tab2 = array();     $tab3 = array();
             $tab[0]='212222';    $tab2[0]='£';        $tab3['£']=0;

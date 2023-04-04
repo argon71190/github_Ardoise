@@ -142,7 +142,7 @@ class CustomersController extends Router
         $this->render('customers', 'layout', ['customers' => $customers]);
     }
 
-    public function displayOneCustomer($id) {
+    public function displayOneCustomer($id): void {
         $model      = new CustomersManager();
         $find = $model->selectOne('id', $id);
 
@@ -176,7 +176,7 @@ class CustomersController extends Router
         ]);
     }
 
-    public function displayFormAddCustomers() {
+    public function displayFormAddCustomers():void {
 
         //$ifAdmin = new \Models\VerifAdminManager();
         //$ifAdmin->getVerifIfAdmin();
