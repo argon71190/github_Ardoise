@@ -6,51 +6,50 @@
         <?php require_once('views/bases/_errors.phtml'); ?>
         <?php require_once('views/bases/_valids.phtml'); ?>
         
-        
+    <form class="form" method="POST" action="index.php?route=submitFormAddOption" enctype="multipart/form-data">
         <section>
+            
             <fieldset>
+                
                 <label  for         = "optionName">Nom de l'option :</label>  
                 <input  type        = "text"
                         id          = "optionName"
+                        class       = "formName"
                         name        = "optionName"
     
                         value       = "<?php if(isset($newOption) && !empty($newOption)) { echo $newOption['name']; } ?>"
-                        required>
+                        >
+                <small class='errorName'>Le nom de l'option doit comporter entre 3 et 50 caractères !</small>        
             </fieldset>        
             
 
-
-            <label  for         = "optionPrice">Prix de l'option :</label>
-            <input  type        = "number"
-                    id          = "optionPrice"
-                    name        = "optionPrice"
-
-                    step        = "0.01"
-                    value       = "<?php if(isset($newOption) && !empty($newOption)) { echo $newOption['price']; } ?>"
-                    required> €
-
             <fieldset>
+                
                 <label  for         = "optionShortName">Nom court de l'option :</label>
                 <input  type        = "text"
                         id          = "optionShortName"
+                        class       = "formShortName"
                         name        = "optionShortName"
     
                         value       = "<?php if(isset($newOption) && !empty($newOption)) { echo $newOption['shortName']; } ?>"
-                        required>
-                
+                        >
+                <small class='errorShortName'>Le nom court de l'option doit comporter entre 1 et 10 caractères !</small>
             </fieldset>
 
             
             <fieldset>
+                
                 <label  for         = "optionPrice">Prix de l'option :</label>
-                <input  type        = "text"
+                <input  type        = "number"
                         id          = "optionPrice"
+                        class       = "formPrice"
                         name        = "optionPrice"
     
                         step        = "0.01"
                         value       = "<?php if(isset($newOption) && !empty($newOption)) { echo $newOption['price']; } ?>"
-                        required>
-                
+                        >
+                <small class='errorPrice1'>Le prix de l'option, exprimé en €, doit être un nombre entier ou avec 2 décimales maximum !</small>
+                <small class='errorPrice2'>Le prix de l'option doit être compris entre 0 et 100 € !</small>
             </fieldset>
             
             <fieldset>
@@ -65,21 +64,26 @@
             </fieldset>
             
             <fieldset>
+                
+                
                 <label  for         = "categorieCondiment">Catégorie de l'option :</label>
                 <select name        = "categorieCondiment"
-                        class       = "categorieCondiment"
+                        class       = "formCategorie"
                         id          = "categorieCondiment">
                     <option value="?">?</option>
                     <?php foreach($categories as $categorie){ ?>
                     <option value="<?= htmlspecialchars($categorie['id'])?>"><?=$categorie['name']?></option>
                     <?php }?>
                  </select>
+                 <small class='errorCategorie'>Veuillez sélectionner une catégorie pour l'option !</small>
             </fieldset>
     
         </section>
 
         <fieldset>
             <input      type    = "submit"
+                        id      = "optionSubmit"
+                        class   = "buttonSubmit"
                         name    = "submit"
                         value   = "Soumettre"
                         class   = "btn colorGreen">

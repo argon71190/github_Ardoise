@@ -763,7 +763,8 @@ a {
 }
 
 
-#errorName{
+.errorName, .errorShortName, .errorPrice1, .errorPrice2,
+.errorCategorie, #errorTva{
   display: none;
 }
 /*# sourceMappingURL=style.css.map */

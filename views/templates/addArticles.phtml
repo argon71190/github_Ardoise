@@ -3,7 +3,7 @@
                 <h1>Création d'un article</h1>
         </section>
         
-        <form method="POST" action="index.php?route=submitFormAddArticle" enctype="multipart/form-data">
+        <form class="form" method="POST" action="index.php?route=submitFormAddArticle" enctype="multipart/form-data">
         
                 <legend>Merci de renseigner les information suivantes :</legend>
         
@@ -13,25 +13,31 @@
                 <section>
                         
                         <fieldset>
+                                
                                 <label  for         = "longName">Nom de l'article :</label>
                                 <input  type        = "text"
                                         id          = "longName"
+                                        class       = "formName"
                                         name        = "longName"
                                         minlength   = "3"
                                         maxlength   = "50"
                                         value       = "<?php if(isset($newArticle) && !empty($newArticle)) { echo $newArticle['name']; } ?>"
-                                        required>
+                                        >
+                                <small class='errorName'>Le nom de l'article doit comporter entre 3 et 50 caractères !</small>
                         </fieldset>
 
                         <fieldset>
+                                
                                 <label  for         = "shortName">Nom court de l'article :</label>
                                 <input  type        = "text"
                                         id          = "shortName"
+                                        class       = "formShortName"
                                         name        = "shortName"
-                                        minlength   = "3"
-                                        maxlength   = "20"
+                                        minlength   = "1"
+                                        maxlength   = "10"
                                         value       = "<?php if(isset($newArticle) && !empty($newArticle)) { echo $newArticle['shortName']; } ?>"
-                                        required>
+                                        >
+                                <small class='errorShortName'>Le nom court de l'article doit comporter entre 1 et 10 caractères !</small>
                         </fieldset>
 
                         <fieldset>
@@ -52,21 +58,26 @@
                         </fieldset>
 
                         <fieldset>
+                                
                                 <label  for         = "price">Prix :</label>
                                 <input  type        = "number"
                                         id          = "price"
+                                        class       = "formPrice"
                                         name        = "price"
                                         min         = "0"
                                         max         = "100"
                                         step        = "0.01"
                                         value       = "<?php if(isset($newArticle) && !empty($newArticle)) { echo $newArticle['price']; } ?>"
-                                        required> €
+                                        > €
+                                <small class='errorPrice1'>Le prix de l'article, exprimé en €, doit être un nombre entier ou avec 2 décimales maximum !</small>
+                                <small class='errorPrice2'>Le prix de l'article doit être compris entre 0 et 100 € !</small>        
                         </fieldset>
 
                         <fieldset>
+                                
                                 <label  for         = "categorie">Catégorie de l'article :</label>
                                 <select name        = "categorie"
-                                        class       = "categorie"
+                                        class       = "formCategorie"
                                         id          = "categorie">
                                         <option value="?">?</option>
                                         <?php foreach($categories as $cat): ?>
@@ -77,6 +88,7 @@
                                                         ><?= htmlspecialchars($cat['name']) ?></option>
                                         <?php endforeach; ?>
                                 </select>
+                                <small class='errorCategorie'>Veuillez sélectionner une catégorie pour l'article !</small>
                         </fieldset>
                         
                         <fieldset>
@@ -93,9 +105,11 @@
                                                         ><?= htmlspecialchars($el['name']) ?></option>
                                         <?php endforeach; ?>
                                 </select>
+                                <small id='errorTva'>Veuillez sélectionner une TVA pour l'article !</small>
                         </fieldset>
                         
                         <fieldset>
+                                
                                 <label  for         = "emp_tva">TVA à emporter :</label>
                                 <select name        = "emp_tva"
                                         class       = "emp_tva"
@@ -109,6 +123,7 @@
                                                         ><?= htmlspecialchars($el['name']) ?></option>
                                         <?php endforeach; ?>
                                 </select>
+                                <small id='errorTva'>Veuillez sélectionner une TVA pour l'article !</small>
                         </fieldset>
                         
                         <fieldset>
@@ -159,9 +174,10 @@
                         <input  type    = "submit"
                                 name    = "submit"
                                 value   = "Soumettre"
-                                class   = "btn colorGreen">
+                                class   = "btn colorGreen buttonSubmit">
                 </fieldset>
 
         </form>
         <script src="assets/js/preview.js"></script>
+        <script src="assets/js/form.js"></script>
 </main>
