@@ -5,13 +5,13 @@ window.addEventListener('DOMContentLoaded', () => {
     let PMName = document.getElementById('PMName');
 
     //Erreurs
-    let tvaError = document.getElementById('tvaError');
+    let PMError = document.getElementById('PMError');
             console.log(PMName);
 
     addPMForm.addEventListener('submit', (event) => {
         
-        if(PMName.value < 0 || PMName.value > 100){
-            tvaError.style.display = 'block';
+        if(PMName.value.length < 2 || PMName.value.length > 20){
+            PMError.style.display = 'block';
             event.preventDefault();
         }
     });
