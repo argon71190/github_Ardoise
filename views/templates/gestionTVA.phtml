@@ -51,21 +51,21 @@
     
         <div class="rightElement">
             <section>
-                <form method="POST" action="index.php?route=addTva" enctype="multipart/form-data">
+                <form method="POST" action="index.php?route=addTva" id="addTvaForm" enctype="multipart/form-data">
         
                     <h2>Ajouter une TVA</h2>
                     <legend>Merci de renseigner les information suivantes :</legend>
 
                     <fieldset>
-                        <label  for     = "value">Taux de la TVA</label>
+                        <label  for     = "tvaValue">Taux de la TVA</label>
                         <input  type    = "number"
-                                step    = "0.1"
-                                id      = "value"
-                                name    = "value"
+                                id      = "tvaValue"
+                                name    = "tvaValue"
                                 min     = "0"
                                 max     = "100"
+                                step    = "0.1"
                                 placeholder   = "exemple : 2.4">
-                        <small> Valeur entre 0 et 100 avec maximum une décimale séparée par un point</small>
+                        <small id="tvaError">Veuillez entrer une valeur entre 0 et 100 avec maximum une décimale séparée par un point</small>
                     </fieldset>
     
                     <fieldset>
@@ -89,4 +89,5 @@
         </div>
     </section>
     <script src="assets/js/preview.js"></script>
+    <script src="assets/js/gestionTVA.js"></script>
 </main>

@@ -427,6 +427,8 @@ h1 {
   font-size: 0.8rem;
   margin-top: 5px;
   margin-left: 10px;
+  color: #E74C3C;
+  display: none;
 }
 #gestionTVA > section:nth-of-type(2) > div > section > form > fieldset:last-of-type > input {
   width: 40%;
@@ -762,8 +764,8 @@ a {
   text-decoration: none;
 }
 
-
-#errorName{
-  display: none;
+input:invalid {
+  border: 2px solid red;
 }
+
 /*# sourceMappingURL=style.css.map */

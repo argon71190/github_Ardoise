@@ -1,3 +1,6 @@
+<!--pattern     = "[A-Za-z' -]{2,20}"-->
+
+
 <main id="gestionTVA">
     <section>
         <h1>Moyens de paiement</h1>
@@ -51,7 +54,7 @@
     
         <div class="rightElement">
             <section>
-                <form method="POST" action="index.php?route=addPaymentMethod" enctype="multipart/form-data">
+                <form method="POST" action="index.php?route=addPaymentMethod" id="addPMForm" enctype="multipart/form-data">
         
                     <h2>Ajouter un moyen de paiement</h2>
                     <legend>Merci de renseigner les information suivantes :</legend>
@@ -59,12 +62,10 @@
                     <fieldset>
                         <label  for         = "value">Moyen de paiment</label>
                         <input  type        = "text"
-                                id          = "name"
+                                id          = "PMName"
                                 name        = "name"
-                                minlength   = "2"
-                                maxlength   = "20"
-                                placeholder   = "exemple : CHEQUE">
-                        <small> Ce champs peut contenir entre 2 et 20 caractères</small>
+                                placeholder = "exemple : CHEQUE">
+                        <small id="PMError"> Ce champs peut contenir entre 2 et 20 caractères</small>
                     </fieldset>
     
                     <fieldset>
@@ -88,4 +89,5 @@
         </div>
     </section>
     <script src="assets/js/preview.js"></script>
+    <script src="assets/js/gestionPM.js"></script>
 </main>
