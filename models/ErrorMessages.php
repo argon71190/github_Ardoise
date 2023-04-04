@@ -4,7 +4,7 @@ namespace Models;
 
 class errorMessages {
 
-    public function getMessages() {
+    public function getMessages(): array {
         // Tableau des messages d'erreurs possibles à l'affichage.
         $messagesErrors = [
             /*   0 */ "Une erreur est survenue lors de l'envoi du formulaire !",
@@ -60,7 +60,7 @@ class errorMessages {
 
             
             /*  49 */ "Le champ Nom de la TVA doit comprendre entre 2 et 40 caractères",
-            /*  50 */ "Le champ Taux de la TVA doit comprendre entre 1 et 5 caractères",
+            /*  50 */ "Le Taux de la TVA doit être compris entre 0 et 100",
             /*  51 */ "Ce taux existe déjà !",
             /*  52 */ "Un problème est survenu lors de la modification de la tva !",
             /*  53 */ "Le champ Moyen de paiement doit comprendre entre 2 et 20 caractères",

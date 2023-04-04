@@ -46,8 +46,8 @@ class TvaController extends Router
             );
         }
         else{
-            $addTva = [ 'name' => trim($_POST['value'])."%",
-                        'value' => trim($_POST['value'])
+            $addTva = [ 'name' => trim($_POST['tvaValue'])."%",
+                        'value' => trim($_POST['tvaValue'])
                         ];
             // Récupération de la liste des messages d'erreur
             $errorsList = new ErrorMessages();
