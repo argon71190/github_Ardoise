@@ -1,4 +1,4 @@
-<main id="gestionTVA">
+<main id="gestionTVAPM">
     <section>
         <h1>TVA</h1>
     </section>
@@ -10,17 +10,8 @@
         <section class="leftElement">
             <?php foreach($data["tva"] as $tva) : ?>
             <article class="dispositionCategories">
-                <?php if($tva['activate']==1){ ?>
-                    <p class="actif"><?= htmlspecialchars($tva['name']) ?></p>
-                    <p class="actif"><?php echo "Active"; ?>
-                    <?php }
-                    else{ ?>
-                    <p class="inactif"><?= htmlspecialchars($tva['name']) ?></p>
-                    <p class="inactif"><?php echo "Inactive"; ?>
-                    <?php } ?>
+                <p <?php if($tva['activate']==0){ ?>class="inactif"<?php } ?>><?= htmlspecialchars($tva['name']) ?></p>
 
-
-    
                 <form method="POST" action="index.php?route=activationTva&id=<?= $tva['id'] ?>">
     
                     <input  type    = "hidden"
