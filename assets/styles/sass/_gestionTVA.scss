@@ -1,4 +1,4 @@
-#gestionTVA{
+#gestionTVAPM{
     padding: 2vh 2vw;
     > section:nth-of-type(2){
         width: 90%;
@@ -30,6 +30,9 @@
                     font-size: 3rem;
                     font-weight: bold;
                     margin-bottom: 10px;
+                    &.inactif{
+                        opacity: 0.05;
+                    }
                 }
             }
         }

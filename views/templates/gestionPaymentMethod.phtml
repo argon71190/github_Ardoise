@@ -1,31 +1,28 @@
-<main id="gestionTVA">
+<main id="gestionTVAPM">
     <section>
         <h1>Moyens de paiement</h1>
     </section>
     
     <section class="container">
-        <?php if(empty($paymentMethod)) : ?>
+        <?php if(empty($data["paymentMethod"])) : ?>
         <p>Aucun moyen de paiement enregistré actuellement !</p>
         <?php else: ?>
         <section class="leftElement">
-            <?php foreach($paymentMethod as $element => $key) : ?>
+            <?php foreach($data["paymentMethod"] as $PM) : ?>
             <article class="dispositionCategories">
-                <p><?= htmlspecialchars($key['name']) ?></p>
-                <p><?php    if($key['activate']===1){
-                                echo "Active";}
-                            else{
-                                echo "Inactive";}?></p>
+
+                <p <?php if($PM['activate']==0){ ?>class="inactif"<?php } ?>><?= htmlspecialchars($PM['name']) ?></p>
     
-                <form method="POST" action="index.php?route=activationPM&id=<?= $key['id'] ?>">
+                <form method="POST" action="index.php?route=activationPM&id=<?= $PM['id'] ?>">
     
                     <input  type    = "hidden"
                             name    = "id"
-                            value   =  "<?= $key['id'] ?>" >
+                            value   =  "<?= $PM['id'] ?>" >
         
                     <input  type    = "hidden"
                             name    = "token"
                             value   =   <?php foreach($_SESSION['tokenGestionTva'] as $elem) : ?>
-                                            <?php if(intval($elem['id']) == $key['id']) : ?>
+                                            <?php if(intval($elem['id']) == $PM['id']) : ?>
                                                 <?= $elem['token'] ?>
                                             <?php endif; ?>
                                         <?php endforeach; ?>
@@ -33,7 +30,7 @@
         
                     <input  type    = "submit"
                             name    = "submit"
-                            <?php   if($key['activate']===1){
+                            <?php   if($PM['activate']==1){
                                         echo'   value   = "Désactiver"
                                                 class   = "btn colorYellow"
                                             ';}
