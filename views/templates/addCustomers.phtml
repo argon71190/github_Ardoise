@@ -18,6 +18,7 @@
                                 value   = "<?php if(isset($newCustomer) && !empty($newCustomer)) { echo $newCustomer['lastname']; } ?>"
                                 pattern = "[a-zA-ZàâäæáãåßçéèêëîïñôöœóõøüùÿÀÂÄÆÁÃÅÇÉÈÊËÎÏÑÔÖŒÓÕØÜÙŸ'\s.-]+"
                                 required>
+                        <small>Merci de rentrer votre nom !</small>
                 </fieldset>
 
                 <fieldset>
@@ -28,6 +29,7 @@
                                 value   = "<?php if(isset($newCustomer) && !empty($newCustomer)) { echo $newCustomer['firstname']; } ?>"
                                 pattern = "[a-zA-ZàâäæáãåßçéèêëîïñôöœóõøüùÿÀÂÄÆÁÃÅÇÉÈÊËÎÏÑÔÖŒÓÕØÜÙŸ'\s.-]+"
                                 required>
+                        <small>Merci de rentrer votre prénom !</small>
                 </fieldset>        
 
                 <fieldset>
@@ -36,6 +38,7 @@
                                 id      = "birthday"
                                 name    = "birthday"
                                 value   = "<?php if(isset($newCustomer) && !empty($newCustomer)) { echo $newCustomer['birthday']; } ?>">
+                        <small>Merci de rentrer votre date de naissance !</small>
                 </fieldset>
 
                 <fieldset>
@@ -46,6 +49,7 @@
                                 value   = "<?php if(isset($newCustomer) && !empty($newCustomer)) { echo $newCustomer['email']; } ?>"
                                 pattern = "[^@\s]+@[^@\s]+\.[^@\s]+"
                                 required>
+                        <small>Merci de rentrer votre email !</small>
                 </fieldset>
 
                 <fieldset>
@@ -58,16 +62,17 @@
                                         minlength   = "8"
                                         pattern="(?=.*\d)(?=.*[!@#$%^&*;:{}])(?=.*[a-z])(?=.*[A-Z]).{8,64}"
                                         required>
-                        <small>Contenant 8 caractères minimum avec 1 majuscule, 1 minuscule, 1 chiffre et un caractère spécial !</small>
+                        <small>Merci de rentrer votre mot de passe qui doit contenir 8 caractères minimum avec 1 majuscule, 1 minuscule, 1 chiffre et un caractère spécial !</small>
                 </fieldset>
 
                 <fieldset>
-                <label  for     = "confirm_password">Confirmez le mot de passe</label>
-                <input  type    = "password"
-                        id      = "confirm_password"
-                        name    = "confirm_password"
-                                pattern = "(?=.*\d)(?=.*[!@#$%^&*;:])(?=.*[a-z])(?=.*[A-Z]).{8,64}"
-                                required>
+                        <label  for     = "confirm_password">Confirmez le mot de passe</label>
+                        <input  type    = "password"
+                                id      = "confirm_password"
+                                name    = "confirm_password"
+                                        pattern = "(?=.*\d)(?=.*[!@#$%^&*;:])(?=.*[a-z])(?=.*[A-Z]).{8,64}"
+                                        required>
+                        <small>Merci de rentrer un second mot de passe identique au premier !</small>
                 </fieldset>
 
                 <fieldset>
