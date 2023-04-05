@@ -8,7 +8,7 @@ abstract class Database {
 
     private static function setDb() {
 
-
+        // salut
 
         self::$_dbConnect = new \PDO( 'mysql:host=db.3wa.io;dbname=vincentollivier_ardoise;charset=utf8', 'vincentollivier', '98f74e8350a6f9da22f312f5162d2994');
 
