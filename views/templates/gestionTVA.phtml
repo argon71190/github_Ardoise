@@ -4,14 +4,14 @@
     </section>
     
     <section class="container">
-        <?php if(empty($tva)) : ?>
+        <?php if(empty($data["tva"])) : ?>
         <p>Aucune TVA enregistrée actuellement !</p>
         <?php else: ?>
         <section class="leftElement">
-            <?php foreach($tva as $element => $key) : ?>
+            <?php foreach($data["tva"] as $element => $key) : ?>
             <article class="dispositionCategories">
                 <p><?= htmlspecialchars($key['name']) ?></p>
-                <p><?php    if($key['activate']===1){
+                <p><?php    if($key['activate']==1){
                                 echo "Active";}
                             else{
                                 echo "Inactive";}?></p>
@@ -33,7 +33,7 @@
         
                     <input  type    = "submit"
                             name    = "submit"
-                            <?php   if($key['activate']===1){
+                            <?php   if($key['activate']==1){
                                         echo'   value   = "Désactiver"
                                                 class   = "btn colorYellow"
                                             ';}

@@ -8,9 +8,9 @@ abstract class Database {
 
     private static function setDb() {
 
-        self::$_dbConnect = new \PDO( 'mysql:host=db.3wa.io;dbname=raphaelrogues_ardoise;charset=utf8', 'raphaelrogues', '46830806a1989ee6ff40cd116db6ac8a');
+        // self::$_dbConnect = new \PDO( 'mysql:host=db.3wa.io;dbname=raphaelrogues_ardoise;charset=utf8', 'raphaelrogues', '46830806a1989ee6ff40cd116db6ac8a');
 
-//        self::$_dbConnect = new \PDO( 'mysql:host=db.3wa.io;dbname=vincentollivier_ardoise;charset=utf8', 'vincentollivier', '98f74e8350a6f9da22f312f5162d2994');
+        self::$_dbConnect = new \PDO( 'mysql:host=db.3wa.io;dbname=vincentollivier_ardoise;charset=utf8', 'vincentollivier', '98f74e8350a6f9da22f312f5162d2994');
 
         self::$_dbConnect->setAttribute( \PDO::ATTR_ERRMODE, \PDO::ERRMODE_WARNING );
     }
