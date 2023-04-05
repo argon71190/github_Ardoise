@@ -10,11 +10,16 @@
         <section class="leftElement">
             <?php foreach($data["tva"] as $tva) : ?>
             <article class="dispositionCategories">
-                <p><?= htmlspecialchars($tva['name']) ?></p>
-                <p><?php    if($tva['activate']==1){
-                                echo "Active";}
-                            else{
-                                echo "Inactive";}?></p>
+                <?php if($tva['activate']==1){ ?>
+                    <p class="actif"><?= htmlspecialchars($tva['name']) ?></p>
+                    <p class="actif"><?php echo "Active"; ?>
+                    <?php }
+                    else{ ?>
+                    <p class="inactif"><?= htmlspecialchars($tva['name']) ?></p>
+                    <p class="inactif"><?php echo "Inactive"; ?>
+                    <?php } ?>
+
+
     
                 <form method="POST" action="index.php?route=activationTva&id=<?= $tva['id'] ?>">
     
