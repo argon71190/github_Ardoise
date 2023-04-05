@@ -767,7 +767,7 @@ a {
 
 
 .errorName, .errorShortName, .errorPrice1, .errorPrice2,
-.errorCategorie, #errorTva{
+.errorCategorie, .errorTvap, .errorTvae{
   display: none;
 }
 
