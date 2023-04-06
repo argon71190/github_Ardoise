@@ -217,35 +217,31 @@ class CategoriesController extends Router
         $errors = [];
 
         $model      = new CategoriesManager();
-        $categories = $model->getAllIdOffCategories();
-        $catExist = false;
+        $categories = $model->getAllCategories();
+        $catInDb;
         foreach($categories as $categorie) {
             if($categorie['id'] == $_GET['id'])
-                $catExist = true;
+                $catInDb = $categorie;
         }
 
         // Récupération de la liste des messages d'erreur
         $errorsList = new ErrorMessages();
         $messagesErrors = $errorsList->getMessages();
 
-        if(!$catExist)
-            $errors[] = $messagesErrors[43];
-        else if($_GET['ref'] != 0 && $_GET['ref'] != 1)
+        if(!$catInDb)
             $errors[] = $messagesErrors[43];
 
-
-        $newRef = 0;
         if(count($errors) == 0) {
 
-            if($_GET['ref'] == 0) $newRef = 1; else $newRef = 0;
+            if($catInDb['activate'] == 0) $newRef = 1; else $newRef = 0;
 
-            $addCategorie = new Categories();
-            $addCategorie->setId($_GET['id']);
-            $addCategorie->setActivate($newRef);
+            $activateCategorie = new Categories();
+            $activateCategorie->setId($catInDb['id']);
+            $activateCategorie->setActivate($newRef);
 
             // Modification de l'état de la catégorie
             $manager = new CategoriesManager();
-            $manager->update($addCategorie);
+            $manager->update($activateCategorie);
 
             $model = new ResultsManager();
             $token = $model->genererChaineAleatoire(20);
