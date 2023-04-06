@@ -37,7 +37,7 @@
                                 <td>Pas d'adresse.</td>
                             <?php endif; ?>
                             <td><?= htmlspecialchars($customer['statut']) ?></td>
-                            <td><a href="index.php?route=customers&id=<?= $customer['id'] ?>" class="btn colorYellow">Modifier</a></td>
+                            <td><a href="index.php?route=updateCustomer&id=<?= $customer['id'] ?>" class="btn colorYellow">Modifier</a></td>
                             <td><a href="index.php?route=displayOneCustomer&id=<?= $customer['id'] ?>" class="btn colorGreen">Voir</a></td>
     
                         </tr>

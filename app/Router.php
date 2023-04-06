@@ -57,7 +57,7 @@ class Router {
 
 		case 'updateCustomer':
 		    $controller = new CustomersController();
-		    $controller->edit($_GET['id']);
+		    $controller->updateCustomer($_GET['id']);
 		    break;
 		    
 

@@ -1,0 +1,67 @@
+<main id ="addCustomers">
+        <h1>Modification du compte !</h1>
+
+        <form id="modificationCompte" method="POST" action="index.php?route=updateCustomer&id=<?= $customer['id'] ?>" enctype="multipart/form-data">
+
+                <legend>Merci de renseigner les informations suivantes</legend>
+
+                <?php require_once('views/bases/_errors.phtml'); ?>
+                <?php require_once('views/bases/_valids.phtml'); ?>
+
+                <section>
+
+                        <fieldset>
+                                <label  for     = "lastname">Nom</label>
+                                <input  type    = "text"
+                                        id      = "lastname"
+                                        name    = "lastname"
+                                        value   = "<?= $data['customer']['lastname']; ?>"
+                                        pattern = "[a-zA-ZàâäæáãåßçéèêëîïñôöœóõøüùÿÀÂÄÆÁÃÅÇÉÈÊËÎÏÑÔÖŒÓÕØÜÙŸ'\s.-]+"
+                                        required>
+                                <small>Merci de rentrer votre nom !</small>
+                        </fieldset>
+
+                        <fieldset>
+                                <label  for     = "firstname">Prénom</label>
+                                <input  type    = "text"
+                                        id      = "firstname"
+                                        name    = "firstname"
+                                        value   = "<?= $data['customer']['firstname']; ?>"
+                                        pattern = "[a-zA-ZàâäæáãåßçéèêëîïñôöœóõøüùÿÀÂÄÆÁÃÅÇÉÈÊËÎÏÑÔÖŒÓÕØÜÙŸ'\s.-]+"
+                                        required>
+                                <small>Merci de rentrer votre prénom !</small>
+                        </fieldset>        
+
+                        <fieldset>
+                                <label  for     = "birthday">Date de naissance</label>
+                                <input  type    = "date"
+                                        id      = "birthday"
+                                        name    = "birthday"
+                                        value   = "<?= $data['customer']['birthday']; ?>">
+                                <small>Merci de rentrer votre date de naissance !</small>
+                        </fieldset>
+
+                        <fieldset>
+                                <label  for     = "rfid">RFID</label>
+                                <input  type    = "text"
+                                        id      = "rfid"
+                                        name    = "rfid"
+                                        value   = "<?= $data['customer']['rfid']; ?>">
+                        </fieldset>
+
+                        <fieldset>
+                                <input  type    = "hidden"
+                                        name    = "token"
+                                        value   = "<?= $token ?>">
+                        </fieldset>
+
+                </section>
+                <fieldset>
+                                <input  type    = "submit"
+                                        name    = "submit"
+                                        value   = "Mettre à jour"
+                                        class   = "btn colorGreen">
+                </fieldset>
+
+        </form>
+</main>
