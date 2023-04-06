@@ -11,9 +11,9 @@ window.addEventListener('DOMContentLoaded', () => {
     let optionSubmit = document.querySelector('.buttonSubmit');
     
     //Article form
-    if(document.getElementById('spl_tva') != 'undefined'){
-        var formTva = document.getElementById('spl_tva');
-    }
+    let formTvap = document.querySelector('.formTvap');
+    let formTvae = document.querySelector('.formTvae');
+    let screen = document.querySelector('.screen');
     
     //Erreurs
     let errorName = document.querySelector('.errorName');
@@ -23,11 +23,14 @@ window.addEventListener('DOMContentLoaded', () => {
     let errorCategorie = document.querySelector('.errorCategorie');
     
     //Article erreurs
-    if(document.getElementById('errorTva') != 'undefined'){
-        var errorTva =document.getElementById('errorTva');
-    }
+
+    let errorTvaP = document.querySelector('.errorTvap');
+    let errorTvaE = document.querySelector('.errorTvae');
+    let errorScreen = document.querySelector('.errorScreen');
+
 
     optionSubmit.addEventListener('click', (event)=> {
+        //Affichage erreur nom
         if(optionName.value.length < 3 || optionName.value.length > 50){
             errorName.style.display = 'block';
         }
@@ -35,21 +38,21 @@ window.addEventListener('DOMContentLoaded', () => {
             errorName.style.display = 'none';
         }
         
-        
+        //Affichage erreur nom court
         if(optionShortName.value.length < 1 || optionShortName.value.length > 10){
             errorShortName.style.display = 'block';
+            
         }
         else{
             errorShortName.style.display = 'none';
         }
 
-        
+        //Affichage erreurs prix
         if(optionPrice.value == "" || isNaN(optionPrice.value)){
             errorPrice1.style.display = 'block';
         }
         else{
-            errorPrice1.style.display = 'none';
-            
+            errorPrice1.style.display = 'none';  
         }
         
         if(optionPrice.value < 0 || optionPrice.value > 100){
@@ -59,19 +62,35 @@ window.addEventListener('DOMContentLoaded', () => {
             errorPrice2.style.display = 'none';
         }
 
-        
+        //Affichage erreur catégorie
         if(categorie.value == '?'){
             errorCategorie.style.display = 'block';
         }
         else{
             errorCategorie.style.display = 'none';
         }
-        
-        if(formTva.value == '?'){
-            errorTva.style.display = 'block';
+
+        //Affichage erreurs TVA
+        if(formTvap.value == '?'){
+            errorTvaP.style.display = 'block';
         }
         else{
-            errorTva.style.display = 'none';
+            errorTvaP.style.display = 'none';
+        }
+
+        if(formTvae.value == '?'){
+            errorTvaE.style.display = 'block';
+        }
+        else{
+            errorTvaE.style.display = 'none';
+        }
+
+        //Affichage erreur écran d'affichage
+        if(screen.value == '?'){
+            errorScreen.style.display = 'block';
+        }
+        else{
+            errorScreen.style.display = 'none';
         }
     });
     
@@ -81,16 +100,17 @@ window.addEventListener('DOMContentLoaded', () => {
   
     form.addEventListener('submit', (event) => {
 
-        
+        //Ne pas submit si erreur nom
         if(optionName.value.length < 3 || optionName.value.length > 50){
             event.preventDefault();
         }
         
-        
+        //Ne pas submit si erreur nom court
         if(optionShortName.value.length < 1 || optionShortName.value.length > 10){
             event.preventDefault();
         }
         
+        //Ne pas submit si erreurs prix
         if(isNaN(optionPrice.value)){
             event.preventDefault();
         }
@@ -99,15 +119,25 @@ window.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
         }
         
+        //Ne pas submit si erreur catégorie
         if(categorie.value == '?'){
             event.preventDefault();
             
         }
         
-        if(formTva.value == '?'){
+        //Ne pas submit si erreurs TVA
+        if(formTvap.value == '?'){
+            event.preventDefault();
+        }
+
+        if(formTvae.value == '?'){
             event.preventDefault();
         }
         
+        //Ne pas submit si erreur écran affichage
+        if(errorScreen.value == '?'){
+            event.preventDefault();
+        }
     });
     
 

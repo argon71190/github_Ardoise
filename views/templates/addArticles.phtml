@@ -22,7 +22,7 @@
                                         minlength   = "3"
                                         maxlength   = "50"
                                         value       = "<?php if(isset($newArticle) && !empty($newArticle)) { echo $newArticle['name']; } ?>"
-                                        >
+                                        required>
                                 <small class='errorName'>Le nom de l'article doit comporter entre 3 et 50 caractères !</small>
                         </fieldset>
 
@@ -36,7 +36,7 @@
                                         minlength   = "1"
                                         maxlength   = "10"
                                         value       = "<?php if(isset($newArticle) && !empty($newArticle)) { echo $newArticle['shortName']; } ?>"
-                                        >
+                                        required>
                                 <small class='errorShortName'>Le nom court de l'article doit comporter entre 1 et 10 caractères !</small>
                         </fieldset>
 
@@ -68,7 +68,7 @@
                                         max         = "100"
                                         step        = "0.01"
                                         value       = "<?php if(isset($newArticle) && !empty($newArticle)) { echo $newArticle['price']; } ?>"
-                                        > €
+                                        required> €
                                 <small class='errorPrice1'>Le prix de l'article, exprimé en €, doit être un nombre entier ou avec 2 décimales maximum !</small>
                                 <small class='errorPrice2'>Le prix de l'article doit être compris entre 0 et 100 € !</small>        
                         </fieldset>
@@ -94,7 +94,7 @@
                         <fieldset>
                                 <label  for         = "spl_tva">TVA sur place :</label>
                                 <select name        = "spl_tva"
-                                        class       = "spl_tva"
+                                        class       = "formTvap"
                                         id          = "spl_tva">
                                         <option value="?">?</option>
                                         <?php foreach($tva_spl as $el): ?>
@@ -105,14 +105,14 @@
                                                         ><?= htmlspecialchars($el['name']) ?></option>
                                         <?php endforeach; ?>
                                 </select>
-                                <small id='errorTva'>Veuillez sélectionner une TVA pour l'article !</small>
+                                <small class='errorTvap'>Veuillez sélectionner une TVA à emporter pour l'article !</small>
                         </fieldset>
                         
                         <fieldset>
                                 
                                 <label  for         = "emp_tva">TVA à emporter :</label>
                                 <select name        = "emp_tva"
-                                        class       = "emp_tva"
+                                        class       = "formTvae"
                                         id          = "emp_tva">
                                         <option value="?">?</option>
                                         <?php foreach($tva_emp as $el): ?>
@@ -123,7 +123,7 @@
                                                         ><?= htmlspecialchars($el['name']) ?></option>
                                         <?php endforeach; ?>
                                 </select>
-                                <small id='errorTva'>Veuillez sélectionner une TVA pour l'article !</small>
+                                <small class ='errorTvae'>Veuillez sélectionner une TVA à emporter pour l'article !</small>
                         </fieldset>
                         
                         <fieldset>
@@ -150,6 +150,7 @@
                                                         ><?= htmlspecialchars($screen['name']) ?></option>
                                         <?php endforeach; ?>
                                 </select>
+                                <small class ='errorScreen'>Veuillez sélectionner un écran d'affichage pour l'article !</small>
                         </fieldset>
                         
                         <fieldset>
