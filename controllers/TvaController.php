@@ -63,6 +63,12 @@ class TvaController extends Router
                 $errors[] = $messagesErrors[50];
             }
 
+            // Vérification du champ Value de la TVA
+            if(!is_numeric($addTva['value'])){
+                $errors[] = $messagesErrors[50];
+            }
+
+
             // Vérifier si la catégorie n'existe pas déjà dans la bdd pour éviter les doublons
             $model = new TvaManager();
             $verifExistTva = $model->selectOne($addTva['name']);
