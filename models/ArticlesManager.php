@@ -5,7 +5,7 @@ namespace Models;
 class ArticlesManager extends Database {
 
     // Récupérer tous les articles
-    public function getArticles(): void {
+    public function getArticles() {
         return $this->getAll('articles');
     }
 
