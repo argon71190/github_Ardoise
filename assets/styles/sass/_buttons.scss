@@ -42,4 +42,13 @@
             color: $yellow;
         }
     }
+    &.colorBlue{
+        color: $white;
+        background-color: $blue;
+        border: 1px solid $blue;
+        &.colorYellow:hover{
+            background-color: $white;
+            color: $blue;
+        }
+    }
 }
