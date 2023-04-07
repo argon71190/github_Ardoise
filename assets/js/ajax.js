@@ -1,5 +1,4 @@
 "use strict";
-console.log('ok');
 window.addEventListener('DOMContentLoaded', () => {
     let categorieArticle = document.getElementById('categorieArticle');
 
@@ -15,7 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
     
     fetch(myRequest)
                 // Récupère les données
-                .then(ress => res.text())
+                .then(res => res.text())
 
                 // Exploite les données
                 .then(res => {
@@ -23,6 +22,11 @@ window.addEventListener('DOMContentLoaded', () => {
                     // On met articles.phtml dans la div -> id=target
                     // ou
                     // location.reload(); // Pour une réactualisation de la page
+
                 })
+                    
+
     })
+
+    
 });    

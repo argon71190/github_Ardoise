@@ -55,10 +55,10 @@ class Router {
                     $controller->displayOneCustomer($_GET['id']);
                     break;
 
-		case 'updateCustomer':
-		    $controller = new CustomersController();
+		        case 'updateCustomer':
+		            $controller = new CustomersController();
                     $controller->edit($_GET['id']);
-		    break;
+		            break;
 		    
 
                     // CATEGORIES
@@ -135,7 +135,8 @@ class Router {
                     $controller = new ScreemsController();
                     $controller->displayStandByOrders();
                     break;
-
+                    
+                    //AJOUT D'OPTIONS EN BDD
                 case 'addOption':
                     $controller = new OptionsController();
                     $controller->displayFormAddOptions();
@@ -145,7 +146,14 @@ class Router {
                     $controller = new OptionsController();
                     $controller->addOption();
                     break;
+                    
+                    //ASSOCIATION D'OPTION A UN ARTICLE
+                case 'assocOption':
+                    $controller = new OptionsController();
+                    $controller->displayFormAssocOption();
+                    break;
 
+                    //CATEGORIES
                 case 'addCategorie':
                     $controller = new CategoriesController();
                     $controller->displayCategories("gestionCategories");
