@@ -1,8 +1,32 @@
-<?php foreach($articlesFind as $article): ?>
+<?php
+    $model = new \Models\OptionsManager();
+    $catOptions = $model->getAllCategories();
+?>    
+
+
+<?php 
+
+if(empty($articlesFind)){
+?> <small>Il n'y a pas d'article dans cette catégorie !</small>
+<?php
+}
+else{
+foreach($articlesFind as $article): ?>
             <article>
+            <img src="assets/uploads/articles/<?= htmlspecialchars($article['categories_id'])?>/<?= htmlspecialchars($article['picture']) ?>">
                 <h3><?= htmlspecialchars($article['name']) ?></h3>
                 
-                </p><?= htmlspecialchars($article['price']) ?></p>
+                </p><?= htmlspecialchars($article['price']) ?> €</p>
+                
                 <span><?= htmlspecialchars($article['shortName']) ?></span>
+                <select name        = "catOption"
+                        class       = "formCatOption"
+                        id          = "catOption">
+                        <option value="?">?</option>
+                        <?php foreach($catOptions as $catOption){ ?>
+                        <option value="<?= htmlspecialchars($catOption['id'])?>"><?=htmlspecialchars($catOption['name'])?></option>
+                        <?php }?>
+            </select>
             </article>
-        <?php endforeach; ?>
+        <?php endforeach;
+} ?>
