@@ -55,10 +55,10 @@ class Router {
                     $controller->displayOneCustomer($_GET['id']);
                     break;
 
-		case 'updateCustomer':
-		    $controller = new CustomersController();
-		    $controller->edit($_GET['id']);
-		    break;
+                case 'updateCustomer':
+                    $controller = new CustomersController();
+                    $controller->edit($_GET['id']);
+                    break;
 		    
 
                     // CATEGORIES
@@ -139,7 +139,7 @@ class Router {
                 case 'addOption':
                     $controller = new OptionsController();
                     $controller->displayFormAddOptions();
-                break;
+                    break;
                 
                 case 'submitFormAddOption':
                     $controller = new OptionsController();

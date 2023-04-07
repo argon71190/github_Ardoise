@@ -360,6 +360,14 @@ class ArticlesController extends Router {
 
     }
 
+    public function searchArticlesByCategory() {
+        $content = file_get_contents("php://input");
+        $data = json_decode($content, true);
+        $search = $data['category'];
+        $model = new \Models\ArticlesManager();
+        $articlesFind = $model->getAllArticlesByCat($search);
+        include 'views/templates/articlesSearch.phtml';
+    }
 /*
     public function displayAllProductsByCategory() {
         $categoriesModel = new Category();
