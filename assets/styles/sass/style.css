@@ -818,50 +818,50 @@ h1 {
   margin-bottom: 10vh;
 }
 
-#updateCustomer {
+#updateCustomers {
   padding: 2vh 2vw;
 }
-#updateCustomer > form {
+#updateCustomers > form {
   width: 70%;
   margin: auto;
   display: flex;
   flex-direction: column;
   margin-bottom: 10vh;
 }
-#updateCustomer > form > legend {
+#updateCustomers > form > legend {
   font-size: 1.2rem;
   margin-bottom: 4vh;
   text-align: center;
   display: none;
 }
-#updateCustomer > form > div {
+#updateCustomers > form > div {
   display: flex;
   justify-content: space-around;
   margin-bottom: 40px;
 }
-#updateCustomer > form > div > div:nth-of-type(2) {
+#updateCustomers > form > div > div:nth-of-type(2) {
   display: flex;
   flex-direction: columns;
   align-items: center;
 }
-#updateCustomer > form > section {
+#updateCustomers > form > section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   -moz-column-gap: 20px;
        column-gap: 20px;
 }
-#updateCustomer > form > section > fieldset {
+#updateCustomers > form > section > fieldset {
   width: 100%;
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
 }
-#updateCustomer > form > section > fieldset > label {
+#updateCustomers > form > section > fieldset > label {
   font-size: 1.2rem;
   margin-bottom: 10px;
   margin-left: 10px;
 }
-#updateCustomer > form > section > fieldset > input {
+#updateCustomers > form > section > fieldset > input {
   width: 100%;
   font-size: 1.2rem;
   border: none;
@@ -871,7 +871,7 @@ h1 {
   border-radius: 10px;
   padding-left: 10px;
 }
-#updateCustomer > form > section > fieldset > select {
+#updateCustomers > form > section > fieldset > select {
   width: 100%;
   font-size: 1.2rem;
   border: none;
@@ -881,28 +881,28 @@ h1 {
   border-radius: 10px;
   padding-left: 10px;
 }
-#updateCustomer > form > section > fieldset > small {
+#updateCustomers > form > section > fieldset > small {
   font-size: 0.8rem;
   margin-top: 5px;
   margin-left: 10px;
 }
-#updateCustomer > form > section > fieldset:nth-of-type(3) > div {
+#updateCustomers > form > section > fieldset:nth-of-type(3) > div {
   margin-top: 10px;
 }
-#updateCustomer > form > section > fieldset:nth-of-type(3) > div > label > span > img {
+#updateCustomers > form > section > fieldset:nth-of-type(3) > div > label > span > img {
   max-height: 240px;
 }
-#updateCustomer > form > section > fieldset:nth-of-type(3) > div {
+#updateCustomers > form > section > fieldset:nth-of-type(3) > div {
   margin-top: 10px;
 }
-#updateCustomer > form > section > fieldset:nth-of-type(3) > div > label > span > img {
+#updateCustomers > form > section > fieldset:nth-of-type(3) > div > label > span > img {
   max-height: 240px;
 }
-#updateCustomer > form > fieldset {
+#updateCustomers > form > fieldset {
   width: 40%;
   margin: auto;
 }
-#updateCustomer > form > fieldset > input {
+#updateCustomers > form > fieldset > input {
   width: 100%;
   font-size: 1.2rem;
   border: none;
@@ -910,6 +910,13 @@ h1 {
   box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
   font-size: 1.2rem;
   border-radius: 10px;
+}
+#updateCustomers > section {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10vh;
 }
 
 * {
@@ -923,4 +930,10 @@ body {
 
 a {
   text-decoration: none;
+}
+
+.errorName, .errorShortName, .errorPrice1, .errorPrice2,
+.errorCategorie, .errorTvap, .errorTvae {
+  display: none;
+  color: #E74C3C;
 }/*# sourceMappingURL=style.css.map */

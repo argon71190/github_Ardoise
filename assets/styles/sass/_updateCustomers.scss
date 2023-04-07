@@ -1,4 +1,4 @@
-#updateCustomer{
+#updateCustomers{
     padding: 2vh 2vw;
     > form{
         width: 70%;
@@ -106,5 +106,13 @@
             }
             
         }
+    }
+    > section{
+        width: 70%;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        jus
+        margin-bottom: 10vh;
     }
 }
