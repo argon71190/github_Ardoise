@@ -3,7 +3,7 @@
     $catOptions = $model->getAllCategories();
 ?>    
 
-
+<form method="GET">
 <?php 
 
 if(empty($articlesFind)){
@@ -19,14 +19,10 @@ foreach($articlesFind as $article): ?>
                 </p><?= htmlspecialchars($article['price']) ?> €</p>
                 
                 <span><?= htmlspecialchars($article['shortName']) ?></span>
-                <select name        = "catOption"
-                        class       = "formCatOption"
-                        id          = "catOption">
-                        <option value="?">?</option>
-                        <?php foreach($catOptions as $catOption){ ?>
-                        <option value="<?= htmlspecialchars($catOption['id'])?>"><?=htmlspecialchars($catOption['name'])?></option>
-                        <?php }?>
+                
             </select>
+            <button type='submit'>Ajouter une option</button>
             </article>
         <?php endforeach;
 } ?>
+</form>
