@@ -188,6 +188,15 @@ class Router {
                     $controller->activationPaymentMethod();
                 break;
 
+                 // REQUETE AJAX
+
+                case 'searchArticleAjax':
+                    $controller = new ArticlesController();
+                    $controller-> searchArticlesByCategory();
+
+                break;    
+                                        
+
                 default:
                     $this->redirectToRoute('home');
                     break;
