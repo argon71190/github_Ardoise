@@ -55,10 +55,10 @@ class Router {
                     $controller->displayOneCustomer($_GET['id']);
                     break;
 
-                case 'updateCustomer':
-                    $controller = new CustomersController();
+		case 'updateCustomer':
+		    $controller = new CustomersController();
                     $controller->edit($_GET['id']);
-                    break;
+		    break;
 		    
 
                     // CATEGORIES

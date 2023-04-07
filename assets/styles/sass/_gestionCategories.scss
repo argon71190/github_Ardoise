@@ -26,6 +26,21 @@
                     box-shadow: inset -10px -10px 15px rgba(255, 255, 255, 0.5),
                     inset 10px 10px 15px rgba(70, 70, 70, 0.12);
                 }
+                > p{
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                    &.inactif{
+                        opacity: 0.05;
+                    }
+                }
+                > section{
+                    display: flex;
+                    flex-direction: row;
+                    > form{
+                        margin: 10px;
+                    }
+                }
             }
         }
         > div{

@@ -1,0 +1,46 @@
+#customerDetails{
+    padding: 2vh 2vw;
+    > section:nth-of-type(2){
+        width: 90%;
+        margin: auto;
+        margin-bottom: 40px;
+
+        > ul{
+            width: 100%;
+            > table{
+                width: 100%;
+                > thead{
+                    background-color: $teal;
+                    color: $white;
+                    > tr{
+                        > th{
+                            text-align: left;
+                            vertical-align: middle;
+                            padding: 5px 5px;
+                        }
+                    }
+                }
+                > tbody{
+                    > tr{
+                        > td{
+                            text-align: left;
+                            vertical-align: middle;
+                            padding: 12px 5px;
+                        }
+                        &:not(:last-child) {
+                            border-bottom: 1px solid $grey;
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+    > section:nth-of-type(3){
+        width: 90%;
+        margin: auto;
+        margin-bottom: 10vh;
+
+
+    }
+}

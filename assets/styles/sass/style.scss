@@ -13,6 +13,9 @@
 @import "_articles";
 @import "_addCustomers";
 @import "_addOptions";
+@import "_customerDetails";
+@import "_updateCustomer";
+
 
 * {
     box-sizing: border-box;
@@ -25,8 +28,4 @@ body {
 
 a {
     text-decoration: none;
-}
-
-input:invalid {
-  border: 2px solid red;
 }

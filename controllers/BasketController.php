@@ -12,7 +12,7 @@ class BasketController extends Router
     public function addImmediately($id) {
 
         $model   = new ArticlesManager();
-        $article = $model->getArticlesById($_GET['id']);
+        $article = $model->getArticleById($_GET['id']);
 
         $_SESSION['basket'][] = [
             'id'            => $id,
@@ -83,7 +83,7 @@ class BasketController extends Router
 
             foreach($newTab as $element) {
                 $model                  = new ArticlesManager();
-                $find                   = $model->getArticlesById($element['id']);
+                $find                   = $model->getArticleById($element['id']);
                 $find['Qty']            = $element['Qty'];
                 $find['Composition']    = $element['Composition'];
                 $find['Sauces']         = $element['Sauces'];

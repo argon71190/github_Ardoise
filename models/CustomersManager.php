@@ -86,33 +86,24 @@ class CustomersManager extends Database {
         $arcs = $query->fetchAll();
 
         return $arcs;
-    }
-        // *** MODIFIER
-    public function update(Customers $customers): void {
+    }*/
 
-        $query = $this->db->prepare("UPDATE customers SET firstname = :name,
+
+        // *** MODIFIER
+    public function update(Customers $customer): void {
+        $query = $this->getDb()->prepare("UPDATE customers SET lastname = :lastname,
                                                         firstname = :firstname,
                                                         birthday = :birthday,
-                                                        email = :email,
-                                                        password = :password,
-                                                        valids_id = :valids_id,
-                                                        createdAt = :createdAt,
-                                                        role = :role,
-                                                        rfid = :rfid,
+                                                        rfid = :rfid
                                                 WHERE   id = :id
         ");
 
-        $query->bindValue(':lastname',  $customers->getLastname());
-        $query->bindValue(':firstname', $customers->getFirstname());
-        $query->bindValue(':birthday',  $customers->getBirthday());
-        $query->bindValue(':email',     $customers->getEmail());
-        $query->bindValue(':password',  $customers->getPassword());
-        $query->bindValue(':valids_id', $customers->getValids());
-        $query->bindValue(':createdAt', $customers->getCreated_At());
-        $query->bindValue(':role',      $customers->getRole());
-        $query->bindValue(':rfid',      $customers->getRfid());
-        $query->bindValue(':id',        $customers->getId());
+        $query->bindValue(':lastname',  $customer->getLastname());
+        $query->bindValue(':firstname', $customer->getFirstname());
+        $query->bindValue(':birthday',  $customer->getBirthday());
+        $query->bindValue(':rfid',      $customer->getRfid());
+        $query->bindValue(':id',        $customer->getId());
 
         $query->execute();
-    }*/
+    }
 }

@@ -342,7 +342,7 @@ class ArticlesController extends Router {
         $token = $model->genererChaineAleatoire(20);
         $_SESSION['tokenVerify'] = $token;
 
-        if(isset($_FILES['userfileArticle']) && $_FILES['userfileArticle']['name'] != '') {
+        if(count($errors)>0 && isset($_FILES['userfileArticle']) && $_FILES['userfileArticle']['name'] != '') {
             $errors[] = $messagesErrors[40];
         }
 

@@ -8,40 +8,63 @@
             <p>Aucun article dans cette catégorie !</p>
         <?php else: ?>
             <section class="leftElement">
-                <?php foreach($categories as $categorie => $key) : ?>
+                <?php foreach($data["categories"] as $categorie) : ?>
                     <article class="dispositionCategories">
-                        <p><?= htmlspecialchars($key['name']) ?></p>
-    
-                        <?php if($key['activate'] == 0): ?>
-                            <a href="index.php?route=activationCategorie&id=<?=$key['id']?>&ref=0"><i class="fa-regular fa-circle-check"></i>Activer</a>
-                        <?php else: ?>
-                            <a href="index.php?route=activationCategorie&id=<?=$key['id']?>&ref=1"><i class="fa-regular fa-circle-xmark"></i>Désactiver</a>
-                        <?php endif; ?>
-    
-                        <!-- <a href="index.php?route=delCat&id=<?=$categorie['id']?>"><i class="fa-solid fa-trash"></i>Supprimer</a>
-                        -->
-                        <form method="POST" action="index.php?route=delCat&id=<?=$key['id']?>">
-    
-                        <input  type    = "hidden"
-                                name    = "token"
-                                value   =   <?php foreach($_SESSION['tokenGestionCategories'] as $elem) : ?>
-                                                <?php if(intval($elem['id']) == $key['id']) : ?>
-                                                    <?= $elem['token'] ?>
-                                                <?php endif; ?>
-                                            <?php endforeach; ?>
-                        >
-    
-                        <input  type    = "hidden"
-                                name    = "id"
-                                value   = "<?= $key['id'] ?>">
-    
-                        <input  type    = "submit"
-                                name    = "submit"
-                                value   = "Supprimer"
-                                class   = "btn colorRed">
-                        </form>
+                        <p <?php if($categorie['activate']==0){ ?>class="inactif"<?php } ?>><?= htmlspecialchars($categorie['name']) ?></p>
+
+                        <section>
+                            <form method="POST" action="index.php?route=activationCategorie&id=<?= $categorie['id'] ?>">
+                                <input  type    = "hidden"
+                                        name    = "id"
+                                        value   =  "<?= $categorie['id'] ?>"
+                                >
+                    
+                                <input  type    = "hidden"
+                                        name    = "token"
+                                        value   =   <?php foreach($_SESSION['tokenGestionCategories'] as $elem) : ?>
+                                                        <?php if(intval($elem['id']) == $categorie['id']) : ?>
+                                                            <?= $elem['token'] ?>
+                                                        <?php endif; ?>
+                                                    <?php endforeach; ?>
+                                >
+                    
+                                <input  type    = "submit"
+                                        name    = "submit"
+                                        <?php   if($categorie['activate']==1){
+                                                    echo'   value   = "Désactiver"
+                                                            class   = "btn colorYellow"
+                                                        ';}
+                                                else{
+                                                    echo'   value   = "Activer"
+                                                            class   = "btn colorGreen"
+                                                        ';}
+                                        ?>
+                                >
+                            </form>
+
+                            <form method="POST" action="index.php?route=delCat&id=<?=$categorie['id']?>">
+                                <input  type    = "hidden"
+                                        name    = "token"
+                                        value   =   <?php foreach($_SESSION['tokenGestionCategories'] as $elem) : ?>
+                                                        <?php if(intval($elem['id']) == $categorie['id']) : ?>
+                                                            <?= $elem['token'] ?>
+                                                        <?php endif; ?>
+                                                    <?php endforeach; ?>
+                                >
+                                <input  type    = "hidden"
+                                        name    = "id"
+                                        value   = "<?= $categorie['id'] ?>">
+            
+                                <input  type    = "submit"
+                                        name    = "submit"
+                                        value   = "Supprimer"
+                                        class   = "btn colorRed">
+                            </form>
+
+                        </section>
                     </article>
                 <?php endforeach; ?>
+
                 <?php require_once('views/bases/_errors.phtml'); ?>
                 <?php require_once('views/bases/_valids.phtml'); ?>
             </section>
