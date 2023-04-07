@@ -64,8 +64,8 @@
                 </fieldset>
         </form>
         <section>
-                
-                <form action="">
+        
+                <form method="POST" action="index.php?route=activationCustomer&id=<?= $customer['id'] ?>">
                         <fieldset>
                                 <input  type    = "hidden"
                                         name    = "token"
@@ -80,7 +80,7 @@
                         </fieldset>
                 </form>
 
-                <form action="">
+                <form method="POST" action="index.php?route=deleteCustomer&id=<?= $customer['id'] ?>">
                         <fieldset>
                                 <input  type    = "hidden"
                                         name    = "token"

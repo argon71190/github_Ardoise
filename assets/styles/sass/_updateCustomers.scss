@@ -1,7 +1,10 @@
 #updateCustomers{
     padding: 2vh 2vw;
     > form{
-        width: 70%;
+        border: 1px solid $grey;
+        border-radius: 20px;
+        padding: 10px;
+        width: 75%;
         margin: auto;
         display: flex;
         flex-direction: column;
@@ -112,7 +115,22 @@
         margin: auto;
         display: flex;
         flex-direction: row;
-        jus
+        justify-content: space-around;
         margin-bottom: 10vh;
+        > form{
+            width: 40%;
+            > fieldset{
+                width: 100%;
+                > input{
+                    width: 100%;
+                    font-size: 1.2rem;
+                    border: none;
+                    box-shadow: -10px -10px 15px rgba(255,255,255,0.5),
+                    10px 10px 15px rgba(70,70,70,0.12);
+                    font-size: 1.2rem;
+                    border-radius: 10px;
+                    }
+            }
+        }
     }
 }

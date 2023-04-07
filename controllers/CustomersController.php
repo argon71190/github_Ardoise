@@ -438,7 +438,6 @@ class CustomersController extends Router
                 && array_key_exists('birthday',     $_POST) && array_key_exists('rfid',         $_POST)
                 && array_key_exists('submit',       $_POST) && array_key_exists('token',        $_POST)
                 && $_POST['submit'] == "Mettre à jour"){
-
                 $customerToUdate = [
                     'id'        => '$id',
                     'lastname'  => trim(strtoupper($_POST['lastname'])),
@@ -554,9 +553,7 @@ class CustomersController extends Router
                     $model = new ResultsManager();
                     $token = $model->genererChaineAleatoire(20);
                     $_SESSION['tokenVerify'] = $token;
-
-                    $model = new CustomersManager();
-                    $customer = $model->selectOne('id', $id);
+                    $customer = $manager->selectOne('id', $id);
 
                     $this->render('updateCustomers', 'layout', [
                         'customer'      => $customer,
@@ -591,7 +588,80 @@ class CustomersController extends Router
         }
     }
 
+    public function activationCustomer($id) {
+        $errors = [];
 
+        $model      = new CustomersManager();
+        $customerToActivate = $model->selectOne("id", $id);
+
+        // Récupération de la liste des messages d'erreur
+        $errorsList = new errorMessages();
+        $messagesErrors = $errorsList->getMessages();
+
+        if(!$customerToActivate)
+                $errors[] = $messagesErrors[52];
+
+        if(count($errors) == 0) {
+
+            if($customerToActivate['valids_id'] == 1) $newRef = 2;
+            else if($customerToActivate['valids_id'] == 2) $newRef = 3;
+            else $newRef = 2;
+
+            $activateCustomer = new Customers();
+            $activateCustomer->setId($id);
+            $customerToUdate->setLastname($customerToActivate['lastname']);
+            $customerToUdate->setFirstname($customerToActivate['firstname']);
+            $customerToUdate->setBirthday($customerToActivate['birthday']);
+            $activateCustomer->setValids($customerToActivate['newRef']);
+            $customerToUdate->setRfid($customerToActivate['rfid']);
+            
+
+            // Récupération de la liste des messages de validation
+            $validsList = new ValidMessages();
+            $messagesValids = $validsList->getMessages();
+            
+            // Modification de l'état de la catégorie
+            $manager = new CustomersManager();
+            $manager->update($activateCustomer);
+
+            // Ajout d'un message de validation
+            $valids[] = $messagesValids[2];
+
+            // Etant donné que je reste sur le formulaire, je regénère un token
+            $model = new ResultsManager();
+            $token = $model->genererChaineAleatoire(20);
+            $_SESSION['tokenVerify'] = $token;
+
+            $model = new CustomersManager();
+            $customer = $model->selectOne('id', $id);
+
+            $this->render('updateCustomers', 'layout', [
+                'customer'      => $customer,
+                'token'         => $token,
+                'errors'        => $errors,
+                'valids'        => $valids
+            ]);
+        }
+        else{
+            $model = new CustomersManager();
+            $customer = $model->selectOne('id', $id);
+
+            // Etant donné que je reste sur le formulaire, je regénère un token
+            $model = new ResultsManager();
+            $token = $model->genererChaineAleatoire(20);
+            $_SESSION['tokenVerify'] = $token;
+            
+
+            $this->render('updateCustomers', 'layout', [
+                'customer'      => $customer,
+                'token'         => $token,
+                'errors'        => $errors,
+                'valids'        => $valids
+            ]);
+
+        }
+
+    }
 
 
 

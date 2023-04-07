@@ -357,7 +357,7 @@ table {
 h1 {
   font-size: 2em;
   font-weight: bold;
-  text-align: left;
+  text-align: center;
   margin: 5vh 0;
 }
 
@@ -822,7 +822,10 @@ h1 {
   padding: 2vh 2vw;
 }
 #updateCustomers > form {
-  width: 70%;
+  border: 1px solid #95A5A6;
+  border-radius: 20px;
+  padding: 10px;
+  width: 75%;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -916,7 +919,22 @@ h1 {
   margin: auto;
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   margin-bottom: 10vh;
+}
+#updateCustomers > section > form {
+  width: 40%;
+}
+#updateCustomers > section > form > fieldset {
+  width: 100%;
+}
+#updateCustomers > section > form > fieldset > input {
+  width: 100%;
+  font-size: 1.2rem;
+  border: none;
+  box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
+  font-size: 1.2rem;
+  border-radius: 10px;
 }
 
 * {
