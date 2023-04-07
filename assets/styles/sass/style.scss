@@ -14,7 +14,7 @@
 @import "_addCustomers";
 @import "_addOptions";
 @import "_customerDetails";
-@import "_updateCustomer";
+@import "_updateCustomers";
 
 
 * {
@@ -29,3 +29,9 @@ body {
 a {
     text-decoration: none;
 }
+
+.errorName, .errorShortName, .errorPrice1, .errorPrice2,
+.errorCategorie, .errorTvap, .errorTvae{
+  display: none;
+  color: $red;
+} 
