@@ -57,7 +57,7 @@ class Router {
 
 		case 'updateCustomer':
 		    $controller = new CustomersController();
-		    $controller->updateCustomer($_GET['id']);
+                    $controller->edit($_GET['id']);
 		    break;
 		    
 
@@ -139,7 +139,7 @@ class Router {
                 case 'addOption':
                     $controller = new OptionsController();
                     $controller->displayFormAddOptions();
-                break;
+                    break;
                 
                 case 'submitFormAddOption':
                     $controller = new OptionsController();
@@ -187,6 +187,15 @@ class Router {
                     $controller = new PaymentMethodController();
                     $controller->activationPaymentMethod();
                 break;
+
+                 // REQUETE AJAX
+
+                case 'searchArticleAjax':
+                    $controller = new ArticlesController();
+                    $controller-> searchArticlesByCategory();
+
+                break;    
+                                        
 
                 default:
                     $this->redirectToRoute('home');

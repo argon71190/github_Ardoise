@@ -28,6 +28,15 @@ window.addEventListener('DOMContentLoaded', () => {
     let errorTvaE = document.querySelector('.errorTvae');
     let errorScreen = document.querySelector('.errorScreen');
 
+    optionName.addEventListener("change", () => {
+        if (optionName.value.length < 3 || optionName.value.length > 50) {
+            optionName.style.border = "2px solid red";
+        }
+        else {
+            optionName.style.border = "2px solid lightgreen";
+        }
+    }); 
+
 
     optionSubmit.addEventListener('click', (event)=> {
         //Affichage erreur nom
@@ -141,5 +150,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     
 
-    
+
 });
+
+    

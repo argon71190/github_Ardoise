@@ -1,0 +1,8 @@
+<?php foreach($articlesFind as $article): ?>
+            <article>
+                <h3><?= htmlspecialchars($article['name']) ?></h3>
+                
+                </p><?= htmlspecialchars($article['price']) ?></p>
+                <span><?= htmlspecialchars($article['shortName']) ?></span>
+            </article>
+        <?php endforeach; ?>

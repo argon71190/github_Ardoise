@@ -1,0 +1,22 @@
+<main id='assocOption'>
+    <form>
+        <section>
+            <label  for         = "categorie">Choisissez la catégorie de l'article à associer:</label>
+            <select name        = "categorieArticle"
+                    class       = "formCategorie"
+                    id          = "categorieArticle">
+                    <option value="?">?</option>
+                        <?php foreach($categories as $categorie){ ?>
+                        <option value="<?= htmlspecialchars($categorie['id'])?>"><?=htmlspecialchars($categorie['name'])?></option>
+                        <?php }?>
+            </select>
+
+            <button id="loadArticle" >Charger</button>
+
+            <div id='target'>
+                <p>Pas d'article pour le moment</p>
+            </div>
+        </section>
+    </form>
+    <script type="text/javascript" src="assets/js/ajax.js"></script>
+</main>

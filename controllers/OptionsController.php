@@ -151,4 +151,15 @@ class OptionsController extends Router
                         ]);
     }
 
+
+
+    public function displayFormAssocOption(){
+        $model = new categoriesManager();
+        $categories = $model->getCategories();
+
+        $this->render(  'assocOption',
+                        'layout',
+                        [ 'categories' => $categories]
+                        );
+    }
 }
