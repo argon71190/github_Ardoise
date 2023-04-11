@@ -443,8 +443,6 @@ h1 {
   font-size: 0.8rem;
   margin-top: 5px;
   margin-left: 10px;
-  color: #E74C3C;
-  display: none;
 }
 #gestionTVAPM > section:nth-of-type(2) > div > section > form > fieldset:last-of-type > input {
   width: 40%;
@@ -970,7 +968,7 @@ a {
 }
 
 .errorName, .errorShortName, .errorPrice1, .errorPrice2,
-.errorCategorie, .errorTvap, .errorTvae {
+.errorCategorie, .errorTvap, .errorTvae, .errorTva {
   display: none;
   color: #E74C3C;
 }/*# sourceMappingURL=style.css.map */
