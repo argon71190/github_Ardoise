@@ -4,6 +4,7 @@ namespace Controllers;
 
 use \App\Router;
 use \Models\CategoriesManager;
+use \Models\ArticlesManager;
 use \Models\Orders;
 use \Models\ResultsManager;
 use \models\OptionsManager;
@@ -160,6 +161,16 @@ class OptionsController extends Router
         $this->render(  'assocOption',
                         'layout',
                         [ 'categories' => $categories]
+                        );
+    }
+
+    public function displayArticleOption($id){
+        $model = new ArticlesManager();
+        $article = $model->getArticleById($id);
+
+        $this->render(  'articleOption',
+                        'layout',
+                        [ 'article' => $article]
                         );
     }
 }

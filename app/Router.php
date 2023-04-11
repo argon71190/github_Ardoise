@@ -162,6 +162,10 @@ class Router {
                     $controller->displayFormAssocOption();
                     break;
 
+                case 'articleOption':
+                    $controller = new OptionsController();
+                    $controller->displayArticleOption($_GET['id']);
+
                     //CATEGORIES
                 case 'addCategorie':
                     $controller = new CategoriesController();

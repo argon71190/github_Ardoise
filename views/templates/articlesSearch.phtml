@@ -3,7 +3,7 @@
     $catOptions = $model->getAllCategories();
 ?>    
 
-<form method="GET">
+<section>
 <?php 
 
 if(empty($articlesFind)){
@@ -13,16 +13,18 @@ if(empty($articlesFind)){
 else{
 foreach($articlesFind as $article): ?>
             <article>
-            <img src="assets/uploads/articles/<?= htmlspecialchars($article['categories_id'])?>/<?= htmlspecialchars($article['picture']) ?>">
-                <h3><?= htmlspecialchars($article['name']) ?></h3>
+                <img src="assets/uploads/articles/<?= htmlspecialchars($article['categories_id'])?>/<?= htmlspecialchars($article['picture']) ?>">
+                    <h3><?= htmlspecialchars($article['name']) ?></h3>
                 
-                </p><?= htmlspecialchars($article['price']) ?> €</p>
+                    </p><?= htmlspecialchars($article['price']) ?> €</p>
                 
-                <span><?= htmlspecialchars($article['shortName']) ?></span>
+                    <span><?= htmlspecialchars($article['shortName']) ?></span>
                 
-            </select>
-            <button type='submit'>Ajouter une option</button>
+        
+                    <a href="index.php?route=articleOption&id=<?= htmlspecialchars($article['id']) ?>" class="btn colorGreen">
+                        AJOUTER UNE OPTION
+                    </a>
             </article>
         <?php endforeach;
 } ?>
-</form>
+</section>
