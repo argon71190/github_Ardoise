@@ -1,6 +1,5 @@
 <?php
-    $model = new \Models\OptionsManager();
-    $catOptions = $model->getAllCategories();
+    
 ?>    
 
 <section>
@@ -11,7 +10,11 @@ if(empty($articlesFind)){
 <?php
 }
 else{
-foreach($articlesFind as $article): ?>
+foreach($articlesFind as $article): 
+    $model = new \Models\OptionsManager();
+    $links = $model->getOptionsLink($article['id']);
+
+?>
             <article>
                 <img src="assets/uploads/articles/<?= htmlspecialchars($article['categories_id'])?>/<?= htmlspecialchars($article['picture']) ?>">
                     <h3><?= htmlspecialchars($article['name']) ?></h3>
@@ -19,12 +22,17 @@ foreach($articlesFind as $article): ?>
                     </p><?= htmlspecialchars($article['price']) ?> €</p>
                 
                     <span><?= htmlspecialchars($article['shortName']) ?></span>
-                
-        
+                    <ul>Options :</ul>
+                    <?php foreach($links as $link):
+                    $model = new \Models\OptionsManager();
+                    $option = $model->getOptionById($link['articlesOptionsListing_id']);
+                    ?> <li><?=$option['name'];?></li>
+                    <?php
+                    endforeach;?>
+                    <br>
                     <a href="index.php?route=articleOption&id=<?= htmlspecialchars($article['id']) ?>" class="btn colorGreen">
                         AJOUTER UNE OPTION
                     </a>
             </article>
         <?php endforeach;
 } ?>
-</section>
