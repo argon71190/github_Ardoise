@@ -1,3 +1,4 @@
+<!-- <?php var_dump($data); ?> -->
 <main id ="updateCustomers">
         <h1>Modification du compte !</h1>
 
@@ -8,7 +9,7 @@
                 <?php require_once('views/bases/_errors.phtml'); ?>
                 <?php require_once('views/bases/_valids.phtml'); ?>
 
-                <section>
+                <section <?php if($data['customer']['valids_id']==3){echo'class="inactif"';}?>>
 
                         <fieldset>
                                 <label  for     = "lastname">Nom</label>
@@ -56,7 +57,7 @@
                         </fieldset>
 
                 </section>
-                <fieldset>
+                <fieldset <?php if($data['customer']['valids_id']==3){echo'class="inactif"';}?>>
                                 <input  type    = "submit"
                                         name    = "submit"
                                         value   = "Mettre à jour"
@@ -75,8 +76,20 @@
                         <fieldset>
                                 <input  type    = "submit"
                                         name    = "submit"
-                                        value   = "Désactiver"
-                                        class   = "btn colorYellow">
+                                        <?php if($data['customer']['valids_id']==1){
+                                                echo '  value   = "Valider la création du nouvel utilisateur"
+                                                        class   = "btn colorGreen"
+                                                ';}
+                                                else if($data['customer']['valids_id']==2){
+                                                echo '  value   = "Désactiver"
+                                                        class   = "btn colorYellow"
+                                                ';}
+                                                else{
+                                                echo '  value   = "Activer"
+                                                        class   = "btn colorGreen"
+                                                ';}
+                                        ?>
+                                >
                         </fieldset>
                 </form>
 

@@ -91,17 +91,28 @@ class CustomersManager extends Database {
 
         // *** MODIFIER
     public function update(Customers $customer): void {
-        $query = $this->getDb()->prepare("UPDATE customers SET lastname = :lastname,
-                                                        firstname = :firstname,
-                                                        birthday = :birthday,
-                                                        rfid = :rfid
-                                                WHERE   id = :id
-        ");
+        $query = $this->getDb()->prepare("UPDATE customers  SET     lastname = :lastname,
+                                                                    firstname = :firstname,
+                                                                    birthday = :birthday,
+                                                                    rfid = :rfid
+                                                            WHERE   id = :id");
 
         $query->bindValue(':lastname',  $customer->getLastname());
         $query->bindValue(':firstname', $customer->getFirstname());
         $query->bindValue(':birthday',  $customer->getBirthday());
         $query->bindValue(':rfid',      $customer->getRfid());
+        $query->bindValue(':id',        $customer->getId());
+
+        $query->execute();
+    }
+
+
+    // *** Activation/Désativation
+    public function activate(Customers $customer): void {
+        $query = $this->getDb()->prepare("UPDATE customers  SET     valids_id = :valids_id
+                                                            WHERE   id = :id");
+
+        $query->bindValue(':valids_id',  $customer->getValids());
         $query->bindValue(':id',        $customer->getId());
 
         $query->execute();

@@ -547,7 +547,7 @@ class CustomersController extends Router
                     $manager->update($customerToUdate);
 
                     // Ajout d'un message de validation
-                    $valids[] = $messagesValids[2];
+                    $valids[] = $messagesValids[9];
 
                     // Etant donné que je reste sur le formulaire, je regénère un token
                     $model = new ResultsManager();
@@ -590,6 +590,7 @@ class CustomersController extends Router
 
     public function activationCustomer($id) {
         $errors = [];
+        $valids = [];
 
         $model      = new CustomersManager();
         $customerToActivate = $model->selectOne("id", $id);
@@ -609,11 +610,7 @@ class CustomersController extends Router
 
             $activateCustomer = new Customers();
             $activateCustomer->setId($id);
-            $customerToUdate->setLastname($customerToActivate['lastname']);
-            $customerToUdate->setFirstname($customerToActivate['firstname']);
-            $customerToUdate->setBirthday($customerToActivate['birthday']);
-            $activateCustomer->setValids($customerToActivate['newRef']);
-            $customerToUdate->setRfid($customerToActivate['rfid']);
+            $activateCustomer->setValids($newRef);
             
 
             // Récupération de la liste des messages de validation
@@ -622,18 +619,21 @@ class CustomersController extends Router
             
             // Modification de l'état de la catégorie
             $manager = new CustomersManager();
-            $manager->update($activateCustomer);
+            $manager->activate($activateCustomer);
 
             // Ajout d'un message de validation
-            $valids[] = $messagesValids[2];
-
+            if($newRef == 2){
+                $valids[] = $messagesValids[10];
+            }
+            else{
+                $valids[] = $messagesValids[11];
+            }
             // Etant donné que je reste sur le formulaire, je regénère un token
             $model = new ResultsManager();
             $token = $model->genererChaineAleatoire(20);
             $_SESSION['tokenVerify'] = $token;
 
-            $model = new CustomersManager();
-            $customer = $model->selectOne('id', $id);
+            $customer = $manager->selectOne('id', $id);
 
             $this->render('updateCustomers', 'layout', [
                 'customer'      => $customer,

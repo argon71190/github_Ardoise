@@ -853,6 +853,9 @@ h1 {
   -moz-column-gap: 20px;
        column-gap: 20px;
 }
+#updateCustomers > form > section.inactif {
+  opacity: 0.2;
+}
 #updateCustomers > form > section > fieldset {
   width: 100%;
   display: flex;
@@ -905,11 +908,13 @@ h1 {
   width: 40%;
   margin: auto;
 }
+#updateCustomers > form > fieldset.inactif {
+  display: none;
+}
 #updateCustomers > form > fieldset > input {
   width: 100%;
   font-size: 1.2rem;
   border: none;
-  background-color: #1ABC9C;
   box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
   font-size: 1.2rem;
   border-radius: 10px;

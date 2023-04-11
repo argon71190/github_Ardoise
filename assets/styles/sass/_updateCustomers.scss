@@ -29,6 +29,10 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             column-gap: 20px;
+            &.inactif{
+                opacity: 0.2;
+            }
+    
             > fieldset{
                 width: 100%;
                 display: flex;
@@ -90,24 +94,24 @@
                         }
                     }
                 }
-
             }
         }
         > fieldset{
                 width: 40%;
                 margin: auto;
+                &.inactif{
+                    display: none;
+                }
             
             > input{
                 width: 100%;
                 font-size: 1.2rem;
                 border: none;
-                background-color: $green;
                 box-shadow: -10px -10px 15px rgba(255,255,255,0.5),
                 10px 10px 15px rgba(70,70,70,0.12);
                 font-size: 1.2rem;
                 border-radius: 10px;
             }
-            
         }
     }
     > section{

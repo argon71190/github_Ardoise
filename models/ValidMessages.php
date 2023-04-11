@@ -20,6 +20,9 @@ class ValidMessages {
              //Messages rajoutés pour les options
             /*   8 */ "L'option a bien été créée !",
 
+            /*   9 */ "Votre compte a bien été modifié.",
+            /*   10 */ "Votre compte a bien été activé.",
+            /*   11 */ "Votre compte a bien été désactivé.",
         ];
 
         return $messagesValids;
