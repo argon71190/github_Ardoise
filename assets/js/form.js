@@ -2,86 +2,82 @@
 
 window.addEventListener('DOMContentLoaded', () => {
     
-    //Form
+    // Formulaire
     let form = document.querySelector('.form');
-    let optionName = document.querySelector('.formName');
-    let optionShortName = document.querySelector('.formShortName');
-    let optionPrice = document.querySelector('.formPrice');
-    let categorie = document.querySelector('.formCategorie');
-    let optionSubmit = document.querySelector('.buttonSubmit');
+
+    // Formulaire des options
+    let formName = document.querySelector('.formName');
+    let formShortName = document.querySelector('.formShortName');
+    let formPrice = document.querySelector('.formPrice');
+    let formCategorie = document.querySelector('.formCategorie');
     
-    //Article form
+    // Formulaire des articles
     let formTvap = document.querySelector('.formTvap');
     let formTvae = document.querySelector('.formTvae');
     let screen = document.querySelector('.screen');
     
-    //Erreurs
+    // Erreurs des options
     let errorName = document.querySelector('.errorName');
     let errorShortName = document.querySelector('.errorShortName');
     let errorPrice1 = document.querySelector('.errorPrice1');
     let errorPrice2 = document.querySelector('.errorPrice2');
     let errorCategorie = document.querySelector('.errorCategorie');
     
-    //Article erreurs
-
+    // Erreurs des articles
     let errorTvaP = document.querySelector('.errorTvap');
     let errorTvaE = document.querySelector('.errorTvae');
     let errorScreen = document.querySelector('.errorScreen');
 
-    optionName.addEventListener("change", () => {
-        if (optionName.value.length < 3 || optionName.value.length > 50) {
-            optionName.style.border = "2px solid red";
-        }
-        else {
-            optionName.style.border = "2px solid lightgreen";
-        }
-    }); 
+    form.addEventListener('submit', (event) => {
 
-
-    optionSubmit.addEventListener('click', (event)=> {
-        //Affichage erreur nom
-        if(optionName.value.length < 3 || optionName.value.length > 50){
+        //Ne pas submit si erreur nom
+        if(formName.value.length < 3 || formName.value.length > 50){
             errorName.style.display = 'block';
+            event.preventDefault();
         }
         else{
             errorName.style.display = 'none';
         }
         
-        //Affichage erreur nom court
-        if(optionShortName.value.length < 1 || optionShortName.value.length > 10){
+        //Ne pas submit si erreur nom court
+        if(formShortName.value.length < 1 || formShortName.value.length > 10){
             errorShortName.style.display = 'block';
-            
+            event.preventDefault();
         }
         else{
             errorShortName.style.display = 'none';
         }
-
-        //Affichage erreurs prix
-        if(optionPrice.value == "" || isNaN(optionPrice.value)){
+        
+        //Ne pas submit si erreurs prix
+        if(isNaN(formPrice.value)){
             errorPrice1.style.display = 'block';
+            event.preventDefault();
         }
         else{
-            errorPrice1.style.display = 'none';  
+            errorPrice1.style.display = 'none';
         }
         
-        if(optionPrice.value < 0 || optionPrice.value > 100){
+        if(formPrice.value < 0 || formPrice.value > 100){
             errorPrice2.style.display = 'block';
+            event.preventDefault();
         }
         else{
             errorPrice2.style.display = 'none';
         }
-
-        //Affichage erreur catégorie
-        if(categorie.value == '?'){
+        
+        //Ne pas submit si erreur catégorie
+        if(formCategorie.value == '?'){
             errorCategorie.style.display = 'block';
+            event.preventDefault();
         }
         else{
             errorCategorie.style.display = 'none';
         }
-
-        //Affichage erreurs TVA
+        
+        //Ne pas submit si erreurs TVA
         if(formTvap.value == '?'){
             errorTvaP.style.display = 'block';
+            event.preventDefault();
         }
         else{
             errorTvaP.style.display = 'none';
@@ -89,68 +85,21 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if(formTvae.value == '?'){
             errorTvaE.style.display = 'block';
+            event.preventDefault();
         }
         else{
             errorTvaE.style.display = 'none';
         }
-
-        //Affichage erreur écran d'affichage
+        
+        //Ne pas submit si erreur écran affichage
         if(screen.value == '?'){
             errorScreen.style.display = 'block';
+            event.preventDefault();
         }
         else{
             errorScreen.style.display = 'none';
         }
     });
-    
-    
-
-
-  
-    form.addEventListener('submit', (event) => {
-
-        //Ne pas submit si erreur nom
-        if(optionName.value.length < 3 || optionName.value.length > 50){
-            event.preventDefault();
-        }
-        
-        //Ne pas submit si erreur nom court
-        if(optionShortName.value.length < 1 || optionShortName.value.length > 10){
-            event.preventDefault();
-        }
-        
-        //Ne pas submit si erreurs prix
-        if(isNaN(optionPrice.value)){
-            event.preventDefault();
-        }
-        
-        if(optionPrice.value < 0 || optionPrice.value > 100){
-            event.preventDefault();
-        }
-        
-        //Ne pas submit si erreur catégorie
-        if(categorie.value == '?'){
-            event.preventDefault();
-            
-        }
-        
-        //Ne pas submit si erreurs TVA
-        if(formTvap.value == '?'){
-            event.preventDefault();
-        }
-
-        if(formTvae.value == '?'){
-            event.preventDefault();
-        }
-        
-        //Ne pas submit si erreur écran affichage
-        if(errorScreen.value == '?'){
-            event.preventDefault();
-        }
-    });
-    
-
-
 });
 
     
