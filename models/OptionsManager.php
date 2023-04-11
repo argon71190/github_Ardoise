@@ -57,4 +57,12 @@ class OptionsManager extends Database {
         $this->addOne('articlesOptionsListing', $datas);
     }
 
+    public function getOptionsLink( $articleId ) {
+        $sql = "SELECT id, articlesOptionsListing_id FROM articlesOptions WHERE articles_id = ?";
+        return $this->getAll($sql, [$articleId]);
+    }
+
+
+    
+
 }
