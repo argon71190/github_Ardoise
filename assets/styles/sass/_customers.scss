@@ -34,6 +34,10 @@
                             text-align: left;
                             vertical-align: middle;
                             padding: 12px 5px;
+                            &.inactif{
+                                opacity: 0.1;
+                            }
+    
                         }
                         &:not(:last-child) {
                             border-bottom: 1px solid $grey;
@@ -48,7 +52,5 @@
         width: 90%;
         margin: auto;
         margin-bottom: 10vh;
-
-
     }
 }
