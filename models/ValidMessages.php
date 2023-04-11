@@ -23,6 +23,7 @@ class ValidMessages {
             /*   9 */ "Votre compte a bien été modifié.",
             /*   10 */ "Votre compte a bien été activé.",
             /*   11 */ "Votre compte a bien été désactivé.",
+            /*   12 */ "Votre compte a bien été supprimé.",
         ];
 
         return $messagesValids;

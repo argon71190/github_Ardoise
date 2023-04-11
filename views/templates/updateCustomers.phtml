@@ -1,6 +1,12 @@
 <!-- <?php var_dump($data); ?> -->
 <main id ="updateCustomers">
-        <h1>Modification du compte !</h1>
+        <h1>Modification du compte</h1>
+
+        <?php   if(empty($data['customer'])){
+                        require_once('views/bases/_errors.phtml');
+                        require_once('views/bases/_valids.phtml');
+                }
+                else{?>
 
         <form id="modificationCompte" method="POST" action="index.php?route=updateCustomer&id=<?= $customer['id'] ?>" enctype="multipart/form-data">
 
@@ -109,4 +115,9 @@
                 </form>
 
         </section>
+        <?php } ?>
+        <section>
+                <a href="../index.php?route=customers" id="retour" class="btn colorBlue">Retour</a>
+        </section>
+
 </main>

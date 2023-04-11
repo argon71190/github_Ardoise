@@ -291,6 +291,9 @@ table {
   vertical-align: middle;
   padding: 12px 5px;
 }
+#customers > section:nth-of-type(3) > ul > table > tbody > tr > td.inactif {
+  opacity: 0.1;
+}
 #customers > section:nth-of-type(3) > ul > table > tbody > tr:not(:last-child) {
   border-bottom: 1px solid #95A5A6;
 }
@@ -821,6 +824,12 @@ h1 {
 #updateCustomers {
   padding: 2vh 2vw;
 }
+#updateCustomers > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 #updateCustomers > form {
   border: 1px solid #95A5A6;
   border-radius: 20px;
@@ -919,7 +928,7 @@ h1 {
   font-size: 1.2rem;
   border-radius: 10px;
 }
-#updateCustomers > section {
+#updateCustomers > section:first-of-type {
   width: 70%;
   margin: auto;
   display: flex;
@@ -927,19 +936,24 @@ h1 {
   justify-content: space-around;
   margin-bottom: 10vh;
 }
-#updateCustomers > section > form {
+#updateCustomers > section:first-of-type > form {
   width: 40%;
 }
-#updateCustomers > section > form > fieldset {
+#updateCustomers > section:first-of-type > form > fieldset {
   width: 100%;
 }
-#updateCustomers > section > form > fieldset > input {
+#updateCustomers > section:first-of-type > form > fieldset > input {
   width: 100%;
   font-size: 1.2rem;
   border: none;
   box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
   font-size: 1.2rem;
   border-radius: 10px;
+}
+#updateCustomers > section:last-of-type {
+  width: 75%;
+  margin: auto;
+  margin-bottom: 10vh;
 }
 
 * {

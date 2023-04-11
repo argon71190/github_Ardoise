@@ -106,14 +106,21 @@ class CustomersManager extends Database {
         $query->execute();
     }
 
-
-    // *** Activation/Désativation
+    // *** ACTIVER/DESACTIVER
     public function activate(Customers $customer): void {
         $query = $this->getDb()->prepare("UPDATE customers  SET     valids_id = :valids_id
                                                             WHERE   id = :id");
 
         $query->bindValue(':valids_id',  $customer->getValids());
         $query->bindValue(':id',        $customer->getId());
+
+        $query->execute();
+    }
+
+    // *** SUPRIMER
+    public function delete($id): void {
+        $query = $this->getDb()->prepare("DELETE FROM customers WHERE id = :id");
+        $query->bindValue(':id', $id);
 
         $query->execute();
     }

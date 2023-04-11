@@ -1,3 +1,4 @@
+<!-- <?php var_dump($data); ?> -->
 <main id="customers">
     <section>
         <h1>Utilisateurs</h1>
@@ -25,18 +26,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <?php foreach( $customers as $customer ) : ?>
+                    <?php foreach( $customers as $customer) : ?>
                         <tr>
-                            <td><?= htmlspecialchars($customer['lastname']) ?></td>
-                            <td><?= htmlspecialchars($customer['firstname']) ?></td>
-                            <td><?= htmlspecialchars($customer['email']) ?></td>
-                            <td><?= htmlspecialchars($customer['birthday']) ?></td>
+                            <td <?php if($customer['statut']=='COMPTE SUSPENDU'){ echo'class="inactif"'; }?>><?= htmlspecialchars($customer['lastname']) ?></td>
+                            <td <?php if($customer['statut']=='COMPTE SUSPENDU'){ echo'class="inactif"'; }?>><?= htmlspecialchars($customer['firstname']) ?></td>
+                            <td <?php if($customer['statut']=='COMPTE SUSPENDU'){ echo'class="inactif"'; }?>><?= htmlspecialchars($customer['email']) ?></td>
+                            <td <?php if($customer['statut']=='COMPTE SUSPENDU'){ echo'class="inactif"'; }?>><?= htmlspecialchars($customer['birthday']) ?></td>
                             <?php if( $customer['adress'] !== null ) : ?>
-                                <td><?= htmlspecialchars($customer['adress'] . ' '. $customer['cp'] . ' ' . $customer['city'] . ' [' . $customer['pays'] . ']') ?></td>
+                                <td <?php if($customer['statut']=='COMPTE SUSPENDU'){ echo'class="inactif"'; }?>><?= htmlspecialchars($customer['adress'] . ' '. $customer['cp'] . ' ' . $customer['city'] . ' [' . $customer['pays'] . ']') ?></td>
                             <?php else : ?>
-                                <td>Pas d'adresse.</td>
+                                <td <?php if($customer['statut']=='COMPTE SUSPENDU'){ echo'class="inactif"'; }?>>Pas d'adresse.</td>
                             <?php endif; ?>
-                            <td><?= htmlspecialchars($customer['statut']) ?></td>
+                            <td <?php if($customer['statut']=='COMPTE SUSPENDU'){ echo'class="inactif"'; }?>><?= htmlspecialchars($customer['statut']) ?></td>
                             <td><a href="index.php?route=updateCustomer&id=<?= $customer['id'] ?>" class="btn colorYellow">Modifier</a></td>
                             <td><a href="index.php?route=displayOneCustomer&id=<?= $customer['id'] ?>" class="btn colorGreen">Voir</a></td>
     

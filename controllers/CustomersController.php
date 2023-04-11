@@ -663,6 +663,31 @@ class CustomersController extends Router
 
     }
 
+    public function deleteCustomer($id) {
+        $valids = [];
+
+        // Récupération de la liste des messages de validation
+        $validsList = new ValidMessages();
+        $messagesValids = $validsList->getMessages();
+
+        // Supression du compte
+        $model      = new CustomersManager();
+        $customerToActivate = $model->delete($id);
+
+        // Ajout d'un message de validation
+        $valids[] = $messagesValids[12];
+
+        // Etant donné que je reste sur le formulaire, je regénère un token
+        $model = new ResultsManager();
+        $token = $model->genererChaineAleatoire(20);
+        $_SESSION['tokenVerify'] = $token;
+
+        $this->render('updateCustomers', 'layout', [
+            'customer'      => '',
+            'token'         => $token,
+            'valids'        => $valids
+        ]);
+    }
 
 
 
