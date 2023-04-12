@@ -31,7 +31,7 @@
                             <td <?php if($customer['statut']=='COMPTE SUSPENDU'){ echo'class="inactif"'; }?>><?= htmlspecialchars($customer['lastname']) ?></td>
                             <td <?php if($customer['statut']=='COMPTE SUSPENDU'){ echo'class="inactif"'; }?>><?= htmlspecialchars($customer['firstname']) ?></td>
                             <td <?php if($customer['statut']=='COMPTE SUSPENDU'){ echo'class="inactif"'; }?>><?= htmlspecialchars($customer['email']) ?></td>
-                            <td <?php if($customer['statut']=='COMPTE SUSPENDU'){ echo'class="inactif"'; }?>><?= htmlspecialchars($customer['birthday']) ?></td>
+                            <td <?php if($customer['statut']=='COMPTE SUSPENDU'){ echo'class="inactif"'; }?>><?= htmlspecialchars(date_format(date_create($customer['birthday']), 'd-m-Y')) ?></td>
                             <?php if( $customer['adress'] !== null ) : ?>
                                 <td <?php if($customer['statut']=='COMPTE SUSPENDU'){ echo'class="inactif"'; }?>><?= htmlspecialchars($customer['adress'] . ' '. $customer['cp'] . ' ' . $customer['city'] . ' [' . $customer['pays'] . ']') ?></td>
                             <?php else : ?>
