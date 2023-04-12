@@ -19,10 +19,8 @@
                                         id          = "longName"
                                         class       = "formName"
                                         name        = "longName"
-                                        minlength   = "3"
-                                        maxlength   = "50"
                                         value       = "<?php if(isset($newArticle) && !empty($newArticle)) { echo $newArticle['name']; } ?>"
-                                        required>
+                                        >
                                 <small class='errorName'>Le nom de l'article doit comporter entre 3 et 50 caractères !</small>
                         </fieldset>
 
@@ -33,10 +31,8 @@
                                         id          = "shortName"
                                         class       = "formShortName"
                                         name        = "shortName"
-                                        minlength   = "1"
-                                        maxlength   = "10"
                                         value       = "<?php if(isset($newArticle) && !empty($newArticle)) { echo $newArticle['shortName']; } ?>"
-                                        required>
+                                        >
                                 <small class='errorShortName'>Le nom court de l'article doit comporter entre 1 et 10 caractères !</small>
                         </fieldset>
 
@@ -64,12 +60,10 @@
                                         id          = "price"
                                         class       = "formPrice"
                                         name        = "price"
-                                        min         = "0"
-                                        max         = "100"
                                         step        = "0.01"
                                         value       = "<?php if(isset($newArticle) && !empty($newArticle)) { echo $newArticle['price']; } ?>"
-                                        required> €
-                                <small class='errorPrice1'>Le prix de l'article, exprimé en €, doit être un nombre entier ou avec 2 décimales maximum !</small>
+                                        > €
+                                <small class='errorPrice1'>Le prix de l'article, exprimé en €, doit être un nombre entier ou avec 2 décimales maximum séparées par un point !</small>
                                 <small class='errorPrice2'>Le prix de l'article doit être compris entre 0 et 100 € !</small>        
                         </fieldset>
 
@@ -154,14 +148,14 @@
                         </fieldset>
                         
                         <fieldset>
-                                <label  for         = "code">Code barre :</label>
+                                <label  for         = "code">Code barre (13 chiffres) : </label>
                                 <input  type        = "text"
                                         id          = "code"
                                         name        = "code"
-                                        minlength   = "13"
-                                        maxlength   = "13"
+                                        class       = "formCode"
                                         value       = "<?php if(isset($newArticle) && !empty($newArticle)) { echo $newArticle['codeBarre']; } ?>">
-                                        <small  class       = "form-text text-muted">13 chiffres.</small>
+                                        
+                                        <small class ='errorCode'>Veuillez entrer un code barre de 13 chiffres ou laisser le champ vide !</small>
                         </fieldset>
 
                         <fieldset>
@@ -180,5 +174,5 @@
 
         </form>
         <script src="assets/js/preview.js"></script>
-        <script src="assets/js/form.js"></script>
+        <script type="module" src="assets/js/form.js"></script>
 </main>

@@ -970,7 +970,7 @@ a {
 }
 
 .errorName, .errorShortName, .errorPrice1, .errorPrice2,
-.errorCategorie, .errorTvap, .errorTvae, #errorTva {
+.errorCategorie, .errorTvap, .errorTvae, #errorTva .errorScreen, .errorCode {
   display: none;
   color: #E74C3C;
 }/*# sourceMappingURL=style.css.map */
