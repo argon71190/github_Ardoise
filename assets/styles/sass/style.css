@@ -260,47 +260,42 @@ table {
 #customers {
   padding: 2vh 2vw;
 }
-#customers > section:nth-of-type(2) {
+#customers > section:nth-of-type(1) {
   width: 60%;
   margin: auto;
   display: flex;
   margin-bottom: 40px;
 }
-#customers > section:nth-of-type(3) {
+#customers > section:nth-of-type(2) {
   width: 90%;
   margin: auto;
-  margin-bottom: 40px;
+  margin-bottom: 10vh;
 }
-#customers > section:nth-of-type(3) > ul {
+#customers > section:nth-of-type(2) > ul {
   width: 100%;
 }
-#customers > section:nth-of-type(3) > ul > table > thead {
+#customers > section:nth-of-type(2) > ul > table > thead {
   background-color: #008080;
   color: #ECF0f1;
 }
-#customers > section:nth-of-type(3) > ul > table > thead > tr > th {
+#customers > section:nth-of-type(2) > ul > table > thead > tr > th {
   text-align: left;
   vertical-align: middle;
   padding: 5px 5px;
 }
-#customers > section:nth-of-type(3) > ul > table > thead > tr > th:last-of-type {
+#customers > section:nth-of-type(2) > ul > table > thead > tr > th:last-of-type {
   text-align: center;
 }
-#customers > section:nth-of-type(3) > ul > table > tbody > tr > td {
+#customers > section:nth-of-type(2) > ul > table > tbody > tr > td {
   text-align: left;
   vertical-align: middle;
   padding: 12px 5px;
 }
-#customers > section:nth-of-type(3) > ul > table > tbody > tr > td.inactif {
+#customers > section:nth-of-type(2) > ul > table > tbody > tr > td.inactif {
   opacity: 0.1;
 }
-#customers > section:nth-of-type(3) > ul > table > tbody > tr:not(:last-child) {
+#customers > section:nth-of-type(2) > ul > table > tbody > tr:not(:last-child) {
   border-bottom: 1px solid #95A5A6;
-}
-#customers > section:nth-of-type(4) {
-  width: 90%;
-  margin: auto;
-  margin-bottom: 10vh;
 }
 
 .btn {
@@ -312,7 +307,7 @@ table {
   opacity: 1;
   font-family: "Montserrat", sans-serif;
   border: 1px solid #3498DB;
-  color: #000080;
+  color: #3498DB;
   border-radius: 0.575rem;
 }
 .btn:hover {
@@ -361,26 +356,27 @@ h1 {
   font-size: 2em;
   font-weight: bold;
   text-align: center;
-  margin: 5vh 0;
+  margin: 3vh 0;
+  text-transform: uppercase;
 }
 
 #gestionTVAPM {
   padding: 2vh 2vw;
 }
-#gestionTVAPM > section:nth-of-type(2) {
+#gestionTVAPM > section:nth-of-type(1) {
   width: 90%;
   margin: auto;
   display: grid;
   grid-template-columns: 70fr 30fr;
   margin-bottom: 10vh;
 }
-#gestionTVAPM > section:nth-of-type(2) > section:nth-of-type(1) {
+#gestionTVAPM > section:nth-of-type(1) > section:nth-of-type(1) {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   border-radius: 5%;
 }
-#gestionTVAPM > section:nth-of-type(2) > section:nth-of-type(1) > article {
+#gestionTVAPM > section:nth-of-type(1) > section:nth-of-type(1) > article {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -391,46 +387,46 @@ h1 {
   width: 240px;
   box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
 }
-#gestionTVAPM > section:nth-of-type(2) > section:nth-of-type(1) > article:hover {
+#gestionTVAPM > section:nth-of-type(1) > section:nth-of-type(1) > article:hover {
   box-shadow: inset -10px -10px 15px rgba(255, 255, 255, 0.5), inset 10px 10px 15px rgba(70, 70, 70, 0.12);
 }
-#gestionTVAPM > section:nth-of-type(2) > section:nth-of-type(1) > article > p {
+#gestionTVAPM > section:nth-of-type(1) > section:nth-of-type(1) > article > p {
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 10px;
 }
-#gestionTVAPM > section:nth-of-type(2) > section:nth-of-type(1) > article > p.inactif {
+#gestionTVAPM > section:nth-of-type(1) > section:nth-of-type(1) > article > p.inactif {
   opacity: 0.05;
 }
-#gestionTVAPM > section:nth-of-type(2) > div {
+#gestionTVAPM > section:nth-of-type(1) > div {
   box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
   padding: 10px;
   margin: 1rem;
 }
-#gestionTVAPM > section:nth-of-type(2) > div > section > form > h2 {
+#gestionTVAPM > section:nth-of-type(1) > div > section > form > h2 {
   text-align: center;
   font-size: 1.4rem;
   font-weight: bold;
   margin: 10px 0 30px 0;
 }
-#gestionTVAPM > section:nth-of-type(2) > div > section > form > legend {
+#gestionTVAPM > section:nth-of-type(1) > div > section > form > legend {
   font-size: 1.2rem;
   margin-bottom: 4vh;
   text-align: center;
   display: none;
 }
-#gestionTVAPM > section:nth-of-type(2) > div > section > form > fieldset {
+#gestionTVAPM > section:nth-of-type(1) > div > section > form > fieldset {
   width: 100%;
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
 }
-#gestionTVAPM > section:nth-of-type(2) > div > section > form > fieldset > label {
+#gestionTVAPM > section:nth-of-type(1) > div > section > form > fieldset > label {
   font-size: 1.2rem;
   margin-bottom: 10px;
   margin-left: 10px;
 }
-#gestionTVAPM > section:nth-of-type(2) > div > section > form > fieldset > input {
+#gestionTVAPM > section:nth-of-type(1) > div > section > form > fieldset > input {
   width: 100%;
   border: none;
   background-color: white;
@@ -439,43 +435,43 @@ h1 {
   border-radius: 10px;
   padding-left: 10px;
 }
-#gestionTVAPM > section:nth-of-type(2) > div > section > form > fieldset > small {
+#gestionTVAPM > section:nth-of-type(1) > div > section > form > fieldset > small {
   font-size: 0.8rem;
   margin-top: 5px;
   margin-left: 10px;
 }
-#gestionTVAPM > section:nth-of-type(2) > div > section > form > fieldset:last-of-type > input {
+#gestionTVAPM > section:nth-of-type(1) > div > section > form > fieldset:last-of-type > input {
   width: 40%;
   margin: auto;
   background-color: #1ABC9C;
 }
-#gestionTVAPM > section:nth-of-type(2) > div > section > section > div > div {
+#gestionTVAPM > section:nth-of-type(1) > div > section > section > div > div {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 20px;
 }
-#gestionTVAPM > section:nth-of-type(2) > div > section > section > div > div > img {
+#gestionTVAPM > section:nth-of-type(1) > div > section > section > div > div > img {
   margin: auto;
 }
 
 #gestionCategories {
   padding: 2vh 2vw;
 }
-#gestionCategories > section:nth-of-type(2) {
+#gestionCategories > section:nth-of-type(1) {
   width: 90%;
   margin: auto;
   display: grid;
   grid-template-columns: 70fr 30fr;
   margin-bottom: 10vh;
 }
-#gestionCategories > section:nth-of-type(2) > section:nth-of-type(1) {
+#gestionCategories > section:nth-of-type(1) > section:nth-of-type(1) {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   border-radius: 5%;
 }
-#gestionCategories > section:nth-of-type(2) > section:nth-of-type(1) > article {
+#gestionCategories > section:nth-of-type(1) > section:nth-of-type(1) > article {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -486,53 +482,53 @@ h1 {
   width: 240px;
   box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
 }
-#gestionCategories > section:nth-of-type(2) > section:nth-of-type(1) > article:hover {
+#gestionCategories > section:nth-of-type(1) > section:nth-of-type(1) > article:hover {
   box-shadow: inset -10px -10px 15px rgba(255, 255, 255, 0.5), inset 10px 10px 15px rgba(70, 70, 70, 0.12);
 }
-#gestionCategories > section:nth-of-type(2) > section:nth-of-type(1) > article > p {
+#gestionCategories > section:nth-of-type(1) > section:nth-of-type(1) > article > p {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 10px;
 }
-#gestionCategories > section:nth-of-type(2) > section:nth-of-type(1) > article > p.inactif {
+#gestionCategories > section:nth-of-type(1) > section:nth-of-type(1) > article > p.inactif {
   opacity: 0.05;
 }
-#gestionCategories > section:nth-of-type(2) > section:nth-of-type(1) > article > section {
+#gestionCategories > section:nth-of-type(1) > section:nth-of-type(1) > article > section {
   display: flex;
   flex-direction: row;
 }
-#gestionCategories > section:nth-of-type(2) > section:nth-of-type(1) > article > section > form {
+#gestionCategories > section:nth-of-type(1) > section:nth-of-type(1) > article > section > form {
   margin: 10px;
 }
-#gestionCategories > section:nth-of-type(2) > div {
+#gestionCategories > section:nth-of-type(1) > div {
   box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
   padding: 10px;
   margin: 1rem;
 }
-#gestionCategories > section:nth-of-type(2) > div > section > form > h2 {
+#gestionCategories > section:nth-of-type(1) > div > section > form > h2 {
   text-align: center;
   font-size: 1.4rem;
   font-weight: bold;
   margin: 10px 0 30px 0;
 }
-#gestionCategories > section:nth-of-type(2) > div > section > form > legend {
+#gestionCategories > section:nth-of-type(1) > div > section > form > legend {
   font-size: 1.2rem;
   margin-bottom: 4vh;
   text-align: center;
   display: none;
 }
-#gestionCategories > section:nth-of-type(2) > div > section > form > fieldset {
+#gestionCategories > section:nth-of-type(1) > div > section > form > fieldset {
   width: 100%;
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
 }
-#gestionCategories > section:nth-of-type(2) > div > section > form > fieldset > label {
+#gestionCategories > section:nth-of-type(1) > div > section > form > fieldset > label {
   font-size: 1.2rem;
   margin-bottom: 10px;
   margin-left: 10px;
 }
-#gestionCategories > section:nth-of-type(2) > div > section > form > fieldset > input {
+#gestionCategories > section:nth-of-type(1) > div > section > form > fieldset > input {
   width: 100%;
   border: none;
   background-color: white;
@@ -541,18 +537,18 @@ h1 {
   border-radius: 10px;
   padding-left: 10px;
 }
-#gestionCategories > section:nth-of-type(2) > div > section > form > fieldset > small {
+#gestionCategories > section:nth-of-type(1) > div > section > form > fieldset > small {
   font-size: 0.8rem;
   margin-top: 5px;
   margin-left: 10px;
 }
-#gestionCategories > section:nth-of-type(2) > div > section > form > fieldset > div {
+#gestionCategories > section:nth-of-type(1) > div > section > form > fieldset > div {
   margin-top: 10px;
 }
-#gestionCategories > section:nth-of-type(2) > div > section > form > fieldset > div > label > span > img {
+#gestionCategories > section:nth-of-type(1) > div > section > form > fieldset > div > label > span > img {
   max-height: 240px;
 }
-#gestionCategories > section:nth-of-type(2) > div > section > form > fieldset:last-of-type > input {
+#gestionCategories > section:nth-of-type(1) > div > section > form > fieldset:last-of-type > input {
   width: 40%;
   margin: auto;
   background-color: #1ABC9C;
@@ -785,38 +781,33 @@ h1 {
 #customerDetails {
   padding: 2vh 2vw;
 }
-#customerDetails > section:nth-of-type(2) {
+#customerDetails > section:nth-of-type(1) {
   width: 90%;
   margin: auto;
   margin-bottom: 40px;
 }
-#customerDetails > section:nth-of-type(2) > ul {
+#customerDetails > section:nth-of-type(1) > ul {
   width: 100%;
 }
-#customerDetails > section:nth-of-type(2) > ul > table {
+#customerDetails > section:nth-of-type(1) > ul > table {
   width: 100%;
 }
-#customerDetails > section:nth-of-type(2) > ul > table > thead {
+#customerDetails > section:nth-of-type(1) > ul > table > thead {
   background-color: #008080;
   color: #ECF0f1;
 }
-#customerDetails > section:nth-of-type(2) > ul > table > thead > tr > th {
+#customerDetails > section:nth-of-type(1) > ul > table > thead > tr > th {
   text-align: left;
   vertical-align: middle;
   padding: 5px 5px;
 }
-#customerDetails > section:nth-of-type(2) > ul > table > tbody > tr > td {
+#customerDetails > section:nth-of-type(1) > ul > table > tbody > tr > td {
   text-align: left;
   vertical-align: middle;
   padding: 12px 5px;
 }
-#customerDetails > section:nth-of-type(2) > ul > table > tbody > tr:not(:last-child) {
+#customerDetails > section:nth-of-type(1) > ul > table > tbody > tr:not(:last-child) {
   border-bottom: 1px solid #95A5A6;
-}
-#customerDetails > section:nth-of-type(3) {
-  width: 90%;
-  margin: auto;
-  margin-bottom: 10vh;
 }
 
 #updateCustomers {
@@ -836,7 +827,7 @@ h1 {
   margin: auto;
   display: flex;
   flex-direction: column;
-  margin-bottom: 5vh;
+  margin-bottom: 2vh;
 }
 #updateCustomers > form > legend {
   font-size: 1.2rem;
@@ -918,7 +909,7 @@ h1 {
   margin: auto;
 }
 #updateCustomers > form > fieldset.inactif {
-  display: none;
+  visibility: hidden;
 }
 #updateCustomers > form > fieldset > input {
   width: 100%;
@@ -934,13 +925,15 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-bottom: 5vh;
+  margin-bottom: 2vh;
 }
 #updateCustomers > section:first-of-type > form {
   width: 40%;
 }
 #updateCustomers > section:first-of-type > form > fieldset {
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 #updateCustomers > section:first-of-type > form > fieldset > input {
   width: 100%;
@@ -950,10 +943,9 @@ h1 {
   font-size: 1.2rem;
   border-radius: 10px;
 }
-#updateCustomers > section:last-of-type {
-  width: 75%;
-  margin: auto;
-  margin-bottom: 10vh;
+#updateCustomers > section:first-of-type > form > fieldset > small {
+  text-align: center;
+  font-size: 0.8rem;
 }
 
 * {

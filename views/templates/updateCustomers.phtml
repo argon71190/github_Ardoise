@@ -1,5 +1,7 @@
 <!-- <?php var_dump($data); ?> -->
 <main id ="updateCustomers">
+        
+        <a href="../index.php?route=customers" id="retour" class="btn"><i class="fa-solid fa-chevron-left"></i></a>
         <h1>Modification du compte</h1>
 
         <?php   if(empty($data['customer'])){
@@ -98,7 +100,7 @@
                                 >
                         </fieldset>
                 </form>
-
+                
                 <form method="POST" action="index.php?route=deleteCustomer&id=<?= $customer['id'] ?>">
                         <fieldset>
                                 <input  type    = "hidden"
@@ -107,17 +109,22 @@
                         </fieldset>
 
                         <fieldset>
-                                <input  type    = "submit"
+                                <input  <?php if($data['customer']['valids_id']==3){ echo 'type    = "submit"'; } ?>
+                                        <?php if($data['customer']['valids_id']==2){ echo 'type    = "button"'; } ?>
                                         name    = "submit"
                                         value   = "Supprimer"
-                                        class   = "btn colorRed">
+                                        <?php if($data['customer']['valids_id']==3){ echo 'class   = "btn colorRed"'; } ?>
+                                        <?php if($data['customer']['valids_id']==2){ echo 'class   = "btn"'; } ?>
+
+                                >
+                                <?php if($data['customer']['valids_id']==2){ ?>
+                                <small>Pour supprimer ce compte veuillez le désactiver</small>
+                                <?php } ?>
+
                         </fieldset>
                 </form>
 
         </section>
         <?php } ?>
-        <section>
-                <a href="../index.php?route=customers" id="retour" class="btn colorBlue">Retour</a>
-        </section>
 
 </main>
