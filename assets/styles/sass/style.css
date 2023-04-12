@@ -357,6 +357,7 @@ h1 {
   font-weight: bold;
   text-align: center;
   margin: 3vh 0;
+  text-transform: uppercase;
 }
 
 #gestionTVAPM {
