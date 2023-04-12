@@ -1,7 +1,7 @@
 import { formArticles } from './formArticles.js';
 import { formOptions } from './formOptions.js';
 import { formTVA } from './formTva.js';
-
+import { formPM } from './formPM.js';
 
 
 window.addEventListener("DOMContentLoaded", function(){  
@@ -19,6 +19,11 @@ window.addEventListener("DOMContentLoaded", function(){
     if (window.location.toString().includes("addTva")) {
         console.log("route3");
         formTVA();
+    }
+
+    if (window.location.toString().includes("addPaymentMethod")) {
+        console.log("route4");
+        formPM();
     }
 
 });
