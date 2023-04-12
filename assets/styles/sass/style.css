@@ -836,7 +836,7 @@ h1 {
   margin: auto;
   display: flex;
   flex-direction: column;
-  margin-bottom: 5vh;
+  margin-bottom: 2vh;
 }
 #updateCustomers > form > legend {
   font-size: 1.2rem;
@@ -934,7 +934,7 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-bottom: 5vh;
+  margin-bottom: 2vh;
 }
 #updateCustomers > section:first-of-type > form {
   width: 40%;
