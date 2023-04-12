@@ -1,6 +1,6 @@
 import { formArticles } from './formArticles.js';
 import { formOptions } from './formOptions.js';
-
+import { formTVA } from './formTva.js';
 
 
 
@@ -16,5 +16,9 @@ window.addEventListener("DOMContentLoaded", function(){
         formOptions();
     }
 
+    if (window.location.toString().includes("addTva")) {
+        console.log("route3");
+        formTVA();
+    }
 
 });

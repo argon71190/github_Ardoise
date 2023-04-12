@@ -1,6 +1,6 @@
-window.addEventListener('DOMContentLoaded', () => {
-    
-    //Form
+function formTVA(){
+
+    //Formulaire
     let addTvaForm = document.getElementById('addTvaForm');
     let tvaValue = document.getElementById('tvaValue');
 
@@ -8,9 +8,8 @@ window.addEventListener('DOMContentLoaded', () => {
     let errorTva = document.getElementById('errorTva');
 
     addTvaForm.addEventListener('submit', (event) => {
-        console.log("here");
         
-        if(isNaN(tvaValue.value) || tvaValue.value < 0 || tvaValue.value > 100 || !Number.isInteger(tvaValue.value*100)){
+        if(isNaN(tvaValue.value) || tvaValue.value < 0 || tvaValue.value > 100 || !Number.isInteger(tvaValue.value*100) || tvaValue.value==""){
             errorTva.style.display = 'block';
             event.preventDefault();
         }
@@ -18,4 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
             errorTva.style.display = 'none';
         }
     });
-});
+
+}
+
+export { formTVA };
