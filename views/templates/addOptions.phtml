@@ -16,10 +16,8 @@
                         id          = "optionName"
                         class       = "formName"
                         name        = "optionName"
-                        minlength   = "3"
-                        maxlength   = "50"
                         value       = "<?php if(isset($newOption) && !empty($newOption)) { echo $newOption['name']; } ?>"
-                        required>
+                        >
                 <small class='errorName'>Le nom de l'option doit comporter entre 3 et 50 caractères !</small>        
             </fieldset>        
             
@@ -31,10 +29,8 @@
                         id          = "optionShortName"
                         class       = "formShortName"
                         name        = "optionShortName"
-                        minlength   = "1"
-                        maxlength   = "10"
                         value       = "<?php if(isset($newOption) && !empty($newOption)) { echo $newOption['shortName']; } ?>"
-                        required>
+                        >
                 <small class='errorShortName'>Le nom court de l'option doit comporter entre 1 et 10 caractères !</small>
             </fieldset>
 
@@ -46,12 +42,10 @@
                         id          = "optionPrice"
                         class       = "formPrice"
                         name        = "optionPrice"
-                        min         = "0"
-                        max         = "100"
                         step        = "0.01"
                         value       = "<?php if(isset($newOption) && !empty($newOption)) { echo $newOption['price']; } ?>"
-                        required>
-                <small class='errorPrice1'>Le prix de l'option, exprimé en €, doit être un nombre entier ou avec 2 décimales maximum !</small>
+                        >
+                <small class='errorPrice1'>Le prix de l'option, exprimé en €, doit être un nombre entier ou avec 2 décimales maximum séparées par un point !</small>
                 <small class='errorPrice2'>Le prix de l'option doit être compris entre 0 et 100 € !</small>
             </fieldset>
             
@@ -95,5 +89,5 @@
 
     </form>
 <script src="assets/js/preview.js"></script>
-<script type="text/javascript" src="assets/js/form.js"></script>
+<script type="module" type="text/javascript" src="assets/js/form.js"></script>
 </main>
