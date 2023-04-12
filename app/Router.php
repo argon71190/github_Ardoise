@@ -165,7 +165,8 @@ class Router {
                 case 'articleOption':
                     $controller = new OptionsController();
                     $controller->displayArticleOption($_GET['id']);
-
+                    break; 
+                    
                     //CATEGORIES
                 case 'addCategorie':
                     $controller = new CategoriesController();
