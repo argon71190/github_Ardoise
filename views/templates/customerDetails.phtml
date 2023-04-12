@@ -19,10 +19,10 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><?= $customer->getLastname(); ?></td>
-                            <td><?= $customer->getFirstname(); ?></td>
-                            <td><?= $customer->getEmail(); ?></td>
-                            <td><?= $customer->getBirthday(); ?></td>
+                            <td><?= htmlspecialchars($customer->getLastname()); ?></td>
+                            <td><?= htmlspecialchars($customer->getFirstname()); ?></td>
+                            <td><?= htmlspecialchars($customer->getEmail()); ?></td>
+                            <td><?= htmlspecialchars(date_format(date_create($customer->getBirthday()), 'd-m-Y')); ?></td>
                             <?php if( $customerDetails->getAdress() !== null ) : ?>
                                 <td><?= $customerDetails->getAdress() . ' '. $customerDetails->getCp() . ' ' . $customerDetails->getCity() . ' [' . $customerCountry->getName() . ']' ?></td>
                             <?php else : ?>
