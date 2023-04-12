@@ -307,7 +307,7 @@ table {
   opacity: 1;
   font-family: "Montserrat", sans-serif;
   border: 1px solid #3498DB;
-  color: #000080;
+  color: #3498DB;
   border-radius: 0.575rem;
 }
 .btn:hover {
@@ -356,7 +356,7 @@ h1 {
   font-size: 2em;
   font-weight: bold;
   text-align: center;
-  margin: 5vh 0;
+  margin: 3vh 0;
 }
 
 #gestionTVAPM {
