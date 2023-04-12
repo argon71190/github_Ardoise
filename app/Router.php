@@ -157,16 +157,16 @@ class Router {
                     break;
                     
                     //ASSOCIATION D'OPTION A UN ARTICLE
-                case 'assocOption':
+                case 'articleGestion':
                     $controller = new OptionsController();
-                    $controller->displayFormAssocOption();
+                    $controller->displayArticleGestion();
                     break;
 
                 case 'articleOption':
                     $controller = new OptionsController();
                     $controller->displayArticleOption($_GET['id']);
                     break; 
-                    
+
                     //CATEGORIES
                 case 'addCategorie':
                     $controller = new CategoriesController();
@@ -215,6 +215,12 @@ class Router {
                 case 'searchArticleAjax':
                     $controller = new ArticlesController();
                     $controller-> searchArticlesByCategory();
+
+                break;    
+
+                case 'searchOptionAjax':
+                    $controller = new OptionsController();
+                    $controller-> searchOptionsByCategory();
 
                 break;    
                                         

@@ -1,7 +1,36 @@
 <main id="articleOption">
     <section>
-    <img src="assets/uploads/articles/<?= htmlspecialchars($article['categories_id'])?>/<?= htmlspecialchars($article['picture']) ?>">
-        <?= $article['name']?>
-        <?= $article['price']?>
+        <?php
+        $model = new \Models\OptionsManager();
+        $links = $model->getOptionsLink($article['id']);
+        ?>
+        <article>
+        <img src="assets/uploads/articles/<?= htmlspecialchars($article['categories_id'])?>/<?= htmlspecialchars($article['picture']) ?>">
+            <h3><?= htmlspecialchars($article['name']) ?></h3>
         
+            </p><?= htmlspecialchars($article['price']) ?> €</p>
+        
+            <span><?= htmlspecialchars($article['shortName']) ?></span>
+            <ul>Options :</ul>
+            <?php foreach($links as $link):
+            $model = new \Models\OptionsManager();
+            $option = $model->getOptionById($link['articlesOptionsListing_id']);
+            ?> <li><?=$option['name'];?></li>
+            <?php
+            endforeach;?>
+
+        <h4>AJOUT D'OPTION</h4>
+        <p>Choisissez la catégorie d'option à afficher !<p>
+        <select     name        = "categorieOption"
+                    class       = "formCategorieOption"
+                    id          = "categorieOption">
+                    <option value="?">?</option>
+                        <?php foreach($categories as $categorie){ ?>
+                        <option value="<?= htmlspecialchars($categorie['id'])?>"><?=htmlspecialchars($categorie['name'])?></option>
+                        <?php }?>
+            </select>
+            <div id='targets'>
+            </div>
+            
     </section>
+    <script type="text/javascript" src="assets/js/ajaxOption.js"></script>

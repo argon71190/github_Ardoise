@@ -154,11 +154,11 @@ class OptionsController extends Router
 
 
 
-    public function displayFormAssocOption(){
+    public function displayArticleGestion(){
         $model = new categoriesManager();
         $categories = $model->getCategories();
 
-        $this->render(  'assocOption',
+        $this->render(  'articleGestion',
                         'layout',
                         [ 'categories' => $categories]
                         );
@@ -168,9 +168,22 @@ class OptionsController extends Router
         $model = new ArticlesManager();
         $article = $model->getArticleById($id);
 
+        $model = new OptionsManager();
+        $categories = $model->getAllCategories();
+
         $this->render(  'articleOption',
                         'layout',
-                        [ 'article' => $article]
+                        [ 'article'         => $article,
+                          'categories'      => $categories]
                         );
+    }
+
+    public function searchOptionsByCategory() {
+        $content = file_get_contents("php://input");
+        $data = json_decode($content, true);
+        $search = $data['category'];
+        $model = new \Models\OptionsManager();
+        $optionsFind = $model->getAllOptionsByCat($search);
+        include 'views/templates/optionsSearch.phtml';
     }
 }

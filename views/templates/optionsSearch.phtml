@@ -1,0 +1,21 @@
+<section>
+<?php 
+
+if(empty($optionsFind)){
+?> <small>Il n'y a pas d'article dans cette catégorie !</small>
+<?php
+}
+else{
+foreach($optionsFind as $option): 
+
+?>
+            <article>
+                <img src="assets/uploads/options/<?= htmlspecialchars($option['categoriesCondiments_id'])?>/<?= htmlspecialchars($option['picture']) ?>">
+                    <h3><?= htmlspecialchars($option['name']) ?></h3>
+                
+                    </p><?= htmlspecialchars($option['price']) ?> €</p>
+                
+                    <span><?= htmlspecialchars($option['shortName']) ?></span>
+<?php
+endforeach;
+}?>                    
