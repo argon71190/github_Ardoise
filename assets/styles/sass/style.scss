@@ -31,7 +31,7 @@ a {
 }
 
 .errorName, .errorShortName, .errorPrice1, .errorPrice2,
-.errorCategorie, .errorTvap, .errorTvae, .errorScreen, .errorCode{
+.errorCategorie, .errorTvap, .errorTvae, #errorTva .errorScreen, .errorCode{
   display: none;
   color: $red;
 } 

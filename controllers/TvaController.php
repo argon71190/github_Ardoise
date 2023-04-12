@@ -59,7 +59,7 @@ class TvaController extends Router
             }
 
             // Vérification du champ Value de la TVA
-            if(strlen($addTva['value']) < 1 || strlen($addTva['value']) > 4){
+            if($addTva['value'] < 0 || $addTva['value'] > 100){
                 $errors[] = $messagesErrors[50];
             }
 

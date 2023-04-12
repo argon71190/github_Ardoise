@@ -443,8 +443,6 @@ h1 {
   font-size: 0.8rem;
   margin-top: 5px;
   margin-left: 10px;
-  color: #E74C3C;
-  display: none;
 }
 #gestionTVAPM > section:nth-of-type(2) > div > section > form > fieldset:last-of-type > input {
   width: 40%;
@@ -838,7 +836,7 @@ h1 {
   margin: auto;
   display: flex;
   flex-direction: column;
-  margin-bottom: 10vh;
+  margin-bottom: 5vh;
 }
 #updateCustomers > form > legend {
   font-size: 1.2rem;
@@ -848,8 +846,10 @@ h1 {
 }
 #updateCustomers > form > div {
   display: flex;
-  justify-content: space-around;
-  margin-bottom: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 #updateCustomers > form > div > div:nth-of-type(2) {
   display: flex;
@@ -934,7 +934,7 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-bottom: 10vh;
+  margin-bottom: 5vh;
 }
 #updateCustomers > section:first-of-type > form {
   width: 40%;
@@ -970,7 +970,7 @@ a {
 }
 
 .errorName, .errorShortName, .errorPrice1, .errorPrice2,
-.errorCategorie, .errorTvap, .errorTvae, .errorScreen, .errorCode {
+.errorCategorie, .errorTvap, .errorTvae, #errorTva .errorScreen, .errorCode {
   display: none;
   color: #E74C3C;
 }/*# sourceMappingURL=style.css.map */
