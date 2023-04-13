@@ -1,4 +1,4 @@
-#gestionTVA{
+#gestionPM{
     padding: 2vh 2vw;
     > section:nth-of-type(1){
         width: 90%;
@@ -27,7 +27,7 @@
                     inset 10px 10px 15px rgba(70, 70, 70, 0.12);
                 }
                 > p{
-                    font-size: 3rem;
+                    font-size: 2rem;
                     font-weight: bold;
                     margin-bottom: 10px;
                     &.inactif{
