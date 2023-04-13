@@ -3,7 +3,7 @@
         <a href="../index.php?route=customers" id="retour" class="btn"><i class="fa-solid fa-chevron-left"></i></a>
         <h1>Création de compte !</h1>
 
-        <form id="creationCompte" method="POST" action="index.php?route=submitFormAddCustomer" enctype="multipart/form-data">
+        <form id="addCustomerForm" method="POST" action="index.php?route=submitFormAddCustomer" enctype="multipart/form-data">
 
         <legend>Merci de renseigner les informations suivantes</legend>
 
@@ -18,9 +18,8 @@
                                 id      = "lastname"
                                 name    = "lastname"
                                 value   = "<?php if(isset($newCustomer) && !empty($newCustomer)) { echo $newCustomer['lastname']; } ?>"
-                                pattern = "[a-zA-ZàâäæáãåßçéèêëîïñôöœóõøüùÿÀÂÄÆÁÃÅÇÉÈÊËÎÏÑÔÖŒÓÕØÜÙŸ'\s.-]+"
-                                required>
-                        <small>Merci de rentrer votre nom !</small>
+                        >
+                        <small id="errorLastName">Votre nom doit comprendre entre 2 et 50 caractères</small>
                 </fieldset>
 
                 <fieldset>
@@ -29,9 +28,8 @@
                                 id      = "firstname"
                                 name    = "firstname"
                                 value   = "<?php if(isset($newCustomer) && !empty($newCustomer)) { echo $newCustomer['firstname']; } ?>"
-                                pattern = "[a-zA-ZàâäæáãåßçéèêëîïñôöœóõøüùÿÀÂÄÆÁÃÅÇÉÈÊËÎÏÑÔÖŒÓÕØÜÙŸ'\s.-]+"
-                                required>
-                        <small>Merci de rentrer votre prénom !</small>
+                        >
+                        <small id="errorFirstName">Votre prénom doit comprendre entre 2 et 50 caractères</small>
                 </fieldset>        
 
                 <fieldset>
@@ -40,7 +38,7 @@
                                 id      = "birthday"
                                 name    = "birthday"
                                 value   = "<?php if(isset($newCustomer) && !empty($newCustomer)) { echo $newCustomer['birthday']; } ?>">
-                        <small>Merci de rentrer votre date de naissance !</small>
+                        <small id="errorBirthday">Merci de rentrer une date de naissance valide</small>
                 </fieldset>
 
                 <fieldset>
@@ -49,9 +47,8 @@
                                 id      = "email"
                                 name    = "email"
                                 value   = "<?php if(isset($newCustomer) && !empty($newCustomer)) { echo $newCustomer['email']; } ?>"
-                                pattern = "[^@\s]+@[^@\s]+\.[^@\s]+"
-                                required>
-                        <small>Merci de rentrer votre email !</small>
+                        >
+                        <small id="errorEmail">Merci de rentrer un email valide</small>
                 </fieldset>
 
                 <fieldset>
@@ -61,10 +58,8 @@
                                 name        = "password"
                                 placeholder = "Choisissez un mot de passe"
                                 value       = "<?php if(isset($newCustomer) && !empty($newCustomer)) { echo $newCustomer['password']; } ?>"
-                                        minlength   = "8"
-                                        pattern="(?=.*\d)(?=.*[!@#$%^&*;:{}])(?=.*[a-z])(?=.*[A-Z]).{8,64}"
-                                        required>
-                        <small>Merci de rentrer votre mot de passe qui doit contenir 8 caractères minimum avec 1 majuscule, 1 minuscule, 1 chiffre et un caractère spécial !</small>
+                        >
+                        <small id="errorPassword">Votre mot de passe doit contenir 8 caractères minimum avec 1 majuscule, 1 minuscule, 1 chiffre et un caractère spécial (#?!@$%^&*-)</small>
                 </fieldset>
 
                 <fieldset>
@@ -72,9 +67,8 @@
                         <input  type    = "password"
                                 id      = "confirm_password"
                                 name    = "confirm_password"
-                                        pattern = "(?=.*\d)(?=.*[!@#$%^&*;:])(?=.*[a-z])(?=.*[A-Z]).{8,64}"
-                                        required>
-                        <small>Merci de rentrer un second mot de passe identique au premier !</small>
+                        >
+                        <small id="errorSecondPassword">Votre second mot de passe doit être identique au premier</small>
                 </fieldset>
 
                 <fieldset>
@@ -83,6 +77,7 @@
                                 id      = "rfid"
                                 name    = "rfid"
                                 value   = "<?php if(isset($newCustomer) && !empty($newCustomer)) { echo $newCustomer['rfid']; } ?>">
+                        <small id="errorRfid">Votre RFID doit contenir 10 chiffres (ce champ n'est pas obligatoire)</small>
                 </fieldset>
 
                 <fieldset>
@@ -100,4 +95,6 @@
                 </fieldset>
 
         </form>
+<script src="assets/js/preview.js"></script>
+<script type="module" src="assets/js/form.js"></script>
 </main>

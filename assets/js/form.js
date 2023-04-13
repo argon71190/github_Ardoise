@@ -3,6 +3,7 @@ import { formOptions } from './formOptions.js';
 import { formTVA } from './formTva.js';
 import { formPM } from './formPM.js';
 import { formUpdateCustomer } from './formUpdateCustomer.js';
+import { formAddCustomer } from './formAddCustomer.js';
 
 window.addEventListener("DOMContentLoaded", function(){  
 
@@ -31,4 +32,8 @@ window.addEventListener("DOMContentLoaded", function(){
         formUpdateCustomer();
     }
 
+    if (window.location.toString().includes("addCustomer")) {
+        console.log("route6");
+        formAddCustomer();
+    }
 });
