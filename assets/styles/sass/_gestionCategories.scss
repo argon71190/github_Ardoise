@@ -26,6 +26,12 @@
                     box-shadow: inset -10px -10px 15px rgba(255, 255, 255, 0.5),
                     inset 10px 10px 15px rgba(70, 70, 70, 0.12);
                 }
+                > img{
+                    width: 50%;
+                    &.inactif{
+                        opacity: 0.05;
+                    }
+                }
                 > p{
                     font-size: 1.2rem;
                     font-weight: bold;

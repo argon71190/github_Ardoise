@@ -10,6 +10,8 @@
             <section class="leftElement">
                 <?php foreach($data["categories"] as $categorie) : ?>
                     <article class="dispositionCategories">
+
+                        <img src="assets/uploads/categories/<?= htmlspecialchars($categorie['picture']) ?>" alt="Image de la catégorie" <?php if($categorie['activate']==0){ ?>class="inactif"<?php } ?>/>
                         <p <?php if($categorie['activate']==0){ ?>class="inactif"<?php } ?>><?= htmlspecialchars($categorie['name']) ?></p>
 
                         <section>
