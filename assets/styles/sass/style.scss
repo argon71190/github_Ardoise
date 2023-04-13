@@ -30,8 +30,10 @@ a {
     text-decoration: none;
 }
 
-.errorName, .errorShortName, .errorPrice1, .errorPrice2,
-.errorCategorie, .errorTvap, .errorTvae, #errorTva, #errorPM, .errorScreen, .errorCode{
+.errorName, .errorShortName, .errorPrice1, .errorPrice2, 
+.errorCategorie, .errorTvap, .errorTvae, #errorTva, #errorPM, 
+.errorScreen, .errorCode, #errorLastName, #errorFirstName, 
+#errorBirthday, #errorRfid{
   display: none;
   color: $red;
 } 

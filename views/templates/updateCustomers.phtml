@@ -10,7 +10,7 @@
                 }
                 else{?>
 
-        <form id="modificationCompte" method="POST" action="index.php?route=updateCustomer&id=<?= $customer['id'] ?>" enctype="multipart/form-data">
+        <form id="updateCustomerForm" method="POST" action="index.php?route=updateCustomer&id=<?= $customer['id'] ?>" enctype="multipart/form-data">
 
                 <legend>Merci de renseigner les informations suivantes</legend>
 
@@ -25,9 +25,8 @@
                                         id      = "lastname"
                                         name    = "lastname"
                                         value   = "<?= $data['customer']['lastname']; ?>"
-                                        pattern = "[a-zA-ZàâäæáãåßçéèêëîïñôöœóõøüùÿÀÂÄÆÁÃÅÇÉÈÊËÎÏÑÔÖŒÓÕØÜÙŸ'\s.-]+"
-                                        required>
-                                <small>Merci de rentrer votre nom !</small>
+                                >
+                                <small id="errorLastName">Votre nom doit comprendre entre 2 et 50 caractères</small>
                         </fieldset>
 
                         <fieldset>
@@ -36,9 +35,8 @@
                                         id      = "firstname"
                                         name    = "firstname"
                                         value   = "<?= $data['customer']['firstname']; ?>"
-                                        pattern = "[a-zA-ZàâäæáãåßçéèêëîïñôöœóõøüùÿÀÂÄÆÁÃÅÇÉÈÊËÎÏÑÔÖŒÓÕØÜÙŸ'\s.-]+"
-                                        required>
-                                <small>Merci de rentrer votre prénom !</small>
+                                >
+                                <small id="errorFirstName">Votre prénom doit comprendre entre 2 et 50 caractères</small>
                         </fieldset>        
 
                         <fieldset>
@@ -47,7 +45,7 @@
                                         id      = "birthday"
                                         name    = "birthday"
                                         value   = "<?= $data['customer']['birthday']; ?>">
-                                <small>Merci de rentrer votre date de naissance !</small>
+                                <small id="errorBirthday">Merci de rentrer une date de naissance valide</small>
                         </fieldset>
 
                         <fieldset>
@@ -56,6 +54,7 @@
                                         id      = "rfid"
                                         name    = "rfid"
                                         value   = "<?= $data['customer']['rfid']; ?>">
+                                <small id="errorRfid">Votre RFID doit contenir 10 chiffres (ce champ n'est pas obligatoire)</small>
                         </fieldset>
 
                         <fieldset>
@@ -126,6 +125,9 @@
 
         </section>
         <?php } ?>
+        <script src="assets/js/preview.js"></script>
+        <script type="module" src="assets/js/form.js"></script>
+
 </main>
 <!-- <script>
             if ( window.history.replaceState ) {
