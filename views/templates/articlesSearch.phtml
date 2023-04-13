@@ -28,9 +28,13 @@ foreach($articlesFind as $article):
                     <?php
                     endforeach;?>
                     <br>
+                    <a href=index.php?route=articleUpdate&id=<?= htmlspecialchars($article['id']) ?>" class="btn colorYellow">
+                        MODIFIER UN ARTICLE
+                    </a>    
                     <a href="index.php?route=articleOption&id=<?= htmlspecialchars($article['id']) ?>" class="btn colorGreen">
                         AJOUTER UNE OPTION
                     </a>
+                    
             </article>
         <?php endforeach;
 } ?>
