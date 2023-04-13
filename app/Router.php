@@ -70,7 +70,12 @@ class Router {
                     $controller->deleteCustomer($_GET['id']);
 		        break;
 
-                    // CATEGORIES
+                case 'addCustomerAdress':
+                    $controller = new CustomersController();
+                    $controller->addCustomerAdress($_GET['id']);
+		        break;
+
+                // CATEGORIES
                 case 'categories':
                     $controller = new CategoriesController();
                     $controller->displayCategories('categories');

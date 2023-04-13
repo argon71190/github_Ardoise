@@ -801,31 +801,37 @@ h1 {
   padding: 2vh 2vw;
 }
 #customerDetails > section:nth-of-type(1) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+#customerDetails > section:nth-of-type(2) {
   width: 90%;
   margin: auto;
   margin-bottom: 40px;
 }
-#customerDetails > section:nth-of-type(1) > ul {
+#customerDetails > section:nth-of-type(2) > ul {
   width: 100%;
 }
-#customerDetails > section:nth-of-type(1) > ul > table {
+#customerDetails > section:nth-of-type(2) > ul > table {
   width: 100%;
 }
-#customerDetails > section:nth-of-type(1) > ul > table > thead {
+#customerDetails > section:nth-of-type(2) > ul > table > thead {
   background-color: #008080;
   color: #ECF0f1;
 }
-#customerDetails > section:nth-of-type(1) > ul > table > thead > tr > th {
+#customerDetails > section:nth-of-type(2) > ul > table > thead > tr > th {
   text-align: left;
   vertical-align: middle;
   padding: 5px 5px;
 }
-#customerDetails > section:nth-of-type(1) > ul > table > tbody > tr > td {
+#customerDetails > section:nth-of-type(2) > ul > table > tbody > tr > td {
   text-align: left;
   vertical-align: middle;
   padding: 12px 5px;
 }
-#customerDetails > section:nth-of-type(1) > ul > table > tbody > tr:not(:last-child) {
+#customerDetails > section:nth-of-type(2) > ul > table > tbody > tr:not(:last-child) {
   border-bottom: 1px solid #95A5A6;
 }
 
@@ -1101,6 +1107,100 @@ h1 {
 }
 #gestionArticles > section:nth-of-type(2) > ul > table > tbody > tr:not(:last-child) {
   border-bottom: 1px solid #95A5A6;
+}
+
+#addCustomerAdressForm {
+  padding: 2vh 2vw;
+}
+#addCustomerAdressForm > form {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10vh;
+}
+#addCustomerAdressForm > form > legend {
+  font-size: 1.2rem;
+  margin-bottom: 4vh;
+  text-align: center;
+  display: none;
+}
+#addCustomerAdressForm > form > div {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40px;
+}
+#addCustomerAdressForm > form > div > div:nth-of-type(2) {
+  display: flex;
+  flex-direction: columns;
+  align-items: center;
+}
+#addCustomerAdressForm > form > section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+#addCustomerAdressForm > form > section > fieldset {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+#addCustomerAdressForm > form > section > fieldset > label {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+#addCustomerAdressForm > form > section > fieldset > input {
+  width: 100%;
+  font-size: 1.2rem;
+  border: none;
+  background-color: white;
+  box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
+  font-size: 1.2rem;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+#addCustomerAdressForm > form > section > fieldset > select {
+  width: 100%;
+  font-size: 1.2rem;
+  border: none;
+  background-color: white;
+  box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
+  font-size: 1.2rem;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+#addCustomerAdressForm > form > section > fieldset > small {
+  font-size: 0.8rem;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+#addCustomerAdressForm > form > section > fieldset:nth-of-type(3) > div {
+  margin-top: 10px;
+}
+#addCustomerAdressForm > form > section > fieldset:nth-of-type(3) > div > label > span > img {
+  max-height: 240px;
+}
+#addCustomerAdressForm > form > section > fieldset:nth-of-type(3) > div {
+  margin-top: 10px;
+}
+#addCustomerAdressForm > form > section > fieldset:nth-of-type(3) > div > label > span > img {
+  max-height: 240px;
+}
+#addCustomerAdressForm > form > fieldset {
+  width: 40%;
+  margin: auto;
+}
+#addCustomerAdressForm > form > fieldset > input {
+  width: 100%;
+  font-size: 1.2rem;
+  border: none;
+  background-color: #1ABC9C;
+  box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
+  font-size: 1.2rem;
+  border-radius: 10px;
 }
 
 * {
