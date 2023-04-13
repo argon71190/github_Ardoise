@@ -1,0 +1,51 @@
+#gestionArticles{
+    padding: 2vh 2vw;
+    > section:nth-of-type(1){
+        width: 60%;
+        margin: auto;
+        display: flex;
+        margin-bottom: 40px;
+    }
+    > section:nth-of-type(2){
+        width: 90%;
+        margin: auto;
+        margin-bottom: 10vh;
+
+        > ul{
+            width: 100%;
+            > table{
+                > thead{
+                    background-color: $teal;
+                    color: $white;
+                    > tr{
+                        > th{
+                            text-align: left;
+                            vertical-align: middle;
+                            padding: 5px 5px;
+                            &:last-of-type{
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+                > tbody{
+                    > tr{
+                        > td{
+                            text-align: left;
+                            vertical-align: middle;
+                            padding: 12px 5px;
+                            &.inactif{
+                                opacity: 0.1;
+                            }
+    
+                        }
+                        &:not(:last-child) {
+                            border-bottom: 1px solid $grey;
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

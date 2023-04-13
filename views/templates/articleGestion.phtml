@@ -1,21 +1,30 @@
-<main id='assocOption'>
-    
-        <section>
-            <label  for         = "categorie">Choisissez la catégorie de l'article voulu :</label>
-            <select name        = "categorieArticle"
-                    class       = "formCategorie"
-                    id          = "categorieArticle">
-                    <option value="?">?</option>
-                        <?php foreach($categories as $categorie){ ?>
-                        <option value="<?= htmlspecialchars($categorie['id'])?>"><?=htmlspecialchars($categorie['name'])?></option>
-                        <?php }?>
-            </select>
+<main id='gestionArticles'>
+
+    <a href="../index.php" id="retour" class="btn"><i class="fa-solid fa-chevron-left"></i></a>
+    <h1>Gestion des articles</h1>
+
+    <section>
+        <a href="index.php?route=addArticle"        class="btn colorGreen">Créer un article</a>
+        <a href="index.php?route=addOption"         class="btn colorGreen">Créer une option</a></li>
+    </section>
 
 
-            <div id='target'>
-                <small>Pas d'article à afficher pour le moment. Veuillez choisir la catégorie ci-dessus.</small>
-            </div>
-        </section>
+    <section>
+        <label  for         = "categorie">Choisissez la catégorie de l'article voulu :</label>
+        <select name        = "categorieArticle"
+                class       = "formCategorie"
+                id          = "categorieArticle">
+                <option value="?">?</option>
+                    <?php foreach($categories as $categorie){ ?>
+                    <option value="<?= htmlspecialchars($categorie['id'])?>"><?=htmlspecialchars($categorie['name'])?></option>
+                    <?php }?>
+        </select>
+
+
+        <div id='target'>
+            <small>Pas d'article à afficher pour le moment. Veuillez choisir la catégorie ci-dessus.</small>
+        </div>
+    </section>
     
     <script type="text/javascript" src="assets/js/ajaxArticle.js"></script>
 </main>
