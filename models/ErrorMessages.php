@@ -75,12 +75,14 @@ class errorMessages {
             /*  60 */ "La catégorie de l'option n'existe pas, veuillez sélectionner une catégorie dans la liste proposée !",
             /*  61 */ "Le prix de l'option doit être compris entre 1 centime et 100 € !",
 
-            /*  60 */ "Votre adresse doit comprendre entre 2 et 100 caractères !",
-            /*  61 */ "Votre adresse ne doit contenir que des lettres, des chiffres et les caractères spéciaux suivants (' .-) !",
-            /*  62 */ "Le code postal doit comprendre 5 chiffres !",
-            /*  63 */ "La ville doit comprendre entre 1 et 100 caractères !",
-            /*  64 */ "La ville ne doit contenir que des lettres et les caractères spéciaux suivants (' .-) !",
-            /*  65 */ "Merci de rentrer un pays de la liste !",
+            /*  62 */ "Votre adresse doit comprendre entre 2 et 100 caractères !",
+            /*  63 */ "Votre adresse ne doit contenir que des lettres, des chiffres et les caractères spéciaux suivants (' .-) !",
+            /*  64 */ "Le code postal doit comprendre 5 chiffres !",
+            /*  65 */ "La ville doit comprendre entre 1 et 100 caractères !",
+            /*  66 */ "La ville ne doit contenir que des lettres et les caractères spéciaux suivants (' .-) !",
+            /*  67 */ "Merci de rentrer un pays de la liste !",
+
+            /*  68 */ "L'ID envoyé est incorrect, veuillez réessayer !"
 
         ];
 

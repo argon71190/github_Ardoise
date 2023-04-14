@@ -188,17 +188,70 @@ class OptionsController extends Router
     }
 
     public function addLink() {
-        foreach($_POST['optionId'] as $optionId){
-            $newLink = [
-                'articlesOptionsListing_id'      => trim(strtoupper($optionId)),
-                'articles_id' => trim(strtoupper($_POST['articleId']))
-            ];
 
-            $model = new \Models\OptionsManager();
-            $model->addLink($newLink);
+        //ON VERIFIE QUE LE POST EXISTE
+    if(    array_key_exists('optionId',  $_POST) && array_key_exists('articleId', $_POST)){
+        $errors = [];
+        $valids = [];
 
 
+        //ON RÉCUPERE LES MESSAGE D'ERREURS
+        $errorsList = new errorMessages();
+        $messagesErrors = $errorsList->getMessages();
+
+        //ON S'ASSURE QU'IL N'Y A PAS D'ERREURS
+
+        if(!is_numeric($_POST['articleId'])){
+            $errors[] = $messagesErrors[68];
         }
 
+
+        if(count($errors) == 0){
+            foreach($_POST['optionId'] as $optionId){
+                $newLink = [
+                    'articlesOptionsListing_id'      => trim(strtoupper($optionId)),
+                    'articles_id' => trim(strtoupper($_POST['articleId']))
+                ];
+
+                // ON AJOUTE LE LIEN EN BDD
+                $model = new \Models\OptionsManager();
+                $model->addLink($newLink);
+            }
+
+                //ON ATTRAPE LE MODELE DES MESSAGES DE VALIDATION
+                $validsList = new ValidMessages();
+                $messagesValids = $validsList->getMessages();
+                
+                    // Ajout d'un message de validation
+                    $valids[] = $messagesValids[14];
+
+                $model = new ArticlesManager();
+                $article = $model->getArticleById($_POST['articleId']);
+
+                $model = new OptionsManager();
+                $categories = $model->getAllCategories();
+
+                //On affiche la vue de l'article avec sa nouvelle option et un message de validation
+                $this->render(  'articleOption',
+                                'layout',
+                          [ 'article'       => $article,
+                            'categories'    => $categories,
+                            'errors'        => $errors,
+                            'valids'        => $valids
+                            ]
+                        );
+                        
+        
+        }
+        $model = new categoriesManager();
+        $categories = $model->getCategories();
+        
+        $this->render(  'articleGestion',
+                        'layout',
+                       ['categories'    => $categories,
+                        'errors'        => $errors
+                        ]);
+
+    }    
     }
 }
