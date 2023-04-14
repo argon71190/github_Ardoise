@@ -62,7 +62,10 @@ class OptionsManager extends Database {
         return $this->getAll($sql, [$articleId]);
     }
 
-
+    // *** AJOUTER UN LIEN ARTICLE -> OPTION
+    public function addLink($newLink) {
+        $this->addOne('articlesOptions', $newLink);
+    }
     
 
 }

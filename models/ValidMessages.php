@@ -25,6 +25,8 @@ class ValidMessages {
             /*   11 */ "Votre compte a bien été désactivé.",
             /*   12 */ "Votre compte a bien été supprimé.",
             /*   11 */ "Votre adresse a bien été enregistrée.",
+
+            /*   14 */ "L'option a bien été liée !",
         ];
 
         return $messagesValids;
