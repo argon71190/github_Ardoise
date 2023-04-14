@@ -124,4 +124,26 @@ class CustomersManager extends Database {
 
         $query->execute();
     }
+
+    public function insertAdress(CustomersDetails $customerAdress): void{
+
+        $query = '
+            INSERT INTO customersDetails
+                (country_id, customers_id, adress, zipcode, city)
+            VALUES
+                (:country_id, :customers_id, :adress, :zipcode, :city)';
+
+        $datas = [
+            'country_id'  => $customerAdress->getCountry(),
+            'customers_id' => $customerAdress->getCustomerId(),
+            'adress'  => $customerAdress->getAdress(),
+            'zipcode'     => $customerAdress->getZipcode(),
+            'city'  => $customerAdress->getCity(),
+        ];
+
+        $this->addOne('customersDetails', $datas);
+
+
+    }
+
 }

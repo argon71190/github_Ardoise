@@ -29,7 +29,7 @@
                             <td><?= htmlspecialchars($customer->getEmail()); ?></td>
                             <td><?= htmlspecialchars(date_format(date_create($customer->getBirthday()), 'd-m-Y')); ?></td>
                             <?php if( $customerDetails->getAdress() !== null ) : ?>
-                                <td><?= $customerDetails->getAdress() . ' '. $customerDetails->getCp() . ' ' . $customerDetails->getCity() . ' [' . $customerCountry->getName() . ']' ?></td>
+                                <td><?= $customerDetails->getAdress() . ' '. $customerDetails->getZipcode() . ' ' . $customerDetails->getCity() . ' [' . $customerCountry->getName() . ']' ?></td>
                             <?php else : ?>
                                 <td>Pas d'adresse.</td>
                             <?php endif; ?>

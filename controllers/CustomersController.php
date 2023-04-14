@@ -162,7 +162,7 @@ class CustomersController extends Router
 
         $customerDetails = new CustomersDetails();
         $customerDetails->setAdress($find['adress']);
-        $customerDetails->setCp($find['zipcode']);
+        $customerDetails->setZipCode($find['zipcode']);
         $customerDetails->setCity($find['city']);
 
         $customerCountry = new Country();
@@ -713,23 +713,23 @@ class CustomersController extends Router
             $valids = [];
 
             $customerAdress = [
-                'country_id'  => '',
-                'customer_id' => '',
                 'adress'  => '',
                 'zipcode'      => '',
-                'city'      => ''
+                'city'      => '',
+                'country_id'  => '',
+                'customer_id' => ''
             ];
 
             if (array_key_exists('adress',        $_POST) && array_key_exists('zipcode',    $_POST)
                 && array_key_exists('city',     $_POST) && array_key_exists('country',         $_POST)
                 && array_key_exists('submit',       $_POST) && array_key_exists('token',        $_POST)
                 && $_POST['submit'] == "Valider"){
-                $customerToUdate = [
-                    'id'        => '$id',
-                    'lastname'  => trim(strtoupper($_POST['lastname'])),
-                    'firstname' => trim(ucfirst($_POST['firstname'])),
-                    'birthday'  => trim($_POST['birthday']),
-                    'rfid'      => trim($_POST['rfid']),
+                $customerAdress = [
+                    'adress'  => trim($_POST['adress']),
+                    'zipcode'      => trim($_POST['zipcode']),
+                    'city'      => trim(ucfirst($_POST['city'])),
+                    'country_id'  => $_POST['country'],
+                    'customer_id' => $id
                 ];
 
                 // Récupération de la liste des messages d'erreur
@@ -741,88 +741,62 @@ class CustomersController extends Router
                     $errors[] = $messagesErrors[0];
                 }
 
-                // Vérification du champ "Nom"
+                // Vérification du champ "adress"
                 // Remplacement de l'apostrophe droite par l'apostrophe typographique, \u{2019} === code unicode
                 // Si elle n'existe pas dans la chaîne de caractères, celle-ci n'est pas modifiée.
-                $customerToUdate['lastname'] = str_replace("'", "\u{2019}", $customerToUdate['lastname']);
-                if (strlen($customerToUdate['lastname']) < 2 || strlen($customerToUdate['lastname']) > 50) {
-                    $errors[] = $messagesErrors[1];
+                $customerAdress['adress'] = str_replace("'", "\u{2019}", $customerAdress['adress']);
+                if (strlen($customerAdress['adress']) < 2 || strlen($customerAdress['adress']) > 100) {
+                    $errors[] = $messagesErrors[60];
                 }
                 else {
-                    // if(preg_match("/[^a-zA-Z]/", $customerToUdate['lastname']))
+                    // if(preg_match("/[^a-zA-Z0-9']/", $customerToUdate['lastname']))
                     // l'apostrophe présente dans le tableau ci-dessous est l'apostrophe courbe 
-                    if (preg_match("/[^a-zA-ZàâäæáãåßçéèêëîïñôöœóõøüùÿÀÂÄÆÁÃÅÇÉÈÊËÎÏÑÔÖŒÓÕØÜÙŸ’ .-]/", $customerToUdate['lastname'])){
-                        $errors[] = $messagesErrors[17];
+                    if (preg_match("/[^a-zA-Z0-9àâäæáãåßçéèêëîïñôöœóõøüùÿÀÂÄÆÁÃÅÇÉÈÊËÎÏÑÔÖŒÓÕØÜÙŸ’ .-]/", $customerAdress['adress'])){
+                        $errors[] = $messagesErrors[61];
                     }
                 }
 
-                // Vérification du champ "Prénom"
+                // Si le champ zipcode est rempli, on s'assure qu'il n'y a que des chiffres
+                if (empty($customerAdress['zipcode']) || (preg_match("/[^0-9]/", $customerAdress['zipcode'])) || (strlen($customerAdress['zipcode']) != 5)) {
+                    $errors[] = $messagesErrors[62];
+                }
+
+                // Vérification du champ "city"
                 // Remplacement de l'apostrophe droite par l'apostrophe typographique, \u{2019} === code unicode
                 // Si elle n'existe pas dans la chaîne de caractères, celle-ci n'est pas modifiée.
-                $customerToUdate['firstname'] = str_replace("'", "\u{2019}", $customerToUdate['firstname']);
+                $customerAdress['city'] = str_replace("'", "\u{2019}", $customerAdress['city']);
 
-                if (strlen($customerToUdate['firstname']) < 1 || strlen($customerToUdate['firstname']) > 100) {
-                    $errors[] = $messagesErrors[2];
+                if (strlen($customerAdress['city']) < 1 || strlen($customerAdress['city']) > 100) {
+                    $errors[] = $messagesErrors[63];
                 }
                 else {
-                    //                if(preg_match("/[^a-zA-Z]/", $customerToUdate['firstname']))
+                    // if(preg_match("/[^a-zA-Z]/", $customerAdress['city']))
                     // l'apostrophe présente dans le tableau ci-dessous est l'apostrophe courbe
-                    if (preg_match("/[^a-zA-ZàâäæáãåßçéèêëîïñôöœóõøüùÿÀÂÄÆÁÃÅÇÉÈÊËÎÏÑÔÖŒÓÕØÜÙŸ’ .-]/", $customerToUdate['firstname'])){
-                        $errors[] = $messagesErrors[17];
+                    if (preg_match("/[^a-zA-ZàâäæáãåßçéèêëîïñôöœóõøüùÿÀÂÄÆÁÃÅÇÉÈÊËÎÏÑÔÖŒÓÕØÜÙŸ’ .-]/", $customerAdress['city'])){
+                        $errors[] = $messagesErrors[64];
                     }
                 }
 
-                // Vérification du champ "Date de naissance"
-                $manager = new ResultsManager();
-                $BirthdayIsValid = $manager->validateDate($customerToUdate['birthday'], 'Y-m-d');
-                // $manager->validateDate(...) retourne true si le format de la date de naissance est correct sinon false.
-
-                if (empty($customerToUdate['birthday']) || !$BirthdayIsValid) {
-                    $errors[] = $messagesErrors[3];
-                }
-                else {
-                    $model        = new ResultsManager();
-                    $dateActuelle = $model->dateNow();
-
-                    if ($customerToUdate['birthday'] >= $dateActuelle) {
-                        $errors[] = $messagesErrors[4];
-                    }
-                    else {
-                        $am  = explode('/', date('d/m/Y', strtotime($customerToUdate['birthday'])));
-                        $an  = explode('/', date('d/m/Y', strtotime($dateActuelle)));
-                        $age = $an[2] - $am[2] - 1;
-
-                        if (($am[1] < $an[1]) || (($am[1] == $an[1]) && ($am[0] <= $an[0])))
-                            $age = $an[2] - $am[2];
-
-                        if ($age < 18)
-                            $errors[] = $messagesErrors[5];
-                    }
+                // Vérification du champ "contry"
+                if (empty($customerAdress['country_id']) || (preg_match("/[^0-9]/", $customerAdress['country_id']))) {
+                    $errors[] = $messagesErrors[65];
                 }
 
-                // Si le champ RFID est rempli, on s'assure qu'il n'y a que des chiffres
-                if (!empty($customerToUdate['rfid'])) {
-                    if (strlen($customerToUdate['rfid']) != 10) {
-                        $errors[] = $messagesErrors[14];
-                    } else {
-                        if (preg_match("/[^0-9]/", $customerToUdate['rfid']))
-                            $errors[] = $messagesErrors[15];
-                    }
-                }
 
                 // Aucune erreur dans le formulaire, on peut ajouter le nouveau customers dans la bdd
-                $lastname   = $customerToUdate['lastname'];
-                $firstname  = $customerToUdate['firstname'];
-                $birthday   = $customerToUdate['birthday'];
-                $rfid       = $customerToUdate['rfid'];
-                
+                $adress         = $customerAdress['adress'];
+                $zipcode        = $customerAdress['zipcode'];
+                $city           = $customerAdress['city'];
+                $country_id     = $customerAdress['country_id'];
+                $customer_id    = $customerAdress['customer_id'];
+
                 if (count($errors) == 0) {
-                    $customerToUdate = new Customers();
-                    $customerToUdate->setId($id);
-                    $customerToUdate->setLastname($lastname);
-                    $customerToUdate->setFirstname($firstname);
-                    $customerToUdate->setBirthday($birthday);
-                    $customerToUdate->setRfid($rfid);
+                    $customerAdress = new CustomersDetails();
+                    $customerAdress->setAdress($adress);
+                    $customerAdress->setZipcode($zipcode);
+                    $customerAdress->setCity($city);
+                    $customerAdress->setCountry($country_id);
+                    $customerAdress->setCustomerId($customer_id);
 
                     // Récupération de la liste des messages de validation
                     $validsList = new ValidMessages();
@@ -830,45 +804,31 @@ class CustomersController extends Router
 
                     // Insertion dans la bdd
                     $manager = new CustomersManager();
-                    $manager->update($customerToUdate);
+                    $manager->insertAdress($customerAdress);
 
                     // Ajout d'un message de validation
-                    $valids[] = $messagesValids[9];
+                    $valids[] = $messagesValids[11];
 
-                    // Etant donné que je reste sur le formulaire, je regénère un token
-                    $model = new ResultsManager();
-                    $token = $model->genererChaineAleatoire(20);
-                    $_SESSION['tokenVerify'] = $token;
-                    $customer = $manager->selectOne('id', $id);
-
-                    $this->render('updateCustomers', 'layout', [
-                        'customer'      => $customer,
-                        'token'         => $token,
-                        'errors'        => $errors,
-                        'valids'        => $valids
-                    ]);
-
-                    // Inutile de régénérer un token si redirection
-                    // header('Location: index.php?page=customers');
-                    // exit();
+                    $this->displayOneCustomer($id);
                 }
                 else{
+
                     $model = new CustomersManager();
                     $customer = $model->selectOne('id', $id);
-
-                    // Etant donné que je reste sur le formulaire, je regénère un token
+        
+                    $model = new CountryManager();
+                    $countries = $model->getCountries();
+        
                     $model = new ResultsManager();
                     $token = $model->genererChaineAleatoire(20);
                     $_SESSION['tokenVerify'] = $token;
-                    
         
-                    $this->render('updateCustomers', 'layout', [
-                        'customer'      => $customer,
-                        'token'         => $token,
-                        'errors'        => $errors,
-                        'valids'        => $valids
-                    ]);
-
+                    $this->render(' addCustomerAdressForm', 
+                                    'layout', 
+                                    [   'token' => $token, 
+                                        'customer' => $customer, 
+                                        'countries' => $countries
+                                    ]);
                 }
             }
         }
