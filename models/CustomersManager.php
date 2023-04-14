@@ -7,7 +7,7 @@ class CustomersManager extends Database {
     public function getCustomers(string $byColumn = '1' , string $values = "1", string $order = 'id DESC', int $limit = 500): array {
         $sql = 'SELECT
                     customers.id, customers.lastname, customers.firstname, customers.birthday, customers.email,
-                    customers.password, customers.rfid, customersDetails.adress, customersDetails.cp,
+                    customers.password, customers.rfid, customersDetails.adress, customersDetails.zipcode,
                     customersDetails.city, customers.createdAt, customers.valids_id, valids.statut,
                     country.name AS pays,
                     roles.name AS `role`
@@ -33,7 +33,7 @@ class CustomersManager extends Database {
     // *** DETAIL CUSTOMER
     public function selectOne($column, $value) {
         $sql = 'SELECT  customers.id, customers.lastname, customers.firstname, customers.birthday, customers.email,
-                        customers.password, customers.rfid, customersDetails.adress, customersDetails.cp,
+                        customers.password, customers.rfid, customersDetails.adress, customersDetails.zipcode,
                         customersDetails.city, country.name AS pays,
                         customers.createdAt, customers.valids_id, valids.statut, valids.comment
                 FROM `customers`

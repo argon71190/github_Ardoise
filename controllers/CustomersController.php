@@ -162,7 +162,7 @@ class CustomersController extends Router
 
         $customerDetails = new CustomersDetails();
         $customerDetails->setAdress($find['adress']);
-        $customerDetails->setCp($find['cp']);
+        $customerDetails->setCp($find['zipcode']);
         $customerDetails->setCity($find['city']);
 
         $customerCountry = new Country();
