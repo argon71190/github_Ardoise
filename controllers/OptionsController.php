@@ -252,6 +252,23 @@ class OptionsController extends Router
                         'errors'        => $errors
                         ]);
 
-    }    
+    }
+    $errorsList = new errorMessages();
+    $messagesErrors = $errorsList->getMessages();
+    $errors[] = $messagesErrors[69];
+
+    $model = new ArticlesManager();
+                $article = $model->getArticleById($_POST['articleId']);
+
+                $model = new OptionsManager();
+                $categories = $model->getAllCategories();
+
+    $this->render(  'articleOption',
+                                'layout',
+                          [ 'article'       => $article,
+                            'categories'    => $categories,
+                            'errors'        => $errors,
+                            ]
+                        );
     }
 }
