@@ -186,4 +186,19 @@ class OptionsController extends Router
         $optionsFind = $model->getAllOptionsByCat($search);
         include 'views/templates/optionsSearch.phtml';
     }
+
+    public function addLink() {
+        foreach($_POST['optionId'] as $optionId){
+            $newLink = [
+                'articlesOptionsListing_id'      => trim(strtoupper($optionId)),
+                'articles_id' => trim(strtoupper($_POST['articleId']))
+            ];
+
+            $model = new \Models\OptionsManager();
+            $model->addLink($newLink);
+
+
+        }
+
+    }
 }

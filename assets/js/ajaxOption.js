@@ -5,7 +5,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
     categorieOption.addEventListener('change', function(){
         let value = document.getElementById('categorieOption').value;
-        let myRequest = new Request("index.php?route=searchOptionAjax", {
+        let article = document.getElementById('articleId').value;
+
+        let myRequest = new Request("index.php?route=searchOptionAjax&id="+article, {
             
             method: "POST",
             body: JSON.stringify({category:value})

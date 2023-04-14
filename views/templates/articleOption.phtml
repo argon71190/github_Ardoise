@@ -8,7 +8,7 @@
         <article>
         <img src="assets/uploads/articles/<?= htmlspecialchars($article['categories_id'])?>/<?= htmlspecialchars($article['picture']) ?>">
             <h3><?= htmlspecialchars($article['name']) ?></h3>
-        
+            <input type='hidden' id="articleId" value="<?= $article['id']?>">
             </p><?= htmlspecialchars($article['price']) ?> €</p>
         
             <span><?= htmlspecialchars($article['shortName']) ?></span>

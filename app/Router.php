@@ -172,6 +172,11 @@ class Router {
                     $controller->displayArticleOption($_GET['id']);
                     break; 
 
+                case 'submitFormAddLink':
+                    $controller = new OptionsController();
+                    $controller->addLink();
+                    break;
+
                     //CATEGORIES
                 case 'addCategorie':
                     $controller = new CategoriesController();
