@@ -34,8 +34,8 @@ class CustomersManager extends Database {
     public function selectOne($column, $value) {
         $sql = 'SELECT  customers.id, customers.lastname, customers.firstname, customers.birthday, customers.email,
                         customers.password, customers.rfid, customersDetails.adress, customersDetails.zipcode,
-                        customersDetails.city, country.name AS pays,
-                        customers.createdAt, customers.valids_id, valids.statut, valids.comment
+                        customersDetails.city, country.name AS pays, country.id AS country_id,
+                        customers.createdAt, customers.valids_id, valids.statut, valids.comment, customersDetails.id AS adress_id
                 FROM `customers`
                 INNER JOIN valids
                     ON valids.id    = customers.valids_id
@@ -145,5 +145,23 @@ class CustomersManager extends Database {
 
 
     }
+    public function updateAdress(CustomersDetails $customerAdress, $id): void{
+
+        $query = $this->getDb()->prepare('UPDATE customersDetails  SET     country_id = :country_id,
+                adress = :adress,
+                zipcode = :zipcode,
+                city = :city
+        WHERE   id = :id');
+
+        $query->bindValue(':country_id',  $customerAdress->getCountry());
+        $query->bindValue(':adress', $customerAdress->getAdress());
+        $query->bindValue(':zipcode',  $customerAdress->getZipcode());
+        $query->bindValue(':city',      $customerAdress->getCity());
+        $query->bindValue(':id',        $id);
+
+        $query->execute();
+
+    }
+
 
 }

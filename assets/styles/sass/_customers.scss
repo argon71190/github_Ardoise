@@ -14,6 +14,7 @@
         > ul{
             width: 100%;
             > table{
+                width: 100%;
                 > thead{
                     background-color: $teal;
                     color: $white;
@@ -34,6 +35,9 @@
                             text-align: left;
                             vertical-align: middle;
                             padding: 12px 5px;
+                            &:last-of-type{
+                                text-align: center;
+                            }
                             &.inactif{
                                 opacity: 0.1;
                             }

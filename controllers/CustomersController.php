@@ -159,6 +159,8 @@ class CustomersController extends Router
         $customer->setFirstname($find['firstname']);
         $customer->setEmail($find['email']);
         $customer->setBirthday($find['birthday']);
+        $customer->setValids($find['valids_id']);
+         
 
         $customerDetails = new CustomersDetails();
         $customerDetails->setAdress($find['adress']);
@@ -171,6 +173,11 @@ class CustomersController extends Router
         $customerValids = new Valids();
         $customerValids->setStatut($find['statut']);
 
+        // Je regénère un token
+        $model = new ResultsManager();
+        $token = $model->genererChaineAleatoire(20);
+        $_SESSION['tokenVerify'] = $token;
+        
         $this->render(
             'customerDetails',
             'layout',
@@ -178,7 +185,8 @@ class CustomersController extends Router
                 'customer'          => $customer,
                 'customerDetails'   => $customerDetails,
                 'customerValids'    => $customerValids,
-                'customerCountry'   => $customerCountry
+                'customerCountry'   => $customerCountry,
+                'token'             => $token
             ]
         );
     }
@@ -631,19 +639,8 @@ class CustomersController extends Router
             else{
                 $valids[] = $messagesValids[11];
             }
-            // Etant donné que je reste sur le formulaire, je regénère un token
-            $model = new ResultsManager();
-            $token = $model->genererChaineAleatoire(20);
-            $_SESSION['tokenVerify'] = $token;
 
-            $customer = $manager->selectOne('id', $id);
-
-            $this->render('updateCustomers', 'layout', [
-                'customer'      => $customer,
-                'token'         => $token,
-                'errors'        => $errors,
-                'valids'        => $valids
-            ]);
+            $this->displayOneCustomer($id);
         }
         else{
             $model = new CustomersManager();
@@ -803,8 +800,17 @@ class CustomersController extends Router
                     $messagesValids = $validsList->getMessages();
 
                     // Insertion dans la bdd
-                    $manager = new CustomersManager();
-                    $manager->insertAdress($customerAdress);
+                    $model = new CustomersManager();
+                    $customer = $model->selectOne('id', $id);
+
+                    if($customer['adress']==null){
+                        $manager = new CustomersManager();
+                        $manager->insertAdress($customerAdress);
+                    }
+                    else{
+                        $manager = new CustomersManager();
+                        $manager->updateAdress($customerAdress, $customer['adress_id']);
+                    }
 
                     // Ajout d'un message de validation
                     $valids[] = $messagesValids[11];

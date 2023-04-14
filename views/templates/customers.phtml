@@ -22,7 +22,7 @@
                             <th>Date de naissance</th>
                             <th>Adresse</th>
                             <th>Statut</th>
-                            <th colspan=2>Fonctions</th>
+                            <th>Fonctions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,7 +38,6 @@
                                 <td <?php if($customer['statut']=='COMPTE SUSPENDU'){ echo'class="inactif"'; }?>>Pas d'adresse.</td>
                             <?php endif; ?>
                             <td <?php if($customer['statut']=='COMPTE SUSPENDU'){ echo'class="inactif"'; }?>><?= htmlspecialchars($customer['statut']) ?></td>
-                            <td><a href="index.php?route=updateCustomer&id=<?= $customer['id'] ?>" class="btn colorYellow">Modifier</a></td>
                             <td><a href="index.php?route=displayOneCustomer&id=<?= $customer['id'] ?>" class="btn colorGreen">Voir</a></td>
     
                         </tr>

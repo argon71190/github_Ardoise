@@ -287,6 +287,9 @@ table {
 #customers > section:nth-of-type(2) > ul {
   width: 100%;
 }
+#customers > section:nth-of-type(2) > ul > table {
+  width: 100%;
+}
 #customers > section:nth-of-type(2) > ul > table > thead {
   background-color: #008080;
   color: #ECF0f1;
@@ -303,6 +306,9 @@ table {
   text-align: left;
   vertical-align: middle;
   padding: 12px 5px;
+}
+#customers > section:nth-of-type(2) > ul > table > tbody > tr > td:last-of-type {
+  text-align: center;
 }
 #customers > section:nth-of-type(2) > ul > table > tbody > tr > td.inactif {
   opacity: 0.1;
@@ -801,10 +807,23 @@ h1 {
   padding: 2vh 2vw;
 }
 #customerDetails > section:nth-of-type(1) {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+#customerDetails > section:nth-of-type(1) > a {
+  margin: 0;
+}
+#customerDetails > section:nth-of-type(1) > section {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+}
+#customerDetails > section:nth-of-type(1) > section > a, #customerDetails > section:nth-of-type(1) > section form {
+  margin: 10px;
 }
 #customerDetails > section:nth-of-type(2) {
   width: 90%;
@@ -826,6 +845,9 @@ h1 {
   vertical-align: middle;
   padding: 5px 5px;
 }
+#customerDetails > section:nth-of-type(2) > ul > table > tbody.inactif {
+  opacity: 0.2;
+}
 #customerDetails > section:nth-of-type(2) > ul > table > tbody > tr > td {
   text-align: left;
   vertical-align: middle;
@@ -845,8 +867,6 @@ h1 {
   align-items: center;
 }
 #updateCustomers > form {
-  border: 1px solid #95A5A6;
-  border-radius: 20px;
   padding: 10px;
   width: 75%;
   margin: auto;
@@ -943,34 +963,6 @@ h1 {
   box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
   font-size: 1.2rem;
   border-radius: 10px;
-}
-#updateCustomers > section:first-of-type {
-  width: 70%;
-  margin: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-bottom: 2vh;
-}
-#updateCustomers > section:first-of-type > form {
-  width: 40%;
-}
-#updateCustomers > section:first-of-type > form > fieldset {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-#updateCustomers > section:first-of-type > form > fieldset > input {
-  width: 100%;
-  font-size: 1.2rem;
-  border: none;
-  box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
-  font-size: 1.2rem;
-  border-radius: 10px;
-}
-#updateCustomers > section:first-of-type > form > fieldset > small {
-  text-align: center;
-  font-size: 0.8rem;
 }
 
 #gestionPM {

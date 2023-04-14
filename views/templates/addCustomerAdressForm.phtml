@@ -1,8 +1,10 @@
-<?php var_dump($data); ?>
+<!-- <?php var_dump($data); ?> -->
 <main id ="addCustomerAdressForm">
 
         <a href="../index.php?route=displayOneCustomer&id=<?= $data["customer"]["id"] ?>" id="retour" class="btn"><i class="fa-solid fa-chevron-left"></i></a>
-        <h1>Création d'une adresse client</h1>
+        <h1><?php if(isset($data['customer']['adress']) && !empty($data['customer']['adress'])) { 
+                echo "Modification de l'";}
+                else{ echo "Création d'une ";} ?>adresse client</h1>
 
         <form id="addCustomerForm" method="POST" action="index.php?route=addCustomerAdress&id=<?= $data["customer"]["id"] ?>" enctype="multipart/form-data">
 
@@ -18,7 +20,7 @@
                         <input  type    = "text"
                                 id      = "adress"
                                 name    = "adress"
-                                value   = "<?php if(isset($newCustomer) && !empty($newCustomer)) { echo $newCustomer['lastname']; } ?>"
+                                value   = "<?php if(isset($data['customer']['adress']) && !empty($data['customer']['adress'])) { echo $data['customer']['adress']; } ?>"
                         >
                         <small id="errorAdress">Votre adresse doit comprendre entre 5 et 50 caractères</small>
                 </fieldset>
@@ -28,7 +30,7 @@
                         <input  type    = "number"
                                 id      = "zipcode"
                                 name    = "zipcode"
-                                value   = "<?php if(isset($newCustomer) && !empty($newCustomer)) { echo $newCustomer['firstname']; } ?>"
+                                value   = "<?php if(isset($data['customer']['zipcode']) && !empty($data['customer']['zipcode'])) { echo $data['customer']['zipcode']; } ?>"
                         >
                         <small id="errorZipcode">Votre code postal doit comprendre 5 chiffres</small>
                 </fieldset>        
@@ -38,7 +40,8 @@
                         <input  type    = "text"
                                 id      = "city"
                                 name    = "city"
-                                value   = "<?php if(isset($newCustomer) && !empty($newCustomer)) { echo $newCustomer['birthday']; } ?>">
+                                value   = "<?php if(isset($data['customer']['city']) && !empty($data['customer']['city'])) { echo $data['customer']['city']; } ?>"
+                        >
                         <small id="errorCity">Votre ville doit comprendre entre 2 et 50 caractères</small>
                 </fieldset>
 
@@ -46,7 +49,12 @@
                         <label  for     = "country">Pays</label>
                         <select name="country"
                                 id="country">
+
+                                <?php if(isset($data['customer']['pays']) && !empty($data['customer']['pays'])) { ?>
+                                <option value="<?= $data['customer']['country_id'] ?>"><?= $data['customer']['pays'] ?></option>
+                                <?php } else { ?>
                                 <option value="">--Choisir votre Pays--</option>
+                                <?php } ?>
                                 <?php foreach($data["countries"] as $country){ ?>
                                 <option value="<?= $country["id"]; ?>"><?= $country["name"]; ?></option>
                                 <?php } ?>

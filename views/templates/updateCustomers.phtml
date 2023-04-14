@@ -1,7 +1,7 @@
 <!-- <?php var_dump($data); ?> -->
 <main id ="updateCustomers">
         
-        <a href="../index.php?route=customers" id="retour" class="btn"><i class="fa-solid fa-chevron-left"></i></a>
+        <a href="../index.php?route=displayOneCustomer&id=<?= $customer['id'] ?>" id="retour" class="btn"><i class="fa-solid fa-chevron-left"></i></a>
         <h1>Modification du compte</h1>
 
         <?php   if(empty($data['customer'])){
@@ -71,63 +71,10 @@
                                         class   = "btn colorGreen">
                 </fieldset>
         </form>
-        <section>
-        
-                <form method="POST" action="index.php?route=activationCustomer&id=<?= $customer['id'] ?>">
-                        <fieldset>
-                                <input  type    = "hidden"
-                                        name    = "token"
-                                        value   = "<?= $token ?>">
-                        </fieldset>
-
-                        <fieldset>
-                                <input  type    = "submit"
-                                        name    = "submit"
-                                        <?php if($data['customer']['valids_id']==1){
-                                                echo '  value   = "Valider la création du nouvel utilisateur"
-                                                        class   = "btn colorGreen"
-                                                ';}
-                                                else if($data['customer']['valids_id']==2){
-                                                echo '  value   = "Désactiver"
-                                                        class   = "btn colorYellow"
-                                                ';}
-                                                else{
-                                                echo '  value   = "Activer"
-                                                        class   = "btn colorGreen"
-                                                ';}
-                                        ?>
-                                >
-                        </fieldset>
-                </form>
-                
-                <form method="POST" action="index.php?route=deleteCustomer&id=<?= $customer['id'] ?>">
-                        <fieldset>
-                                <input  type    = "hidden"
-                                        name    = "token"
-                                        value   = "<?= $token ?>">
-                        </fieldset>
-
-                        <fieldset>
-                                <input  <?php if($data['customer']['valids_id']==3){ echo 'type    = "submit"'; } ?>
-                                        <?php if($data['customer']['valids_id']==2){ echo 'type    = "button"'; } ?>
-                                        name    = "submit"
-                                        value   = "Supprimer"
-                                        <?php if($data['customer']['valids_id']==3){ echo 'class   = "btn colorRed"'; } ?>
-                                        <?php if($data['customer']['valids_id']==2){ echo 'class   = "btn"'; } ?>
-
-                                >
-                                <?php if($data['customer']['valids_id']==2){ ?>
-                                <small>Pour supprimer ce compte veuillez le désactiver</small>
-                                <?php } ?>
-
-                        </fieldset>
-                </form>
-
-        </section>
         <?php } ?>
-        <script src="assets/js/preview.js"></script>
-        <script type="module" src="assets/js/form.js"></script>
 
+<script src="assets/js/preview.js"></script>
+<script type="module" src="assets/js/form.js"></script>
 </main>
 <!-- <script>
             if ( window.history.replaceState ) {

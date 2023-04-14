@@ -5,7 +5,66 @@
     <h1>Utilisateurs</h1>
 
     <section>
+        <?php if($data['customerDetails']->getAdress()==null){ ?>
         <a href="../index.php?route=addCustomerAdress&id=<?= $data["customer"]->getId() ?>" id="retour" class="btn colorGreen">Ajouter une adresse</a>
+        <?php } else{ ?>
+        <a href="../index.php?route=addCustomerAdress&id=<?= $data["customer"]->getId() ?>" id="retour" class="btn colorYellow">Modifier l'adresse</a>
+        <?php } ?>
+        <section>
+            <form method="POST" action="index.php?route=activationCustomer&id=<?= $customer->getId(); ?>">
+                <fieldset>
+                        <input  type    = "hidden"
+                                name    = "token"
+                                value   = "<?= $token ?>">
+                </fieldset>
+
+                <fieldset>
+                        <input  type    = "submit"
+                                name    = "submit"
+                                <?php if($data['customer']->getValids()==1){
+                                        echo '  value   = "Valider la création du nouvel utilisateur"
+                                                class   = "btn colorGreen"
+                                        ';}
+                                        else if($data['customer']->getValids()==2){
+                                        echo '  value   = "Désactiver"
+                                                class   = "btn colorYellow"
+                                        ';}
+                                        else{
+                                        echo '  value   = "Activer"
+                                                class   = "btn colorGreen"
+                                        ';}
+                                ?>
+                        >
+                </fieldset>
+            </form>
+            
+            <?php if($data['customer']->getValids()==2){ ?>
+            <a href="index.php?route=updateCustomer&id=<?= $customer->getId(); ?>" class="btn colorYellow">Modifier</a>
+            <?php }?>
+
+            <form method="POST" action="index.php?route=deleteCustomer&id=<?= $customer->getId(); ?>">
+                    <fieldset>
+                            <input  type    = "hidden"
+                                    name    = "token"
+                                    value   = "<?= $token ?>">
+                    </fieldset>
+
+                    <fieldset>
+                            <input  <?php if($data['customer']->getValids()==3){ echo 'type    = "submit"'; } ?>
+                                    <?php if($data['customer']->getValids()==2){ echo 'type    = "button"'; } ?>
+                                    name    = "submit"
+                                    value   = "Supprimer"
+                                    <?php if($data['customer']->getValids()==3){ echo 'class   = "btn colorRed"'; } ?>
+                                    <?php if($data['customer']->getValids()==2){ echo 'class   = "btn colorRed"'; } ?>
+
+                            >
+                            <?php if($data['customer']->getValids()==2){ ?>
+                                <?php } ?>
+
+                    </fieldset>
+            </form>
+
+        </section>
     </section>
 
     <section class="chats-box">
@@ -22,7 +81,7 @@
                             <th>Statut</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody <?php if($data['customer']->getValids()==3){echo'class="inactif"';}?>>
                         <tr>
                             <td><?= htmlspecialchars($customer->getLastname()); ?></td>
                             <td><?= htmlspecialchars($customer->getFirstname()); ?></td>
@@ -41,5 +100,8 @@
                 <li>Cette section est vide.</li>
             <?php endif; ?>
         </ul>
+    </section>
+    <section>
+
     </section>
 </main>
