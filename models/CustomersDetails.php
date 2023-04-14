@@ -8,7 +8,7 @@ class CustomersDetails {
     private ?int $country;
     private ?int $customerId;
     private ?string $adress;
-    private ?string $cp;
+    private ?string $zipcode;
     private ?string $city;
 
     public function getId(): ?int {
@@ -45,12 +45,12 @@ class CustomersDetails {
     }
 
 
-    public function getCp(): ?string {
-        return is_null($this->cp) ? null : htmlspecialchars($this->cp);
+    public function getZipcode(): ?string {
+        return is_null($this->zipcode) ? null : htmlspecialchars($this->zipcode);
     }
 
-    public function setCp(?string $cp): void {
-        $this->cp = $cp;
+    public function setZipcode(?string $zipcode): void {
+        $this->zipcode = $zipcode;
     }
 
 
