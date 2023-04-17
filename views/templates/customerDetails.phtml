@@ -42,7 +42,7 @@
             <a href="index.php?route=updateCustomer&id=<?= $customer->getId(); ?>" class="btn colorYellow">Modifier</a>
             <?php }?>
             
-            <button class="btn colorRed">Supprimer</button>
+            <button id="deleteCustomer" class="btn colorRed">Supprimer</button>
 
         </section>
     </section>
@@ -81,10 +81,11 @@
             <?php endif; ?>
         </ul>
     </section>
-    <section>
+    <section id="deleteValidation">
                 <h2>Etes vous sûr de vouloir supprimer <?= htmlspecialchars($customer->getLastname()). " " .htmlspecialchars($customer->getFirstname()); ?> de la base clients ?</h2>
                 <section>
-                    <button class="btn colorYellow">Annuler</button>
+                    <button id="deleteCancel" class="btn colorYellow">Annuler</button>
+
                     <form method="POST" action="index.php?route=deleteCustomer&id=<?= $customer->getId(); ?>">
                         <fieldset>
                                 <input  type    = "hidden"
@@ -107,3 +108,4 @@
 
     </section>
 </main>
+<script type="module" src="assets/js/index.js"></script>
