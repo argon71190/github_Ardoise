@@ -27,6 +27,7 @@ class ValidMessages {
             /*   13 */ "Votre adresse a bien été enregistrée.",
 
             /*   14 */ "L'option a bien été liée !",
+            /*   15 */ "L'option a bien été supprimée !",
         ];
 
         return $messagesValids;

@@ -71,6 +71,12 @@ class OptionsManager extends Database {
     public function addLink($newLink) {
         $this->addOne('articlesOptions', $newLink);
     }
+
+    public function deleteLink($articleId, $optionId){
+        $query = $this->getDb()->prepare("DELETE FROM articlesOptions WHERE articles_id =". $articleId . " AND articlesOptionsListing_id =". $optionId);
+        $query->execute();
+        $query->closeCursor();
+    }
     
 
 }
