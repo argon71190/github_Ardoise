@@ -82,8 +82,9 @@ class errorMessages {
             /*  66 */ "La ville ne doit contenir que des lettres et les caractères spéciaux suivants (' .-) !",
             /*  67 */ "Merci de rentrer un pays de la liste !",
 
-            /*  68 */ "L'ID envoyé est incorrect, veuillez réessayer !",
-            /*  69 */ " Veuillez sélectionner une option à lier !",
+            /*  68 */ "Veuillez sélectionner une option à lier !",
+            /*  69 */ "L'ID option envoyé n'existe pas !",
+            /*  70 */ "L'ID article envoyé n'existe pas !",
 
 
         ];

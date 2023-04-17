@@ -201,10 +201,32 @@ class OptionsController extends Router
 
         //ON S'ASSURE QU'IL N'Y A PAS D'ERREURS
 
-        if(!is_numeric($_POST['articleId'])){
-            $errors[] = $messagesErrors[68];
-        }
+        foreach($_POST['optionId'] as $optionId){
+            $exist = false;
+            $model = new \Models\OptionsManager();
+            $options = $model->getOptionsId();
+            foreach($options as $option){
+                if($optionId == $option['id']){
+                    $exist = true;
+                }
+            }
+            if($exist == false){
+                $errors[] = $messagesErrors[69];
+            }
+        }    
 
+
+        $exist = false;
+        $model = new \Models\ArticlesManager();
+        $articles = $model->getArticlesId();
+        foreach($articles as $article){
+            if($_POST['articleId'] == $article['id']){
+                $exist = true;
+            }
+        }
+        if($exist == false){
+            $errors[] = $messagesErrors[70];
+        }
 
         if(count($errors) == 0){
             foreach($_POST['optionId'] as $optionId){
@@ -255,7 +277,7 @@ class OptionsController extends Router
     }
     $errorsList = new errorMessages();
     $messagesErrors = $errorsList->getMessages();
-    $errors[] = $messagesErrors[69];
+    $errors[] = $messagesErrors[68];
 
     $model = new ArticlesManager();
                 $article = $model->getArticleById($_POST['articleId']);
@@ -264,11 +286,10 @@ class OptionsController extends Router
                 $categories = $model->getAllCategories();
 
     $this->render(  'articleOption',
-                                'layout',
-                          [ 'article'       => $article,
-                            'categories'    => $categories,
-                            'errors'        => $errors,
-                            ]
-                        );
+                    'layout',
+                  [ 'article'       => $article,
+                    'categories'    => $categories,
+                    'errors'        => $errors,
+                  ]);
     }
 }
