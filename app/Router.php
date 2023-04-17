@@ -177,6 +177,11 @@ class Router {
                     $controller->addLink();
                     break;
 
+                case 'deleteLink':
+                    $controller = new OptionsController();
+                    $controller->deleteLink();
+                    break;
+
                     //CATEGORIES
                 case 'addCategorie':
                     $controller = new CategoriesController();

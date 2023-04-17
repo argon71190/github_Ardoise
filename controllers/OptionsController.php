@@ -292,4 +292,30 @@ class OptionsController extends Router
                     'errors'        => $errors,
                   ]);
     }
+
+    public function deleteLink(){
+        $model = new OptionsManager();
+        $model->deleteLink($_GET['articleId'], $_GET['optionId']);
+
+
+        $model = new ArticlesManager();
+                $article = $model->getArticleById($_GET['articleId']);
+
+                $model = new OptionsManager();
+                $categories = $model->getAllCategories();
+
+                $validsList = new ValidMessages();
+                $messagesValids = $validsList->getMessages();
+                
+                    // Ajout d'un message de validation
+                    $valids[] = $messagesValids[15];
+
+
+        $this->render(  'articleOption',
+                    'layout',
+                  [ 'article'       => $article,
+                    'categories'    => $categories,
+                    'valids'        => $valids
+                  ]);
+    }
 }
