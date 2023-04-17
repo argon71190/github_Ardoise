@@ -17,8 +17,8 @@ class OptionsManager extends Database {
 
     // Récupérer toutes les options en fonction d'une catégorie de condiments
     public function getAllOptions() {
-        $sql = "SELECT * FROM articlesOptionsListing WHERE categoriesCondiments_id = ? ORDER BY name ASC";
-        return $this->getAll($sql, [$categoryId]);
+        $sql = "SELECT * FROM articlesOptionsListing  ORDER BY name ASC";
+        return $this->getAll($sql);
     }
 
     // Récupérer toutes les options en fonction d'une catégorie de condiments
@@ -32,6 +32,11 @@ class OptionsManager extends Database {
         return $this->getOne('SELECT    id, name, categoriesCondiments_id, shortName, picture, price
                                 FROM articlesOptionsListing
                                 WHERE id = ?', [$id]);
+    }
+
+    public function getOptionsId(){
+        $sql = "SELECT id FROM articlesOptionsListing  ORDER BY name ASC";
+        return $this->getAll($sql);
     }
 
     

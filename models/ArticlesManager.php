@@ -9,6 +9,11 @@ class ArticlesManager extends Database {
         return $this->getAll('articles');
     }
 
+    public function getArticlesId(){
+        $sql = "SELECT id FROM articles  ORDER BY name ASC";
+        return $this->getAll($sql);
+    }
+
     // Récupérer tous les articles en fonction d'une catégorie précise
     public function getAllArticlesByCat($categoryId ) {
         $sql = "SELECT * FROM articles WHERE categories_id = ? ORDER BY name ASC";
