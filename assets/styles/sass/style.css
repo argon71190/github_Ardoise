@@ -864,8 +864,9 @@ h1 {
   padding: 20px;
   background-color: #95A5A6;
   position: relative;
-  bottom: 220px;
+  bottom: 200px;
   display: none;
+  height: 40vh;
 }
 #customerDetails > section:nth-of-type(3) > h2 {
   font-size: 1.6rem;
