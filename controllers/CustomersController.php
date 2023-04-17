@@ -672,7 +672,7 @@ class CustomersController extends Router
 
         // Supression du compte
         $model      = new CustomersManager();
-        $customerToActivate = $model->delete($id);
+        $customerToDelete = $model->delete($id);
 
         // Ajout d'un message de validation
         $valids[] = $messagesValids[12];
@@ -682,11 +682,14 @@ class CustomersController extends Router
         $token = $model->genererChaineAleatoire(20);
         $_SESSION['tokenVerify'] = $token;
 
-        $this->render('updateCustomers', 'layout', [
-            'customer'      => '',
-            'token'         => $token,
-            'valids'        => $valids
-        ]);
+        $this->render(
+            'customerDetails',
+            'layout',
+            [
+                'valids'    => $valids,
+                'token'             => $token
+            ]
+        );
     }
 
     public function addCustomerAdress($id): void {
