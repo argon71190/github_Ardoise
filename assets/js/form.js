@@ -1,9 +1,9 @@
-import { formArticles } from './formArticles.js';
-import { formOptions } from './formOptions.js';
-import { formTVA } from './formTva.js';
-import { formPM } from './formPM.js';
-import { formUpdateCustomer } from './formUpdateCustomer.js';
-import { formAddCustomer } from './formAddCustomer.js';
+import { formArticles } from './form/formArticles.js';
+import { formOptions } from './form/formOptions.js';
+import { formTVA } from './form/formTVA.js';
+import { formPM } from './form/formPM.js';
+import { formUpdateCustomer } from './form/formUpdateCustomer.js';
+import { formAddCustomer } from './form/formAddCustomer.js';
 
 window.addEventListener("DOMContentLoaded", function(){  
 
