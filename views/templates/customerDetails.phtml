@@ -4,6 +4,11 @@
     <a href="index.php?route=customers" id="retour" class="btn"><i class="fa-solid fa-chevron-left"></i></a>
     <h1>Utilisateur</h1>
 
+    <?php   if(empty($data['customer'])){
+                        require_once('views/bases/_valids.phtml');
+                }
+                else{?>
+
     <section>
         <?php if($data['customerDetails']->getAdress()==null){ ?>
         <a href="index.php?route=addCustomerAdress&id=<?= $data["customer"]->getId() ?>" id="retour" class="btn colorGreen">Ajouter une adresse</a>
@@ -107,5 +112,8 @@
                 </section>
 
     </section>
+
+    <?php } ?>
+
 </main>
 <script type="module" src="assets/js/index.js"></script>

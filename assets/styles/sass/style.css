@@ -883,6 +883,15 @@ h1 {
 #customerDetails > section:nth-of-type(3) > section > button, #customerDetails > section:nth-of-type(3) > section form {
   margin: 10px;
 }
+#customerDetails > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#customerDetails > div > div {
+  margin: 20px;
+}
 
 #updateCustomers {
   padding: 2vh 2vw;

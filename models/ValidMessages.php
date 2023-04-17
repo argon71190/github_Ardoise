@@ -24,7 +24,7 @@ class ValidMessages {
             /*   10 */ "Votre compte a bien été activé.",
             /*   11 */ "Votre compte a bien été désactivé.",
             /*   12 */ "Votre compte a bien été supprimé.",
-            /*   11 */ "Votre adresse a bien été enregistrée.",
+            /*   13 */ "Votre adresse a bien été enregistrée.",
 
             /*   14 */ "L'option a bien été liée !",
             /*   15 */ "L'option a bien été supprimée !",
