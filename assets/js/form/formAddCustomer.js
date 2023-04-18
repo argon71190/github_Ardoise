@@ -38,7 +38,7 @@ function formAddCustomer(){
         else{
             errorFirstName.style.display = 'none';
         }
-        console.log(birthday.value)
+
         let expressionReguliereBirthday = /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/;
         if(!expressionReguliereBirthday.test(birthday.value)){
             errorBirthday.style.display = 'block';
