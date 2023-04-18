@@ -47,7 +47,7 @@
             <a href="index.php?route=updateCustomer&id=<?= $customer->getId(); ?>" class="btn colorYellow">Modifier</a>
             <?php }?>
             
-            <button id="deleteCustomer" class="btn colorRed">Supprimer</button>
+            <button id="deleteBtn" class="btn colorRed">Supprimer</button>
 
         </section>
     </section>
@@ -86,31 +86,34 @@
             <?php endif; ?>
         </ul>
     </section>
-    <section id="deleteValidation">
-                <h2>Etes vous sûr de vouloir supprimer <?= htmlspecialchars($customer->getLastname()). " " .htmlspecialchars($customer->getFirstname()); ?> de la base clients ?</h2>
-                <section>
-                    <button id="deleteCancel" class="btn colorYellow">Annuler</button>
+    <section id="backdrop">
+        <section id="modal">
+                    <p><i id="cancelIcon" class="fa-solid fa-xmark"></i></p>
+                    <h2>Etes vous sûr de vouloir supprimer <?= htmlspecialchars($customer->getLastname()). " " .htmlspecialchars($customer->getFirstname()); ?> de la base clients ?</h2>
+                    <section>
+                        <button id="cancelBtn" class="btn colorYellow">Annuler</button>
 
-                    <form method="POST" action="index.php?route=deleteCustomer&id=<?= $customer->getId(); ?>">
-                        <fieldset>
-                                <input  type    = "hidden"
-                                        name    = "token"
-                                        value   = "<?= $token ?>">
-                        </fieldset>
+                        <form method="POST" action="index.php?route=deleteCustomer&id=<?= $customer->getId(); ?>">
+                            <fieldset>
+                                    <input  type    = "hidden"
+                                            name    = "token"
+                                            value   = "<?= $token ?>">
+                            </fieldset>
 
-                        <fieldset>
-                                <input  type    = "submit"
-                                        name    = "submit"
-                                        value   = "Supprimer"
-                                        class   = "btn colorRed"
-                                >
-                                <?php if($data['customer']->getValids()==2){ ?>
-                                    <?php } ?>
+                            <fieldset>
+                                    <input  type    = "submit"
+                                            name    = "submit"
+                                            value   = "Supprimer"
+                                            class   = "btn colorRed"
+                                    >
+                                    <?php if($data['customer']->getValids()==2){ ?>
+                                        <?php } ?>
 
-                        </fieldset>
-                    </form>
-                </section>
+                            </fieldset>
+                        </form>
+                    </section>
 
+        </section>
     </section>
 
     <?php } ?>

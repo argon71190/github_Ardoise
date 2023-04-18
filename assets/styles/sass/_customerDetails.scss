@@ -60,30 +60,41 @@
         }
     }
     > section:nth-of-type(3){
-        border: 1px solid $black;
-        border-radius: 20px;
-        width: 90%;
-        margin: auto;
-        padding: 20px;
-        background-color: $grey;
-        position: relative;
-        bottom: 200px;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba($color: $black2, $alpha: 0.4);
+        position: absolute;
+        top: 0;
+        left: 0;
         display: none;
-        height: 40vh;
-        > h2{
-            font-size: 1.6rem;
-            font-weight: bold;
-            margin: 20px;
-            text-align: center;
-            line-height: 1.5;
-        }
         > section{
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            > button, form{
-                margin: 10px;
+            width: 50%;
+            margin: auto;
+            margin-top: 20vh;
+            border: 1px solid $black;
+            border-radius: 20px;
+            padding: 20px;
+            background-color: $white;
+            display: none;
+            > p{
+                text-align: right;
+                font-size: 2rem;
+            }
+            > h2{
+                font-size: 1.6rem;
+                font-weight: bold;
+                margin: 20px;
+                text-align: center;
+                line-height: 1.5;
+            }
+            > section{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                > button, form{
+                    margin: 10px;
+                }
             }
         }
     }
