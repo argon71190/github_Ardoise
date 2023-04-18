@@ -4,6 +4,7 @@ import { formTVA } from './form/formTVA.js';
 import { formPM } from './form/formPM.js';
 import { formUpdateCustomer } from './form/formUpdateCustomer.js';
 import { formAddCustomer } from './form/formAddCustomer.js';
+import { formAddAdress } from './form/formAddAdress.js';
 
 window.addEventListener("DOMContentLoaded", function(){  
 
@@ -36,4 +37,10 @@ window.addEventListener("DOMContentLoaded", function(){
         console.log("route6");
         formAddCustomer();
     }
+
+    if (window.location.toString().includes("addAdress")) {
+        console.log("route7");
+        formAddAdress();
+    }
+
 });

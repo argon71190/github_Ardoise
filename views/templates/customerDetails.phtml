@@ -11,9 +11,9 @@
 
     <section>
         <?php if($data['customerDetails']->getAdress()==null){ ?>
-        <a href="index.php?route=addCustomerAdress&id=<?= $data["customer"]->getId() ?>" id="retour" class="btn colorGreen">Ajouter une adresse</a>
+        <a href="index.php?route=addAdress&id=<?= $data["customer"]->getId() ?>" id="retour" class="btn colorGreen">Ajouter une adresse</a>
         <?php } else{ ?>
-        <a href="index.php?route=addCustomerAdress&id=<?= $data["customer"]->getId() ?>" id="retour" class="btn colorYellow">Modifier l'adresse</a>
+        <a href="index.php?route=addAdress&id=<?= $data["customer"]->getId() ?>" id="retour" class="btn colorYellow">Modifier l'adresse</a>
         <?php } ?>
         <section>
             <form method="POST" action="index.php?route=activationCustomer&id=<?= $customer->getId(); ?>">

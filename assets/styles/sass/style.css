@@ -1149,50 +1149,50 @@ h1 {
   border-bottom: 1px solid #95A5A6;
 }
 
-#addCustomerAdressForm {
+#addAdressForm {
   padding: 2vh 2vw;
 }
-#addCustomerAdressForm > form {
+#addAdressForm > form {
   width: 70%;
   margin: auto;
   display: flex;
   flex-direction: column;
   margin-bottom: 10vh;
 }
-#addCustomerAdressForm > form > legend {
+#addAdressForm > form > legend {
   font-size: 1.2rem;
   margin-bottom: 4vh;
   text-align: center;
   display: none;
 }
-#addCustomerAdressForm > form > div {
+#addAdressForm > form > div {
   display: flex;
   justify-content: space-around;
   margin-bottom: 40px;
 }
-#addCustomerAdressForm > form > div > div:nth-of-type(2) {
+#addAdressForm > form > div > div:nth-of-type(2) {
   display: flex;
   flex-direction: columns;
   align-items: center;
 }
-#addCustomerAdressForm > form > section {
+#addAdressForm > form > section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   -moz-column-gap: 20px;
        column-gap: 20px;
 }
-#addCustomerAdressForm > form > section > fieldset {
+#addAdressForm > form > section > fieldset {
   width: 100%;
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
 }
-#addCustomerAdressForm > form > section > fieldset > label {
+#addAdressForm > form > section > fieldset > label {
   font-size: 1.2rem;
   margin-bottom: 10px;
   margin-left: 10px;
 }
-#addCustomerAdressForm > form > section > fieldset > input {
+#addAdressForm > form > section > fieldset > input {
   width: 100%;
   font-size: 1.2rem;
   border: none;
@@ -1202,7 +1202,7 @@ h1 {
   border-radius: 10px;
   padding-left: 10px;
 }
-#addCustomerAdressForm > form > section > fieldset > select {
+#addAdressForm > form > section > fieldset > select {
   width: 100%;
   font-size: 1.2rem;
   border: none;
@@ -1212,28 +1212,28 @@ h1 {
   border-radius: 10px;
   padding-left: 10px;
 }
-#addCustomerAdressForm > form > section > fieldset > small {
+#addAdressForm > form > section > fieldset > small {
   font-size: 0.8rem;
   margin-top: 5px;
   margin-left: 10px;
 }
-#addCustomerAdressForm > form > section > fieldset:nth-of-type(3) > div {
+#addAdressForm > form > section > fieldset:nth-of-type(3) > div {
   margin-top: 10px;
 }
-#addCustomerAdressForm > form > section > fieldset:nth-of-type(3) > div > label > span > img {
+#addAdressForm > form > section > fieldset:nth-of-type(3) > div > label > span > img {
   max-height: 240px;
 }
-#addCustomerAdressForm > form > section > fieldset:nth-of-type(3) > div {
+#addAdressForm > form > section > fieldset:nth-of-type(3) > div {
   margin-top: 10px;
 }
-#addCustomerAdressForm > form > section > fieldset:nth-of-type(3) > div > label > span > img {
+#addAdressForm > form > section > fieldset:nth-of-type(3) > div > label > span > img {
   max-height: 240px;
 }
-#addCustomerAdressForm > form > fieldset {
+#addAdressForm > form > fieldset {
   width: 40%;
   margin: auto;
 }
-#addCustomerAdressForm > form > fieldset > input {
+#addAdressForm > form > fieldset > input {
   width: 100%;
   font-size: 1.2rem;
   border: none;
@@ -1259,7 +1259,8 @@ a {
 .errorName, .errorShortName, .errorPrice1, .errorPrice2,
 .errorCategorie, .errorTvap, .errorTvae, #errorTva, #errorPM,
 .errorScreen, .errorCode, #errorLastName, #errorFirstName,
-#errorBirthday, #errorRfid, #errorEmail, #errorPassword, #errorSecondPassword {
+#errorBirthday, #errorRfid, #errorEmail, #errorPassword, #errorSecondPassword,
+#errorAdress, #errorZipcode, #errorCity, #errorCountry {
   display: none;
   color: #E74C3C;
 }/*# sourceMappingURL=style.css.map */

@@ -1,12 +1,12 @@
 <!-- <?php var_dump($data); ?> -->
-<main id ="addCustomerAdressForm">
+<main id ="addAdressForm">
 
         <a href="index.php?route=displayOneCustomer&id=<?= $data["customer"]["id"] ?>" id="retour" class="btn"><i class="fa-solid fa-chevron-left"></i></a>
         <h1><?php if(isset($data['customer']['adress']) && !empty($data['customer']['adress'])) { 
                 echo "Modification de l'";}
                 else{ echo "Création d'une ";} ?>adresse client</h1>
 
-        <form id="addCustomerForm" method="POST" action="index.php?route=addCustomerAdress&id=<?= $data["customer"]["id"] ?>" enctype="multipart/form-data">
+        <form id="addAdressForm" method="POST" action="index.php?route=addAdress&id=<?= $data["customer"]["id"] ?>" enctype="multipart/form-data">
 
         <legend>Merci de renseigner les informations suivantes</legend>
 
@@ -22,7 +22,7 @@
                                 name    = "adress"
                                 value   = "<?php if(isset($data['customer']['adress']) && !empty($data['customer']['adress'])) { echo $data['customer']['adress']; } ?>"
                         >
-                        <small id="errorAdress">Votre adresse doit comprendre entre 5 et 50 caractères</small>
+                        <small id="errorAdress">Merci de rentrer une adresse valide</small>
                 </fieldset>
 
                 <fieldset>
@@ -32,7 +32,7 @@
                                 name    = "zipcode"
                                 value   = "<?php if(isset($data['customer']['zipcode']) && !empty($data['customer']['zipcode'])) { echo $data['customer']['zipcode']; } ?>"
                         >
-                        <small id="errorZipcode">Votre code postal doit comprendre 5 chiffres</small>
+                        <small id="errorZipcode">Merci de saisir un code postal valide</small>
                 </fieldset>        
 
                 <fieldset>
@@ -42,7 +42,7 @@
                                 name    = "city"
                                 value   = "<?php if(isset($data['customer']['city']) && !empty($data['customer']['city'])) { echo $data['customer']['city']; } ?>"
                         >
-                        <small id="errorCity">Votre ville doit comprendre entre 2 et 50 caractères</small>
+                        <small id="errorCity">Merci de saisir une ville valide</small>
                 </fieldset>
 
                 <fieldset>
@@ -59,7 +59,7 @@
                                 <option value="<?= $country["id"]; ?>"><?= $country["name"]; ?></option>
                                 <?php } ?>
                         </select>
-                        <small id="errorCountry">Merci de rentrer un pays valide</small>
+                        <small id="errorCountry">Merci de saisir un pays valide</small>
                 </fieldset>
 
                 <fieldset>

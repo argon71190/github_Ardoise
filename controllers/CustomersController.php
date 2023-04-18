@@ -692,7 +692,7 @@ class CustomersController extends Router
         );
     }
 
-    public function addCustomerAdress($id): void {
+    public function addAdress($id): void {
 
         if (isset($_POST) && empty($_POST)) {
             
@@ -706,7 +706,7 @@ class CustomersController extends Router
             $token = $model->genererChaineAleatoire(20);
             $_SESSION['tokenVerify'] = $token;
 
-            $this->render('addCustomerAdressForm', 'layout', ['token' => $token, 'customer' => $customer, 'countries' => $countries]);
+            $this->render('addAdressForm', 'layout', ['token' => $token, 'customer' => $customer, 'countries' => $countries]);
         }
         else {
             $errors = [];
@@ -832,7 +832,7 @@ class CustomersController extends Router
                     $token = $model->genererChaineAleatoire(20);
                     $_SESSION['tokenVerify'] = $token;
         
-                    $this->render(' addCustomerAdressForm', 
+                    $this->render('addAdressForm', 
                                     'layout', 
                                     [   'token' => $token, 
                                         'customer' => $customer, 

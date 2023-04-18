@@ -17,7 +17,7 @@
 @import "_updateCustomers";
 @import "_gestionPM";
 @import "_gestionArticles";
-@import "_addCustomerAdressForm";
+@import "_addAdressForm";
 
 * {
     box-sizing: border-box;
@@ -35,7 +35,8 @@ a {
 .errorName, .errorShortName, .errorPrice1, .errorPrice2, 
 .errorCategorie, .errorTvap, .errorTvae, #errorTva, #errorPM, 
 .errorScreen, .errorCode, #errorLastName, #errorFirstName, 
-#errorBirthday, #errorRfid, #errorEmail, #errorPassword, #errorSecondPassword{
+#errorBirthday, #errorRfid, #errorEmail, #errorPassword, #errorSecondPassword, 
+#errorAdress, #errorZipcode, #errorCity, #errorCountry{
   display: none;
   color: $red;
 } 
