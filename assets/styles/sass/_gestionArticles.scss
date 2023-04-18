@@ -11,41 +11,35 @@
         margin: auto;
         margin-bottom: 10vh;
 
-        > ul{
-            width: 100%;
-            > table{
-                > thead{
-                    background-color: $teal;
-                    color: $white;
-                    > tr{
-                        > th{
-                            text-align: left;
-                            vertical-align: middle;
-                            padding: 5px 5px;
-                            &:last-of-type{
-                                text-align: center;
-                            }
-                        }
-                    }
-                }
-                > tbody{
-                    > tr{
-                        > td{
-                            text-align: left;
-                            vertical-align: middle;
-                            padding: 12px 5px;
-                            &.inactif{
-                                opacity: 0.1;
-                            }
-    
-                        }
-                        &:not(:last-child) {
-                            border-bottom: 1px solid $grey;
-
+        >div{
+            >section{
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                >article{
+                    box-shadow: -10px -10px 15px rgba(255,255,255,0.5),
+                10px 10px 15px rgba(70,70,70,0.12);
+                    
+                    margin: 1em 0 1em 0;
+                    border-radius: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    &:hover{
+                        box-shadow: inset -10px -10px 15px rgba(255, 255, 255, 0.5),
+                        inset 10px 10px 15px rgba(70, 70, 70, 0.12);
+                    }    
+                    >.flexlien{
+                        display: flex;
+                        justify-content: space-between;
+                        >a{
+                            width: 40%;
                         }
                     }
                 }
             }
         }
     }
+
+    
 }

@@ -85,6 +85,7 @@ class errorMessages {
             /*  68 */ "Veuillez sélectionner une option à lier !",
             /*  69 */ "L'ID option envoyé n'existe pas !",
             /*  70 */ "L'ID article envoyé n'existe pas !",
+            /*  71 */ "Une des options sélectionnées est déjà présente sur l'article !",
 
 
         ];
