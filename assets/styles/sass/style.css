@@ -1122,31 +1122,28 @@ h1 {
   margin: auto;
   margin-bottom: 10vh;
 }
-#gestionArticles > section:nth-of-type(2) > ul {
-  width: 100%;
+#gestionArticles > section:nth-of-type(2) > div > section {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
-#gestionArticles > section:nth-of-type(2) > ul > table > thead {
-  background-color: #008080;
-  color: #ECF0f1;
+#gestionArticles > section:nth-of-type(2) > div > section > article {
+  box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
+  margin: 1em 0 1em 0;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-#gestionArticles > section:nth-of-type(2) > ul > table > thead > tr > th {
-  text-align: left;
-  vertical-align: middle;
-  padding: 5px 5px;
+#gestionArticles > section:nth-of-type(2) > div > section > article:hover {
+  box-shadow: inset -10px -10px 15px rgba(255, 255, 255, 0.5), inset 10px 10px 15px rgba(70, 70, 70, 0.12);
 }
-#gestionArticles > section:nth-of-type(2) > ul > table > thead > tr > th:last-of-type {
-  text-align: center;
+#gestionArticles > section:nth-of-type(2) > div > section > article > .flexlien {
+  display: flex;
+  justify-content: space-between;
 }
-#gestionArticles > section:nth-of-type(2) > ul > table > tbody > tr > td {
-  text-align: left;
-  vertical-align: middle;
-  padding: 12px 5px;
-}
-#gestionArticles > section:nth-of-type(2) > ul > table > tbody > tr > td.inactif {
-  opacity: 0.1;
-}
-#gestionArticles > section:nth-of-type(2) > ul > table > tbody > tr:not(:last-child) {
-  border-bottom: 1px solid #95A5A6;
+#gestionArticles > section:nth-of-type(2) > div > section > article > .flexlien > a {
+  width: 40%;
 }
 
 #addCustomerAdressForm {
