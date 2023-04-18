@@ -215,6 +215,22 @@ class OptionsController extends Router
             }
         }    
 
+        
+        $exist = false;
+        foreach($_POST['optionId'] as $optionId){
+            
+            $model = new \Models\OptionsManager();
+            $link = $model-> loadLink($_POST['articleId'], $optionId);
+            if($link){
+                $exist = true;
+            }
+
+        }
+        if($exist == true){
+            $errors[] = $messagesErrors[71];
+        }
+
+
 
         $exist = false;
         $model = new \Models\ArticlesManager();

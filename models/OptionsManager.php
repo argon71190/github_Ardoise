@@ -77,6 +77,10 @@ class OptionsManager extends Database {
         $query->execute();
         $query->closeCursor();
     }
-    
 
+    public function loadLink($articleId, $optionId){
+        $query = $this->getDb()->prepare("SELECT id FROM articlesOptions WHERE articles_id =". $articleId . " AND articlesOptionsListing_id =". $optionId);
+        $query->execute();
+        return $query->fetch();
+    }
 }
