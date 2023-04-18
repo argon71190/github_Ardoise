@@ -1,13 +1,10 @@
-"use strict";
-window.addEventListener('DOMContentLoaded', () => {
-    let categorieOption = document.getElementById('categorieOption');
+function ajaxArticle(){
+    let categorieArticle = document.getElementById('categorieArticle');
 
 
-    categorieOption.addEventListener('change', function(){
-        let value = document.getElementById('categorieOption').value;
-        let article = document.getElementById('articleId').value;
-
-        let myRequest = new Request("index.php?route=searchOptionAjax&id="+article, {
+    categorieArticle.addEventListener('change', function(){
+        let value = document.getElementById('categorieArticle').value;
+        let myRequest = new Request("index.php?route=searchArticleAjax", {
             
             method: "POST",
             body: JSON.stringify({category:value})
@@ -20,7 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
                 // Exploite les données
                 .then(res => {
-                    document.getElementById("targets").innerHTML = res; 
+                    document.getElementById("target").innerHTML = res; 
                     // On met articles.phtml dans la div -> id=target
                     // ou
                     // location.reload(); // Pour une réactualisation de la page
@@ -31,4 +28,6 @@ window.addEventListener('DOMContentLoaded', () => {
     })
 
     
-});    
+}   
+
+export { ajaxArticle };
