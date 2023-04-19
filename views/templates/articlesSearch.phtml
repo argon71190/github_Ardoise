@@ -20,17 +20,20 @@ foreach($articlesFind as $article):
                     </p><?= htmlspecialchars($article['price']) ?> €</p>
 
                     <!--<span><?= htmlspecialchars($article['shortName']) ?></span>-->
-                    <ul>Options :</ul>
-                    <?php foreach($links as $link):
-                    $model = new \Models\OptionsManager();
-                    $option = $model->getOptionById($link['articlesOptionsListing_id']);
-                    ?> <li><?=$option['name'];?></li>
-                    <?php
-                    endforeach;?>
+                    <button onclick="toggleDisplay()" class='display'>Options</button>
+                    <div class="divOptions">
+                        <ul></ul>
+                        <?php foreach($links as $link):
+                        $model = new \Models\OptionsManager();
+                        $option = $model->getOptionById($link['articlesOptionsListing_id']);
+                        ?> <li><?=$option['name'];?></li>
+                        <?php
+                        endforeach;?>
+                    </div>    
                     <br>
                     <div class="flexlien">
                         <a href=index.php?route=articleUpdate&id=<?= htmlspecialchars($article['id']) ?>" class="btn colorYellow">
-                            MODIFIER UN ARTICLE
+                            MODIFIER L'ARTICLE
                         </a>    
                         <a href="index.php?route=articleOption&id=<?= htmlspecialchars($article['id']) ?>" class="btn colorGreen">
                             AJOUTER UNE OPTION
@@ -40,3 +43,4 @@ foreach($articlesFind as $article):
             </article>
         <?php endforeach;
 } ?>
+</section>

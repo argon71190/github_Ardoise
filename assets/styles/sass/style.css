@@ -1123,9 +1123,10 @@ h1 {
   margin-bottom: 10vh;
 }
 #gestionArticles > section:nth-of-type(2) > div > section {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 40px;
 }
 #gestionArticles > section:nth-of-type(2) > div > section > article {
   box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
