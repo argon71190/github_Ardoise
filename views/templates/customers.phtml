@@ -6,7 +6,6 @@
     
     <section>
         <a href="index.php?route=addCustomer" class="btn colorGreen">Ajout Utilisateur</a>
-        <a href="index.php?route=new-room" class="btn colorGreen">Nouveau salon</a>
         <!--<img src="assets/codes_barres/<?= $imgCodeBarre ?>" alt="code barre" />-->
     </section>
     
@@ -38,7 +37,7 @@
                                 <td <?php if($customer['statut']=='COMPTE SUSPENDU'){ echo'class="inactif"'; }?>>Pas d'adresse.</td>
                             <?php endif; ?>
                             <td <?php if($customer['statut']=='COMPTE SUSPENDU'){ echo'class="inactif"'; }?>><?= htmlspecialchars($customer['statut']) ?></td>
-                            <td><a href="index.php?route=displayOneCustomer&id=<?= $customer['id'] ?>" class="btn colorGreen">Voir</a></td>
+                            <td><a href="index.php?route=displayOneCustomer&id=<?= $customer['id'] ?>" class="btn colorYellow">Voir</a></td>
     
                         </tr>
                     <?php endforeach; ?>
