@@ -2,10 +2,10 @@
 <main id="customers">
 
     <a href="index.php" id="retour" class="btn"><i class="fa-solid fa-chevron-left"></i></a>
-    <h1>Utilisateurs</h1>
+    <h1>Compts clients</h1>
     
     <section>
-        <a href="index.php?route=addCustomer" class="btn colorGreen">Ajout Utilisateur</a>
+        <a href="index.php?route=addCustomer" class="btn colorGreen">Ajout Client</a>
         <!--<img src="assets/codes_barres/<?= $imgCodeBarre ?>" alt="code barre" />-->
     </section>
     
@@ -26,6 +26,25 @@
                     </thead>
                     <tbody>
                     <?php foreach( $customers as $customer) : ?>
+                        <?php if($customer['statut']=='COMPTE À ACTIVER'){ ?>
+                        <tr>
+                            <td <?php { echo'class="invalide"'; }?>><?= htmlspecialchars($customer['lastname']) ?></td>
+                            <td <?php { echo'class="invalide"'; }?>><?= htmlspecialchars($customer['firstname']) ?></td>
+                            <td <?php { echo'class="invalide"'; }?>><?= htmlspecialchars($customer['email']) ?></td>
+                            <td <?php { echo'class="invalide"'; }?>><?= htmlspecialchars(date_format(date_create($customer['birthday']), 'd-m-Y')) ?></td>
+                            <?php if( $customer['adress'] !== null ) : ?>
+                                <td <?php { echo'class="invalide"'; }?>><?= htmlspecialchars($customer['adress'] . ' '. $customer['zipcode'] . ' ' . $customer['city'] . ' [' . $customer['pays'] . ']') ?></td>
+                            <?php else : ?>
+                                <td <?php { echo'class="invalide"'; }?>>Pas d'adresse.</td>
+                            <?php endif; ?>
+                            <td <?php { echo'class="invalide"'; }?>><?= htmlspecialchars($customer['statut']) ?></td>
+                            <td <?php { echo'class="invalide"'; }?>><a href="index.php?route=displayOneCustomer&id=<?= $customer['id'] ?>" class="btn colorYellow">Détail</a></td>
+    
+                        </tr>
+                        <?php } ?>
+                    <?php endforeach; ?>
+                    <?php foreach( $customers as $customer) : ?>
+                        <?php if($customer['statut']!='COMPTE À ACTIVER'){ ?>
                         <tr>
                             <td <?php if($customer['statut']=='COMPTE SUSPENDU'){ echo'class="inactif"'; }?>><?= htmlspecialchars($customer['lastname']) ?></td>
                             <td <?php if($customer['statut']=='COMPTE SUSPENDU'){ echo'class="inactif"'; }?>><?= htmlspecialchars($customer['firstname']) ?></td>
@@ -37,9 +56,10 @@
                                 <td <?php if($customer['statut']=='COMPTE SUSPENDU'){ echo'class="inactif"'; }?>>Pas d'adresse.</td>
                             <?php endif; ?>
                             <td <?php if($customer['statut']=='COMPTE SUSPENDU'){ echo'class="inactif"'; }?>><?= htmlspecialchars($customer['statut']) ?></td>
-                            <td><a href="index.php?route=displayOneCustomer&id=<?= $customer['id'] ?>" class="btn colorYellow">Voir</a></td>
+                            <td><a href="index.php?route=displayOneCustomer&id=<?= $customer['id'] ?>" class="btn colorYellow">Détail</a></td>
     
                         </tr>
+                        <?php } ?>
                     <?php endforeach; ?>
                     </tbody>
                 </table>

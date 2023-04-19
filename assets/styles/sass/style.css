@@ -310,6 +310,9 @@ table {
 #customers > section:nth-of-type(2) > ul > table > tbody > tr > td:last-of-type {
   text-align: center;
 }
+#customers > section:nth-of-type(2) > ul > table > tbody > tr > td.invalide {
+  background-color: #E67E22;
+}
 #customers > section:nth-of-type(2) > ul > table > tbody > tr > td.inactif {
   opacity: 0.1;
 }
