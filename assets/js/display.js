@@ -1,13 +1,13 @@
- function toggleDisplay(){
+ function toggleDisplay(i){
 
-    let divOptions = document.closest('.divOptions');
+    let divOptions = document.getElementById('divOptions'+i);
 
             console.log('hello');
-            if(divOptions.style.display == "none"){
-                divOptions.style.display = "block";
+            if(divOptions.style.display == "block"){
+                divOptions.style.display = "none";
             }
             else{
-                divOptions.style.display = "none";
+                divOptions.style.display = "block";
             }
 }
 
