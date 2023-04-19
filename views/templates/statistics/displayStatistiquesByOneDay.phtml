@@ -1,28 +1,48 @@
+<main id="statistic">
 
-<h2>Ventes par article pour le <?= date_format(date_create($date), 'd-m-Y'); ?> !</h2>
+        <a href="index.php?route=statistics" id="retour" class="btn"><i class="fa-solid fa-chevron-left"></i></a>
+        <?php if(isset($_POST) && empty($_POST)){ ?>
+        <h1>Ventes par article et par jour !</h1>
+        <?php } else{ ?>
+        <h1>Ventes par article pour le <?= date_format(date_create($date), 'd-m-Y'); ?> !</h1>
+        <?php } ?>
 
-<table>
-        <thead>
-                <tr>
-                        <th>Articles</th>
-                        <th>Quantités vendues</th>
-                        <th>Total</th>
-                </tr>
-        </thead>
-        <tbody>
-                <?php $qty = 0; $total = 0; foreach($statistiques as $ligne): ?>
+
+        <form method="POST" action="index.php?route=getStatistiquesByOneDay">
+                <label for="start">Merci de selectionner une date : </label>
+                <input  type    = "date"
+                        id      = "date"
+                        name    = "date"
+                        value   = "2023-02-28"
+                        onChange= "submit()">
+        </form>
+
+        <?php if(isset($_POST) && !empty($_POST)){ ?>
+        <table>
+                <thead>
                         <tr>
-                                <td><?= $ligne['article']; ?></td>
-                                <td><?= $ligne['quantite_vendue']; ?></td>
-                                <td><?= $ligne['total_vendu']; ?>€</td>
-                                <?php $qty = $qty+intval($ligne['quantite_vendue']); ?>
-                                <?php $total = $total+intval($ligne['total_vendu']); ?>
+                                <th>Articles</th>
+                                <th>Quantités vendues</th>
+                                <th>Total</th>
                         </tr>
-                <?php endforeach; ?>
-                <tr>
-                        <th>TOTAL</th>
-                        <th><?= $qty; ?></th>
-                        <th><?= number_format($total, 2); ?>€</th>
-                </tr>
-        </tbody>
-</table>
+                </thead>
+                <tbody>
+                        <?php $qty = 0; $total = 0; foreach($statistiques as $ligne): ?>
+                                <tr>
+                                        <td><?= $ligne['article']; ?></td>
+                                        <td><?= $ligne['quantite_vendue']; ?></td>
+                                        <td><?= $ligne['total_vendu']; ?>€</td>
+                                        <?php $qty = $qty+intval($ligne['quantite_vendue']); ?>
+                                        <?php $total = $total+intval($ligne['total_vendu']); ?>
+                                </tr>
+                        <?php endforeach; ?>
+                        <tr>
+                                <th>TOTAL</th>
+                                <th><?= $qty; ?></th>
+                                <th><?= number_format($total, 2); ?>€</th>
+                        </tr>
+                </tbody>
+        </table>
+        <?php } ?>
+
+</main>

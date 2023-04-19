@@ -17,7 +17,7 @@ use \Models\Uploads;
 class StatistiquesController extends Router {
 
     public function displayStats() {
-        $this->render('displayStatistiques', 'layout');
+        $this->render('statistics/displayStatistiques', 'layout');
     }
 
     public function getAllOrders() {
@@ -86,35 +86,41 @@ class StatistiquesController extends Router {
         $model          = new StatistiquesManager();
         $statistiques   = $model->getAllStatistiquesForDay();
 
-        $this->render('displayStatsForDay', 'layout', ['statistiques' => $statistiques]);
+        $this->render('statistics/displayStatsForDay', 'layout', ['statistiques' => $statistiques]);
     }
 
     public function getStatsForOneDay() {
         $model          = new StatistiquesManager();
         $statistiques   = $model->getAllStatistiquesForDay();
 
-        $this->render('displayStatsForDay', 'layout', ['statistiques' => $statistiques]);
+        $this->render('statistics/displayStatsForDay', 'layout', ['statistiques' => $statistiques]);
     }
 
     public function getStatsForMonth() {
         $model          = new StatistiquesManager();
         $statistiques   = $model->getAllStatistiquesForMonth();
 
-        $this->render('displayStatsForMonth', 'layout', [    'statistiques'       => $statistiques]);
+        $this->render('statistics/displayStatsForMonth', 'layout', [    'statistiques'       => $statistiques]);
     }
 
     public function getStatsForYear() {
         $model          = new StatistiquesManager();
         $statistiques   = $model->getAllStatistiquesForYear();
 
-        $this->render('displayStatsForYear', 'layout', [    'statistiques'       => $statistiques]);
+        $this->render('statistics/displayStatsForYear', 'layout', [    'statistiques'       => $statistiques]);
     }
 
-    public function getStatsForArticles($year) {
-        $model          = new StatistiquesManager();
-        $statistiques   = $model->getAllStatistiquesForArticles($year);
-
-        $this->render('displayStatsForArticle', 'layout', ['statistiques' => $statistiques, 'year' => $year]);
+    public function getStatsForArticles() {
+        if(isset($_POST) && empty($_POST)){
+            $this->render('statistics/displayStatsForArticle', 'layout');
+        }
+        else{
+            $year           = $_POST['selectYear'];
+            $model          = new StatistiquesManager();
+            $statistiques   = $model->getAllStatistiquesForArticles($year);
+    
+            $this->render('statistics/displayStatsForArticle', 'layout', ['statistiques' => $statistiques, 'year' => $year]);
+        }
     }
 
     public function getStatsForCategories() {
@@ -279,19 +285,16 @@ class StatistiquesController extends Router {
     }
 
     public function getStatistiquesByOneDay() {
-        $date = "";
-        if(isset($_POST) && array_key_exists('trip-start', $_POST)) {
-            $date = $_POST['trip-start'];
-        } else {
-            $date = $_GET['day'];
+        if(isset($_POST) && empty($_POST)){
+            $this->render('statistics/displayStatistiquesByOneDay', 'layout');
         }
-
-        $model          = new StatistiquesManager();
-        $statistiques   = $model->getStatistiquesByOneDay($date);
-
-
-
-        $this->render('displayStatistiquesByOneDay', 'layout', ['statistiques' => $statistiques, 'date' => $date]);
+        else{
+            $date           = $_POST['date'];
+            $model          = new StatistiquesManager();
+            $statistiques   = $model->getStatistiquesByOneDay($date);
+        
+            $this->render('statistics/displayStatistiquesByOneDay', 'layout', ['statistiques' => $statistiques, 'date' => $date]);
+        }
     }
 
     public function getAllStatistiquesForArticleAndMonth() {

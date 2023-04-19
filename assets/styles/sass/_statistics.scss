@@ -1,0 +1,11 @@
+#statistics{
+    padding: 2vh 2vw;
+    > section{
+        width: 60%;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+    }
+}

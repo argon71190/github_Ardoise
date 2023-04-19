@@ -11,6 +11,8 @@ use \Controllers\BasketController;
 use \Controllers\OptionsController;
 use \Controllers\TvaController;
 use \Controllers\PaymentMethodController;
+use \Controllers\StatistiquesController;
+
 
 class Router {
 
@@ -237,8 +239,46 @@ class Router {
                     $controller = new OptionsController();
                     $controller-> searchOptionsByCategory();
 
-                break;    
-                                        
+                break; 
+                
+                // STATISTIQUES
+
+                case 'statistics':
+                    $controller = new StatistiquesController();
+                    $controller-> displayStats();
+
+                break; 
+
+                case 'getStatsForDay':
+                    $controller = new StatistiquesController();
+                    $controller-> getStatsForDay();
+
+                break; 
+                
+                case 'getStatsForMonth':
+                    $controller = new StatistiquesController();
+                    $controller-> getStatsForMonth();
+
+                break; 
+
+                case 'getStatsForYear':
+                    $controller = new StatistiquesController();
+                    $controller-> getStatsForYear();
+
+                break; 
+                
+                case 'getStatsForArticles':
+                    $controller = new StatistiquesController();
+                    $controller-> getStatsForArticles();
+
+                break; 
+                
+                case 'getStatistiquesByOneDay':
+                    $controller = new StatistiquesController();
+                    $controller-> getStatistiquesByOneDay();
+
+                break; 
+                                                        
 
                 default:
                     $this->redirectToRoute('home');
