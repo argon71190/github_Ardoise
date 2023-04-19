@@ -1142,6 +1142,9 @@ h1 {
 #gestionArticles > section:nth-of-type(2) > div > section > article:hover {
   box-shadow: inset -10px -10px 15px rgba(255, 255, 255, 0.5), inset 10px 10px 15px rgba(70, 70, 70, 0.12);
 }
+#gestionArticles > section:nth-of-type(2) > div > section > article > div:nth-of-type(1) {
+  display: none;
+}
 #gestionArticles > section:nth-of-type(2) > div > section > article > .flexlien {
   display: flex;
   justify-content: space-between;
