@@ -1,0 +1,21 @@
+
+<h2>Chiffres d'affaires par jour !</h2>
+
+<table>
+        <thead>
+                <tr>
+                        <th>Date</th>
+                        <th>Total Vendu</th>
+                        <th></th>
+                </tr>
+        </thead>
+        <tbody>
+                <?php foreach ($statistiques as $ligne): ?>
+                        <tr>
+                                <td><?= date_format(date_create($ligne['jour']), 'd-m-Y'); ?></td>
+                                <td><?= $ligne['total_vendu']; ?>€</td>
+                                <td><a href="index.php?route=getStatistiquesByOneDay&day=<?= date_format(date_create($ligne['jour']), 'Y-m-d'); ?>">Voir le détail</a></td>
+                        </tr>
+                <?php endforeach; ?>
+        </tbody>
+</table>

@@ -1,0 +1,78 @@
+
+<h1>Statistiques des ventes !</h1>
+
+<a href="index.php?route=getStatsForDay"><i class="fa-solid fa-chart-line"></i>Statistiques par jour</a>
+</br>
+<a href="index.php?route=getStatsForMonth"><i class="fa-solid fa-chart-line"></i>Statistiques par Mois</a>
+</br>
+<a href="index.php?route=getStatsForYear"><i class="fa-solid fa-chart-line"></i>Statistiques par Année</a>
+</br>
+<a href="index.php?route=getStatsForArticles"><i class="fa-solid fa-chart-line"></i>Statistiques par Article</a>
+</br>
+<form method="POST" action="index.php?route=getStatsForArticles">
+
+        <legend>Merci de renseigner les information suivantes :</legend>
+
+        <section>
+                <label for="selectYear">Année : </label>
+
+                <select name="selectYear" id="selectYear">
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                        <option value="2030">2030</option>
+                </select>
+
+                <input  type    = "submit"
+                        name    = "submit"
+                        value   = "Soumettre"
+                        class   = "btn colorGreen">
+        </section>
+</form>
+</br>
+<a href="index.php?route=getStatsForCategories"><i class="fa-solid fa-chart-line"></i>Statistiques par Catégorie</a>
+</br>
+<a href="index.php?route=getAllStatistiquesForCategoriesAndDay"><i class="fa-solid fa-chart-line"></i>Statistiques par Catégorie/Jour</a>
+</br>
+<a href="index.php?route=getAllStatistiquesForCategoriesAndMonth"><i class="fa-solid fa-chart-line"></i>Statistiques par Catégorie/Mois</a>
+</br>
+<a href="index.php?route=getAllStatistiquesForCategoriesAndYear"><i class="fa-solid fa-chart-line"></i>Statistiques par Catégorie/Année</a>
+</br>
+<a href="index.php?route=getAllStatistiquesForArticleAndDay"><i class="fa-solid fa-chart-line"></i>Statistiques par Article/Jour</a>
+</br>
+<a href="index.php?route=getAllStatistiquesForArticleAndDateNow"><i class="fa-solid fa-chart-line"></i>Statistiques du jour</a>
+</br>
+<a href="index.php?route=getStatistiquesByOneDay"><i class="fa-solid fa-chart-line"></i>Statistiques pour 1 jour</a>
+</br>
+<a href="index.php?route=getAllStatistiquesForArticleAndMonth"><i class="fa-solid fa-chart-line"></i>Statistiques par Article/Mois</a>
+</br>
+<a href="index.php?route=getAllOrders"><i class="fa-solid fa-chart-line"></i>Tous les commandes</a>
+</br>
+<a href="index.php?route=getAllStatsForArticleAndMonthInYear"><i class="fa-solid fa-chart-line"></i>Statistiques par Article/Mois sur une année</a>
+
+
+
+<form method="POST" action="index.php?route=getStatistiquesByOneDay">
+
+        <legend>Merci de renseigner les information suivantes :</legend>
+
+        <section>
+                <label for="start">Date:</label>
+                <input  type    = "date"
+                        id      = "start"
+                        name    = "trip-start"
+                        value   = "2023-02-28">
+
+                <input  type    = "submit"
+                        name    = "submit"
+                        value   = "Soumettre"
+                        class   = "btn colorGreen">
+        </section>
+</form>
+
+

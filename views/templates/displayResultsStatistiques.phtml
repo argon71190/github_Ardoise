@@ -1,0 +1,23 @@
+
+<h2>Statistiques par article et par mois pour l'année <?= $statistiques[0]['year'] ?> !</h2>
+
+<table>
+        <thead>
+                <tr>
+                        <th>Articles</th>
+                        <?php for ($month = 0; $month <= 11; $month++) : ?>
+                                <th><?= $mois[$month] ?></th>
+                        <?php endfor; ?>
+                </tr>
+        </thead>
+        <tbody>
+                <?php foreach($table as $article_name => $sales_by_month) : ?>
+                        <tr>
+                                <td><?= $article_name ?></td>
+                                <?php for ($month = 1; $month <= 12; $month++) : ?>
+                                        <td><?= $sales_by_month[$month] ?></td>
+                                <?php endfor; ?>
+                        </tr>
+                <?php endforeach; ?>
+        </tbody>
+</table>

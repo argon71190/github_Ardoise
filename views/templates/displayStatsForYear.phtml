@@ -1,0 +1,19 @@
+
+<h2>Chiffres d'affaires par année !</h2>
+
+<table>
+        <thead>
+                <tr>
+                        <th>Année</th>
+                        <th>Chiffre d'affaire</th>
+                </tr>
+        </thead>
+        <tbody>
+                <?php foreach ($statistiques as $ligne): ?>
+                        <tr>
+                                <td><?= date_format(date_create($ligne['annee']), 'Y'); ?></td>
+                                <td><?= $ligne['total_vendu']; ?>€</td>
+                        </tr>
+                <?php endforeach; ?>
+        </tbody>
+</table>
