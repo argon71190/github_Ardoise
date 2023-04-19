@@ -8,8 +8,8 @@ function formTVA(){
     let errorTva = document.getElementById('errorTva');
 
     addTvaForm.addEventListener('submit', (event) => {
-        
-        if(isNaN(tvaValue.value) || tvaValue.value < 0 || tvaValue.value > 100 || !Number.isInteger(tvaValue.value*100) || tvaValue.value==""){
+        let expressionRegulierePM = /^[0-9]{1,2}(\.[0-9]{0,1})$/;
+        if(!expressionRegulierePM.test(tvaValue.value)){
             errorTva.style.display = 'block';
             event.preventDefault();
         }

@@ -38,6 +38,9 @@
                             &:last-of-type{
                                 text-align: center;
                             }
+                            &.invalide{
+                                background-color: $orange;
+                            }
                             &.inactif{
                                 opacity: 0.1;
                             }

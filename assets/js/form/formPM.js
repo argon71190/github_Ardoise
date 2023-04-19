@@ -9,7 +9,8 @@ function formPM(){
 
     addPMForm.addEventListener('submit', (event) => {
         
-        if(PMName.value.length < 2 || PMName.value.length > 20){
+        let expressionRegulierePM = /^[a-zA-ZÀ-ÖØ-öø-ÿ0-9\s-']{2,20}$/;
+        if(!expressionRegulierePM.test(PMName.value)){
             errorPM.style.display = 'block';
             event.preventDefault();
         }

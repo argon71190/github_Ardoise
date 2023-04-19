@@ -2,7 +2,7 @@
 <main id="customerDetails">
 
     <a href="index.php?route=customers" id="retour" class="btn"><i class="fa-solid fa-chevron-left"></i></a>
-    <h1>Utilisateur</h1>
+    <h1>Compte client</h1>
 
     <?php   if(empty($data['customer'])){
                         require_once('views/bases/_valids.phtml');
@@ -27,7 +27,7 @@
                         <input  type    = "submit"
                                 name    = "submit"
                                 <?php if($data['customer']->getValids()==1){
-                                        echo '  value   = "Valider la création du nouvel utilisateur"
+                                        echo '  value   = "Activer le compte"
                                                 class   = "btn colorGreen"
                                         ';}
                                         else if($data['customer']->getValids()==2){
@@ -115,8 +115,5 @@
 
         </section>
     </section>
-
     <?php } ?>
-
 </main>
-<script type="module" src="assets/js/index.js"></script>

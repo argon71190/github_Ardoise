@@ -16,8 +16,8 @@ function formAddAdress(){
     let errorCountry = document.getElementById('errorCountry');
 
     addAdressForm.addEventListener('submit', (event) => {
-
-        let expressionReguliereAdress = /^(\d+)\s([a-zA-Z]+\s?)+(\d+)?$/;
+        
+        let expressionReguliereAdress = /^[a-zA-ZÀ-ÖØ-öø-ÿ0-9\s-']{5,50}$/;
         if(!expressionReguliereAdress.test(adress.value)){
             errorAdress.style.display = 'block';
             event.preventDefault();
@@ -27,7 +27,7 @@ function formAddAdress(){
             errorAdress.style.display = 'none';
         }
 
-        let expressionReguliereZipcode = /^\d{5}$/;
+        let expressionReguliereZipcode = /^[0-9]{5}$/;
         if(!expressionReguliereZipcode.test(zipcode.value)){
             errorZipcode.style.display = 'block';
             event.preventDefault();

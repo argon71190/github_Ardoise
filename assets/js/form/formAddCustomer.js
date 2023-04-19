@@ -22,7 +22,8 @@ function formAddCustomer(){
 
     addCustomerForm.addEventListener('submit', (event) => {
         
-        if(lastname.value.length < 2 || lastname.value.length > 50){
+        let expressionReguliereName = /^[a-zA-ZÀ-ÖØ-öø-ÿ\s-']{2,50}$/;
+        if(!expressionReguliereName.test(lastname.value)){
             errorLastName.style.display = 'block';
             event.preventDefault();
         }
@@ -30,7 +31,7 @@ function formAddCustomer(){
             errorLastName.style.display = 'none';
         }
 
-        if(firstname.value.length < 2 || firstname.value.length > 50){
+        if(!expressionReguliereName.test(firstname.value)){
             errorFirstName.style.display = 'block';
             event.preventDefault();
         }
@@ -38,7 +39,8 @@ function formAddCustomer(){
             errorFirstName.style.display = 'none';
         }
 
-        if(birthday.value.length != 10){
+        let expressionReguliereBirthday = /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/;
+        if(!expressionReguliereBirthday.test(birthday.value)){
             errorBirthday.style.display = 'block';
             event.preventDefault();
         }
@@ -71,8 +73,8 @@ function formAddCustomer(){
             errorSecondPassword.style.display = 'none';
         }
 
-        if(isNaN(rfid.value) || (rfid.value.length != 0 && rfid.value.length != 10)){
-            console.log(Number.isInteger(rfid.value));
+        let expressionReguliereRfid = /^([0-9]{10})?$/;
+        if(!expressionReguliereRfid.test(rfid.value)){
             errorRfid.style.display = 'block';
             event.preventDefault();
         }
