@@ -1,0 +1,28 @@
+
+<h2>Ventes par article pour l'année <?= $year; ?>!</h2>
+
+<table>
+        <thead>
+                <tr>
+                        <th>Articles</th>
+                        <th>Quantités vendues</th>
+                        <th>Total</th>
+                </tr>
+        </thead>
+        <tbody>
+                <?php $qty = 0; $total = 0; foreach($statistiques as $ligne): ?>
+                        <tr>
+                                <td><?= $ligne['article']; ?></td>
+                                <td><?= $ligne['quantite_vendue']; ?></td>
+                                <td><?= $ligne['total_vendu']; ?>€</td>
+                                <?php $qty = $qty+intval($ligne['quantite_vendue']); ?>
+                                <?php $total = $total+intval($ligne['total_vendu']); ?>
+                        </tr>
+                <?php endforeach; ?>
+                <tr>
+                        <th>TOTAL</th>
+                        <th><?= $qty; ?></th>
+                        <th><?= number_format($total, 2); ?>€</th>
+                </tr>
+        </tbody>
+</table>
