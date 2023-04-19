@@ -14,20 +14,24 @@ foreach($articlesFind as $article):
 
 ?>
             <article>
-                <img src="assets/uploads/articles/<?= htmlspecialchars($article['categories_id'])?>/<?= htmlspecialchars($article['picture']) ?>">
+                <div class="wrap">
+                    <img src="assets/uploads/articles/<?= htmlspecialchars($article['categories_id'])?>/<?= htmlspecialchars($article['picture']) ?>">
                     <h3><?= htmlspecialchars($article['name']) ?></h3>
                 
                     </p><?= htmlspecialchars($article['price']) ?> €</p>
-
+                </div>
                     <!--<span><?= htmlspecialchars($article['shortName']) ?></span>-->
-                    <button onclick="toggleDisplay(<?=$article['id']?>)" class='display'>Options</button>
+                    <button onclick="toggleDisplay(<?=$article['id']?>)" class='display btn'>Options</button>
                     <div id="divOptions<?=$article['id']?>">
-                        <ul></ul>
+                        <ul><?php if(empty($links)){
+                            ?><li>Pas d'option pour le moment.</li>
+                        <?php } ?></ul>
                         <?php foreach($links as $link):
                         $model = new \Models\OptionsManager();
                         $option = $model->getOptionById($link['articlesOptionsListing_id']);
-                        ?> <li><?=$option['name'];?></li>
-                        <?php
+                        ?>  
+                        <li><?=$option['name'];?></li>
+                        <?php    
                         endforeach;?>
                     </div>    
                     <br>
