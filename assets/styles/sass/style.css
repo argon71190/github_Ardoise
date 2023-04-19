@@ -1152,6 +1152,9 @@ h1 {
 #gestionArticles > section:nth-of-type(2) > div > section > article > .flexlien > a {
   width: 40%;
 }
+#gestionArticles > section:nth-of-type(2) > div > section > article > .display:hover {
+  cursor: pointer;
+}
 
 #addAdressForm {
   padding: 2vh 2vw;
