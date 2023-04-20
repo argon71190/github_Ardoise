@@ -80,8 +80,6 @@ class StatistiquesController extends Router {
         $this->render('displayArticles', 'layout', [    'stats'       => $statistiques]);
     }
 
-
-
     public function getStatsForDay() {
         $model          = new StatistiquesManager();
         $statistiques   = $model->getAllStatistiquesForDay();
@@ -126,9 +124,8 @@ class StatistiquesController extends Router {
     public function getStatsForCategories() {
         $model          = new StatistiquesManager();
         $statistiques   = $model->getAllStatistiquesForCategories();
-        var_dump($statistiques); die;
 
-        $this->render('displayArticles', 'layout', [    'stats'       => $statistiques]);
+        $this->render('statistics/displayStatsForCategory', 'layout', [    'stats'       => $statistiques]);
     }
 
     public function getAllStatistiquesForCategoriesAndDay() {

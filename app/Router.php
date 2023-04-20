@@ -273,12 +273,60 @@ class Router {
 
                 break; 
                 
+
+
+
+
+                
+                case 'getStatsForCategories':
+                    $controller = new StatistiquesController();
+                    $controller->getStatsForCategories();
+                break;
+
+                case 'getAllStatistiquesForCategoriesAndDay':
+                    $controller = new StatistiquesController();
+                    $controller->getAllStatistiquesForCategoriesAndDay();
+                break;
+
+                case 'getAllStatistiquesForCategoriesAndMonth':
+                    $controller = new StatistiquesController();
+                    $controller->getAllStatistiquesForCategoriesAndMonth();
+                break;
+
+                case 'getAllStatistiquesForCategoriesAndYear':
+                    $controller = new StatistiquesController();
+                    $controller->getAllStatistiquesForCategoriesAndYear();
+                break;
+
+                case 'getAllStatistiquesForArticleAndDay':
+                    $controller = new StatistiquesController();
+                    $controller->getAllStatistiquesForArticleAndDay();
+                break;
+
+                case 'getAllStatistiquesForArticleAndDateNow':
+                    $controller = new StatistiquesController();
+                    $controller->getAllStatistiquesForArticleAndDateNow();
+                break;
+
                 case 'getStatistiquesByOneDay':
                     $controller = new StatistiquesController();
-                    $controller-> getStatistiquesByOneDay();
+                    $controller->getStatistiquesByOneDay();
+                break;
 
-                break; 
-                                                        
+                case 'getAllStatistiquesForArticleAndMonth':
+                    $controller = new StatistiquesController();
+                    $controller->getAllStatistiquesForArticleAndMonth();
+                break;
+
+                case 'getAllOrders':
+                    $controller = new StatistiquesController();
+                    $controller->getAllOrders();
+                break;
+
+                case 'getAllStatsForArticleAndMonthInYear':
+                    $controller = new StatistiquesController();
+                    $controller->getAllStatsForArticleAndMonthInYear();
+                break;
 
                 default:
                     $this->redirectToRoute('home');

@@ -33,29 +33,44 @@
         }
     }
     > table{
-        width: 80%;
+        width: 96%;
         margin: auto;
         margin-bottom: 40px;
+        table-layout: fixed;
+        width: 100%;
         > thead{
             background-color: $teal;
             color: $white;
             > tr{
                 > th{
-                    text-align: left;
+                    text-align: center;
                     vertical-align: middle;
-                    padding: 5px 5px;
+                    padding: 5px 0;
+                    &:first-of-type{
+                        text-align: center;
+                        vertical-align: middle;
+                        padding: 5px 0;
+                    }
                 }
             }
         }
         > tbody{
             > tr{
+                &:nth-child(even){
+                    background-color: rgba($grey, 0.2);
+                }
                 &:hover{
                     background-color: $grey;
                 }
                 > td{
-                    text-align: left;
+                    text-align: center;
                     vertical-align: middle;
-                    padding: 12px 5px;
+                    padding: 5px 0;
+                    &:first-of-type{
+                        text-align: center;
+                        vertical-align: middle;
+                        padding: 12px 0;
+                    }
                 }
                 &:not(:last-child) {
                     border-bottom: 1px solid $grey;
