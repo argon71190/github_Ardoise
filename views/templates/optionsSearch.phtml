@@ -1,6 +1,7 @@
-<section>
+
     <form class="form" method="POST" action="index.php?route=submitFormAddLink" enctype="multipart/form-data">
         <input type='hidden' name="articleId" value="<?= $_GET['id']?>">
+        <section>
 <?php 
 if(empty($optionsFind)){
 ?> <small>Il n'y a pas d'article dans cette catégorie !</small>
@@ -10,27 +11,24 @@ else{
 foreach($optionsFind as $option): 
 
 ?>
-            
+    <div>        
             <input type="checkbox" name="optionId[]" value="<?= htmlspecialchars($option['id']) ?>">
                 <img src="assets/uploads/options/<?= htmlspecialchars($option['categoriesCondiments_id'])?>/<?= htmlspecialchars($option['picture']) ?>">
-                    <h3><?= htmlspecialchars($option['name']) ?></h3>
+                    <p><?= htmlspecialchars($option['name']) ?></p>
                 
-                    </p><?= htmlspecialchars($option['price']) ?> €</p>
-                
-                    <span><?= htmlspecialchars($option['shortName']) ?></span>  
-                    <br>      
-                    
+                    </p><?= htmlspecialchars($option['price']) ?> €</p>    
+    </div>
 <?php
 endforeach;
-}?>
+}
+?> </section>
+<?php
+if(!empty($optionsFind)){?>
     <input      type    = "submit"
                 id      = "linkSubmit"
                 name    = "submit"
                 value   = "Joindre"
                 class   = "btn colorGreen">
+<?php } ?> 
     </form>
-    <br>
-    <br>
-    <br>
-    <br>
-</section>
+
