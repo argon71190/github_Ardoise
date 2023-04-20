@@ -1,13 +1,14 @@
+<!-- <?php var_dump($data) ?> -->
 <main id="statistic">
 
         <a href="index.php?route=statistics" id="retour" class="btn"><i class="fa-solid fa-chevron-left"></i></a>
-        <?php if(isset($_POST) && empty($_POST)){ ?>
+        <?php if(!isset($_GET['day']) && !isset($_POST['date'])){ ?>
         <h1>Ventes par article et par jour !</h1>
         <?php } else{ ?>
         <h1>Ventes par article pour le <?= date_format(date_create($date), 'd-m-Y'); ?> !</h1>
         <?php } ?>
 
-
+        <?php if(!isset($_GET['day']) && !isset($_POST['date'])){ ?>
         <form method="POST" action="index.php?route=getStatistiquesByOneDay">
                 <label for="start">Merci de selectionner une date : </label>
                 <input  type    = "date"
@@ -16,8 +17,9 @@
                         value   = "2023-02-28"
                         onChange= "submit()">
         </form>
+        <?php }?>
 
-        <?php if(isset($_POST) && !empty($_POST)){ ?>
+        <?php if(isset($_GET['day']) || isset($_POST['date'])){ ?>
         <table>
                 <thead>
                         <tr>

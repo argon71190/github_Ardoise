@@ -282,11 +282,19 @@ class StatistiquesController extends Router {
     }
 
     public function getStatistiquesByOneDay() {
-        if(isset($_POST) && empty($_POST)){
+
+        if(!isset($_GET['day']) && !isset($_POST['date'])){
             $this->render('statistics/displayStatistiquesByOneDay', 'layout');
         }
-        else{
+        elseif(!isset($_GET['day']) && isset($_POST['date'])){
             $date           = $_POST['date'];
+            $model          = new StatistiquesManager();
+            $statistiques   = $model->getStatistiquesByOneDay($date);
+        
+            $this->render('statistics/displayStatistiquesByOneDay', 'layout', ['statistiques' => $statistiques, 'date' => $date]);
+        }
+        elseif(isset($_GET['day']) && !isset($_POST['date'])){
+            $date           = $_GET['day'];
             $model          = new StatistiquesManager();
             $statistiques   = $model->getStatistiquesByOneDay($date);
         
