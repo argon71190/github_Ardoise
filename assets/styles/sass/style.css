@@ -1358,7 +1358,7 @@ h1 {
   border-bottom: 1px solid #95A5A6;
 }
 #statistic > table > tbody > tr > th {
-  text-align: left;
+  text-align: center;
   vertical-align: middle;
   padding: 12px 5px;
   font-weight: bold;

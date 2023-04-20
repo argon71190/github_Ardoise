@@ -253,7 +253,7 @@ class StatistiquesController extends Router {
 
         var_dump($statistiques); die;
 
-        $this->render('displayArticles', 'layout', [    'stats'       => $statistiques]);
+        $this->render('statisctics/displayStatsForArticleByDay', 'layout', [    'stats'       => $statistiques]);
     }
 
     public function getAllStatistiquesForArticleAndDateNow() {
