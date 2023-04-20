@@ -1,19 +1,23 @@
+<main id="statistic">
+        
+        <a href="index.php?route=statistics" id="retour" class="btn"><i class="fa-solid fa-chevron-left"></i></a>
+        <h1>Chiffres d'affaires par mois !</h1>
 
-<h2>Chiffres d'affaires par mois !</h2>
-
-<table>
-        <thead>
-                <tr>
-                        <th>Mois / Année</th>
-                        <th>Chiffre d'affaire</th>
-                </tr>
-        </thead>
-        <tbody>
-                <?php foreach ($statistiques as $ligne): ?>
+        <table>
+                <thead>
                         <tr>
-                                <td><?= date_format(date_create($ligne['mois']), 'm-Y'); ?></td>
-                                <td><?= $ligne['total_vendu']; ?>€</td>
+                                <th>Mois / Année</th>
+                                <th>Chiffre d'affaire</th>
                         </tr>
-                <?php endforeach; ?>
-        </tbody>
-</table>
+                </thead>
+                <tbody>
+                        <?php foreach ($statistiques as $ligne): ?>
+                                <tr>
+                                        <td><?= date_format(date_create($ligne['mois']), 'm-Y'); ?></td>
+                                        <td><?= $ligne['total_vendu']; ?>€</td>
+                                </tr>
+                        <?php endforeach; ?>
+                </tbody>
+        </table>
+
+</main>

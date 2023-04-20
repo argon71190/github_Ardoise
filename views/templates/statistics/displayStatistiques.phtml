@@ -1,78 +1,42 @@
-
-<h1>Statistiques des ventes !</h1>
-
-<a href="index.php?route=getStatsForDay"><i class="fa-solid fa-chart-line"></i>Statistiques par jour</a>
-</br>
-<a href="index.php?route=getStatsForMonth"><i class="fa-solid fa-chart-line"></i>Statistiques par Mois</a>
-</br>
-<a href="index.php?route=getStatsForYear"><i class="fa-solid fa-chart-line"></i>Statistiques par Année</a>
-</br>
-<a href="index.php?route=getStatsForArticles"><i class="fa-solid fa-chart-line"></i>Statistiques par Article</a>
-</br>
-<form method="POST" action="index.php?route=getStatsForArticles">
-
-        <legend>Merci de renseigner les information suivantes :</legend>
+<main id ="statistics">
+        
+        <a href="index.php" id="retour" class="btn"><i class="fa-solid fa-chevron-left"></i></a>
+        <h1>Statistiques des ventes !</h1>
 
         <section>
-                <label for="selectYear">Année : </label>
-
-                <select name="selectYear" id="selectYear">
-                        <option value="2022">2022</option>
-                        <option value="2023">2023</option>
-                        <option value="2024">2024</option>
-                        <option value="2025">2025</option>
-                        <option value="2026">2026</option>
-                        <option value="2027">2027</option>
-                        <option value="2028">2028</option>
-                        <option value="2029">2029</option>
-                        <option value="2030">2030</option>
-                </select>
-
-                <input  type    = "submit"
-                        name    = "submit"
-                        value   = "Soumettre"
-                        class   = "btn colorGreen">
+                <section>
+                        <h2>Par Période</h2>
+                        <section>
+                                <a href="index.php?route=getStatsForDay" class="btn colorGreen"><i class="fa-solid fa-chart-line"></i> Statistiques par jour</a>
+                                <a href="index.php?route=getStatsForMonth" class="btn colorGreen"><i class="fa-solid fa-chart-line"></i> Statistiques par Mois</a>
+                                <a href="index.php?route=getStatsForYear" class="btn colorGreen"><i class="fa-solid fa-chart-line"></i> Statistiques par Année</a>
+                                <a href="index.php?route=getAllStatistiquesForArticleAndDateNow" class="btn"><i class="fa-solid fa-chart-line"></i> Statistiques du jour</a>
+                                <a href="index.php?route=getStatistiquesByOneDay" class="btn colorGreen"><i class="fa-solid fa-chart-line"></i> Statistiques pour 1 jour</a>
+                                <a href="index.php?route=getAllOrders" class="btn"><i class="fa-solid fa-chart-line"></i> Tous les commandes</a>
+                        </section>
+                </section>
+                <section>
+                        <h2>Par Catégorie</h2>
+                        <section>
+                                <a href="index.php?route=getStatsForCategories" class="btn"><i class="fa-solid fa-chart-line"></i> Statistiques par Catégorie</a>
+                                <a href="index.php?route=getAllStatistiquesForCategoriesAndDay" class="btn"><i class="fa-solid fa-chart-line"></i> Statistiques par Catégorie/Jour</a>
+                                <a href="index.php?route=getAllStatistiquesForCategoriesAndMonth" class="btn"><i class="fa-solid fa-chart-line"></i> Statistiques par Catégorie/Mois</a>
+                                <a href="index.php?route=getAllStatistiquesForCategoriesAndYear" class="btn"><i class="fa-solid fa-chart-line"></i> Statistiques par Catégorie/Année</a>
+                        </section>
+                </section>
+                <section>
+                        <h2>Par Articles</h2>
+                        <section>
+                                <a href="index.php?route=getStatsForArticles" class="btn colorGreen"><i class="fa-solid fa-chart-line"></i> Statistiques par Article</a>
+                                <a href="index.php?route=getAllStatistiquesForArticleAndDay" class="btn"><i class="fa-solid fa-chart-line"></i> Statistiques par Article/Jour</a>
+                                <a href="index.php?route=getAllStatistiquesForArticleAndMonth" class="btn"><i class="fa-solid fa-chart-line"></i> Statistiques par Article/Mois</a>
+                                <a href="index.php?route=getAllStatsForArticleAndMonthInYear" class="btn"><i class="fa-solid fa-chart-line"></i> Statistiques par Article/Mois sur une année</a>
+                        </section>
+                </section>
         </section>
-</form>
-</br>
-<a href="index.php?route=getStatsForCategories"><i class="fa-solid fa-chart-line"></i>Statistiques par Catégorie</a>
-</br>
-<a href="index.php?route=getAllStatistiquesForCategoriesAndDay"><i class="fa-solid fa-chart-line"></i>Statistiques par Catégorie/Jour</a>
-</br>
-<a href="index.php?route=getAllStatistiquesForCategoriesAndMonth"><i class="fa-solid fa-chart-line"></i>Statistiques par Catégorie/Mois</a>
-</br>
-<a href="index.php?route=getAllStatistiquesForCategoriesAndYear"><i class="fa-solid fa-chart-line"></i>Statistiques par Catégorie/Année</a>
-</br>
-<a href="index.php?route=getAllStatistiquesForArticleAndDay"><i class="fa-solid fa-chart-line"></i>Statistiques par Article/Jour</a>
-</br>
-<a href="index.php?route=getAllStatistiquesForArticleAndDateNow"><i class="fa-solid fa-chart-line"></i>Statistiques du jour</a>
-</br>
-<a href="index.php?route=getStatistiquesByOneDay"><i class="fa-solid fa-chart-line"></i>Statistiques pour 1 jour</a>
-</br>
-<a href="index.php?route=getAllStatistiquesForArticleAndMonth"><i class="fa-solid fa-chart-line"></i>Statistiques par Article/Mois</a>
-</br>
-<a href="index.php?route=getAllOrders"><i class="fa-solid fa-chart-line"></i>Tous les commandes</a>
-</br>
-<a href="index.php?route=getAllStatsForArticleAndMonthInYear"><i class="fa-solid fa-chart-line"></i>Statistiques par Article/Mois sur une année</a>
 
 
 
-<form method="POST" action="index.php?route=getStatistiquesByOneDay">
-
-        <legend>Merci de renseigner les information suivantes :</legend>
-
-        <section>
-                <label for="start">Date:</label>
-                <input  type    = "date"
-                        id      = "start"
-                        name    = "trip-start"
-                        value   = "2023-02-28">
-
-                <input  type    = "submit"
-                        name    = "submit"
-                        value   = "Soumettre"
-                        class   = "btn colorGreen">
-        </section>
-</form>
 
 
+</main>

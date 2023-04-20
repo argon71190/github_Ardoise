@@ -11,6 +11,8 @@ use \Controllers\BasketController;
 use \Controllers\OptionsController;
 use \Controllers\TvaController;
 use \Controllers\PaymentMethodController;
+use \Controllers\StatistiquesController;
+
 
 class Router {
 
@@ -237,8 +239,94 @@ class Router {
                     $controller = new OptionsController();
                     $controller-> searchOptionsByCategory();
 
-                break;    
-                                        
+                break; 
+                
+                // STATISTIQUES
+
+                case 'statistics':
+                    $controller = new StatistiquesController();
+                    $controller-> displayStats();
+
+                break; 
+
+                case 'getStatsForDay':
+                    $controller = new StatistiquesController();
+                    $controller-> getStatsForDay();
+
+                break; 
+                
+                case 'getStatsForMonth':
+                    $controller = new StatistiquesController();
+                    $controller-> getStatsForMonth();
+
+                break; 
+
+                case 'getStatsForYear':
+                    $controller = new StatistiquesController();
+                    $controller-> getStatsForYear();
+
+                break; 
+                
+                case 'getStatsForArticles':
+                    $controller = new StatistiquesController();
+                    $controller-> getStatsForArticles();
+
+                break; 
+                
+
+
+
+
+                
+                case 'getStatsForCategories':
+                    $controller = new StatistiquesController();
+                    $controller->getStatsForCategories();
+                break;
+
+                case 'getAllStatistiquesForCategoriesAndDay':
+                    $controller = new StatistiquesController();
+                    $controller->getAllStatistiquesForCategoriesAndDay();
+                break;
+
+                case 'getAllStatistiquesForCategoriesAndMonth':
+                    $controller = new StatistiquesController();
+                    $controller->getAllStatistiquesForCategoriesAndMonth();
+                break;
+
+                case 'getAllStatistiquesForCategoriesAndYear':
+                    $controller = new StatistiquesController();
+                    $controller->getAllStatistiquesForCategoriesAndYear();
+                break;
+
+                case 'getAllStatistiquesForArticleAndDay':
+                    $controller = new StatistiquesController();
+                    $controller->getAllStatistiquesForArticleAndDay();
+                break;
+
+                case 'getAllStatistiquesForArticleAndDateNow':
+                    $controller = new StatistiquesController();
+                    $controller->getAllStatistiquesForArticleAndDateNow();
+                break;
+
+                case 'getStatistiquesByOneDay':
+                    $controller = new StatistiquesController();
+                    $controller->getStatistiquesByOneDay();
+                break;
+
+                case 'getAllStatistiquesForArticleAndMonth':
+                    $controller = new StatistiquesController();
+                    $controller->getAllStatistiquesForArticleAndMonth();
+                break;
+
+                case 'getAllOrders':
+                    $controller = new StatistiquesController();
+                    $controller->getAllOrders();
+                break;
+
+                case 'getAllStatsForArticleAndMonthInYear':
+                    $controller = new StatistiquesController();
+                    $controller->getAllStatsForArticleAndMonthInYear();
+                break;
 
                 default:
                     $this->redirectToRoute('home');

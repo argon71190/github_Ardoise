@@ -1268,6 +1268,114 @@ h2 {
   border-radius: 10px;
 }
 
+#statistics {
+  padding: 2vh 2vw;
+}
+#statistics > section {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+#statistics > section > section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#statistics > section > section > h2 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+#statistics > section > section > section {
+  display: flex;
+  flex-direction: column;
+}
+#statistics > section > section > section > a {
+  margin: 10px 0;
+}
+
+#statistic {
+  padding: 2vh 2vw;
+}
+#statistic > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+#statistic > form > label {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+#statistic > form > input {
+  font-size: 1.2rem;
+  border: none;
+  background-color: white;
+  box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
+  font-size: 1.2rem;
+  border-radius: 10px;
+  padding: 0 10px;
+}
+#statistic > form > select {
+  font-size: 1.2rem;
+  border: none;
+  background-color: white;
+  box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
+  font-size: 1.2rem;
+  border-radius: 10px;
+  padding: 0 10px;
+}
+#statistic > table {
+  width: 96%;
+  margin: auto;
+  margin-bottom: 40px;
+  table-layout: fixed;
+  width: 100%;
+}
+#statistic > table > thead {
+  background-color: #008080;
+  color: #ECF0f1;
+}
+#statistic > table > thead > tr > th {
+  text-align: center;
+  vertical-align: middle;
+  padding: 5px 0;
+}
+#statistic > table > thead > tr > th:first-of-type {
+  text-align: center;
+  vertical-align: middle;
+  padding: 5px 0;
+}
+#statistic > table > tbody > tr:nth-child(even) {
+  background-color: rgba(149, 165, 166, 0.2);
+}
+#statistic > table > tbody > tr:hover {
+  background-color: #95A5A6;
+}
+#statistic > table > tbody > tr > td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 5px 0;
+}
+#statistic > table > tbody > tr > td:first-of-type {
+  text-align: center;
+  vertical-align: middle;
+  padding: 12px 0;
+}
+#statistic > table > tbody > tr:not(:last-child) {
+  border-bottom: 1px solid #95A5A6;
+}
+#statistic > table > tbody > tr > th {
+  text-align: left;
+  vertical-align: middle;
+  padding: 12px 5px;
+  font-weight: bold;
+  border-top: 3px solid #95A5A6;
+}
+
 #articleOption {
   padding: 2vh 2vw;
 }
