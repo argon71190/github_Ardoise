@@ -16,7 +16,11 @@
                 width: 90%;
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
+                @media (min-width: 1200px){
+                    grid-template-columns: repeat(3, 1fr);
+                }    
                 grid-gap: 40px;
+
                 >article{
                     box-shadow: -10px -10px 15px rgba(255,255,255,0.5),
                 10px 10px 15px rgba(70,70,70,0.12);
@@ -43,7 +47,6 @@
                     >.flexlien{
                         display: flex;
                         justify-content: space-between;
-                        align-self: end;
                         
                         >a{
                             width: 40%;

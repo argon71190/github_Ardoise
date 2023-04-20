@@ -13,12 +13,9 @@ foreach($optionsFind as $option):
             
             <input type="checkbox" name="optionId[]" value="<?= htmlspecialchars($option['id']) ?>">
                 <img src="assets/uploads/options/<?= htmlspecialchars($option['categoriesCondiments_id'])?>/<?= htmlspecialchars($option['picture']) ?>">
-                    <h3><?= htmlspecialchars($option['name']) ?></h3>
+                    <p><?= htmlspecialchars($option['name']) ?></p>
                 
-                    </p><?= htmlspecialchars($option['price']) ?> €</p>
-                
-                    <span><?= htmlspecialchars($option['shortName']) ?></span>  
-                    <br>      
+                    </p><?= htmlspecialchars($option['price']) ?> €</p>    
                     
 <?php
 endforeach;
