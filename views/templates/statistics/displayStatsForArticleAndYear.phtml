@@ -3,16 +3,19 @@
         <a href="index.php?route=statistics" id="retour" class="btn"><i class="fa-solid fa-chevron-left"></i></a>
 
         <?php if(isset($_POST) && empty($_POST)){ ?>
-        <h1>Ventes par article et par année !</h1>
+        <h1>Ventes par article pour l'année <?= date("Y", time()) ?></h1>
         <?php } else{ ?>
         <h1>Ventes par article pour l'année <?= $_POST["selectYear"] ?></h1>
         <?php } ?>
 
-        <form method="POST" action="index.php?route=getStatsForArticles">
+        <form method="POST" action="index.php?route=getAllStatistiquesForArticlesAndYear">
                 <label for="selectYear">Merci de selectionner une année : </label>
-
                 <select name="selectYear" id="selectYear" onChange="submit()">
-                        <option value="2022">année</option>
+                        <?php if(isset($_POST) && empty($_POST)){ ?>
+                        <option value="<?= date("Y", time()) ?>">Année en cours</option>
+                        <?php } else{ ?>
+                        <option value="<?= $_POST['selectYear'] ?>"><?= $_POST['selectYear'] ?></option>
+                        <?php } ?>
                         <option value="2022">2022</option>
                         <option value="2023">2023</option>
                         <option value="2024">2024</option>
@@ -25,7 +28,6 @@
                 </select>
         </form>
 
-        <?php if(isset($_POST) && !empty($_POST)){ ?>
         <table>
                 <thead>
                         <tr>
@@ -51,5 +53,4 @@
                         </tr>
                 </tbody>
         </table>
-        <?php } ?>
 </main>
