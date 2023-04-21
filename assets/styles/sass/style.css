@@ -1332,7 +1332,7 @@ h2 {
 #statistic > table {
   width: 96%;
   margin: auto;
-  margin-bottom: 40px;
+  margin-bottom: 12vh;
   table-layout: fixed;
   width: 100%;
 }
@@ -1355,6 +1355,10 @@ h2 {
 }
 #statistic > table > tbody > tr:hover {
   background-color: #95A5A6;
+}
+#statistic > table > tbody > tr.date {
+  background-color: #9B59b6;
+  color: #ECF0f1;
 }
 #statistic > table > tbody > tr > td {
   text-align: center;

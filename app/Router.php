@@ -267,9 +267,9 @@ class Router {
 
                 break; 
                 
-                case 'getStatsForArticles':
+                case 'getStatsForArticlesAndYear':
                     $controller = new StatistiquesController();
-                    $controller-> getStatsForArticles();
+                    $controller-> getStatsForArticlesAndYear();
 
                 break; 
                 
@@ -277,7 +277,7 @@ class Router {
 
 
 
-                
+
                 case 'getStatsForCategories':
                     $controller = new StatistiquesController();
                     $controller->getStatsForCategories();

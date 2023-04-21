@@ -8,18 +8,21 @@
         <h1>Ventes par article pour le <?= date_format(date_create($date), 'd-m-Y'); ?> !</h1>
         <?php } ?>
 
-        <?php if(!isset($_GET['day']) && !isset($_POST['date'])){ ?>
         <form method="POST" action="index.php?route=getStatistiquesByOneDay">
                 <label for="start">Merci de selectionner une date : </label>
                 <input  type    = "date"
                         id      = "date"
                         name    = "date"
-                        value   = "2023-02-28"
+                        <?php if(isset($_POST['date'])){ ?>
+                                value   = "<?= $_POST['date'] ?>"
+                        <?php } elseif(isset($_GET['day'])){ ?>
+                                value   = "<?= $_GET['day'] ?>"
+                        <?php } else{ ?>
+                                value   = "<?= date("Y-m-d", time()); ?>"
+                        <?php } ?>
                         onChange= "submit()">
         </form>
-        <?php }?>
 
-        <?php if(isset($_GET['day']) || isset($_POST['date'])){ ?>
         <table>
                 <thead>
                         <tr>
@@ -45,6 +48,5 @@
                         </tr>
                 </tbody>
         </table>
-        <?php } ?>
 
 </main>
