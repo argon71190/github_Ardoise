@@ -2,7 +2,7 @@
 <main id="statistic">
 
         <a href="index.php?route=statistics" id="retour" class="btn"><i class="fa-solid fa-chevron-left"></i></a>
-        <h1>Chiffres d'affaires par article et par jour !</h1>
+        <h1>Chiffres d'affaires par article et par mois !</h1>
 
         <table>
                 <thead>
@@ -15,13 +15,13 @@
                 </thead>
 
         <?php
-        $jour_precedent = '';
+        $mois_precedent = '';
         foreach($statistiques as $elem) {
             // vérifier si le jour a changé
-            if ($elem['date'] != $jour_precedent) {
+            if ($elem['mois'] != $mois_precedent) {
                 echo "<tr class=\"date\"><td>" . $elem['newDate'] . "</td><td></td><td></td><td></td></tr>";
                 // mettre à jour la variable pour stocker le jour précédent
-                $jour_precedent = $elem['date'];
+                $mois_precedent = $elem['mois'];
             }
             echo "<tr>";
             echo "<td></td>";
