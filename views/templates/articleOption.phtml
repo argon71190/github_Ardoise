@@ -2,8 +2,16 @@
 <a href="index.php?route=articleGestion" id="retour" class="btn"><i class="fa-solid fa-chevron-left"></i></a>
 <h1>Ajout d'Options </h1>
     <section>
-    <?php require_once('views/bases/_errors.phtml'); ?>
-    <?php require_once('views/bases/_valids.phtml'); ?>
+    <?php  if(isset($_SESSION['errors'])){
+                $errors = $_SESSION['errors'];
+                unset($_SESSION['errors']);
+            }; 
+        require_once('views/bases/_errors.phtml'); ?>
+    <?php  if(isset($_SESSION['valids'])){
+                $valids = $_SESSION['valids'];
+                unset($_SESSION['valids']);
+            }; 
+            require_once('views/bases/_valids.phtml'); ?>
         <?php
         $model = new \Models\OptionsManager();
         $links = $model->getOptionsLink($article['id']);
@@ -14,7 +22,7 @@
             
                 <h2><?= htmlspecialchars($article['name']) ?></h2>
                 <input type='hidden' id="articleId" value="<?= $article['id']?>">
-                </p><?= htmlspecialchars($article['price']) ?> €</p>
+                </p><?= htmlspecialchars(number_format($article['price'], 2)) ?> €</p>
                 
             </div>
             <div>Options :
@@ -45,3 +53,4 @@
         </article>
     </section>
     <script type="module" type="text/javascript" src="assets/js/index.js"></script>
+    </main>
