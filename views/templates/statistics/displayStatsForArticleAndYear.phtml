@@ -8,7 +8,7 @@
         <h1>Ventes par article pour l'année <?= $_POST["selectYear"] ?></h1>
         <?php } ?>
 
-        <form method="POST" action="index.php?route=getStatsForArticlesAndYear">
+        <form method="POST" action="index.php?route=getAllStatistiquesForArticlesAndYear">
                 <label for="selectYear">Merci de selectionner une année : </label>
                 <select name="selectYear" id="selectYear" onChange="submit()">
                         <?php if(isset($_POST) && empty($_POST)){ ?>
