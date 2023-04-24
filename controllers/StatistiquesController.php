@@ -117,6 +117,7 @@ class StatistiquesController extends Router {
         else{
             $article = $_POST['selectArticle'];
         }
+
         $model          = new StatistiquesManager();
         $statistiques   = $model->getAllStatistiquesForArticleAndMonth();
 
@@ -145,10 +146,25 @@ class StatistiquesController extends Router {
     }
 
     public function getStatsForCategories() {
-        $model          = new StatistiquesManager();
-        $statistiques   = $model->getAllStatistiquesForCategories();
+        $categorie;
+        if(isset($_POST) && empty($_POST)){
+            $categorie = "";
+        }
+        else{
+            $categorie = $_POST['selectCategorie'];
+        }
 
-        $this->render('statistics/displayStatsForCategory', 'layout', [    'stats'       => $statistiques]);
+        $model          = new StatistiquesManager();
+        $statistiques   = $model->getAllStatistiquesForCategoriesAndMonth();
+
+        for($i=0; $i<count($statistiques); $i++){
+            $explodeDate=explode("-", $statistiques[$i]['mois']);
+            $month = ["Janvier", "Fevrier","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Décembre"];
+            $date = $month[intval($explodeDate[1])-1]." ".$explodeDate[0];
+            $statistiques[$i]["newDate"]=$date;
+        }
+
+        $this->render('statistics/displayStatsForCategory', 'layout', ['statistiques' => $statistiques, 'categorie' => $categorie]);
     }
 
     public function getAllStatistiquesForCategoriesAndDay() {
