@@ -43,8 +43,8 @@
                                         <td><?= $ligne['article']; ?></td>
                                         <td><?= $ligne['quantite_vendue']; ?></td>
                                         <td><?= $ligne['total_vendu']; ?>€</td>
-                                        <?php $qty = $qty+intval($ligne['quantite_vendue']); var_dump($qty); ?>
-                                        <?php $total = $total+$ligne['total_vendu']; var_dump($total); ?>
+                                        <?php $qty = $qty+intval($ligne['quantite_vendue']); ?>
+                                        <?php $total = $total+$ligne['total_vendu']; ?>
                                 </tr>
                         <?php endforeach; ?>
                         <tr>
