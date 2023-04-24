@@ -109,6 +109,20 @@ class StatistiquesController extends Router {
         $this->render('statistics/displayStatsForYear', 'layout', [    'statistiques'       => $statistiques]);
     }
 
+    public function getStatsForArticles() {
+        $year;
+        if(isset($_POST) && empty($_POST)){
+            $year = date("Y", time());
+        }
+        else{
+            $year = $_POST['selectYear'];
+        }
+        $model          = new StatistiquesManager();
+        $statistiques   = $model->getAllStatistiquesForArticles($year);
+
+        $this->render('statistics/displayStatsForArticle', 'layout', ['statistiques' => $statistiques, 'year' => $year]);
+    }
+
     public function getAllStatistiquesForArticlesAndYear() {
         $year;
         if(isset($_POST) && empty($_POST)){
