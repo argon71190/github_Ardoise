@@ -25,60 +25,7 @@ class StatistiquesController extends Router {
         $model          = new StatistiquesManager();
         $statistiques   = $model->getAllOrders();
 
-        $previousOrderId = null;
-
-        // Affichage de l'en-tête de la table
-        echo "<table>";
-        echo "<thead>";
-        echo "<tr>";
-        echo "<th>ID commande</th>";
-        echo "<th>Date de la commande</th>";
-        echo "<th>Méthode de paiement</th>";
-        echo "<th>Total</th>";
-        echo "<th>ID article</th>";
-        echo "<th>Quantité</th>";
-        echo "<th>Prix unitaire</th>";
-        echo "</tr>";
-        echo "</thead>";
-        echo "<tbody>";
-
-        // Parcours des résultats avec une boucle foreach
-        foreach ($statistiques as $row) {
-            // Vérification si l'ID de la commande a déjà été affiché
-            if ($row['id'] != $previousOrderId) {
-                // Affichage d'une nouvelle ligne pour la commande
-                echo "<tr>";
-                echo "<td>" . $row['id'] . "</td>";
-                echo "<td>" . $row['dateTaken'] . "</td>";
-                echo "<td>" . $row['paymentMethod'] . "</td>";
-                echo "<td>" . $row['total'] . "</td>";
-                echo "<td>" . $row['given'] . "</td>";
-                echo "<td>" . $row['rendu'] . "</td>";
-                echo "</tr>";
-
-                // Stockage de l'ID de la commande actuelle
-                $previousOrderId = $row['id'];
-            } else {
-                // Affichage d'une nouvelle ligne pour l'élément de commande
-                echo "<tr>";
-                echo "<td></td>";
-                echo "<td></td>";
-                echo "<td></td>";
-                echo "<td></td>";
-                echo "<td>" . $row['article_name'] . "</td>";
-                echo "<td>" . $row['quantity'] . "</td>";
-                echo "<td>" . $row['unitary_price'] . "</td>";
-                echo "</tr>";
-            }
-        }
-
-        // Affichage de la fin de la table
-        echo "</tbody>";
-        echo "</table>";
-
-         die;
-
-        $this->render('displayArticles', 'layout', [    'stats'       => $statistiques]);
+        $this->render('statistics/displayOrders', 'layout', [    'statistiques'       => $statistiques]);
     }
 
     public function getStatsForDay() {
