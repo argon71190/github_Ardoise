@@ -169,32 +169,14 @@ class StatistiquesController extends Router {
         $model          = new StatistiquesManager();
         $statistiques   = $model->getAllStatistiquesForCategoriesAndMonth();
 
-        $jour_precedent = '';
-
-        // afficher les données dans une table
-        echo "<table>";
-        echo "<tr><th>mois</th><th>Catégorie</th><th>Quantité vendue</th><th>Total vendu</th></tr>";
-
-        foreach($statistiques as $elem) {
-            // vérifier si le jour a changé
-            if ($elem['mois'] != $jour_precedent) {
-                echo "<tr><td colspan='4'>" . $elem['mois'] . "</td></tr>";
-                // mettre à jour la variable pour stocker le jour précédent
-                $jour_precedent = $elem['mois'];
-            }
-            echo "<tr>";
-            echo "<td></td>";
-            echo "<td>" . $elem['categorie'] . "</td>";
-            echo "<td>" . $elem['quantite_vendue'] . "</td>";
-            echo "<td>" . $elem['total_vendu'] . "€</td>";
-            echo "</tr>";
+        for($i=0; $i<count($statistiques); $i++){
+            $explodeDate=explode("-", $statistiques[$i]['mois']);
+            $month = ["Janvier", "Fevrier","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Décembre"];
+            $date = $month[intval($explodeDate[1])-1]." ".$explodeDate[0];
+            $statistiques[$i]["newDate"]=$date;
         }
 
-        echo "</table>";
-
-        var_dump($statistiques); die;
-
-        $this->render('displayArticles', 'layout', [    'stats'       => $statistiques]);
+        $this->render('statistics/displayStatsForCategorieByMonth', 'layout', [    'statistiques'       => $statistiques]);
     }
 
     public function getAllStatistiquesForCategoriesAndYear() {
