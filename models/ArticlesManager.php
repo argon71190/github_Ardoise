@@ -86,4 +86,34 @@ class ArticlesManager extends Database {
         $this->addOne('articles', $datas);
     }
 
+
+    // UPDATE UN ARTICLE
+    public function update(Articles $article): void {
+        $query = $this->getDb()->prepare("UPDATE articles   SET     name = :name,
+                                                                    shortName = :shortName,
+                                                                    price = :price,
+                                                                    picture = :picture,
+                                                                    categories_id = :categories_id,
+                                                                    tva_spl = :tva_spl,
+                                                                    tva_emp = :tva_emp,
+                                                                    codebarre = :codebarre,
+                                                                    activate = :activate,
+                                                                    screen_id = :screen_id
+                                                            WHERE   id = :id");
+
+        $query->bindValue(':name',              $article->getName());
+        $query->bindValue(':shortName',         $article->getShortname());
+        $query->bindValue(':price',             $article->getPrice());
+        $query->bindValue(':picture',           $article->getPicture());
+        $query->bindValue(':categories_id',     $article->getCategorie_id());
+        $query->bindValue(':tva_spl',           $article->getTva_spl());
+        $query->bindValue(':tva_emp',           $article->getTva_emp());
+        $query->bindValue(':codebarre',         $article->getCodebarre());
+        $query->bindValue(':activate',          $article->getActivate());
+        $query->bindValue(':screen_id',         $article->getScreen_id());
+        $query->bindValue(':id',                $article->getId());
+
+        $query->execute();
+    }
+
 }
