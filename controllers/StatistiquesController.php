@@ -248,7 +248,10 @@ class StatistiquesController extends Router {
             var_dump($date);
             $model          = new StatistiquesManager();
             $statistiques   = $model->getStatistiquesByOneDay($date);
-        
+            
+            // Enregistrement de la page précédente pour le bouton retour
+            $_SESSION['previousPage'] = 'statistics';
+
             $this->render('statistics/displayStatistiquesByOneDay', 'layout', ['statistiques' => $statistiques, 'date' => $date]);
         }
         elseif(!isset($_GET['day']) && isset($_POST['date'])){
@@ -256,12 +259,18 @@ class StatistiquesController extends Router {
             $model          = new StatistiquesManager();
             $statistiques   = $model->getStatistiquesByOneDay($date);
         
+            // Enregistrement de la page précédente pour le bouton retour
+            $_SESSION['previousPage'] = 'statistics';
+
             $this->render('statistics/displayStatistiquesByOneDay', 'layout', ['statistiques' => $statistiques, 'date' => $date]);
         }
         elseif(isset($_GET['day']) && !isset($_POST['date'])){
             $date           = $_GET['day'];
             $model          = new StatistiquesManager();
             $statistiques   = $model->getStatistiquesByOneDay($date);
+            
+            // Enregistrement de la page précédente pour le bouton retour
+            $_SESSION['previousPage'] = 'getStatsForDay';
         
             $this->render('statistics/displayStatistiquesByOneDay', 'layout', ['statistiques' => $statistiques, 'date' => $date]);
         }
