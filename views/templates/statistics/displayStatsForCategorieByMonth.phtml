@@ -2,13 +2,13 @@
 <main id="statistic">
 
         <a href="index.php?route=statistics" id="retour" class="btn"><i class="fa-solid fa-chevron-left"></i></a>
-        <h1>Chiffres d'affaires par article et par mois !</h1>
+        <h1>Chiffres d'affaires par catégorie et par mois !</h1>
 
         <table>
                 <thead>
                         <tr>
                                 <th>Date</th>
-                                <th>Article</th>
+                                <th>Catégorie</th>
                                 <th>Quantité</th>
                                 <th>Total</th>
                         </tr>
@@ -25,7 +25,7 @@
             }
             echo "<tr>";
             echo "<td></td>";
-            echo "<td>" . $elem['article'] . "</td>";
+            echo "<td>" . $elem['categorie'] . "</td>";
             echo "<td>" . $elem['quantite_vendue'] . "</td>";
             echo "<td>" . $elem['total_vendu'] . "€</td>";
             echo "</tr>";

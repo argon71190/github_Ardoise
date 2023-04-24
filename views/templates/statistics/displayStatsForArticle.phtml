@@ -1,0 +1,55 @@
+<!-- <?php var_dump($data); ?> -->
+<main id="statistic">
+
+        <a href="index.php?route=statistics" id="retour" class="btn"><i class="fa-solid fa-chevron-left"></i></a>
+
+        <?php if(isset($_POST) && empty($_POST)){ ?>
+        <h1>Ventes par article</h1>
+        <?php } else{ ?>
+        <h1>Ventes pour l'article :  <?= $_POST["selectArticle"] ?></h1>
+        <?php } ?>
+
+        <form method="POST" action="index.php?route=getStatsForArticles">
+                <label for="selectArticle">Merci de selectionner un article : </label>
+                <select name="selectArticle" id="selectArticle" onChange="submit()">
+                        <option value="Choisir un article">Choisir un article</option>
+                        <?php foreach($statistiques as $elem){ ?>
+                                <option value="<?= $elem['article'] ?>"><?= $elem['article'] ?></option>
+                        <?php } ?>
+                </select>
+        </form>
+
+
+        <?php if(isset($_POST) && !empty($_POST['selectArticle'])){ ?>
+        <table>
+                <thead>
+                        <tr>
+                                <th>Date</th>
+                                <th>Article</th>
+                                <th>Quantité</th>
+                                <th>Total</th>
+                        </tr>
+                </thead>
+
+        <?php
+        $mois_precedent = '';
+        foreach($statistiques as $elem) {
+                if($elem['article'] == $_POST['selectArticle']){
+                                        // vérifier si le jour a changé
+                        if ($elem['mois'] != $mois_precedent) {
+                                echo "<tr class=\"date\"><td>" . $elem['newDate'] . "</td><td></td><td></td><td></td></tr>";
+                                // mettre à jour la variable pour stocker le jour précédent
+                                $mois_precedent = $elem['mois'];
+                        }
+                        echo "<tr>";
+                        echo "<td></td>";
+                        echo "<td>" . $elem['article'] . "</td>";
+                        echo "<td>" . $elem['quantite_vendue'] . "</td>";
+                        echo "<td>" . $elem['total_vendu'] . "€</td>";
+                        echo "</tr>";
+                }
+        }
+        echo "</table>";
+        ?>
+        <?php } ?>
+</main>
