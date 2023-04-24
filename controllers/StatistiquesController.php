@@ -24,7 +24,7 @@ class StatistiquesController extends Router {
     public function getAllOrders() {
         $model          = new StatistiquesManager();
         $statistiques   = $model->getAllOrders();
-
+        
         $this->render('statistics/displayOrders', 'layout', [    'statistiques'       => $statistiques]);
     }
 
@@ -192,7 +192,7 @@ class StatistiquesController extends Router {
 
         if(!isset($_GET['day']) && !isset($_POST['date'])){
             $date           = date("Y-m-d", time());
-            var_dump($date);
+
             $model          = new StatistiquesManager();
             $statistiques   = $model->getStatistiquesByOneDay($date);
             

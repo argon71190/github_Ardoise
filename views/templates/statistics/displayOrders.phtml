@@ -10,12 +10,12 @@
                                 <th>ID commande</th>
                                 <th>Date de la commande</th>
                                 <th>Méthode de paiement</th>
-                                <th>Total</th>
-                                <th>Somme donnée</th>
-                                <th>Somme rendue</th>
+                                <th>Total (€)</th>
+                                <th>Payée (€)</th>
+                                <th>Rendue (€)</th>
                                 <th>ID article</th>
                                 <th>Quantité</th>
-                                <th>Prix unitaire</th>
+                                <th>Prix unitaire (€)</th>
                         </tr>
                 </thead>
 
@@ -30,9 +30,9 @@
                                 echo "<td>" . $row['id'] . "</td>";
                                 echo "<td>" . $row['dateTaken'] . "</td>";
                                 echo "<td>" . $row['paymentMethod'] . "</td>";
-                                echo "<td>" . $row['total'] . "</td>";
-                                echo "<td>" . $row['given'] . "</td>";
-                                echo "<td>" . $row['rendu'] . "</td>";
+                                echo "<td>" . number_format($row['total'], 2) . "</td>";
+                                echo "<td>" . number_format($row['given'], 2) . "</td>";
+                                echo "<td>" . number_format($row['rendu'], 2) . "</td>";
                                 echo "<td></td>";
                                 echo "<td></td>";
                                 echo "<td></td>";
@@ -47,7 +47,7 @@
                                 echo "<td></td>";
                                 echo "<td>" . $row['article_name'] . "</td>";
                                 echo "<td>" . $row['quantity'] . "</td>";
-                                echo "<td>" . $row['unitary_price'] . "</td>";
+                                echo "<td>" . number_format($row['unitary_price'], 2) . "</td>";
                                 echo "</tr>";
 
                         }
@@ -61,7 +61,7 @@
                                 echo "<td></td>";
                                 echo "<td>" . $row['article_name'] . "</td>";
                                 echo "<td>" . $row['quantity'] . "</td>";
-                                echo "<td>" . $row['unitary_price'] . "</td>";
+                                echo "<td>" . number_format($row['unitary_price'], 2) . "</td>";
                                 echo "</tr>";
                         }
                 } ?>

@@ -1278,6 +1278,7 @@ h2 {
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
+  margin-bottom: 40px;
 }
 #statistics > section > section {
   display: flex;
