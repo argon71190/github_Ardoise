@@ -88,12 +88,12 @@ class StatistiquesController extends Router {
         $this->render('statistics/displayStatsForDay', 'layout', ['statistiques' => $statistiques]);
     }
 
-    // public function getStatsForOneDay() {
-    //     $model          = new StatistiquesManager();
-    //     $statistiques   = $model->getAllStatistiquesForDay();
+    public function getStatsForOneDay() {
+        $model          = new StatistiquesManager();
+        $statistiques   = $model->getAllStatistiquesForDay();
 
-    //     $this->render('statistics/displayStatsForDay', 'layout', ['statistiques' => $statistiques]);
-    // }
+        $this->render('statistics/displayStatsForDay', 'layout', ['statistiques' => $statistiques]);
+    }
 
     public function getStatsForMonth() {
         $model          = new StatistiquesManager();
@@ -155,32 +155,39 @@ class StatistiquesController extends Router {
         $model          = new StatistiquesManager();
         $statistiques   = $model->getAllStatistiquesForCategoriesAndDay();
 
-        $jour_precedent = '';
-
-        // afficher les données dans une table
-        echo "<table>";
-        echo "<tr><th>jour</th><th>Catégorie</th><th>Quantité vendue</th><th>Total vendu</th></tr>";
-
-        foreach($statistiques as $elem) {
-            // vérifier si le jour a changé
-            if ($elem['jour'] != $jour_precedent) {
-                echo "<tr><td colspan='4'>" . $elem['jour'] . "</td></tr>";
-                // mettre à jour la variable pour stocker le jour précédent
-                $jour_precedent = $elem['jour'];
-            }
-            echo "<tr>";
-            echo "<td></td>";
-            echo "<td>" . $elem['categorie'] . "</td>";
-            echo "<td>" . $elem['quantite_vendue'] . "</td>";
-            echo "<td>" . $elem['total_vendu'] . "€</td>";
-            echo "</tr>";
+        for($i=0; $i<count($statistiques); $i++){
+            $explodeDate=explode("-", $statistiques[$i]['jour']);
+            $month = ["Janvier", "Fevrier","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Décembre"];
+            $date = $explodeDate[2]." ".$month[intval($explodeDate[1])-1]." ".$explodeDate[0];
+            $statistiques[$i]["newDate"]=$date;
         }
 
-        echo "</table>";
+        // $jour_precedent = '';
 
-        var_dump($statistiques); die;
+        // // afficher les données dans une table
+        // echo "<table>";
+        // echo "<tr><th>jour</th><th>Catégorie</th><th>Quantité vendue</th><th>Total vendu</th></tr>";
 
-        $this->render('displayArticles', 'layout', [    'stats'       => $statistiques]);
+        // foreach($statistiques as $elem) {
+        //     // vérifier si le jour a changé
+        //     if ($elem['jour'] != $jour_precedent) {
+        //         echo "<tr><td colspan='4'>" . $elem['jour'] . "</td></tr>";
+        //         // mettre à jour la variable pour stocker le jour précédent
+        //         $jour_precedent = $elem['jour'];
+        //     }
+        //     echo "<tr>";
+        //     echo "<td></td>";
+        //     echo "<td>" . $elem['categorie'] . "</td>";
+        //     echo "<td>" . $elem['quantite_vendue'] . "</td>";
+        //     echo "<td>" . $elem['total_vendu'] . "€</td>";
+        //     echo "</tr>";
+        // }
+
+        // echo "</table>";
+
+        // var_dump($statistiques); die;
+
+        $this->render('statistics/displayStatsForCategorieByDay ', 'layout', [    'statistiques'       => $statistiques]);
     }
 
     public function getAllStatistiquesForCategoriesAndMonth() {
