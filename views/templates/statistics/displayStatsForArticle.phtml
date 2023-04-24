@@ -4,66 +4,52 @@
         <a href="index.php?route=statistics" id="retour" class="btn"><i class="fa-solid fa-chevron-left"></i></a>
 
         <?php if(isset($_POST) && empty($_POST)){ ?>
-        <h1>Ventes par article pour l'année <?= date("Y", time()) ?></h1>
+        <h1>Ventes par article</h1>
         <?php } else{ ?>
-        <h1>Ventes par article pour l'année <?= $_POST["selectYear"] ?></h1>
+        <h1>Ventes pour l'article :  <?= $_POST["selectArticle"] ?></h1>
         <?php } ?>
-
-        <form method="POST" action="index.php?route=getStatsForArticles">
-                <label for="selectYear">Merci de selectionner une année : </label>
-                <select name="selectYear" id="selectYear" onChange="submit()">
-                        <?php if(isset($_POST) && empty($_POST)){ ?>
-                        <option value="<?= date("Y", time()) ?>">Année en cours</option>
-                        <?php } else{ ?>
-                        <option value="<?= $_POST['selectYear'] ?>"><?= $_POST['selectYear'] ?></option>
-                                <?php } ?>
-                        <option value="2022">2022</option>
-                        <option value="2023">2023</option>
-                        <option value="2024">2024</option>
-                        <option value="2025">2025</option>
-                        <option value="2026">2026</option>
-                        <option value="2027">2027</option>
-                        <option value="2028">2028</option>
-                        <option value="2029">2029</option>
-                        <option value="2030">2030</option>
-                </select>
-        </form>
 
         <form method="POST" action="index.php?route=getStatsForArticles">
                 <label for="selectArticle">Merci de selectionner un article : </label>
                 <select name="selectArticle" id="selectArticle" onChange="submit()">
                         <option value="Choisir un article">Choisir un article</option>
-                        <?php if(isset($_POST) && empty($_POST['article'])){
-                                foreach($statistiques as $elem){ ?>
-                                        <option value="<?= $elem['article'] ?>"><?= $elem['article'] ?></option>
-                                <?php }} ?>
+                        <?php foreach($statistiques as $elem){ ?>
+                                <option value="<?= $elem['article'] ?>"><?= $elem['article'] ?></option>
+                        <?php } ?>
                 </select>
         </form>
 
 
+        <?php if(isset($_POST) && !empty($_POST['selectArticle'])){ ?>
         <table>
                 <thead>
                         <tr>
-                                <th>Articles</th>
-                                <th>Quantités vendues</th>
+                                <th>Date</th>
+                                <th>Article</th>
+                                <th>Quantité</th>
                                 <th>Total</th>
                         </tr>
                 </thead>
-                <tbody>
-                        <?php $qty = 0; $total = 0; foreach($statistiques as $ligne): ?>
-                                <tr>
-                                        <td><?= $ligne['article']; ?></td>
-                                        <td><?= $ligne['quantite_vendue']; ?></td>
-                                        <td><?= $ligne['total_vendu']; ?>€</td>
-                                        <?php $qty = $qty+intval($ligne['quantite_vendue']); ?>
-                                        <?php $total = $total+intval($ligne['total_vendu']); ?>
-                                </tr>
-                        <?php endforeach; ?>
-                        <tr>
-                                <th>TOTAL</th>
-                                <th><?= $qty; ?></th>
-                                <th><?= number_format($total, 2); ?>€</th>
-                        </tr>
-                </tbody>
-        </table>
+
+        <?php
+        $mois_precedent = '';
+        foreach($statistiques as $elem) {
+                if($elem['article'] == $_POST['selectArticle']){
+                                        // vérifier si le jour a changé
+                        if ($elem['mois'] != $mois_precedent) {
+                                echo "<tr class=\"date\"><td>" . $elem['newDate'] . "</td><td></td><td></td><td></td></tr>";
+                                // mettre à jour la variable pour stocker le jour précédent
+                                $mois_precedent = $elem['mois'];
+                        }
+                        echo "<tr>";
+                        echo "<td></td>";
+                        echo "<td>" . $elem['article'] . "</td>";
+                        echo "<td>" . $elem['quantite_vendue'] . "</td>";
+                        echo "<td>" . $elem['total_vendu'] . "€</td>";
+                        echo "</tr>";
+                }
+        }
+        echo "</table>";
+        ?>
+        <?php } ?>
 </main>

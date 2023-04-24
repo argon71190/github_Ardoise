@@ -110,17 +110,24 @@ class StatistiquesController extends Router {
     }
 
     public function getStatsForArticles() {
-        $year;
+        $article;
         if(isset($_POST) && empty($_POST)){
-            $year = date("Y", time());
+            $article = "";
         }
         else{
-            $year = $_POST['selectYear'];
+            $article = $_POST['selectArticle'];
         }
         $model          = new StatistiquesManager();
-        $statistiques   = $model->getAllStatistiquesForArticles($year);
+        $statistiques   = $model->getAllStatistiquesForArticleAndMonth();
 
-        $this->render('statistics/displayStatsForArticle', 'layout', ['statistiques' => $statistiques, 'year' => $year]);
+        for($i=0; $i<count($statistiques); $i++){
+            $explodeDate=explode("-", $statistiques[$i]['mois']);
+            $month = ["Janvier", "Fevrier","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Décembre"];
+            $date = $month[intval($explodeDate[1])-1]." ".$explodeDate[0];
+            $statistiques[$i]["newDate"]=$date;
+        }
+
+        $this->render('statistics/displayStatsForArticle', 'layout', ['statistiques' => $statistiques, 'article' => $article]);
     }
 
     public function getAllStatistiquesForArticlesAndYear() {
