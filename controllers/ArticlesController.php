@@ -409,4 +409,56 @@ class ArticlesController extends Router {
             ]
         );
     }*/
+
+
+
+    public function displayFormUpdateArticle($id){
+        
+
+        //$ifAdmin = new \Models\VerifAdminManager();
+        //$ifAdmin->getVerifIfAdmin();
+    
+        $model      = new \Models\CategoriesManager();
+        $categories = $model->getAllCategories();
+
+        $model      = new \Models\TvaManager();
+        $tva_spl    = $model->getAllTva();
+
+        $model      = new \Models\Screens();
+        $screens    = $model->getAllScreens();
+
+        $model      = new ResultsManager();
+        $token      = $model->genererChaineAleatoire(20);
+        $_SESSION['tokenVerify'] = $token;
+
+        $model      = new ArticlesManager();
+        $newArticle    = $model->getArticleById($id);
+
+        // $newArticle = [
+        //     'name'      => '',
+        //     'shortName' => '',
+        //     'picture'   => '',
+        //     'price'     => '',
+        //     'categorie' => '',
+        //     'tva_spl'   => '',
+        //     'tva_emp'   => '',
+        //     'codeBarre' => '',
+        //     'activate'  => '',
+        //     'screen'    => ''
+        // ];
+
+
+        $this->render(  'updateArticles',
+                        'layout',
+                        [
+                            'newArticle'    => $newArticle,
+                            'token'         => $token,
+                            'categories'    => $categories,
+                            'tva_spl'       => $tva_spl,
+                            'tva_emp'       => $tva_spl,
+                            'screens'       => $screens
+                        ]);
+    
+        
+    }
 }

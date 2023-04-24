@@ -36,6 +36,11 @@ class Router {
                     $controller->addArticle();
                     break;
 
+                case 'updateArticles':
+                    $controller = new ArticlesController();
+                    $controller->displayFormUpdateArticle($_GET['id']);
+                    break;
+
                     // CUSTOMERS
                 case 'customers':
                     $controller = new CustomersController();
