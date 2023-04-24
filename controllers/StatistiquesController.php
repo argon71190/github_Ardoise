@@ -184,31 +184,31 @@ class StatistiquesController extends Router {
         $statistiques   = $model->getAllStatistiquesForCategoriesAndYear();
 
 
-        $jour_precedent = '';
+        // $jour_precedent = '';
 
-        // afficher les données dans une table
-        echo "<table>";
-        echo "<tr><th>Année</th><th>Catégorie</th><th>Quantité vendue</th><th>Total vendu</th></tr>";
+        // // afficher les données dans une table
+        // echo "<table>";
+        // echo "<tr><th>Année</th><th>Catégorie</th><th>Quantité vendue</th><th>Total vendu</th></tr>";
 
-        foreach($statistiques as $elem) {
-            // vérifier si le jour a changé
-            if ($elem['annee'] != $jour_precedent) {
-                echo "<tr><td colspan='4'>" . $elem['annee'] . "</td></tr>";
-                // mettre à jour la variable pour stocker le jour précédent
-                $jour_precedent = $elem['annee'];
-            }
-            echo "<tr>";
-            echo "<td></td>";
-            echo "<td>" . $elem['categorie'] . "</td>";
-            echo "<td>" . $elem['quantite_vendue'] . "</td>";
-            echo "<td>" . $elem['total_vendu'] . "€</td>";
-            echo "</tr>";
-        }
+        // foreach($statistiques as $elem) {
+        //     // vérifier si le jour a changé
+        //     if ($elem['annee'] != $jour_precedent) {
+        //         echo "<tr><td colspan='4'>" . $elem['annee'] . "</td></tr>";
+        //         // mettre à jour la variable pour stocker le jour précédent
+        //         $jour_precedent = $elem['annee'];
+        //     }
+        //     echo "<tr>";
+        //     echo "<td></td>";
+        //     echo "<td>" . $elem['categorie'] . "</td>";
+        //     echo "<td>" . $elem['quantite_vendue'] . "</td>";
+        //     echo "<td>" . $elem['total_vendu'] . "€</td>";
+        //     echo "</tr>";
+        // }
 
-        echo "</table>";
-        var_dump($statistiques); die;
+        // echo "</table>";
+        // var_dump($statistiques); die;
 
-        $this->render('displayArticles', 'layout', [    'stats'       => $statistiques]);
+        $this->render('statistics/displayStatsForCategorieByYear', 'layout', [    'statistiques'       => $statistiques]);
     }
 
     public function getAllStatistiquesForArticleAndDay() {

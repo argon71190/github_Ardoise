@@ -1,0 +1,36 @@
+<!-- <?php var_dump($data) ?> -->
+<main id="statistic">
+
+        <a href="index.php?route=statistics" id="retour" class="btn"><i class="fa-solid fa-chevron-left"></i></a>
+        <h1>Chiffres d'affaires par catégorie et par année !</h1>
+
+        <table>
+                <thead>
+                        <tr>
+                                <th>Année</th>
+                                <th>Catégorie</th>
+                                <th>Quantité</th>
+                                <th>Total</th>
+                        </tr>
+                </thead>
+
+        <?php
+        $année_precedente = '';
+        foreach($statistiques as $elem) {
+            // vérifier si le jour a changé
+            if ($elem['annee'] != $année_precedente) {
+                echo "<tr class=\"date\"><td>" . $elem['annee'] . "</td><td></td><td></td><td></td></tr>";
+                // mettre à jour la variable pour stocker le jour précédent
+                $année_precedente = $elem['annee'];
+            }
+            echo "<tr>";
+            echo "<td></td>";
+            echo "<td>" . $elem['categorie'] . "</td>";
+            echo "<td>" . $elem['quantite_vendue'] . "</td>";
+            echo "<td>" . $elem['total_vendu'] . "€</td>";
+            echo "</tr>";
+        }
+
+        echo "</table>";
+        ?>
+</main>
