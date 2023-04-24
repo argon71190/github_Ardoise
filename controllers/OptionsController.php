@@ -263,56 +263,22 @@ class OptionsController extends Router
                     // Ajout d'un message de validation
                     $valids[] = $messagesValids[14];
 
-                $model = new ArticlesManager();
-                $article = $model->getArticleById($_POST['articleId']);
+                
+                    $_SESSION['valids'] = $valids;
 
-                $model = new OptionsManager();
-                $categories = $model->getAllCategories();
-
-                //On affiche la vue de l'article avec sa nouvelle option et un message de validation
-                $this->render(  'articleOption',
-                                'layout',
-                          [ 'article'       => $article,
-                            'categories'    => $categories,
-                            'errors'        => $errors,
-                            'valids'        => $valids
-                            ]
-                        );
+                    header('Location: index.php?route=articleOption&id='.$_POST['articleId']);
                         
         
         }
 
-        $model = new ArticlesManager();
-        $article = $model->getArticleById($_POST['articleId']);
+        $_SESSION['errors'] = $errors;
 
-        $model = new OptionsManager();
-        $categories = $model->getAllCategories();
-
-        
-        $this->render(  'articleOption',
-                        'layout',
-                        [ 'article'       => $article,
-                        'categories'    => $categories,
-                        'errors'        => $errors,
-                      ]);
+        header('Location: index.php?route=articleOption&id='.$_POST['articleId']);
 
     }
-    $errorsList = new errorMessages();
-    $messagesErrors = $errorsList->getMessages();
-    $errors[] = $messagesErrors[68];
+        $_SESSION['errors'] = $errors;
 
-    $model = new ArticlesManager();
-    $article = $model->getArticleById($_POST['articleId']);
-
-    $model = new OptionsManager();
-    $categories = $model->getAllCategories();
-
-    $this->render(  'articleOption',
-                    'layout',
-                  [ 'article'       => $article,
-                    'categories'    => $categories,
-                    'errors'        => $errors,
-                  ]);
+        header('Location: index.php?route=articleOption&id='.$_POST['articleId']);
     }
 
     public function deleteLink(){
@@ -332,12 +298,8 @@ class OptionsController extends Router
                     // Ajout d'un message de validation
                     $valids[] = $messagesValids[15];
 
-
-        $this->render(  'articleOption',
-                    'layout',
-                  [ 'article'       => $article,
-                    'categories'    => $categories,
-                    'valids'        => $valids
-                  ]);
+            $_SESSION['valids'] = $valids;
+        
+        header('Location: index.php?route=articleOption&id='.$_GET['articleId']);          
     }
 }

@@ -18,7 +18,7 @@ foreach($articlesFind as $article):
                     <img src="assets/uploads/articles/<?= htmlspecialchars($article['categories_id'])?>/<?= htmlspecialchars($article['picture']) ?>">
                     <h2><?= htmlspecialchars($article['name']) ?></h2>
                 
-                    </p><?= htmlspecialchars($article['price']) ?> €</p>
+                    </p><?= htmlspecialchars(number_format($article['price'], 2)) ?> €</p>
                 </div>
                     <!--<span><?= htmlspecialchars($article['shortName']) ?></span>-->
                     <button onclick="toggleDisplay(<?=$article['id']?>)" class='display btn'>Options</button>

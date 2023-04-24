@@ -11,13 +11,13 @@ else{
 foreach($optionsFind as $option): 
 
 ?>
-    <div>        
+    <label>        
             <input type="checkbox" name="optionId[]" value="<?= htmlspecialchars($option['id']) ?>">
                 <img src="assets/uploads/options/<?= htmlspecialchars($option['categoriesCondiments_id'])?>/<?= htmlspecialchars($option['picture']) ?>">
                     <p><?= htmlspecialchars($option['name']) ?></p>
                 
-                    </p><?= htmlspecialchars($option['price']) ?> €</p>    
-    </div>
+                    </p><?= htmlspecialchars(number_format($option['price'], 2)) ?> €</p>    
+    </label>
 <?php
 endforeach;
 }
@@ -27,7 +27,7 @@ if(!empty($optionsFind)){?>
     <input      type    = "submit"
                 id      = "linkSubmit"
                 name    = "submit"
-                value   = "Joindre"
+                value   = "Joindre les options"
                 class   = "btn colorGreen">
 <?php } ?> 
     </form>

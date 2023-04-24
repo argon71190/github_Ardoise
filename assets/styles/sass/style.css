@@ -1417,7 +1417,6 @@ h2 {
   font-size: 1.3em;
 }
 #articleOption > section:nth-of-type(1) > article:nth-of-type(2) {
-  margin: auto;
   margin-top: 2em;
   display: flex;
   flex-direction: column;
@@ -1436,20 +1435,34 @@ h2 {
 }
 #articleOption > section:nth-of-type(1) > article:nth-of-type(2) > div > form > section {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 50px;
 }
-#articleOption > section:nth-of-type(1) > article:nth-of-type(2) > div > form > section > div {
+#articleOption > section:nth-of-type(1) > article:nth-of-type(2) > div > form > section > label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
   padding: 10px;
   border-radius: 20px;
   box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
 }
-#articleOption > section:nth-of-type(1) > article:nth-of-type(2) > div > form > section > div:hover {
+#articleOption > section:nth-of-type(1) > article:nth-of-type(2) > div > form > section > label:hover {
   box-shadow: inset -10px -10px 15px rgba(255, 255, 255, 0.5), inset 10px 10px 15px rgba(70, 70, 70, 0.12);
 }
-#articleOption > section:nth-of-type(1) > article:nth-of-type(2) > div > form > section > div > img {
-  width: 240px;
-  height: 220px;
+#articleOption > section:nth-of-type(1) > article:nth-of-type(2) > div > form > section > label:has(input[type=checkbox]:checked) {
+  box-shadow: inset -10px -10px 15px rgb(107, 255, 144), inset 10px 10px 15px rgb(77, 133, 63);
+}
+#articleOption > section:nth-of-type(1) > article:nth-of-type(2) > div > form > section > label img {
+  width: 180px;
+  height: 165px;
+  margin-bottom: 10px;
+}
+#articleOption > section:nth-of-type(1) > article:nth-of-type(2) > div > form > section > label input {
+  display: none;
+}
+#articleOption > section:nth-of-type(1) > article:nth-of-type(2) > div > form > input {
+  margin-top: 2em;
 }
 
 * {
