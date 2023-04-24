@@ -1,4 +1,4 @@
-<!-- <?php var_dump($data) ?> -->
+<?php var_dump($data) ?>
 <main id="statistic">
 
         <a href="index.php?route=<?php   if($_SESSION['previousPage'] == 'statistics'){
@@ -43,8 +43,8 @@
                                         <td><?= $ligne['article']; ?></td>
                                         <td><?= $ligne['quantite_vendue']; ?></td>
                                         <td><?= $ligne['total_vendu']; ?>€</td>
-                                        <?php $qty = $qty+intval($ligne['quantite_vendue']); ?>
-                                        <?php $total = $total+intval($ligne['total_vendu']); ?>
+                                        <?php $qty = $qty+intval($ligne['quantite_vendue']); var_dump($qty); ?>
+                                        <?php $total = $total+$ligne['total_vendu']; var_dump($total); ?>
                                 </tr>
                         <?php endforeach; ?>
                         <tr>
