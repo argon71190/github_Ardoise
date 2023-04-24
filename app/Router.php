@@ -289,10 +289,6 @@ class Router {
 
                 break; 
 
-
-
-
-
                 case 'getStatsForCategories':
                     $controller = new StatistiquesController();
                     $controller->getStatsForCategories();

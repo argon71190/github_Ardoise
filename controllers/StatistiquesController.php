@@ -24,61 +24,8 @@ class StatistiquesController extends Router {
     public function getAllOrders() {
         $model          = new StatistiquesManager();
         $statistiques   = $model->getAllOrders();
-
-        $previousOrderId = null;
-
-        // Affichage de l'en-tête de la table
-        echo "<table>";
-        echo "<thead>";
-        echo "<tr>";
-        echo "<th>ID commande</th>";
-        echo "<th>Date de la commande</th>";
-        echo "<th>Méthode de paiement</th>";
-        echo "<th>Total</th>";
-        echo "<th>ID article</th>";
-        echo "<th>Quantité</th>";
-        echo "<th>Prix unitaire</th>";
-        echo "</tr>";
-        echo "</thead>";
-        echo "<tbody>";
-
-        // Parcours des résultats avec une boucle foreach
-        foreach ($statistiques as $row) {
-            // Vérification si l'ID de la commande a déjà été affiché
-            if ($row['id'] != $previousOrderId) {
-                // Affichage d'une nouvelle ligne pour la commande
-                echo "<tr>";
-                echo "<td>" . $row['id'] . "</td>";
-                echo "<td>" . $row['dateTaken'] . "</td>";
-                echo "<td>" . $row['paymentMethod'] . "</td>";
-                echo "<td>" . $row['total'] . "</td>";
-                echo "<td>" . $row['given'] . "</td>";
-                echo "<td>" . $row['rendu'] . "</td>";
-                echo "</tr>";
-
-                // Stockage de l'ID de la commande actuelle
-                $previousOrderId = $row['id'];
-            } else {
-                // Affichage d'une nouvelle ligne pour l'élément de commande
-                echo "<tr>";
-                echo "<td></td>";
-                echo "<td></td>";
-                echo "<td></td>";
-                echo "<td></td>";
-                echo "<td>" . $row['article_name'] . "</td>";
-                echo "<td>" . $row['quantity'] . "</td>";
-                echo "<td>" . $row['unitary_price'] . "</td>";
-                echo "</tr>";
-            }
-        }
-
-        // Affichage de la fin de la table
-        echo "</tbody>";
-        echo "</table>";
-
-         die;
-
-        $this->render('displayArticles', 'layout', [    'stats'       => $statistiques]);
+        
+        $this->render('statistics/displayOrders', 'layout', [    'statistiques'       => $statistiques]);
     }
 
     public function getStatsForDay() {
@@ -117,6 +64,7 @@ class StatistiquesController extends Router {
         else{
             $article = $_POST['selectArticle'];
         }
+
         $model          = new StatistiquesManager();
         $statistiques   = $model->getAllStatistiquesForArticleAndMonth();
 
@@ -145,10 +93,25 @@ class StatistiquesController extends Router {
     }
 
     public function getStatsForCategories() {
-        $model          = new StatistiquesManager();
-        $statistiques   = $model->getAllStatistiquesForCategories();
+        $categorie;
+        if(isset($_POST) && empty($_POST)){
+            $categorie = "";
+        }
+        else{
+            $categorie = $_POST['selectCategorie'];
+        }
 
-        $this->render('statistics/displayStatsForCategory', 'layout', [    'stats'       => $statistiques]);
+        $model          = new StatistiquesManager();
+        $statistiques   = $model->getAllStatistiquesForCategoriesAndMonth();
+
+        for($i=0; $i<count($statistiques); $i++){
+            $explodeDate=explode("-", $statistiques[$i]['mois']);
+            $month = ["Janvier", "Fevrier","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre","Novembre","Décembre"];
+            $date = $month[intval($explodeDate[1])-1]." ".$explodeDate[0];
+            $statistiques[$i]["newDate"]=$date;
+        }
+
+        $this->render('statistics/displayStatsForCategory', 'layout', ['statistiques' => $statistiques, 'categorie' => $categorie]);
     }
 
     public function getAllStatistiquesForCategoriesAndDay() {
@@ -229,10 +192,13 @@ class StatistiquesController extends Router {
 
         if(!isset($_GET['day']) && !isset($_POST['date'])){
             $date           = date("Y-m-d", time());
-            var_dump($date);
+
             $model          = new StatistiquesManager();
             $statistiques   = $model->getStatistiquesByOneDay($date);
-        
+            
+            // Enregistrement de la page précédente pour le bouton retour
+            $_SESSION['previousPage'] = 'statistics';
+
             $this->render('statistics/displayStatistiquesByOneDay', 'layout', ['statistiques' => $statistiques, 'date' => $date]);
         }
         elseif(!isset($_GET['day']) && isset($_POST['date'])){
@@ -240,12 +206,18 @@ class StatistiquesController extends Router {
             $model          = new StatistiquesManager();
             $statistiques   = $model->getStatistiquesByOneDay($date);
         
+            // Enregistrement de la page précédente pour le bouton retour
+            $_SESSION['previousPage'] = 'statistics';
+
             $this->render('statistics/displayStatistiquesByOneDay', 'layout', ['statistiques' => $statistiques, 'date' => $date]);
         }
         elseif(isset($_GET['day']) && !isset($_POST['date'])){
             $date           = $_GET['day'];
             $model          = new StatistiquesManager();
             $statistiques   = $model->getStatistiquesByOneDay($date);
+            
+            // Enregistrement de la page précédente pour le bouton retour
+            $_SESSION['previousPage'] = 'getStatsForDay';
         
             $this->render('statistics/displayStatistiquesByOneDay', 'layout', ['statistiques' => $statistiques, 'date' => $date]);
         }

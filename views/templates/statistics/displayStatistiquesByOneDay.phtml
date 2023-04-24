@@ -1,7 +1,13 @@
 <!-- <?php var_dump($data) ?> -->
 <main id="statistic">
 
-        <a href="index.php?route=statistics" id="retour" class="btn"><i class="fa-solid fa-chevron-left"></i></a>
+        <a href="index.php?route=<?php   if($_SESSION['previousPage'] == 'statistics'){
+                        echo "statistics";
+                }
+                else{
+                        echo "getStatsForDay";
+                } 
+        ?>" id="retour" class="btn"><i class="fa-solid fa-chevron-left"></i></a>
         <?php if(!isset($_GET['day']) && !isset($_POST['date'])){ ?>
         <h1>Ventes par article et par jour !</h1>
         <?php } else{ ?>
@@ -38,7 +44,7 @@
                                         <td><?= $ligne['quantite_vendue']; ?></td>
                                         <td><?= $ligne['total_vendu']; ?>€</td>
                                         <?php $qty = $qty+intval($ligne['quantite_vendue']); ?>
-                                        <?php $total = $total+intval($ligne['total_vendu']); ?>
+                                        <?php $total = $total+$ligne['total_vendu']; ?>
                                 </tr>
                         <?php endforeach; ?>
                         <tr>
