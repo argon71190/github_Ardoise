@@ -1,0 +1,90 @@
+<!-- <?php var_dump($data) ?> -->
+<main id="statistic">
+
+        <a href="index.php?route=statistics" id="retour" class="btn"><i class="fa-solid fa-chevron-left"></i></a>
+
+        <?php if(!isset($_POST['date'])){ ?>
+        <h1>Toutes les commandes du mois actuel</h1>
+        <?php } else{ ?>
+        <h1>Toutes les commandes du mois de <?= date_format(date_create($_POST['date']), 'm-Y'); ?></h1>
+        <?php } ?>
+
+        <form method="POST" action="index.php?route=getOrdersByMonth">
+                <label for="date">Merci de selectionner un mois : </label>
+                <input  type    = "month"
+                        id      = "date"
+                        name    = "date"
+                        <?php if(isset($_POST['date'])){ ?>
+                                value   = "<?= $_POST['date'] ?>"
+                        <?php } else{ ?>
+                                value   = "<?= date("Y-m", time()); ?>"
+                        <?php } ?>
+                        onChange= "submit()">
+        </form>
+
+
+        <table>
+                <thead>
+                        <tr>
+                                <th>ID commande</th>
+                                <th>Date de la commande</th>
+                                <th>Méthode de paiement</th>
+                                <th>Total (€)</th>
+                                <th>Payée (€)</th>
+                                <th>Rendue (€)</th>
+                                <th>ID article</th>
+                                <th>Quantité</th>
+                                <th>Prix unitaire (€)</th>
+                        </tr>
+                </thead>
+
+
+                <tbody>
+
+                <?php 
+                $previousOrderId = null;
+                foreach ($statistiques as $row){
+                        if ($row['id'] != $previousOrderId){
+                                echo "<tr class=\"date\">";
+                                echo "<td>" . $row['id'] . "</td>";
+                                echo "<td>" . date_format(date_create($row['dateTaken']), 'd-m-Y') . "</td>";
+                                echo "<td>" . $row['paymentMethod'] . "</td>";
+                                echo "<td>" . number_format($row['total'], 2) . "</td>";
+                                echo "<td>" . number_format($row['given'], 2) . "</td>";
+                                echo "<td>" . number_format($row['rendu'], 2) . "</td>";
+                                echo "<td></td>";
+                                echo "<td></td>";
+                                echo "<td></td>";
+                                echo "</tr>";
+                                $previousOrderId = $row['id'];
+                                echo "<tr>";
+                                echo "<td></td>";
+                                echo "<td></td>";
+                                echo "<td></td>";
+                                echo "<td></td>";
+                                echo "<td></td>";
+                                echo "<td></td>";
+                                echo "<td>" . $row['article_name'] . "</td>";
+                                echo "<td>" . $row['quantity'] . "</td>";
+                                echo "<td>" . number_format($row['unitary_price'], 2) . "</td>";
+                                echo "</tr>";
+
+                        }
+                        else{
+                                echo "<tr>";
+                                echo "<td></td>";
+                                echo "<td></td>";
+                                echo "<td></td>";
+                                echo "<td></td>";
+                                echo "<td></td>";
+                                echo "<td></td>";
+                                echo "<td>" . $row['article_name'] . "</td>";
+                                echo "<td>" . $row['quantity'] . "</td>";
+                                echo "<td>" . number_format($row['unitary_price'], 2) . "</td>";
+                                echo "</tr>";
+                        }
+                } ?>
+
+                </tbody>
+        </table>
+</main>
