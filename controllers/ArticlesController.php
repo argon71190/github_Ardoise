@@ -736,17 +736,9 @@ class ArticlesController extends Router {
             $errors[] = $messagesErrors[40];
         }
 
-        $this->render(  'updateArticles',
-                        'layout',
-                        [
-                            'newArticle'    => $newArticle,
-                            'token'         => $token,
-                            'categories'    => $categories,
-                            'tva_spl'       => $tva_spl,
-                            'tva_emp'       => $tva_emp,
-                            'screens'       => $screens,
-                            'errors'        => $errors
-                        ]);
+        $_SESSION['errors'] = $errors;
+
+        $this->displayFormUpdateArticle($id);
 
     }
 }
