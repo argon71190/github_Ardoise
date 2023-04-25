@@ -34,17 +34,6 @@ class StatistiquesManager extends Database {
             ORDER BY o.id DESC");
     }
 
-
-
-
-
-
-
-
-
-
-
-
     // Récupérer les statistiques par mois
     public function getAllStatistiquesForMonth() {
         return $this->getAll("SELECT DATE_FORMAT(dateTaken, '%Y-%m') AS mois, ROUND(SUM(total), 2) AS total_vendu
