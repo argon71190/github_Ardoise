@@ -20,6 +20,11 @@ window.addEventListener("DOMContentLoaded", function(){
         formArticles();
     }
 
+    if (window.location.toString().includes("updateArticles")) {
+        console.log("route11");
+        formArticles();
+    }
+
     if (window.location.toString().includes("addOption")) {
         console.log("route2");
         formOptions();

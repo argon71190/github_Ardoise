@@ -678,30 +678,30 @@ class ArticlesController extends Router {
                             $valids[] = $messagesValids[4];
 
                             // Etant donné que je reste sur le formulaire, je regénère un token
-                            $model = new ResultsManager();
-                            $token = $model->genererChaineAleatoire(20);
-                            $_SESSION['tokenVerify'] = $token;
+                            // $model = new ResultsManager();
+                            // $token = $model->genererChaineAleatoire(20);
+                            // $_SESSION['tokenVerify'] = $token;
 
-                            $model      = new \Models\CategoriesManager();
-                            $categories = $model->getAllCategories();
+                            // $model      = new \Models\CategoriesManager();
+                            // $categories = $model->getAllCategories();
 
-                            $model      = new \Models\TvaManager();
-                            $tva_spl    = $model->getAllTva();
+                            // $model      = new \Models\TvaManager();
+                            // $tva_spl    = $model->getAllTva();
 
-                            $model      = new \Models\Screens();
-                            $screens    = $model->getAllScreens();
+                            // $model      = new \Models\Screens();
+                            // $screens    = $model->getAllScreens();
 
-                            $this->render('updateArticles', 'layout', [
-                                'newArticle'    => [],
-                                'token'         => $token,
-                                'categories'    => $categories,
-                                'tva_spl'       => $tva_spl,
-                                'tva_emp'       => $tva_spl,
-                                'screens'       => $screens,
-                                'errors'        => $errors,
-                                'valids'        => $valids
-                            ]);
-
+                            // $this->render('updateArticles', 'layout', [
+                            //     'newArticle'    => $newArticle,
+                            //     'token'         => $token,
+                            //     'categories'    => $categories,
+                            //     'tva_spl'       => $tva_spl,
+                            //     'tva_emp'       => $tva_spl,
+                            //     'screens'       => $screens,
+                            //     'errors'        => $errors,
+                            //     'valids'        => $valids
+                            // ]);
+                            $this->displayFormUpdateArticle($id);
                             
                         }
                     }
@@ -727,7 +727,7 @@ class ArticlesController extends Router {
             $errors[] = $messagesErrors[40];
         }
 
-        $this->render(  'addArticles',
+        $this->render(  'updateArticles',
                         'layout',
                         [
                             'newArticle'    => $newArticle,
