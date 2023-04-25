@@ -21,7 +21,7 @@ foreach($articlesFind as $article):
                     </p><?= htmlspecialchars(number_format($article['price'], 2)) ?> €</p>
                 </div>
                     <!--<span><?= htmlspecialchars($article['shortName']) ?></span>-->
-                    <button onclick="toggleDisplay(<?=$article['id']?>)" class='display btn'>Options</button>
+                    <button onclick="toggleDisplay(<?=$article['id']?>)" class='display btn'>Afficher les options</button>
                     <div id="divOptions<?=$article['id']?>">
                         <ul><?php if(empty($links)){
                             ?><li>Pas d'option pour le moment.</li>
