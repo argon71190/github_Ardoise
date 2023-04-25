@@ -467,6 +467,11 @@ class ArticlesController extends Router {
         // $ifAdmin = new \Models\VerifAdminManager();
         // $ifAdmin->getVerifIfAdmin();
 
+        $model      = new ArticlesManager();
+        $newArticle    = $model->getArticleById($id);
+
+        $oldcode = $newArticle['codebarre'];
+
         $errors = [];
         $valids = [];
 
@@ -620,8 +625,8 @@ class ArticlesController extends Router {
                     // Si le code barre n'est pas vide, on vérifie s'il n'existe pas déjà dans la BDD
                     $model       = new \Models\ArticlesManager();
                     $articleFind = $model->findCodeBarre($newArticle['codeBarre']);
-                    // if(!empty($articleFind))
-                    //     $errors[] = $messagesErrors[38];
+                    if(!empty($articleFind) && $newArticle['codeBarre'] != $oldcode)
+                       $errors[] = $messagesErrors[38];
 
                     // Finalement, le formulaire est bien rempli et le code barre est bon !
                     if(count($errors) == 0) {
@@ -674,7 +679,7 @@ class ArticlesController extends Router {
                             $manager->update($newArticle);
 
                             // Ajout d'un message de validation
-                            $valids[] = $messagesValids[3];
+                            $valids[] = $messagesValids[16];
                             $valids[] = $messagesValids[4];
 
                             // Etant donné que je reste sur le formulaire, je regénère un token
@@ -701,6 +706,10 @@ class ArticlesController extends Router {
                             //     'errors'        => $errors,
                             //     'valids'        => $valids
                             // ]);
+                            
+                            $_SESSION['valids'] = $valids;
+                            $_SESSION['errors'] = $errors;
+
                             $this->displayFormUpdateArticle($id);
                             
                         }

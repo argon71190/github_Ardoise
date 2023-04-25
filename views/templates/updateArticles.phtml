@@ -7,8 +7,16 @@
         
                 <legend>Merci de renseigner les information suivantes :</legend>
         
-                <?php require_once('views/bases/_errors.phtml'); ?>
-                <?php require_once('views/bases/_valids.phtml'); ?>
+        <?php  if(isset($_SESSION['errors'])){
+                $errors = $_SESSION['errors'];
+                unset($_SESSION['errors']);
+                }; 
+                require_once('views/bases/_errors.phtml'); ?>
+        <?php  if(isset($_SESSION['valids'])){
+                $valids = $_SESSION['valids'];
+                unset($_SESSION['valids']);
+                }; 
+                 require_once('views/bases/_valids.phtml'); ?>
         
                 <section>
                         

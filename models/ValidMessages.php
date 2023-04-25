@@ -28,6 +28,8 @@ class ValidMessages {
 
             /*   14 */ "L'option a bien été liée !",
             /*   15 */ "L'option a bien été supprimée !",
+
+            /*   16 */ "L'article a bien été mis à jour !",
         ];
 
         return $messagesValids;
