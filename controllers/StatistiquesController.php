@@ -28,6 +28,58 @@ class StatistiquesController extends Router {
         $this->render('statistics/displayOrders', 'layout', [    'statistiques'       => $statistiques]);
     }
 
+    public function getOrdersByDay() {
+
+        if(!isset($_POST['date'])){
+            $date           = date("Y-m-d", time());
+        }
+        elseif(isset($_POST['date'])){
+            $date           = $_POST['date'];
+        }
+
+        $model          = new StatistiquesManager();
+        $statistiques   = $model->getOrdersByDate($date);
+        
+        $this->render('statistics/displayOrdersByDay', 'layout', [    'statistiques'       => $statistiques]);
+    }
+
+    public function getOrdersByMonth() {
+
+        if(!isset($_POST['date'])){
+            $date           = date("Y-m", time());
+        }
+        elseif(isset($_POST['date'])){
+            $date           = $_POST['date'];
+        }
+
+        $model          = new StatistiquesManager();
+        $statistiques   = $model->getOrdersByDate($date);
+        
+        $this->render('statistics/displayOrdersByMonth', 'layout', [    'statistiques'       => $statistiques]);
+    }
+
+    public function getOrdersByYear() {
+
+        if(!isset($_POST['date'])){
+            $date           = date("Y", time());
+        }
+        elseif(isset($_POST['date'])){
+            $date           = $_POST['date'];
+        }
+
+        $model          = new StatistiquesManager();
+        $statistiques   = $model->getOrdersByDate($date);
+        
+        $this->render('statistics/displayOrdersByYear', 'layout', [    'statistiques'       => $statistiques]);
+    }
+
+
+
+
+
+
+
+
     public function getStatsForDay() {
         $model          = new StatistiquesManager();
         $statistiques   = $model->getAllStatistiquesForDay();

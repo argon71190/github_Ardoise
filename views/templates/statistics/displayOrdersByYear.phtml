@@ -1,8 +1,34 @@
-<?php var_dump($data) ?>
+<!-- <?php var_dump($data) ?> -->
 <main id="statistic">
 
         <a href="index.php?route=statistics" id="retour" class="btn"><i class="fa-solid fa-chevron-left"></i></a>
-        <h1>Toutes les commandes</h1>
+
+        <?php if(!isset($_POST['date'])){ ?>
+        <h1>Toutes les commandes de cette année</h1>
+        <?php } else{ ?>
+        <h1>Toutes les commandes de l'année <?= $_POST['date']; ?></h1>
+        <?php } ?>
+
+        <form method="POST" action="index.php?route=getOrdersByYear">
+                <label for="date">Merci de selectionner une année : </label>
+                <select name="date" id="date" onChange="submit()">
+                        <?php if(isset($_POST) && empty($_POST)){ ?>
+                        <option value="<?= date("Y", time()) ?>">Année en cours</option>
+                        <?php } else{ ?>
+                        <option value="<?= $_POST['date'] ?>"><?= $_POST['date'] ?></option>
+                        <?php } ?>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                        <option value="2030">2030</option>
+                </select>
+        </form>
+
 
         <table>
                 <thead>
@@ -28,7 +54,7 @@
                         if ($row['id'] != $previousOrderId){
                                 echo "<tr class=\"date\">";
                                 echo "<td>" . $row['id'] . "</td>";
-                                echo "<td>" . $row['dateTaken'] . "</td>";
+                                echo "<td>" . date_format(date_create($row['dateTaken']), 'd-m-Y') . "</td>";
                                 echo "<td>" . $row['paymentMethod'] . "</td>";
                                 echo "<td>" . number_format($row['total'], 2) . "</td>";
                                 echo "<td>" . number_format($row['given'], 2) . "</td>";
