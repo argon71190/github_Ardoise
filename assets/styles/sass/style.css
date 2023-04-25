@@ -1429,6 +1429,12 @@ h2 {
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 50px;
 }
+#articleOption > section:nth-of-type(1) > article:nth-of-type(2) > div > form > section > input {
+  display: none;
+}
+#articleOption > section:nth-of-type(1) > article:nth-of-type(2) > div > form > section input[type=checkbox]:checked + label {
+  box-shadow: inset -10px -10px 15px rgb(107, 255, 144), inset 10px 10px 15px rgb(77, 133, 63);
+}
 #articleOption > section:nth-of-type(1) > article:nth-of-type(2) > div > form > section > label {
   display: flex;
   flex-direction: column;
@@ -1441,16 +1447,10 @@ h2 {
 #articleOption > section:nth-of-type(1) > article:nth-of-type(2) > div > form > section > label:hover {
   box-shadow: inset -10px -10px 15px rgba(255, 255, 255, 0.5), inset 10px 10px 15px rgba(70, 70, 70, 0.12);
 }
-#articleOption > section:nth-of-type(1) > article:nth-of-type(2) > div > form > section > label:has(input[type=checkbox]:checked) {
-  box-shadow: inset -10px -10px 15px rgb(107, 255, 144), inset 10px 10px 15px rgb(77, 133, 63);
-}
 #articleOption > section:nth-of-type(1) > article:nth-of-type(2) > div > form > section > label img {
   width: 180px;
   height: 165px;
   margin-bottom: 10px;
-}
-#articleOption > section:nth-of-type(1) > article:nth-of-type(2) > div > form > section > label input {
-  display: none;
 }
 #articleOption > section:nth-of-type(1) > article:nth-of-type(2) > div > form > input {
   margin-top: 2em;

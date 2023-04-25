@@ -56,6 +56,13 @@
                         display: grid;
                         grid-template-columns: repeat(4, 1fr);
                         grid-gap: 50px;
+                        >input{
+                            display: none;
+                        }
+                        input[type=checkbox]:checked + label {
+                            box-shadow: inset -10px -10px 15px rgb(107, 255, 144),
+                            inset 10px 10px 15px rgb(77, 133, 63);
+                        }    
                         >label{
                             display: flex;
                             flex-direction: column;
@@ -70,18 +77,16 @@
                                 inset 10px 10px 15px rgba(70, 70, 70, 0.12);
                             }
 
-                            &:has(input[type=checkbox]:checked){
-                                box-shadow: inset -10px -10px 15px rgb(107, 255, 144),
-                                inset 10px 10px 15px rgb(77, 133, 63);
-                            } 
+                            // &:has(input[type=checkbox]:checked){
+                            //     box-shadow: inset -10px -10px 15px rgb(107, 255, 144),
+                            //     inset 10px 10px 15px rgb(77, 133, 63);
+                            // } 
                                 img{
                                 width: 180px;
                                 height: 165px;
                                 margin-bottom: 10px;
                                 }
-                                input{
-                                    display: none;
-                                }
+                                
                         }  
                     }
                     >input{

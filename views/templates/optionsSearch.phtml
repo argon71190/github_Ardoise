@@ -11,8 +11,9 @@ else{
 foreach($optionsFind as $option): 
 
 ?>
-    <label>        
-            <input type="checkbox" name="optionId[]" value="<?= htmlspecialchars($option['id']) ?>">
+    <input id="id_<?= htmlspecialchars($option['id']) ?>" type="checkbox" name="optionId[]" value="<?= htmlspecialchars($option['id']) ?>">
+    <label for="id_<?= htmlspecialchars($option['id']) ?>">    
+            
                 <img src="assets/uploads/options/<?= htmlspecialchars($option['categoriesCondiments_id'])?>/<?= htmlspecialchars($option['picture']) ?>">
                     <p><?= htmlspecialchars($option['name']) ?></p>
                 
