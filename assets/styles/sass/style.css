@@ -264,7 +264,6 @@ table {
   width: 100%;
   font-size: 1.2rem;
   border: none;
-  background-color: #1ABC9C;
   box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
   font-size: 1.2rem;
   border-radius: 10px;
@@ -459,7 +458,6 @@ h2 {
 #gestionTVA > section:nth-of-type(1) > div > section > form > fieldset > input {
   width: 100%;
   border: none;
-  background-color: white;
   box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
   font-size: 1.2rem;
   border-radius: 10px;
@@ -473,7 +471,6 @@ h2 {
 #gestionTVA > section:nth-of-type(1) > div > section > form > fieldset:last-of-type > input {
   width: 40%;
   margin: auto;
-  background-color: #1ABC9C;
 }
 #gestionTVA > section:nth-of-type(1) > div > section > section > div > div {
   display: flex;
@@ -567,7 +564,6 @@ h2 {
 #gestionCategories > section:nth-of-type(1) > div > section > form > fieldset > input {
   width: 100%;
   border: none;
-  background-color: white;
   box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
   font-size: 1.2rem;
   border-radius: 10px;
@@ -587,7 +583,6 @@ h2 {
 #gestionCategories > section:nth-of-type(1) > div > section > form > fieldset:last-of-type > input {
   width: 40%;
   margin: auto;
-  background-color: #1ABC9C;
 }
 
 #articles {
@@ -714,7 +709,6 @@ h2 {
   width: 100%;
   font-size: 1.2rem;
   border: none;
-  background-color: #1ABC9C;
   box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
   font-size: 1.2rem;
   border-radius: 10px;
@@ -808,7 +802,6 @@ h2 {
   width: 100%;
   font-size: 1.2rem;
   border: none;
-  background-color: #1ABC9C;
   box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
   font-size: 1.2rem;
   border-radius: 10px;
@@ -1093,7 +1086,6 @@ h2 {
 #gestionPM > section:nth-of-type(1) > div > section > form > fieldset > input {
   width: 100%;
   border: none;
-  background-color: white;
   box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
   font-size: 1.2rem;
   border-radius: 10px;
@@ -1107,7 +1099,6 @@ h2 {
 #gestionPM > section:nth-of-type(1) > div > section > form > fieldset:last-of-type > input {
   width: 40%;
   margin: auto;
-  background-color: #1ABC9C;
 }
 #gestionPM > section:nth-of-type(1) > div > section > section > div > div {
   display: flex;
@@ -1263,7 +1254,6 @@ h2 {
   width: 100%;
   font-size: 1.2rem;
   border: none;
-  background-color: #1ABC9C;
   box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
   font-size: 1.2rem;
   border-radius: 10px;
