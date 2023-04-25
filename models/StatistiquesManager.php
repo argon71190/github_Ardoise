@@ -20,8 +20,30 @@ class StatistiquesManager extends Database {
             JOIN ordersDetails od ON o.id = od.orders_id
             JOIN articles a ON od.article_id = a.id
             JOIN paymentMethod pm ON o.paymentMethod_id = pm.id
-            ORDER BY o.id ASC");
+            ORDER BY o.id DESC");
     }
+
+    public function getOrdersByDate($date) {
+        return $this->getAll("SELECT o.id, o.paymentMethod_id, pm.name as paymentMethod, o.dateTaken, o.total,
+            od.article_id, a.name as article_name, o.given, o.rendu, od.quantity, od.unitary_price
+            FROM orders o
+            JOIN ordersDetails od ON o.id = od.orders_id
+            JOIN articles a ON od.article_id = a.id
+            JOIN paymentMethod pm ON o.paymentMethod_id = pm.id
+            WHERE o.dateTaken LIKE '$date%'
+            ORDER BY o.id DESC");
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     // Récupérer les statistiques par mois
     public function getAllStatistiquesForMonth() {

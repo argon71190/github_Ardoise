@@ -334,6 +334,21 @@ class Router {
                     $controller->getAllOrders();
                 break;
 
+                case 'getOrdersByDay':
+                    $controller = new StatistiquesController();
+                    $controller->getOrdersByDay();
+                break;
+
+                case 'getOrdersByMonth':
+                    $controller = new StatistiquesController();
+                    $controller->getOrdersByMonth();
+                break;
+
+                case 'getOrdersByYear':
+                    $controller = new StatistiquesController();
+                    $controller->getOrdersByYear();
+                break;
+
                 case 'getAllStatsForArticleAndMonthInYear':
                     $controller = new StatistiquesController();
                     $controller->getAllStatsForArticleAndMonthInYear();
