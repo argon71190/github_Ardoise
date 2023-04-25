@@ -1,6 +1,6 @@
 function ajaxOption(){
     let categorieOption = document.getElementById('categorieOption');
-
+    
 
     categorieOption.addEventListener('change', function(){
         let value = document.getElementById('categorieOption').value;
@@ -23,12 +23,14 @@ function ajaxOption(){
                     // On met articles.phtml dans la div -> id=target
                     // ou
                     // location.reload(); // Pour une réactualisation de la page
-
-                })
+                    let label = document.querySelectorAll('label');
+                    let input = document.querySelectorAll('.input');
                     
+                })
+                
 
     })
-
+    
     
 } 
 
