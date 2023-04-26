@@ -37,11 +37,11 @@
 
                 <fieldset>
                         <label  for     = "city">Ville</label>
-                        <input  type    = "text"
-                                id      = "city"
+                        <select id      = "city"
                                 name    = "city"
                                 value   = "<?php if(isset($data['customer']['city']) && !empty($data['customer']['city'])) { echo $data['customer']['city']; } ?>"
                         >
+                        </select>
                         <small id="errorCity">Merci de saisir une ville valide</small>
                 </fieldset>
 

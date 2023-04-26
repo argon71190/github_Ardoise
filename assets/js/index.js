@@ -11,6 +11,7 @@ import { formAddAdress } from './form/formAddAdress.js';
 import { deleteValidation } from './modules/deleteValidation.js';
 import { ajaxArticle } from './modules/ajaxArticle.js';
 import { ajaxOption } from './modules/ajaxOption.js';
+import { validZipcode } from './modules/validZipcode.js';
 
 window.addEventListener("DOMContentLoaded", function(){  
 
@@ -53,6 +54,7 @@ window.addEventListener("DOMContentLoaded", function(){
     if (window.location.toString().includes("addAdress")) {
         console.log("route7");
         formAddAdress();
+        validZipcode();
     }
 
     // Fonctions autres
