@@ -6,10 +6,12 @@ use \Models\Database;
 
 class PaymentMethodManager extends Database
 {
+    // Récupérer tous les moyens de paiement existant
     public function getAllPaymentMethod() {
         return $this->getAll('SELECT * FROM paymentMethod ORDER BY id ASC');
     }
 
+    // Récupérer un moyen de paiement en fonction de son nom
     public function selectOne($PMName) {
         $sql = 'SELECT * FROM paymentMethod WHERE name = ?';
         return $this->getOne($sql, [$PMName]);

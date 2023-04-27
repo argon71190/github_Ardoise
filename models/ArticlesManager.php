@@ -9,6 +9,7 @@ class ArticlesManager extends Database {
         return $this->getAll('articles');
     }
 
+    // Récupérer les IDs de tous les articles
     public function getArticlesId(){
         $sql = "SELECT id FROM articles  ORDER BY name ASC";
         return $this->getAll($sql);

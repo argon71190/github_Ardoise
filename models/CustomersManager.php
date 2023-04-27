@@ -117,7 +117,7 @@ class CustomersManager extends Database {
         $query->execute();
     }
 
-    // *** SUPRIMER
+    // *** SUPPRIMER
     public function delete($id): void {
         $query = $this->getDb()->prepare("DELETE FROM customers WHERE id = :id");
         $query->bindValue(':id', $id);
@@ -145,6 +145,8 @@ class CustomersManager extends Database {
 
 
     }
+
+    // METTRE A JOUR L'ADRESSE D'UN UTILISATEUR EN FONCTION DE SON ID
     public function updateAdress(CustomersDetails $customerAdress, $id): void{
 
         $query = $this->getDb()->prepare('UPDATE customersDetails  SET     country_id = :country_id,

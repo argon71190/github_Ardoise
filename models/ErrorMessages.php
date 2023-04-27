@@ -67,7 +67,7 @@ class errorMessages {
             /*  54 */ "Ce moyen de paiement existe déjà !",
             /*  55 */ "Un problème est survenu lors de la modification du moyen de paiement !",
             
-                        // Messages rajoutés pour les options
+
             /*  56 */ "Le nom de l'option doit comporter entre 3 et 50 caractères !",
             /*  57 */ "Le nom court de l'option doit comporter entre 1 et 10 caractères !",
             /*  58 */ "Le prix de l'option, exprimé en €, doit être un nombre entier ou avec 2 décimales maximum !",

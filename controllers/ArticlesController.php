@@ -18,7 +18,7 @@ class ArticlesController extends Router {
 
     public function displayDetails() {
         $model      = new ArticlesManager();
-        $article    = $model->getArticlesById($_GET['id']);
+        $article    = $model->getArticleById($_GET['id']);
         $options    = $model->getAllOptionsOfArticle($_GET['id']);
 
         $model      = new CategoriesManager();

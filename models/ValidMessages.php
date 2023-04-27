@@ -14,21 +14,15 @@ class ValidMessages {
             /*   4 */ "Il apparaîtra dans la liste des articles selon son état d'activation !",
             /*   5 */ "La nouvelle catégorie a bien été créé !",
             /*   6 */ "La catégorie a bien été supprimée !",
-        
             /*   7 */ "La nouvelle catégorie a bien été créé !",
-            
-             //Messages rajoutés pour les options
             /*   8 */ "L'option a bien été créée !",
-
             /*   9 */ "Votre compte a bien été modifié.",
             /*   10 */ "Votre compte a bien été activé.",
             /*   11 */ "Votre compte a bien été désactivé.",
             /*   12 */ "Votre compte a bien été supprimé.",
             /*   13 */ "Votre adresse a bien été enregistrée.",
-
             /*   14 */ "L'option a bien été liée !",
             /*   15 */ "L'option a bien été supprimée !",
-
             /*   16 */ "L'article a bien été mis à jour !",
         ];
 

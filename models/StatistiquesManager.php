@@ -13,6 +13,7 @@ class StatistiquesManager extends Database {
             ORDER BY jour DESC");
     }
 
+    // Récupérer toutes les commandes existante
     public function getAllOrders() {
         return $this->getAll("SELECT o.id, o.paymentMethod_id, pm.name as paymentMethod, o.dateTaken, o.total,
             od.article_id, a.name as article_name, o.given, o.rendu, od.quantity, od.unitary_price
@@ -23,6 +24,7 @@ class StatistiquesManager extends Database {
             ORDER BY o.id DESC");
     }
 
+    // Récupérer des commandes en fonction de leur date
     public function getOrdersByDate($date) {
         return $this->getAll("SELECT o.id, o.paymentMethod_id, pm.name as paymentMethod, o.dateTaken, o.total,
             od.article_id, a.name as article_name, o.given, o.rendu, od.quantity, od.unitary_price
@@ -51,6 +53,7 @@ class StatistiquesManager extends Database {
             ORDER BY annee DESC");
     }
 
+    // Récupérer toutes les statistiques par catégorie
     public function getAllStatistiquesForCategories() {
         return $this->getAll("SELECT categories.name AS categorie, SUM(quantity) AS quantite_vendue, ROUND(SUM(quantity * unitary_price), 2) AS total_vendu
             FROM ordersDetails

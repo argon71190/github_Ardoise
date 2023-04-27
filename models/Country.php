@@ -7,6 +7,7 @@ class Country {
     private $id;
     private $name;
 
+    // Getter and setteur : id
     public function getId(): ?int {
         return $this->id;
     }
@@ -15,7 +16,7 @@ class Country {
         $this->id = $id;
     }
 
-
+    // Getter and setteur : name
     public function getName(): ?string {
         return htmlspecialchars($this->name);
     }

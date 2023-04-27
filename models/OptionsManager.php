@@ -9,6 +9,7 @@ class OptionsManager extends Database {
         return $this->getAll('articlesOptionsListing');
     }
 
+    // Récupérer les catégories d'options
     public function getAllCategories() {
         $sql = "SELECT id, name FROM catCondiments";
         return $this->getAll($sql);
@@ -34,6 +35,7 @@ class OptionsManager extends Database {
                                 WHERE id = ?', [$id]);
     }
 
+    // Récupérer l'ID de toutes les options
     public function getOptionsId(){
         $sql = "SELECT id FROM articlesOptionsListing  ORDER BY name ASC";
         return $this->getAll($sql);
@@ -62,6 +64,8 @@ class OptionsManager extends Database {
         $this->addOne('articlesOptionsListing', $datas);
     }
 
+
+    // Récupérer le lien entre un article et une option ( Table intermédiaire ) en fonction de l'ID d'un article
     public function getOptionsLink( $articleId ) {
         $sql = "SELECT id, articlesOptionsListing_id FROM articlesOptions WHERE articles_id = ?";
         return $this->getAll($sql, [$articleId]);
@@ -72,12 +76,14 @@ class OptionsManager extends Database {
         $this->addOne('articlesOptions', $newLink);
     }
 
+    // SUPPRESSION D'UNE ASSOCIATION ARTICLE - OPTION
     public function deleteLink($articleId, $optionId){
         $query = $this->getDb()->prepare("DELETE FROM articlesOptions WHERE articles_id =". $articleId . " AND articlesOptionsListing_id =". $optionId);
         $query->execute();
         $query->closeCursor();
     }
 
+    // CHARGER UNE ASSOCIATION AVEC L'ID DE L'ARTICLE AINSI QUE CELUI DE l'OPTION EN PARAMÈTRE
     public function loadLink($articleId, $optionId){
         $query = $this->getDb()->prepare("SELECT id FROM articlesOptions WHERE articles_id =". $articleId . " AND articlesOptionsListing_id =". $optionId);
         $query->execute();
